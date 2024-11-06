@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "bun run index.ts",
+    "dev": "nodemon --exec bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0",
+    "nodemon": "^3.1.7"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "tsx": "^4.19.1"
+  }
+}

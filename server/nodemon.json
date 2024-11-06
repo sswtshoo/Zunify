@@ -1,0 +1,4 @@
+{
+  "watch": ["index.ts"],
+  "exec": "ts-node --esm index.ts"
+}
