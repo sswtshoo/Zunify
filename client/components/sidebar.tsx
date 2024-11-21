@@ -22,7 +22,7 @@ export default function Sidebar({ className }: SidebarProps) {
     'flex items-center gap-x-2 cursor-pointer text-neutral-400 hover:text-white [transition:all_0.3s_ease-in] py-3 px-2 rounded-lg border-l-2 border-l-transparent';
 
   const clickedClass =
-    'font-extrabold text-white opacity-100 transition-opacity duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900 border-l-2 border-l-indigo-700';
+    'font-extrabold text-white opacity-100 transition-opacity duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900';
 
   //   bg-gradient-to-br from-neutral-700 to-neutral-900
 

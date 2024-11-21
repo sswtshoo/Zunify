@@ -68,7 +68,7 @@ const AnimatedAlbumArt = ({
           <img
             src={currentImage}
             alt="Album art"
-            className="w-full h-full object-cover rounded-lg group-hover:opacity-80 transition-opacity aspect-square"
+            className="w-full h-full object-cover rounded-lg group-hover:opacity-70 transition-opacity aspect-square"
           />
         </div>
       </div>

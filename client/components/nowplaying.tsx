@@ -3,12 +3,15 @@ import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoMdVolumeHigh, IoMdVolumeOff, IoMdVolumeLow } from 'react-icons/io';
 import { IoVolumeMedium } from 'react-icons/io5';
+import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import { twMerge } from 'tailwind-merge';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import FullscreenPlayer from './FullScreenPlayer';
 import { useApiClient } from '@/utils/ApiClient';
 import { useAuth } from '@/utils/useAuth';
+import LibraryCheck from '@/utils/LibraryCheck';
 import AnimatedAlbumArt from './AnimatedArt';
+import Link from 'next/link';
 
 interface NowPlayingProps {
   className?: string;
@@ -28,18 +31,41 @@ interface TrackItems {
     name: string;
     id: string;
     uri: string;
+    isLiked?: boolean;
     artists: {
       name: string;
+      id: string;
     }[];
     duration_ms: number;
   };
+}
+
+interface Track {
+  album?: {
+    name: string;
+    id: string;
+    images: {
+      height: number;
+      url: string;
+      width: number;
+    }[];
+  };
+  name?: string;
+  id?: string;
+  uri?: string;
+  isLiked?: boolean;
+  artists?: {
+    name: string;
+    id: string;
+  }[];
+  duration_ms?: number;
 }
 
 interface PlayerState {
   deviceId: string | null;
   isPaused: boolean;
   isActive: boolean;
-  currentTrack: any;
+  currentTrack: Track;
   position: number;
   duration: number;
   volume: number;
@@ -72,39 +98,18 @@ export default function NowPlaying({ className }: NowPlayingProps) {
     deviceId: null,
     isPaused: getLocalStorage('isPaused') === 'true',
     isActive: false,
-    currentTrack: null,
+    currentTrack: {},
     position: 0,
     duration: 0,
-    volume: 1.0,
+    volume: 0.6,
   });
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isCheckingLikeStatus, setIsCheckingLikeStatus] = useState(false);
 
   const [isVolumeHovered, setIsVolumeHovered] = useState(false);
   const volumeTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const handleVolumeChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    if (!player) return;
-
-    try {
-      await player.setVolume(newVolume);
-      setPlayerState((prev) => ({ ...prev, volume: newVolume }));
-    } catch (error) {
-      console.error('Error setting volume:', error);
-    }
-  };
-
-  const toggleMute = async () => {
-    if (!player) return;
-
-    try {
-      const newVolume = playerState.volume > 0 ? 0 : 0.5;
-      await player.setVolume(newVolume);
-      setPlayerState((prev) => ({ ...prev, volume: newVolume }));
-    } catch (error) {
-      console.error('Error toggling mute:', error);
-    }
-  };
+  const { likedSongCheck, addLikeSong, removeLikeSong } = LibraryCheck();
 
   const apiClient = useApiClient();
   const { token } = useAuth();
@@ -169,16 +174,30 @@ export default function NowPlaying({ className }: NowPlayingProps) {
       }
     );
 
-    spotifyPlayer.addListener('player_state_changed', (state: any) => {
+    spotifyPlayer.addListener('player_state_changed', async (state: any) => {
       if (!state) return;
 
       const newPausedState = state.paused;
       setLocalStorage('isPaused', newPausedState.toString());
 
+      const currentTrackId = state.track_window.current_track.id;
+      let isLiked = false;
+
+      if (currentTrackId) {
+        try {
+          isLiked = await likedSongCheck(currentTrackId);
+        } catch (error) {
+          console.error('Error checking like status:', error);
+        }
+      }
+
       setPlayerState((prev) => ({
         ...prev,
         isPaused: state.paused,
-        currentTrack: state.track_window.current_track,
+        currentTrack: {
+          ...state.track_window.current_track,
+          isLiked,
+        },
         position: state.position,
         duration: state.duration,
       }));
@@ -234,6 +253,33 @@ export default function NowPlaying({ className }: NowPlayingProps) {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [togglePlay]);
+
+  useEffect(() => {
+    const checkSongLiked = async () => {
+      if (!playerState.currentTrack?.id || isCheckingLikeStatus) return;
+
+      try {
+        setIsCheckingLikeStatus(true);
+        const isLiked = await likedSongCheck(playerState.currentTrack.id);
+
+        setPlayerState((prev) => {
+          if (prev.currentTrack?.id === playerState.currentTrack.id) {
+            return {
+              ...prev,
+              currentTrack: { ...prev.currentTrack, isLiked },
+            };
+          }
+          return prev;
+        });
+      } catch (error) {
+        console.error('Error checking like status:', error);
+      } finally {
+        setIsCheckingLikeStatus(false);
+      }
+    };
+
+    checkSongLiked();
+  }, [playerState.currentTrack?.id]);
 
   useEffect(() => {
     const savedQueue = localStorage.getItem('currentQueue');
@@ -329,6 +375,30 @@ export default function NowPlaying({ className }: NowPlayingProps) {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
+  const handleVolumeChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value);
+    if (!player) return;
+
+    try {
+      await player.setVolume(newVolume);
+      setPlayerState((prev) => ({ ...prev, volume: newVolume }));
+    } catch (error) {
+      console.error('Error setting volume:', error);
+    }
+  };
+
+  const toggleMute = async () => {
+    if (!player) return;
+
+    try {
+      const newVolume = playerState.volume > 0 ? 0 : 0.5;
+      await player.setVolume(newVolume);
+      setPlayerState((prev) => ({ ...prev, volume: newVolume }));
+    } catch (error) {
+      console.error('Error toggling mute:', error);
+    }
+  };
+
   const handleProgressClick = async (e: React.MouseEvent<HTMLDivElement>) => {
     if (!progressRef.current || !playerState.duration) return;
 
@@ -342,15 +412,44 @@ export default function NowPlaying({ className }: NowPlayingProps) {
     await player.seek(seekPosition);
   };
 
+  const handleTrackLike = async () => {
+    if (!playerState.currentTrack?.id || isCheckingLikeStatus) return;
+
+    const trackId = playerState.currentTrack.id;
+    const wasLiked = playerState.currentTrack.isLiked;
+
+    try {
+      setIsCheckingLikeStatus(true);
+
+      setPlayerState((prev) => ({
+        ...prev,
+        currentTrack: { ...prev.currentTrack, isLiked: !wasLiked },
+      }));
+
+      if (wasLiked) {
+        await removeLikeSong(trackId);
+      } else {
+        await addLikeSong(trackId);
+      }
+    } catch (error) {
+      console.error('Error updating track like status:', error);
+      setPlayerState((prev) => ({
+        ...prev,
+        currentTrack: { ...prev.currentTrack, isLiked: wasLiked },
+      }));
+    } finally {
+      setIsCheckingLikeStatus(false);
+    }
+  };
   return (
     <>
       <div
         className={twMerge(
-          'fixed bottom-0 flex items-center justify-between bg-black bg-opacity-10 backdrop-blur-2xl px-4 border-t-[1px] border-neutral-500 border-opacity-25 shadow-md shadow-neutral-500',
+          'fixed bottom-0 flex items-center justify-between bg-gray-700 bg-opacity-10 backdrop-blur-3xl px-4 z-10',
           className
         )}
       >
-        <div className="flex items-center space-x-4 w-1/3 px-6">
+        <div className="flex items-center justify-items-start space-x-4 w-1/3 px-6">
           <div
             className="relative group cursor-pointer h-14 w-14"
             onClick={() => setIsFullscreen(true)}
@@ -372,38 +471,83 @@ export default function NowPlaying({ className }: NowPlayingProps) {
               </>
             )}
           </div>
-          <div className="w-3/4">
+          <div className="max-w-[80%]">
             <p className="text-sm font-medium text-white truncate">
               {playerState.currentTrack?.name || 'No track playing'}
             </p>
-            <p className="text-xs text-neutral-400 truncate">
-              {playerState.currentTrack?.artists
-                ?.map((a: any) => a.name)
-                .join(', ')}
-            </p>
+
+            <div className="text-xs text-neutral truncate">
+              {playerState.currentTrack?.artists?.map(
+                (a: any, index: number) => {
+                  const artistId = a.uri
+                    ? a.uri.split(':')[2]
+                    : a.url
+                      ? a.url.split('/').pop()
+                      : null;
+
+                  return (
+                    <React.Fragment key={artistId}>
+                      <Link
+                        href={artistId ? `/artists/${artistId}` : '#'}
+                        className="hover:underline"
+                        onClick={(e) => {
+                          if (!artistId) {
+                            e.preventDefault();
+                            console.error('No artist ID available');
+                          }
+                        }}
+                      >
+                        {a.name}
+                      </Link>
+                      {index <
+                        (playerState.currentTrack?.artists?.length || 0) - 1 &&
+                        ', '}
+                    </React.Fragment>
+                  );
+                }
+              )}
+            </div>
           </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleTrackLike();
+            }}
+          >
+            {playerState.currentTrack?.isLiked ? (
+              <IoMdHeart
+                size={22}
+                className="text-indigo focus:outline-none hover:scale-125 transition duration-300"
+              />
+            ) : (
+              <IoMdHeartEmpty
+                size={20}
+                className="text-neutral-200 focus:outline-none hover:scale-125 transition duration-300"
+              />
+            )}
+          </button>
         </div>
 
         <div className="flex flex-col items-center w-1/3 ">
           <div className="flex items-center self-center space-x-6">
             <IoPlaySkipBack
               size={18}
-              className="text-white cursor-pointer hover:text-neutral-300 transition-colors"
+              className="text-neutral-100 cursor-pointer hover:text-neutral-300 transition-colors"
               onClick={previousTrack}
             />
             <button
               onClick={togglePlay}
-              className="bg-transparent rounded-full p-2 hover:scale-105 transition-transform focus:outline-none checked:scale-105"
+              className="bg-transparent rounded-full p-2 hover:scale-110 transition-transform focus:outline-none checked:scale-110"
             >
               {playerState.isPaused ? (
-                <FaPlay className="text-white ml-0.5 " size={24} />
+                <FaPlay className="text-neutral-100 ml-0.5" size={24} />
               ) : (
-                <FaPause className="text-white" size={24} />
+                <FaPause className="text-neutral-100" size={24} />
               )}
             </button>
             <IoPlaySkipForward
               size={18}
-              className="text-white cursor-pointer hover:text-neutral-300 transition-colors"
+              className="text-neutral-100 cursor-pointer hover:text-neutral-300 transition-colors"
               onClick={nextTrack}
             />
           </div>
@@ -436,23 +580,11 @@ export default function NowPlaying({ className }: NowPlayingProps) {
           </div>
         </div>
 
-        <div className="w-1/3 flex justify-end items-center">
-          <div
-            className="relative flex items-center"
-            onMouseEnter={() => {
-              if (volumeTimeout.current) clearTimeout(volumeTimeout.current);
-              setIsVolumeHovered(true);
-            }}
-            onMouseLeave={() => {
-              volumeTimeout.current = setTimeout(
-                () => setIsVolumeHovered(false),
-                300
-              );
-            }}
-          >
+        <div className="w-1/3 flex justify-end items-center px-6">
+          <div className="flex items-center">
             <button
               onClick={toggleMute}
-              className="text-neutral-400 hover:text-white transition-colors p-2 mr-6"
+              className="text-neutral-200 hover:text-white transition-colors p-2"
             >
               {playerState.volume === 0 ? (
                 <IoMdVolumeOff size={20} />
@@ -464,12 +596,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
                 <IoMdVolumeHigh size={20} />
               )}
             </button>
-            <div
-              className={`
-              flex items-center w-0 overflow-hidden transition-all duration-300
-              ${isVolumeHovered ? 'w-24' : 'w-0'}
-            `}
-            >
+            <div className="flex items-center w-20">
               <input
                 type="range"
                 min="0"
@@ -477,7 +604,12 @@ export default function NowPlaying({ className }: NowPlayingProps) {
                 step="0.1"
                 value={playerState.volume}
                 onChange={handleVolumeChange}
-                className="w-full accent-indigo-500 cursor-pointer border-none h-2 mr-6 ml-0"
+                className="cursor-pointer border-none h-2 mx-0"
+                style={
+                  {
+                    '--volume-percentage': `${playerState.volume * 100}%`,
+                  } as React.CSSProperties
+                }
               />
             </div>
           </div>

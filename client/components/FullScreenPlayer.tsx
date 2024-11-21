@@ -24,6 +24,14 @@ const formatTime = (ms: number) => {
   return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 };
 
+const getHighestQualityImage = (images: any[]) => {
+  if (!images || images.length === 0) return '';
+  const sortedImages = [...images].sort(
+    (a, b) => b.width * b.height - a.width * a.height
+  );
+  return sortedImages[0].url;
+};
+
 const FullscreenPlayer = ({
   currentTrack,
   isPlaying,
@@ -40,6 +48,7 @@ const FullscreenPlayer = ({
   const [isArtistsOverflowing, setIsArtistsOverflowing] = useState(false);
   const nameRef = useRef<HTMLDivElement>(null);
   const artistsRef = useRef<HTMLDivElement>(null);
+  const [backgroundImage, setBackgroundImage] = useState<string>('');
 
   useEffect(() => {
     const checkOverflow = () => {
@@ -60,6 +69,19 @@ const FullscreenPlayer = ({
     return () => window.removeEventListener('resize', checkOverflow);
   }, [currentTrack]);
 
+  useEffect(() => {
+    if (currentTrack?.album?.images) {
+      const highQualityUrl = getHighestQualityImage(currentTrack.album.images);
+      if (highQualityUrl) {
+        const img = new Image();
+        img.src = highQualityUrl;
+        img.onload = () => {
+          setBackgroundImage(img.src);
+        };
+      }
+    }
+  }, [currentTrack?.album?.images]);
+
   if (!currentTrack) return null;
 
   const artistNames = currentTrack?.artists?.map((a: any) => a.name).join(', ');
@@ -67,9 +89,9 @@ const FullscreenPlayer = ({
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 to-black flex items-center justify-center z-50">
       <div
-        className="absolute inset-0 opacity-60 blur-[125px]"
+        className="absolute inset-0 opacity-60 blur-[120px]"
         style={{
-          backgroundImage: `url(${currentTrack?.album?.images[2]?.url})`,
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -85,7 +107,7 @@ const FullscreenPlayer = ({
       <div className="relative z-10 flex flex-col items-center max-w-screen-sm w-full px-4">
         <div className="w-[500px] h-[500px] mb-8">
           <img
-            src={currentTrack?.album?.images[2]?.url}
+            src={backgroundImage}
             alt={currentTrack?.name}
             className="w-auto h-auto object-cover rounded-lg shadow-2xl"
           />
@@ -133,17 +155,19 @@ const FullscreenPlayer = ({
         </div>
 
         <div className="w-[calc(100%-3rem)] flex items-center gap-2 mb-8">
-          <span className="text-xs text-white/70 w-12 text-right font-bold">
+          <span className="text-xs text-white/70 w-12 text-right font-medium">
             {formatTime(position)}
           </span>
-          <div className="flex-1 h-[5px] bg-white/20 rounded-full overflow-hidden">
+          <div
+            className="flex-1 h-[5px] bg-white/20 rounded-full overflow-hidden"
+            onClick={onSeek}
+          >
             <div
               className="h-full bg-neutral-200 rounded-full"
               style={{ width: `${(position / duration) * 100}%` }}
-              onClick={onSeek}
             />
           </div>
-          <span className="text-xs text-white/70 font-bold w-12">
+          <span className="text-xs text-white/70 font-medium w-12">
             {formatTime(duration)}
           </span>
         </div>
@@ -167,7 +191,7 @@ const FullscreenPlayer = ({
               />
             ) : (
               <FaPlay
-                className="text-neutral-300 hover:text-white ml-1"
+                className="text-neutral-300 hover:text-white ml-1 focus:outline-none"
                 size={40}
               />
             )}

@@ -6,6 +6,7 @@ import { PiShuffleBold } from 'react-icons/pi';
 import { useRouter } from 'next/router';
 import ContentNavBar from './ContentNavBar';
 import Link from 'next/link';
+import SpotifyDescription from '@/utils/Description';
 
 interface TrackItems {
   track: {
@@ -234,6 +235,8 @@ const PlaylistContent = () => {
     }
   };
 
+  console.log(playlistMeta?.description);
+
   if (error) {
     return (
       <div className="pt-16 p-12 flex flex-col items-center justify-center">
@@ -242,143 +245,168 @@ const PlaylistContent = () => {
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
+        <span className="sr-only">Loading...</span>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce"></div>
+      </div>
+    );
+  }
+
+  console.log(playlistMeta);
+
   return (
     <>
-      {isLoading ? (
-        <div className="h-full w-full flex items-center justify-center">
-          <div className="h-12 w-12 rounded-full animate-spin bg-transparent border-b-4 border-indigo-700 border-dotted self-center"></div>
-        </div>
-      ) : (
-        <div className="">
-          <div className="flex flex-col mb-28">
-            <div className="relative">
-              <div
-                className="absolute inset-0 h-[450px]"
-                style={{
-                  backgroundImage: `url(${playlistMeta?.images[0]?.url})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  filter: 'blur(100px)',
-                  opacity: '0.6',
-                  maskImage:
-                    'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)',
-                  WebkitMaskImage:
-                    'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)',
-                }}
-              />
+      <div className="">
+        <div className="flex flex-col mb-28">
+          <div className="relative">
+            <div
+              className="absolute inset-0 h-[400px]"
+              style={{
+                backgroundImage: `url(${playlistMeta?.images[0]?.url})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                filter: 'blur(100px)',
+                opacity: '0.6',
+                maskImage:
+                  'linear-gradient(to bottom, rgba(136, 136, 136, 1) 0%, rgba(136, 136, 136, 0) 80%)',
+                WebkitMaskImage:
+                  'linear-gradient(to bottom, rgba(136, 136, 136, 1) 0%, rgba(136, 136, 136, 0) 80%)',
+              }}
+            />
 
-              {/* Gradient */}
-              <div className="absolute inset-0 h-[400px] bg-gradient-to-b from-transparent via-black/50 to-stone-950" />
+            {/* Gradient */}
+            <div className="absolute inset-0 h-[400px] bg-gradient-to-b from-transparent via-black/50 to-stone-950" />
 
-              <div className="relative p-8">
-                <div className="flex flex-row justify-between flex-wrap pt-8">
-                  <div className="flex items-end space-x-6 mb-8">
-                    <img
-                      src={playlistMeta?.images[0]?.url}
-                      alt={playlistMeta?.name}
-                      className="w-60 h-60 shadow-2xl rounded-lg z-0"
-                    />
-                    <div className="flex flex-col space-y-2">
+            <div className="relative p-8">
+              <div className="flex flex-row justify-between flex-wrap pt-8">
+                <div className="flex items-end space-x-6 mb-8">
+                  <img
+                    src={playlistMeta?.images[0]?.url}
+                    alt={playlistMeta?.name}
+                    className="w-60 h-60 shadow-2xl rounded-xl z-0 shadow-neutral-950"
+                  />
+                  <div className="flex flex-col space-y-2">
+                    <div className="flex flex-col space-y-1 mb-4">
                       <p className="text-sm uppercase font-bold text-white">
                         Playlist
                       </p>
                       <h1 className="text-4xl font-bold text-white">
                         {playlistMeta?.name}
                       </h1>
-                    </div>
-                  </div>
-
-                  <div className="play-shuffle gap-x-4 flex flex-row items-end mb-12 mx-4">
-                    <button
-                      onClick={handlePlayClick}
-                      className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-2 hover:bg-indigo-500 transition"
-                    >
-                      <FaPlay size={12} />
-                      <p className="text-white font-medium text-base">Play</p>
-                    </button>
-                    <button
-                      onClick={handleShuffleClick}
-                      className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-2 hover:bg-indigo-500 transition"
-                    >
-                      <PiShuffleBold size={16} />
-                      <p className="text-white font-medium text-base">
-                        Shuffle
+                      <p className="text-sm font-medium text-neutral-400">
+                        <SpotifyDescription
+                          description={playlistMeta?.description}
+                        />
                       </p>
-                    </button>
+                    </div>
+
+                    <div className="play-shuffle gap-x-4 flex flex-row items-end">
+                      <button
+                        className="w-28 rounded-md flex flex-row px-4 py-2 justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition-colors"
+                        onClick={handlePlayClick}
+                      >
+                        <FaPlay size={12} />
+                        <p className="text-white font-medium text-sm">Play</p>
+                      </button>
+                      <button
+                        className="w-28 rounded-md flex flex-row px-4 py-2 justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition-colors"
+                        onClick={handleShuffleClick}
+                      >
+                        <PiShuffleBold size={15} />
+                        <p className="text-white font-medium text-sm">
+                          Shuffle
+                        </p>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="playlist-content min-w-0 w-full">
-              <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-x-4">
-                <div className="subheading-container col-span-4 grid grid-cols-subgrid text-neutral-400 text-sm border-b border-neutral-600 pb-2 mx-4 mt-8 mb-4">
-                  <div className="truncate">Song</div>
-                  <div className="truncate">Artist</div>
-                  <div className="truncate">Album</div>
-                  <div className="text-center w-20">Time</div>
-                </div>
-
-                {tracks.map((item, index) => {
-                  const track = item?.track || {};
-                  return (
-                    <div
-                      key={track.id || `track-${index}`}
-                      className="track-container col-span-4 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
-                    >
-                      <div className="title flex flex-row items-center justify-start gap-x-2 min-w-0">
-                        <div
-                          className="image-icon relative group flex-shrink-0"
-                          onClick={() => handleTrackClick(item, index)}
-                        >
-                          <img
-                            src={
-                              track.album?.images?.[2]?.url ||
-                              '/api/placeholder/40/40'
-                            }
-                            alt={track.name || 'Track'}
-                            height={40}
-                            width={40}
-                            className="aspect-square rounded-[0.25rem] group-hover:opacity-70 transition-opacity duration-300"
-                          />
-                          <FaPlay
-                            className="absolute inset-0 m-auto z-10 text-neutral-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                            size={16}
-                          />
-                        </div>
-                        <p className="text-sm text-neutral-300 truncate">
-                          {track.name || 'Unknown Track'}
-                        </p>
-                      </div>
-                      <div className="artists min-w-0">
-                        <Link
-                          className="text-sm text-neutral-300 truncate"
-                          href={`/artists/${track.artists[0].id}`}
-                        >
-                          {Array.isArray(track.artists)
-                            ? track.artists
-                                .map((artist) => artist?.name || 'Unknown')
-                                .join(', ')
-                            : 'Unknown Artist'}
-                        </Link>
-                      </div>
-                      <Link
-                        className="album text-sm text-neutral-300 truncate min-w-0"
-                        href={`/albums/${track.album.id}`}
-                      >
-                        {track.album?.name || 'Unknown Album'}
-                      </Link>
-                      <div className="duration text-sm text-neutral-300 text-center w-20">
-                        {msToMinutes(track.duration_ms)}
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </div>
+
+          <div className="playlist-content min-w-0 w-full mx-4">
+            <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-x-4">
+              <div className="subheading-container col-span-4 grid grid-cols-subgrid text-neutral-400 text-sm border-b border-neutral-600 pb-2 mx-4 mt-8 mb-4">
+                <div className="truncate">Song</div>
+                <div className="truncate">Artist</div>
+                <div className="truncate">Album</div>
+                <div className="text-center w-20">Time</div>
+              </div>
+
+              {tracks.map((item, index) => {
+                const track = item?.track || {};
+                return (
+                  <div
+                    key={track.id || `track-${index}`}
+                    className="track-container col-span-4 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
+                  >
+                    <div className="title flex flex-row items-center justify-start gap-x-2 min-w-0">
+                      <div
+                        className="image-icon relative group flex-shrink-0"
+                        onClick={() => handleTrackClick(item, index)}
+                      >
+                        <img
+                          src={
+                            track.album?.images?.[2]?.url ||
+                            '/api/placeholder/40/40'
+                          }
+                          alt={track.name || 'Track'}
+                          height={40}
+                          width={40}
+                          className="aspect-square rounded-[0.25rem] group-hover:opacity-70 transition-opacity duration-300"
+                        />
+                        <FaPlay
+                          className="absolute inset-0 m-auto z-10 text-neutral-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          size={16}
+                        />
+                      </div>
+                      <p className="text-sm text-neutral-300 truncate">
+                        {track.name || 'Unknown Track'}
+                      </p>
+                    </div>
+                    <div className="artists min-w-0">
+                      {Array.isArray(track.artists) ? (
+                        track.artists.map((artist, index) => (
+                          <React.Fragment key={artist?.id || index}>
+                            <Link
+                              className="text-sm text-neutral-300 hover:underline inline-block"
+                              href={`/artists/${artist?.id || ''}`}
+                            >
+                              {artist?.name || 'Unknown'}
+                            </Link>
+                            {index < track.artists.length - 1 && (
+                              <span className="text-sm text-neutral-300">
+                                ,{' '}
+                              </span>
+                            )}
+                          </React.Fragment>
+                        ))
+                      ) : (
+                        <span className="text-sm text-neutral-300">
+                          Unknown Artist
+                        </span>
+                      )}
+                    </div>
+                    <Link
+                      className="album text-sm text-neutral-300 truncate min-w-0 hover:underline transition duration-300"
+                      href={`/albums/${track.album.id}`}
+                    >
+                      {track.album?.name || 'Unknown Album'}
+                    </Link>
+                    <div className="duration text-sm text-neutral-300 text-center w-20">
+                      {msToMinutes(track.duration_ms)}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

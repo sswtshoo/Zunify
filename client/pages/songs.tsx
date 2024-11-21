@@ -233,8 +233,19 @@ const Songs = () => {
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
+        <span className="sr-only">Loading...</span>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-16 p-12 flex flex-col mb-24 max-w-full overflow-hidden">
+    <div className="pt-20 p-12 flex flex-col mb-24 max-w-full overflow-hidden">
       {/* Header Section */}
       <div className="flex flex-row justify-between flex-wrap">
         <div className="playlist-meta flex flex-row gap-x-8 mb-8 mx-4">
@@ -256,18 +267,18 @@ const Songs = () => {
         </div>
         <div className="play-shuffle gap-x-4 flex flex-row items-end mb-8 mx-4">
           <button
-            className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-4 hover:bg-indigo-700 transition-colors"
+            className="w-28 rounded-lg flex flex-row px-4 py-2 justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition-colors"
             onClick={handlePlayClick}
           >
             <FaPlay size={12} />
-            <p className="text-white font-medium text-base">Play</p>
+            <p className="text-white font-medium text-sm">Play</p>
           </button>
           <button
-            className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-4 hover:bg-indigo-700 transition-colors"
+            className="w-28 rounded-lg flex flex-row px-4 py-2 justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition-colors"
             onClick={handleShuffleClick}
           >
-            <PiShuffleBold size={16} />
-            <p className="text-white font-medium text-base">Shuffle</p>
+            <PiShuffleBold size={15} />
+            <p className="text-white font-medium text-sm">Shuffle</p>
           </button>
         </div>
       </div>
@@ -279,7 +290,7 @@ const Songs = () => {
             <div className="truncate">Song</div>
             <div className="truncate">Artist</div>
             <div className="truncate">Album</div>
-            <div className="text-center w-20">Time</div>
+            <div className="text-end w-20">Time</div>
           </div>
 
           {/* Song Rows */}

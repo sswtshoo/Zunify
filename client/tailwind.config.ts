@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        indigo: '#4c4eff',
+        indigoo: '#373af0',
       },
     },
   },

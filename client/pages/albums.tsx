@@ -48,14 +48,12 @@ const Albums = () => {
       const storedToken = localStorage.getItem('access_token');
       const storedExpiry = localStorage.getItem('token_expiry');
 
-      // If we have a valid token in localStorage but not in context
       if (storedToken && storedExpiry && Date.now() < parseInt(storedExpiry)) {
         if (!tokenContext.accessToken) {
           tokenContext.setAccessToken(storedToken);
           tokenContext.setTokenExpiry(parseInt(storedExpiry));
         }
       } else if (!tokenContext.accessToken) {
-        // No valid token, redirect to login
         localStorage.setItem('redirect_after_login', router.asPath);
         window.location.href = 'http://localhost:5174';
       }
@@ -100,14 +98,25 @@ const Albums = () => {
 
   if (error) {
     return (
-      <div className="pt-16 p-12 flex flex-col items-center justify-center">
+      <div className="w-full h-full p-12 flex flex-col items-center justify-center">
         <p className="text-xl text-red-500">{error}</p>
       </div>
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
+        <span className="sr-only">Loading...</span>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-16 p-12 flex flex-col mb-24">
+    <div className="pt-20 p-12 flex flex-col mb-24">
       <p className="text-4xl font-bold">Your Albums</p>
       <div className="album-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-around overflow-auto mt-10">
         {albums.map((album) => (

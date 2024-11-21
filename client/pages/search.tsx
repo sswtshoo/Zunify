@@ -19,12 +19,10 @@ class ErrorBoundary extends React.Component<
   }
 
   static getDerivedStateFromError(error: Error) {
-    // Update state to show that an error occurred
     return { hasError: true };
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Can log the error to an error reporting service
     console.error(error, errorInfo);
   }
 
@@ -109,7 +107,7 @@ const msToMinutes = (ms: number) => {
 const Search: React.FC = () => {
   const [options, setOptions] = useState<SearchOptions[]>([]);
   const [value, setValue] = useState<string>('');
-  const [artist, setArtist] = useState<ArtistProfile | null>();
+  const [artists, setArtists] = useState<ArtistProfile | null>();
   const [topfive, setTopfive] = useState<TopTrack[]>([]);
   const timeoutRef = useRef<number | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -142,6 +140,117 @@ const Search: React.FC = () => {
   //   };
 
   // Not handling artist search due to rate limit errors -  wasn't able to find a fix
+
+  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    setValue(newValue);
+
+    keystrokeCountRef.current++;
+
+    if (keystrokeCountRef.current >= 4) {
+      keystrokeCountRef.current = 0;
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = window.setTimeout(() => {
+        updateOptions(newValue);
+      }, 300);
+    }
+  };
+
+  const updateOptions = async (query: string) => {
+    try {
+      // const response = await apiClient.get(
+      //   `/search?q=${query.split(' ').join('%20')}&type=track&limit=10`
+      // );
+
+      const [trackResponse, artistResponse] = await Promise.all([
+        apiClient.get(
+          `/search?q=${query.split(' ').join('%20')}&type=track&limit=5`
+        ),
+        apiClient.get(
+          `/search?q=${query.split(' ').join('%20')}&type=artist&limit=10`
+        ),
+      ]);
+
+      const trackOptions: TrackItems[] = trackResponse.data.tracks.items;
+      console.log('Track response data: ', trackResponse.data);
+
+      const artistOptions: ArtistItems[] = artistResponse.data.artists.items;
+      console.log('Artist options: ', artistResponse);
+
+      setOptions(trackOptions);
+
+      console.log(options);
+    } catch (err: any) {
+      console.error('Error fetching options: ', err);
+      setError('Failed to fetch search results. Please try again.');
+    }
+  };
+
+  useEffect(() => {
+    if (value) {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = window.setTimeout(() => {
+        updateOptions(value);
+      }, 1000);
+    } else {
+      setOptions([]);
+      setTopfive([]);
+    }
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [value]);
+
+  const calculateRelevance = (item: SearchOptions, query: string): number => {
+    const queryWords = query.toLowerCase().split(' ');
+    const itemName = item.name.toLowerCase();
+    let score = 0;
+
+    // Exact match gets highest score
+    if (itemName === query.toLowerCase()) {
+      score += 100;
+    }
+
+    // Check if name starts with query
+    if (itemName.startsWith(query.toLowerCase())) {
+      score += 50;
+    }
+
+    // Check if all query words are present in the name
+    const allWordsPresent = queryWords.every((word) => itemName.includes(word));
+    if (allWordsPresent) {
+      score += 30;
+    }
+
+    // Add score based on word position
+    queryWords.forEach((word) => {
+      if (itemName.includes(word)) {
+        score += 10;
+      }
+    });
+
+    // Boost artist scores for artist-like queries (single or double words)
+    if (item.type === 'artist' && queryWords.length <= 2) {
+      score += 20;
+    }
+
+    // Boost track scores for longer queries
+    if (item.type === 'track' && queryWords.length > 2) {
+      score += 20;
+    }
+
+    return score;
+  };
 
   const handleTrackPlay = async (
     track: TrackItems,
@@ -192,95 +301,6 @@ const Search: React.FC = () => {
     }
   };
 
-  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    setValue(newValue);
-
-    keystrokeCountRef.current++;
-
-    if (keystrokeCountRef.current >= 4) {
-      keystrokeCountRef.current = 0;
-
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-
-      timeoutRef.current = window.setTimeout(() => {
-        updateOptions(newValue);
-      }, 300);
-    }
-  };
-
-  const calculateRelevance = (item: SearchOptions, query: string): number => {
-    const lowercaseQuery = query.toLowerCase();
-    const name = item.name.toLowerCase();
-
-    let score = 0;
-
-    if (name === lowercaseQuery) {
-      score += 100;
-    } else if (name.startsWith(lowercaseQuery)) {
-      score += 75;
-    } else if (name.includes(lowercaseQuery)) {
-      score += 50;
-    }
-
-    if (item.type === 'track' && query.split(' ').length === 1) {
-      score += 10;
-    }
-
-    return score;
-  };
-
-  const updateOptions = async (query: string) => {
-    try {
-      const response = await apiClient.get(
-        `/search?q=${query.split(' ').join('%20')}&type=track&limit=10`
-      );
-
-      const trackOptions: TrackItems[] = response.data.tracks.items;
-      console.log(response.data);
-
-      const combinedResult = [...trackOptions].sort((a, b) => {
-        return calculateRelevance(b, query) - calculateRelevance(a, query);
-      });
-
-      setOptions(combinedResult);
-
-      if (combinedResult.length > 0) {
-        // await updateArtist(combinedResult[0].id);
-      } else {
-        setArtist(null);
-        setTopfive([]);
-      }
-      console.log(options);
-    } catch (err: any) {
-      console.error('Error fetching options: ', err);
-      setError('Failed to fetch search results. Please try again.');
-    }
-  };
-
-  useEffect(() => {
-    if (value) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-
-      timeoutRef.current = window.setTimeout(() => {
-        updateOptions(value);
-      }, 1000);
-    } else {
-      setOptions([]);
-      setTopfive([]);
-    }
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [value]);
-
   const renderTrackResults = () => {
     if (options.length === 0) return null;
 
@@ -302,7 +322,7 @@ const Search: React.FC = () => {
           <div className="w-full flex flex-row justify-between items-start mt-4">
             <div className="track-data">
               <h2 className="text-3xl font-bold text-left">{topTrack.name}</h2>
-              <div className="flex gap-x-2 items-start justify-start mt-2">
+              <div className="flex gap-x-2 items-start justify-start">
                 <p className="text-neutral-400">Song</p>
                 <p className="font-bold">○</p>
                 <p className="text-left">{topTrack.artists[0].name}</p>
@@ -362,14 +382,14 @@ const Search: React.FC = () => {
   return (
     <ErrorBoundary>
       <div className="h-full w-full flex flex-col">
-        <div className="search-bar-items fixed left-1/2 top-16 -translate-x-1/2">
+        <div className="search-bar-items flex justify-center fixed left-1/2 top-16 -translate-x-1/2">
           <input
             type="text"
             value={value}
             onChange={handleValueChange}
             name="search-input"
             placeholder="Search for a song..."
-            className="p-4 w-[30rem] h-12 text-white bg-black rounded-full border border-neutral-400 focus:outline-none focus:border-indigo-500 "
+            className="p-4 w-[30rem] h-12 text-white bg-neutral-900 rounded-lg border border-neutral-400 focus:outline-none focus:border-indigo-500"
           />
         </div>
 

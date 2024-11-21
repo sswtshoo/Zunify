@@ -34,6 +34,7 @@ const Artists = () => {
           '/me/following?type=artist&limit=50'
         );
         setArtists(response.data.artists.items);
+
         setError(null);
       } catch (err: any) {
         const refreshSuccessful = await handleApiError(err);
@@ -70,10 +71,21 @@ const Artists = () => {
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
+        <span className="sr-only">Loading...</span>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-16 p-12 flex flex-col mb-24">
+    <div className="pt-20 px-8 flex flex-col mb-24">
       <p className="text-4xl font-bold">Your artists</p>
-      <div className="artist-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-around overflow-auto mt-10">
+      <div className="artist-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-10">
         {artists.map((artist) => (
           <Link
             href={`/artists/${artist.id}`}
@@ -86,7 +98,7 @@ const Artists = () => {
                   <img
                     src={artist.images[0].url}
                     alt={artist.name}
-                    className="w-full h-auto rounded-3xl aspect-square group-hover:opacity-70 transition duration-300"
+                    className="w-full aspect-square rounded-3xl group-hover:opacity-70 transition duration-300 object-cover"
                   />
                 )}
                 <div className="absolute inset-0 flex justify-end items-end p-4">
@@ -95,7 +107,7 @@ const Artists = () => {
                   </div>
                 </div>
               </div>
-              <p className="font-semibold text-base text-neutral-400 w-48 mt-2 leading-tight line-clamp-2 group-hover:text-neutral-100 transition duration-300">
+              <p className="font-semibold text-base text-neutral-400 mt-2 leading-tight line-clamp-2 group-hover:text-neutral-100 transition duration-300">
                 {artist.name}
               </p>
             </div>

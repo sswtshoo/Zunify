@@ -65,6 +65,7 @@ serve({
   port: 5174,
   async fetch(req) {
     const url = new URL(req.url);
+    console.log('Incoming request to:', url.pathname); // Debug log
 
     const headers = new Headers({
       'Access-Control-Allow-Origin': 'http://localhost:3000',
@@ -78,8 +79,48 @@ serve({
       return new Response(null, { headers });
     }
 
+    // Handle refresh token endpoint
+    if (url.pathname === '/refresh-token') {
+      if (req.method === 'POST') {
+        if (!refreshToken) {
+          return new Response('No refresh token available', {
+            status: 401,
+            headers,
+          });
+        }
+
+        const newAccessTokenData = await refreshAccessToken();
+        if (newAccessTokenData) {
+          return new Response(
+            JSON.stringify({
+              access_token: newAccessTokenData.accessToken,
+              expires_in: newAccessTokenData.expiresIn,
+            }),
+            {
+              headers: {
+                ...headers,
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+        } else {
+          return new Response('Failed to refresh access token', {
+            status: 401,
+            headers,
+          });
+        }
+      } else {
+        return new Response('Method not allowed', {
+          status: 405,
+          headers,
+        });
+      }
+    }
+
+    // Handle main authorization flow
     if (url.pathname === '/') {
       const code = url.searchParams.get('code');
+      const returnTo = url.searchParams.get('returnTo') || '/';
 
       if (code) {
         try {
@@ -103,41 +144,38 @@ serve({
             const errorData = await responseToken.text();
             return new Response(`Token request failed: ${errorData}`, {
               status: 400,
+              headers,
             });
           }
 
           const tokenData = await responseToken.json();
           accessToken = tokenData.access_token;
-          refreshToken = tokenData.refresh_token; // Save refresh token
-          tokenExpiryTime = Date.now() + tokenData.expires_in * 1000; // Save expiry time
+          refreshToken = tokenData.refresh_token;
+          tokenExpiryTime = Date.now() + tokenData.expires_in * 1000;
 
-          return Response.redirect(
-            `${app_uri}?access_token=${tokenData.access_token}&expires_in=${tokenData.expires_in}`,
-            302
+          // Build redirect URL
+          const redirectUrl = new URL(app_uri);
+          redirectUrl.searchParams.set('access_token', tokenData.access_token);
+          redirectUrl.searchParams.set(
+            'expires_in',
+            tokenData.expires_in.toString()
           );
+
+          // Add the return path if it exists
+          if (returnTo && returnTo !== '/') {
+            redirectUrl.pathname = decodeURIComponent(returnTo);
+          }
+
+          return Response.redirect(redirectUrl.toString(), 302);
         } catch (error: any) {
+          console.error('Token exchange error:', error);
           return new Response(`Error getting access token: ${error.message}`, {
             status: 500,
-          });
-        }
-      } else if (accessToken && Date.now() < (tokenExpiryTime as number)) {
-        return Response.redirect(
-          `${app_uri}?access_token=${accessToken}&expires_in=${(tokenExpiryTime as number) - Date.now()}`
-        );
-      } else if (refreshToken) {
-        // console.log('Access token expired, refreshing...');
-        const newAccessTokenData = await refreshAccessToken();
-        if (newAccessTokenData) {
-          // console.log('New Access Token:', newAccessTokenData.accessToken);
-          return Response.redirect(
-            `${app_uri}?access_token=${newAccessTokenData.accessToken}&expires_in=${newAccessTokenData.expiresIn}`
-          );
-        } else {
-          return new Response('Failed to refresh access token', {
-            status: 401,
+            headers,
           });
         }
       } else {
+        // Initial authorization
         const scopes = [
           'user-read-playback-state',
           'user-modify-playback-state',
@@ -147,7 +185,9 @@ serve({
           'playlist-modify-private',
           'playlist-modify-public',
           'user-library-read',
+          'user-library-modify',
           'user-follow-read',
+          'user-follow-modify',
           'streaming',
           'user-read-recently-played',
         ];
@@ -161,15 +201,22 @@ serve({
           state: state,
         });
 
-        // Redirect user to Spotify authorization page
+        // Add returnTo to the state if it exists
+        if (returnTo) {
+          auth_query_parameters.set('returnTo', returnTo);
+        }
+
         return Response.redirect(
           `https://accounts.spotify.com/authorize/?${auth_query_parameters.toString()}`
         );
       }
     }
 
-    return new Response('Not found', { status: 404 });
+    // Handle all other routes
+    return new Response('Not found', { status: 404, headers });
   },
 });
+
+console.log('Server running on host:5174');
 
 console.log('Server running on host:5174');

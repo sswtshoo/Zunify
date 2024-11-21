@@ -1,5 +1,6 @@
 import { useContext, useCallback } from 'react';
 import { TokenContext } from '../context/TokenProvider';
+import { useRouter } from 'next/router';
 
 interface AuthHook {
   token: string | null;
@@ -11,6 +12,7 @@ interface AuthHook {
 
 export const useAuth = (): AuthHook => {
   const tokenContext = useContext(TokenContext);
+  const router = useRouter();
 
   const refreshAccessToken = useCallback(async () => {
     try {
@@ -43,7 +45,9 @@ export const useAuth = (): AuthHook => {
     const { accessToken, tokenExpiry } = tokenContext;
 
     if (!accessToken || !tokenExpiry) {
-      window.location.href = 'http://localhost:5174';
+      const currentPath = router.asPath;
+      localStorage.setItem('returnTo', currentPath);
+      window.location.href = `http://localhost:5174?returnTo=${encodeURIComponent(currentPath)}`;
       return false;
     }
 
@@ -53,20 +57,22 @@ export const useAuth = (): AuthHook => {
     }
 
     return true;
-  }, [tokenContext, refreshAccessToken]);
+  }, [tokenContext, refreshAccessToken, router]);
 
   const handleApiError = useCallback(
     async (error: any) => {
       if (error?.response?.status === 401) {
+        const currentPath = router.asPath;
         const refreshSuccessful = await refreshAccessToken();
         if (!refreshSuccessful) {
-          window.location.href = 'http://localhost:5174';
+          localStorage.setItem('returnTo', currentPath);
+          window.location.href = `http://localhost:5174?returnTo=${encodeURIComponent(currentPath)}`;
         }
         return refreshSuccessful;
       }
       return false;
     },
-    [refreshAccessToken]
+    [refreshAccessToken, router]
   );
 
   return {

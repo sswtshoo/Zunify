@@ -89,7 +89,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <title>Zunify</title>
       <div className="h-screen w-screen flex flex-row bg-stone-950">
         <Sidebar className="flex-shrink-0 w-[275px]" />
-        <div className="content-container flex flex-col flex-grow h-full">
+        <div className="content-container flex flex-col flex-grow w-full h-full">
           <div className="flex-grow overflow-auto">
             <Component {...pageProps} />
           </div>
