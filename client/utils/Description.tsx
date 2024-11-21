@@ -6,7 +6,6 @@ const SpotifyDescription = ({ description }) => {
   const parseDescription = (text: string) => {
     return text.split(/(<a[^>]*>.*?<\/a>)/).map((part, index) => {
       if (part.startsWith('<a')) {
-        // Extract URI and text content
         const uriMatch = part.match(/href=([^>\s]+)/);
         const textMatch = part.match(/>([^<]+)</);
         const uri = uriMatch ? uriMatch[1] : '';
