@@ -86,6 +86,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <TokenProvider>
+      <title>Zunify</title>
       <div className="h-screen w-screen flex flex-row bg-stone-950">
         <Sidebar className="flex-shrink-0 w-[275px]" />
         <div className="content-container flex flex-col flex-grow h-full">
@@ -93,7 +94,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </div>
         </div>
-        <NowPlaying className="h-24 mx-auto bottom-0 w-full" />
+        <NowPlaying className="h-24 mx-auto bottom-0 w-screen" />
       </div>
     </TokenProvider>
   );

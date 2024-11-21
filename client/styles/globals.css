@@ -7,6 +7,13 @@
   --foreground: #171717;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -25,10 +32,63 @@ body {
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px rgb(0, 0, 0) inset;
-  -webkit-text-fill-color: #000000;
+  -webkit-box-shadow: 0 0 0 50px rgb(16, 16, 16) inset;
+  -webkit-text-fill-color: #cfcfcf;
 }
 input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 50px rgb(0, 0, 0) inset;
-  -webkit-text-fill-color: #000000;
+  -webkit-box-shadow: 0 0 0 50px rgb(16, 16, 16) inset;
+  -webkit-text-fill-color: #cfcfcf;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.marquee_container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee {
+  display: inline-block;
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee_container:hover .marquee {
+  animation-play-state: paused;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
 }

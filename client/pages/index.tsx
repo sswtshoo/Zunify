@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useApiClient } from '../utils/ApiClient';
 import { TokenContext } from '../context/TokenProvider';
@@ -27,9 +27,11 @@ interface PlaylistsResponse {
 const Home = () => {
   const router = useRouter();
   const tokenContext = useContext(TokenContext);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [image, setImage] = useState<string | undefined>(undefined);
   const [featuredPlaylists, setFeaturedPlaylists] = useState<Playlist[]>([]);
+  const [recentlyPlayedAlbums, setRecentlyPlayedAlbums] = useState([]);
+
   const [message, setMessage] = useState<string>('');
   const apiClient = useApiClient();
   const auth = useAuth();
@@ -70,7 +72,7 @@ const Home = () => {
     localStorage.setItem('access_token', token);
     localStorage.setItem('token_expiry', expiryTime.toString());
 
-    setLoading(false);
+    setIsLoading(false);
   };
 
   const handleStoredToken = async () => {
@@ -124,9 +126,13 @@ const Home = () => {
     const fetchData = async () => {
       if (!tokenContext?.accessToken) return;
 
-      setLoading(true);
-      await Promise.all([fetchUserData(), fetchFeaturedPlaylists()]);
-      setLoading(false);
+      setIsLoading(true);
+      await Promise.all([
+        fetchUserData(),
+        fetchFeaturedPlaylists(),
+        recentlyPlayed(),
+      ]);
+      setIsLoading(false);
     };
 
     fetchData();
@@ -141,9 +147,34 @@ const Home = () => {
         'browse/categories/0JQ5DAt0tbjZptfcdMSKl3/playlists/?limit=50'
       );
 
+      const response2 = await apiClient.get(
+        'browse/categories/0JQ5DAnM3wGh0gz1MXnu89'
+      );
+
+      console.log(response2.data);
+
       setFeaturedPlaylists(
         response.data.playlists.items.reverse().slice(0, 10)
       );
+      setMessage(response.data.message);
+    } catch (error) {
+      await handleFetchError(error, fetchFeaturedPlaylists);
+    }
+  };
+
+  const recentlyPlayed = async () => {
+    try {
+      const isTokenValid = await auth.checkAndRefreshToken();
+      if (!isTokenValid) return;
+
+      const response = await apiClient.get(
+        `/me/player/recently-played?limit=50`
+      );
+
+      const response2 = await apiClient.get;
+
+      console.log(response.data.items);
+
       setMessage(response.data.message);
     } catch (error) {
       await handleFetchError(error, fetchFeaturedPlaylists);
@@ -178,8 +209,19 @@ const Home = () => {
     }
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
+        <span className="sr-only">Loading...</span>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+        <div className="h-4 w-4 bg-black rounded-full animate-bounce"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-16 px-12 flex flex-col mb-24 overflow-y-scroll">
+    <div className="pt-20 px-12 flex flex-col mb-24 overflow-y-scroll">
       <div className="flex justify-between items-center mb-12">
         <p className="text-4xl font-bold">Home</p>
         {image && (
@@ -188,40 +230,40 @@ const Home = () => {
             className="rounded-full object-cover"
             width={40}
             height={40}
-            style={{ opacity: loading ? 0 : 100 }}
+            style={{ opacity: isLoading ? 0 : 100 }}
             alt="Profile"
           />
         )}
       </div>
 
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">{message}</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-around">
-          {featuredPlaylists.map((playlist) => (
-            <Link
-              href={`/playlists/${playlist.id}`}
-              key={playlist.id}
-              className="group mt-4 hover:cursor-pointer relative"
-            >
-              <div className="relative">
+      <div className="mt-8 overflow-hidden max-w-full">
+        <h2 className="text-2xl font-bold mb-4">{message}</h2>
+        <div className="flex flex-row flex-nowrap overflow-x-auto max-w-full mr-8 no-scrollbar">
+          <div className="flex-auto flex flex-row gap-x-6 w-40">
+            {featuredPlaylists.map((playlist) => (
+              <Link
+                href={`/playlists/${playlist.id}`}
+                key={playlist.id}
+                className="flex flex-col cursor-default hover:opacity-65 transition-opacity duration-300 w-48 shrink-0"
+              >
                 {playlist.images[0]?.url && (
                   <img
                     src={playlist.images[0].url}
                     alt={playlist.name}
-                    className="w-full h-auto rounded-xl aspect-square group-hover:opacity-70 transition duration-300"
+                    height={200}
+                    width={200}
+                    className="aspect-square rounded-lg"
                   />
                 )}
-                <div className="absolute inset-0 flex justify-end items-end p-4">
-                  <div className="bg-[rgb(32,75,246)] p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FaPlay className="text-white" />
-                  </div>
+
+                <div className="flex flex-row items-center justify-start gap-x-2">
+                  <p className="text-neutral-400 font-normal text-xs mt-2 line-clamp-2">
+                    {playlist.description}
+                  </p>
                 </div>
-              </div>
-              <p className="font-semibold text-base text-neutral-400 w-48 mt-2 leading-tight truncate group-hover:text-neutral-100 transition duration-300">
-                {playlist.name}
-              </p>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

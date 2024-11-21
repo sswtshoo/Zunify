@@ -5,7 +5,7 @@ import { FaPlay } from 'react-icons/fa';
 import { PiShuffleBold } from 'react-icons/pi';
 import { useRouter } from 'next/router';
 import ContentNavBar from './ContentNavBar';
-import { div } from 'framer-motion/client';
+import Link from 'next/link';
 
 interface TrackItems {
   track: {
@@ -53,35 +53,6 @@ interface SpotifyTrack {
     images: Array<{ url: string }>;
   };
 }
-
-const getHighestQualityImage = (
-  images: Array<{ url: string; width: number; height: number }>,
-  size: number = 640
-) => {
-  if (!images || images.length === 0) return null;
-
-  // Get the largest image URL
-  const originalUrl = images[0].url;
-
-  // Replace the size in the URL
-  // Original URL format: https://i.scdn.co/image/ab67616d0000b273[...]
-  // We want to change it to: https://i.scdn.co/image/ab67616d0000d844[...]
-
-  if (size <= 640) {
-    return originalUrl; // Return original if requested size is default or smaller
-  }
-
-  // Replace the size identifier in the URL
-  if (originalUrl.includes('ab67616d0000b273')) {
-    // Album art
-    return originalUrl.replace('ab67616d0000b273', 'ab67616d0000d844');
-  } else if (originalUrl.includes('ab67706c0000b273')) {
-    // Playlist/Artist image
-    return originalUrl.replace('ab67706c0000b273', 'ab67706c0000d844');
-  }
-
-  return originalUrl; // Return original if no pattern match
-};
 
 const msToMinutes = (ms: number) => {
   var minutes = Math.floor(ms / 60000);
@@ -274,10 +245,11 @@ const PlaylistContent = () => {
   return (
     <>
       {isLoading ? (
-        <div></div>
+        <div className="h-full w-full flex items-center justify-center">
+          <div className="h-12 w-12 rounded-full animate-spin bg-transparent border-b-4 border-indigo-700 border-dotted self-center"></div>
+        </div>
       ) : (
         <div className="">
-          <ContentNavBar type="playlist" name={playlistMeta?.name || ''} />
           <div className="flex flex-col mb-28">
             <div className="relative">
               <div
@@ -308,7 +280,7 @@ const PlaylistContent = () => {
                     />
                     <div className="flex flex-col space-y-2">
                       <p className="text-sm uppercase font-bold text-white">
-                        Album
+                        Playlist
                       </p>
                       <h1 className="text-4xl font-bold text-white">
                         {playlistMeta?.name}
@@ -353,10 +325,12 @@ const PlaylistContent = () => {
                     <div
                       key={track.id || `track-${index}`}
                       className="track-container col-span-4 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
-                      onClick={() => handleTrackClick(item, index)}
                     >
                       <div className="title flex flex-row items-center justify-start gap-x-2 min-w-0">
-                        <div className="image-icon relative group flex-shrink-0">
+                        <div
+                          className="image-icon relative group flex-shrink-0"
+                          onClick={() => handleTrackClick(item, index)}
+                        >
                           <img
                             src={
                               track.album?.images?.[2]?.url ||
@@ -365,7 +339,7 @@ const PlaylistContent = () => {
                             alt={track.name || 'Track'}
                             height={40}
                             width={40}
-                            className="aspect-auto rounded-[0.25rem] group-hover:opacity-70 transition-opacity duration-300"
+                            className="aspect-square rounded-[0.25rem] group-hover:opacity-70 transition-opacity duration-300"
                           />
                           <FaPlay
                             className="absolute inset-0 m-auto z-10 text-neutral-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -377,17 +351,23 @@ const PlaylistContent = () => {
                         </p>
                       </div>
                       <div className="artists min-w-0">
-                        <p className="text-sm text-neutral-300 truncate">
+                        <Link
+                          className="text-sm text-neutral-300 truncate"
+                          href={`/artists/${track.artists[0].id}`}
+                        >
                           {Array.isArray(track.artists)
                             ? track.artists
                                 .map((artist) => artist?.name || 'Unknown')
                                 .join(', ')
                             : 'Unknown Artist'}
-                        </p>
+                        </Link>
                       </div>
-                      <div className="album text-sm text-neutral-300 truncate min-w-0">
+                      <Link
+                        className="album text-sm text-neutral-300 truncate min-w-0"
+                        href={`/albums/${track.album.id}`}
+                      >
                         {track.album?.name || 'Unknown Album'}
-                      </div>
+                      </Link>
                       <div className="duration text-sm text-neutral-300 text-center w-20">
                         {msToMinutes(track.duration_ms)}
                       </div>

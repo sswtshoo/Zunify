@@ -226,21 +226,20 @@ const AlbumContent = () => {
         </div>
       </div>
 
-      <div className="playlist-content min-w-0 w-full px-8">
+      <div className="playlist-content min-w-0 w-full">
         <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-x-4">
-          <div className="subheading-container col-span-3 grid grid-cols-subgrid text-neutral-400 text-sm border-b border-neutral-600 pb-2 mx-4 mt-8 mb-4">
+          <div className="subheading-container col-span-2 grid grid-cols-subgrid text-neutral-400 text-sm border-b border-neutral-600 pb-2 mx-4 mt-8 mb-4">
             <div className=""># Title</div>
-            <div className="">Artist</div>
-            <div className="text-center w-20">Time</div>
+            <div className="text-center w-20 place-self-end">Time</div>
           </div>
 
           {albumTracks.map((track, index) => (
             <div
               key={track.id}
-              className="track-container col-span-3 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
+              className="track-container col-span-2 grid grid-cols-subgrid items-center justify-between hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
               onClick={() => handleTrackClick(track.uri, index)}
             >
-              <div className="title flex flex-row items-center justify-start min-w-0">
+              <div className="title flex flex-row items-center min-w-0">
                 <span className="text-xs text-neutral-400 w-6">
                   {index + 1}
                 </span>
@@ -248,12 +247,8 @@ const AlbumContent = () => {
                   {track.name}
                 </p>
               </div>
-              <div className="artists min-w-0">
-                <p className="text-sm text-neutral-300 truncate">
-                  {track.artists.map((artist) => artist.name).join(', ')}
-                </p>
-              </div>
-              <div className="duration text-sm text-center text-neutral-300 w-20">
+
+              <div className="duration text-sm text-center place-self-end text-neutral-300 w-20">
                 {msToMinutes(track.duration_ms)}
               </div>
             </div>

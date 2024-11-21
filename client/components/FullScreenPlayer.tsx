@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
@@ -36,12 +36,38 @@ const FullscreenPlayer = ({
   onSeek,
   volume,
 }: FullscreenPlayerProps) => {
+  const [isNameOverflowing, setIsNameOverflowing] = useState(false);
+  const [isArtistsOverflowing, setIsArtistsOverflowing] = useState(false);
+  const nameRef = useRef<HTMLDivElement>(null);
+  const artistsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (nameRef.current) {
+        setIsNameOverflowing(
+          nameRef.current.scrollWidth > nameRef.current.clientWidth
+        );
+      }
+      if (artistsRef.current) {
+        setIsArtistsOverflowing(
+          artistsRef.current.scrollWidth > artistsRef.current.clientWidth
+        );
+      }
+    };
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [currentTrack]);
+
   if (!currentTrack) return null;
+
+  const artistNames = currentTrack?.artists?.map((a: any) => a.name).join(', ');
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 to-black flex items-center justify-center z-50">
       <div
-        className="absolute inset-0 opacity-60 blur-[120px]"
+        className="absolute inset-0 opacity-60 blur-[125px]"
         style={{
           backgroundImage: `url(${currentTrack?.album?.images[2]?.url})`,
           backgroundSize: 'cover',
@@ -65,20 +91,52 @@ const FullscreenPlayer = ({
           />
         </div>
 
-        <div className="text-center mb-4">
-          <h1 className="text-2xl font-bold text-neutral-100 mb-2">
-            {currentTrack?.name}
-          </h1>
-          <p className="text-lg text-neutral-100">
-            {currentTrack?.artists?.map((a: any) => a.name).join(', ')}
-          </p>
+        <div className="flex flex-col items-center gap-2 mb-4">
+          {/* Track name */}
+          <div
+            className="marquee_container flex items-center"
+            style={{ width: '500px' }}
+          >
+            <div
+              ref={nameRef}
+              className={`text-2xl font-bold text-neutral-100 whitespace-nowrap mx-auto
+                ${isNameOverflowing ? 'marquee' : ''}`}
+            >
+              {currentTrack.name}
+              {isNameOverflowing && (
+                <>
+                  <span className="mx-4">•</span>
+                  {currentTrack.name}
+                </>
+              )}
+            </div>
+          </div>
+          {/* Artists */}
+          <div
+            className="marquee_container flex items-center"
+            style={{ width: '500px' }}
+          >
+            <div
+              ref={artistsRef}
+              className={`text-lg text-neutral-100 whitespace-nowrap mx-auto
+                ${isArtistsOverflowing ? 'marquee' : ''}`}
+            >
+              {artistNames}
+              {isArtistsOverflowing && (
+                <>
+                  <span className="mx-4">•</span>
+                  {artistNames}
+                </>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="w-[calc(100%-3rem)] flex items-center gap-2 mb-8">
           <span className="text-xs text-white/70 w-12 text-right font-bold">
             {formatTime(position)}
           </span>
-          <div className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
+          <div className="flex-1 h-[5px] bg-white/20 rounded-full overflow-hidden">
             <div
               className="h-full bg-neutral-200 rounded-full"
               style={{ width: `${(position / duration) * 100}%` }}
@@ -93,7 +151,7 @@ const FullscreenPlayer = ({
         <div className="flex items-center gap-8 mb-12">
           <button
             onClick={onPrevious}
-            className="text-neutral-300 hover:text-white transition"
+            className="text-neutral-300 hover:text-white hover:scale-105 transition-all duration-150"
           >
             <IoPlaySkipBack size={24} />
           </button>
@@ -117,7 +175,7 @@ const FullscreenPlayer = ({
 
           <button
             onClick={onNext}
-            className="text-neutral-400 hover:text-white transition"
+            className="text-neutral-300 hover:text-white hover:scale-105 transition-all duration-150"
           >
             <IoPlaySkipForward size={24} />
           </button>

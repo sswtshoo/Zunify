@@ -8,6 +8,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import FullscreenPlayer from './FullScreenPlayer';
 import { useApiClient } from '@/utils/ApiClient';
 import { useAuth } from '@/utils/useAuth';
+import AnimatedAlbumArt from './AnimatedArt';
 
 interface NowPlayingProps {
   className?: string;
@@ -74,7 +75,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
     currentTrack: null,
     position: 0,
     duration: 0,
-    volume: 0.5,
+    volume: 1.0,
   });
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -115,9 +116,9 @@ export default function NowPlaying({ className }: NowPlayingProps) {
       progressInterval.current = setInterval(() => {
         setPlayerState((prev) => ({
           ...prev,
-          position: Math.min(prev.position + 10, prev.duration),
+          position: Math.min(prev.position + 5, prev.duration),
         }));
-      }, 10);
+      }, 5);
     } else {
       if (progressInterval.current) {
         clearInterval(progressInterval.current);
@@ -247,7 +248,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
       try {
         const track = JSON.parse(savedTrack);
         const trackUris = tracks
-          .filter((t) => t?.track?.uri) // Filter out any tracks without uri
+          .filter((t) => t?.track?.uri)
           .map((t) => t.track.uri);
 
         if (trackUris.length > 0 && track?.track?.uri) {
@@ -345,7 +346,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
     <>
       <div
         className={twMerge(
-          'fixed flex items-center justify-between bg-black bg-opacity-10 backdrop-blur-2xl px-4',
+          'fixed bottom-0 flex items-center justify-between bg-black bg-opacity-10 backdrop-blur-2xl px-4 border-t-[1px] border-neutral-500 border-opacity-25 shadow-md shadow-neutral-500',
           className
         )}
       >
@@ -356,10 +357,13 @@ export default function NowPlaying({ className }: NowPlayingProps) {
           >
             {playerState.currentTrack?.album?.images[0] && (
               <>
-                <img
-                  src={playerState.currentTrack.album.images[0].url}
-                  alt="Album art"
-                  className="w-full h-full object-cover rounded-sm group-hover:opacity-80 transition-opacity"
+                <AnimatedAlbumArt
+                  imageUrl={
+                    playerState.currentTrack?.album?.images[0]?.url || ''
+                  }
+                  isPlaying={!playerState.isPaused}
+                  onClick={() => setIsFullscreen(true)}
+                  className="h-14 w-14"
                 />
                 <MdFullscreen
                   size={20}
@@ -368,7 +372,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
               </>
             )}
           </div>
-          <div>
+          <div className="w-3/4">
             <p className="text-sm font-medium text-white truncate">
               {playerState.currentTrack?.name || 'No track playing'}
             </p>
@@ -389,7 +393,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
             />
             <button
               onClick={togglePlay}
-              className="bg-transparent rounded-full p-2 hover:scale-105 transition-transform focus:outline-none"
+              className="bg-transparent rounded-full p-2 hover:scale-105 transition-transform focus:outline-none checked:scale-105"
             >
               {playerState.isPaused ? (
                 <FaPlay className="text-white ml-0.5 " size={24} />
@@ -409,14 +413,14 @@ export default function NowPlaying({ className }: NowPlayingProps) {
               {formatTime(playerState.position)}
             </span>
             <div
-              className="relative flex-1 h-1 group"
+              className="relative flex-1 h-[5px] group rounded-full"
               onMouseDown={handleProgressClick}
               ref={progressRef}
             >
               <div className="absolute inset-y-0 w-full -inset-x-2 cursor-pointer transition-all duration-150 flex items-center justify-center">
-                <div className="w-full h-1 bg-neutral-600 self-center">
+                <div className="w-full h-[5px] rounded-full bg-neutral-600 self-center">
                   <div
-                    className="h-full bg-white rounded-full relative transition-all duration-150 group-hover:bg-indigo-600"
+                    className="h-full bg-white rounded-full relative transition-all duration-150 group-hover:bg-white"
                     style={{
                       width: `${(playerState.position / playerState.duration) * 100}%`,
                     }}

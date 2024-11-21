@@ -19,10 +19,12 @@ const usePathName = () => {
 export default function Sidebar({ className }: SidebarProps) {
   const pathName = usePathName();
   const sidebarClass =
-    'flex items-center gap-x-2 cursor-pointer text-neutral-400 hover:text-white [transition:all_0.3s_ease-in] py-3 px-2 rounded-lg';
+    'flex items-center gap-x-2 cursor-pointer text-neutral-400 hover:text-white [transition:all_0.3s_ease-in] py-3 px-2 rounded-lg border-l-2 border-l-transparent';
 
   const clickedClass =
-    'bg-neutral-800 font-bold text-white opacity-100 transition-opacity duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900';
+    'font-extrabold text-white opacity-100 transition-opacity duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900 border-l-2 border-l-indigo-700';
+
+  //   bg-gradient-to-br from-neutral-700 to-neutral-900
 
   return (
     <div
@@ -31,13 +33,13 @@ export default function Sidebar({ className }: SidebarProps) {
         className
       )}
     >
-      <div className=" homeAndLib px-6 pt-0 mt-16">
+      <div className=" homeAndLib px-2 mx-4 mt-16  py-4">
         {/* Home Button */}
         <Link
           href="/"
           className={twMerge(sidebarClass, pathName === '/' && clickedClass)}
         >
-          <FiHome size={16} />
+          <FiHome size={14} />
           <p className="text-base leading-none">Home</p>
         </Link>
 

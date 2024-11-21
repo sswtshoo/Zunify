@@ -82,7 +82,6 @@ serve({
       const code = url.searchParams.get('code');
 
       if (code) {
-        // Exchange authorization code for access and refresh tokens
         try {
           const responseToken = await fetch(
             'https://accounts.spotify.com/api/token',

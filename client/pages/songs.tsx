@@ -5,6 +5,7 @@ import { FaPlay } from 'react-icons/fa';
 import { PiShuffleBold } from 'react-icons/pi';
 import { useRouter } from 'next/router';
 import { TokenContext } from '@/context/TokenProvider';
+import Link from 'next/link';
 
 interface TrackItems {
   track: {
@@ -191,7 +192,6 @@ const Songs = () => {
           params: { state: true },
         });
 
-        // Store the original list (not shuffled) for queue management
         localStorage.setItem('currentQueue', JSON.stringify(songs));
         localStorage.setItem('currentTrack', JSON.stringify(songs[0]));
         localStorage.setItem('currentIndex', '0');
@@ -256,14 +256,14 @@ const Songs = () => {
         </div>
         <div className="play-shuffle gap-x-4 flex flex-row items-end mb-8 mx-4">
           <button
-            className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-2 hover:bg-indigo-700 transition-colors"
+            className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-4 hover:bg-indigo-700 transition-colors"
             onClick={handlePlayClick}
           >
             <FaPlay size={12} />
             <p className="text-white font-medium text-base">Play</p>
           </button>
           <button
-            className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-2 hover:bg-indigo-700 transition-colors"
+            className="w-24 h-10 rounded-lg flex flex-row justify-center items-center bg-indigo-600 gap-x-4 hover:bg-indigo-700 transition-colors"
             onClick={handleShuffleClick}
           >
             <PiShuffleBold size={16} />
@@ -287,9 +287,11 @@ const Songs = () => {
             <div
               key={song.track.id}
               className="track-container col-span-4 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
-              onClick={() => handleTrackClick(song, index)}
             >
-              <div className="title flex flex-row items-center justify-start gap-x-2 min-w-0">
+              <div
+                className="title flex flex-row items-center justify-start gap-x-2 min-w-0"
+                onClick={() => handleTrackClick(song, index)}
+              >
                 <div className="image-icon relative group flex-shrink-0">
                   <img
                     src={
@@ -315,9 +317,12 @@ const Songs = () => {
                   {song.track.artists.map((artist) => artist.name).join(', ')}
                 </p>
               </div>
-              <div className="album text-sm text-neutral-300 truncate min-w-0">
+              <Link
+                className="album text-sm text-neutral-300 truncate min-w-0 hover:underline"
+                href={`/albums/${song.track.album.id}`}
+              >
                 {song.track.album.name}
-              </div>
+              </Link>
               <div className="duration text-sm text-neutral-300 text-right w-20">
                 {msToMinutes(song.track.duration_ms)}
               </div>
