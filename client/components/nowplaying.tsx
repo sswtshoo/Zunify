@@ -566,7 +566,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
                   <div
                     className="h-full bg-white rounded-full relative transition-all duration-150 group-hover:bg-white"
                     style={{
-                      width: `${(playerState.position / playerState.duration) * 100}%`,
+                      width: `${((playerState.position + 1000) / playerState.duration) * 100}%`,
                     }}
                   >
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-150" />

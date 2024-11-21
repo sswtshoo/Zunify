@@ -328,7 +328,7 @@ const PlaylistContent = () => {
             </div>
           </div>
 
-          <div className="playlist-content min-w-0 w-full mx-4">
+          <div className="playlist-content min-w-0 w-full px-4">
             <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-x-4">
               <div className="subheading-container col-span-4 grid grid-cols-subgrid text-neutral-400 text-sm border-b border-neutral-600 pb-2 mx-4 mt-8 mb-4">
                 <div className="truncate">Song</div>
