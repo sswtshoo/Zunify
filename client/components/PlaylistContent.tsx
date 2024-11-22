@@ -4,7 +4,6 @@ import { useAuth } from '@/utils/useAuth';
 import { FaPlay } from 'react-icons/fa';
 import { PiShuffleBold } from 'react-icons/pi';
 import { useRouter } from 'next/router';
-import ContentNavBar from './ContentNavBar';
 import Link from 'next/link';
 import SpotifyDescription from '@/utils/Description';
 
@@ -44,20 +43,9 @@ interface PlaylistDetails {
   };
 }
 
-interface SpotifyTrack {
-  uri: string;
-  name: string;
-  artists: Array<{ name: string }>;
-  duration_ms: number;
-  album: {
-    name: string;
-    images: Array<{ url: string }>;
-  };
-}
-
 const msToMinutes = (ms: number) => {
-  var minutes = Math.floor(ms / 60000);
-  var seconds = ((ms % 60000) / 1000).toFixed(0);
+  const minutes = Math.floor(ms / 60000);
+  const seconds = ((ms % 60000) / 1000).toFixed(0);
   return minutes + ':' + (Number(seconds) < 10 ? '0' : '') + seconds;
 };
 
@@ -84,7 +72,6 @@ const PlaylistContent = () => {
         const isTokenValid = await checkAndRefreshToken();
         if (!isTokenValid) return;
 
-        // Fetch playlist details and tracks in parallel
         const [playlistResponse, tracksResponse] = await Promise.all([
           apiClient.get(`/playlists/${playlistId}`),
           apiClient.get(`/playlists/${playlistId}/tracks?limit=100`),
@@ -93,10 +80,9 @@ const PlaylistContent = () => {
         setPlaylistMeta(playlistResponse.data);
         setTracks(tracksResponse.data.items);
         setError(null);
-      } catch (err: any) {
+      } catch (err: unknown) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
-          // Retry the requests if token was refreshed
           try {
             const [playlistResponse, tracksResponse] = await Promise.all([
               apiClient.get(`/playlists/${playlistId}`),
@@ -108,10 +94,10 @@ const PlaylistContent = () => {
 
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch playlist data after token refresh');
+            setError(
+              `Failed to fetch playlist data after token refresh: ${retryErr}`
+            );
           }
-        } else if (err.response?.status === 429) {
-          setError('Too many requests. Please try again later.');
         } else {
           setError('Error fetching playlist data');
           console.error('Error fetching playlist data:', err);
@@ -143,7 +129,7 @@ const PlaylistContent = () => {
         await apiClient.put('/me/player/play', {
           context_uri: `spotify:playlist:${playlistId}`,
         });
-      } catch (err: any) {
+      } catch (err: unknown) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           try {
@@ -167,23 +153,19 @@ const PlaylistContent = () => {
   const handleShuffleClick = async () => {
     const isTokenValid = await checkAndRefreshToken();
     if (!isTokenValid) {
-      // If token refresh failed, redirect to auth
       window.location.href = 'http://localhost:5174';
       return;
     }
     if (tracks.length > 0) {
       try {
-        // Enable shuffle mode first
         await apiClient.put('/me/player/shuffle', null, {
           params: { state: true },
         });
 
-        // Then start playing the playlist
         await apiClient.put('/me/player/play', {
           context_uri: `spotify:playlist:${playlistId}`,
         });
 
-        // Store playlist info
         localStorage.setItem('currentQueue', JSON.stringify(tracks));
         localStorage.setItem('currentTrack', JSON.stringify(tracks[0]));
         localStorage.setItem('currentPlaylistId', playlistId as string);
@@ -196,10 +178,10 @@ const PlaylistContent = () => {
 
   const handleTrackClick = async (track: TrackItems, index: number) => {
     try {
-      // Check token validity before playing
       const isTokenValid = await checkAndRefreshToken();
       if (!isTokenValid) {
         window.location.href = 'http://localhost:5174';
+        console.log('Invalidtoken');
         return;
       }
 
@@ -212,7 +194,7 @@ const PlaylistContent = () => {
         context_uri: `spotify:playlist:${playlistId}`,
         offset: { position: index },
       });
-    } catch (err: any) {
+    } catch (err: unknown) {
       const refreshSuccessful = await handleApiError(err);
       if (refreshSuccessful) {
         try {
@@ -225,11 +207,10 @@ const PlaylistContent = () => {
             'Error starting playback after token refresh:',
             retryErr
           );
-          // If retry fails, redirect to auth
+
           window.location.href = 'http://localhost:5174';
         }
       } else {
-        // If refresh failed, redirect to auth
         window.location.href = 'http://localhost:5174';
       }
     }
@@ -285,8 +266,8 @@ const PlaylistContent = () => {
               <div className="flex flex-row justify-between flex-wrap pt-8">
                 <div className="flex items-end space-x-6 mb-8">
                   <img
-                    src={playlistMeta?.images[0]?.url}
-                    alt={playlistMeta?.name}
+                    src={playlistMeta?.images[0]?.url as string}
+                    alt={playlistMeta?.name as string}
                     className="w-60 h-60 shadow-2xl rounded-xl z-0 shadow-neutral-950"
                   />
                   <div className="flex flex-col space-y-2">
@@ -299,7 +280,7 @@ const PlaylistContent = () => {
                       </h1>
                       <p className="text-sm font-medium text-neutral-400">
                         <SpotifyDescription
-                          description={playlistMeta?.description}
+                          description={playlistMeta?.description as string}
                         />
                       </p>
                     </div>

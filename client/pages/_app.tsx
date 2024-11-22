@@ -3,15 +3,131 @@ import { useRouter } from 'next/router';
 import Sidebar from '../components/sidebar';
 import NowPlaying from '../components/nowplaying';
 import { TokenProvider } from '@/context/TokenProvider';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { TokenContext } from '@/context/TokenProvider';
-import { useAuth } from '@/utils/useAuth';
 import '../styles/globals.css';
+import Script from 'next/script';
+import { PlayerState, Track } from '@/types/Spotify';
+
+interface SpotifyReadyEvent {
+  device_id: string;
+}
+
+interface SpotifyEvent {
+  message: string;
+}
+
+interface SpotifyPlayerState {
+  paused: boolean;
+  track_window: {
+    current_track: Track & {
+      id: string;
+      album: {
+        name: string;
+        id: string;
+        images: Array<{
+          height: number;
+          url: string;
+          width: number;
+        }>;
+      };
+      artists: Array<{
+        name: string;
+        id: string;
+      }>;
+      name: string;
+      uri: string;
+    };
+  };
+  position: number;
+  duration: number;
+}
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const tokenContext = useContext(TokenContext);
-  const auth = useAuth();
+  const [playerState, setPlayerState] = useState<PlayerState>({
+    deviceId: null,
+    isPaused: true,
+    isActive: false,
+    currentTrack: {},
+    position: 0,
+    duration: 0,
+    volume: 0.6,
+  });
+  const [spotifyPlayer, setSpotifyPlayer] = useState(null);
+  const [deviceId, setDeviceId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('access_token');
+      if (token) {
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          const player = new window.Spotify.Player({
+            name: 'Zunify Web Player',
+            getOAuthToken: (cb: (token: string) => void) => cb(token),
+            volume: playerState.volume,
+          });
+
+          player.addListener('ready', ({ device_id }: SpotifyReadyEvent) => {
+            console.log('Ready with Device ID', device_id);
+            setDeviceId(device_id);
+
+            if (token) {
+              fetch('https://api.spotify.com/v1/me/player', {
+                method: 'PUT',
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  device_ids: [device_id],
+                  play: false,
+                }),
+              });
+            }
+          });
+
+          player.addListener(
+            'player_state_changed',
+            (state: SpotifyPlayerState) => {
+              if (!state) return;
+
+              setPlayerState((prev) => ({
+                ...prev,
+                isPaused: state.paused,
+                currentTrack: state.track_window.current_track,
+                position: state.position,
+                duration: state.duration,
+                isActive: true,
+              }));
+            }
+          );
+
+          player.addListener(
+            'initialization_error',
+            ({ message }: SpotifyEvent) => {
+              console.error('Failed to initialize', message);
+            }
+          );
+
+          player.addListener(
+            'authentication_error',
+            ({ message }: SpotifyEvent) => {
+              console.error('Failed to authenticate', message);
+            }
+          );
+
+          player.addListener('account_error', ({ message }: SpotifyEvent) => {
+            console.error('Failed to validate Spotify account', message);
+          });
+
+          player.connect();
+          setSpotifyPlayer(player);
+        };
+      }
+    }
+  }, [playerState.volume]);
 
   useEffect(() => {
     const handleToken = async () => {
@@ -48,7 +164,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         return;
       }
 
-      // Case 2: Check existing token
       const storedToken = localStorage.getItem('access_token');
       const storedExpiry = localStorage.getItem('token_expiry');
 
@@ -57,7 +172,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         !storedExpiry ||
         Date.now() >= parseInt(storedExpiry)
       ) {
-        // Only redirect to login if we don't have a valid token
         window.location.href = 'http://localhost:5174';
       }
     };
@@ -65,7 +179,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     handleToken();
   }, [router.isReady, router.query, tokenContext]);
 
-  // Scroll handling
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
@@ -84,8 +197,30 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(window.Spotify);
+  }, []);
+
   return (
     <TokenProvider>
+      <Script
+        src="https://sdk.scdn.co/spotify-player.js"
+        strategy="beforeInteractive"
+        onLoad={() => {
+          window.onSpotifyWebPlaybackSDKReady = () => {
+            const token = localStorage.getItem('access_token');
+            if (!token) return;
+
+            const player = new window.Spotify.Player({
+              name: 'Zunify Web Player',
+              getOAuthToken: (cb: (token: string) => void) => cb(token),
+              volume: playerState.volume,
+            });
+
+            player.connect();
+          };
+        }}
+      />
       <title>Zunify</title>
       <div className="h-screen w-screen flex flex-row bg-stone-950">
         <Sidebar className="flex-shrink-0 w-[275px]" />
@@ -94,7 +229,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </div>
         </div>
-        <NowPlaying className="h-24 mx-auto bottom-0 w-screen" />
+        <NowPlaying
+          className="h-24 mx-auto bottom-0 w-screen"
+          deviceId={deviceId}
+          player={spotifyPlayer}
+          playerState={playerState}
+          setPlayerState={setPlayerState}
+        />
       </div>
     </TokenProvider>
   );

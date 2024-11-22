@@ -10,7 +10,6 @@ interface AnimatedAlbumArtProps {
 
 const AnimatedAlbumArt = ({
   imageUrl,
-  isPlaying,
   onClick,
   className = '',
 }: AnimatedAlbumArtProps) => {

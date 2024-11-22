@@ -60,7 +60,7 @@ const AllPlaylists = () => {
         setPlaylists(response.data.items);
         setIsLoading(false);
         setError(null);
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           try {
@@ -69,10 +69,10 @@ const AllPlaylists = () => {
             setIsLoading(false);
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch playlists after token refresh');
+            setError(
+              `Failed to fetch playlists after token refresh: ${retryErr}`
+            );
           }
-        } else if (err.response?.status === 429) {
-          setError('Too many requests. Please try again later.');
         } else {
           setError('Error fetching playlists');
           console.error('Error fetching playlists:', err);

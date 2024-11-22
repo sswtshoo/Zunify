@@ -35,14 +35,14 @@ interface AlbumDetails {
   total_tracks: number;
 }
 
-interface Artist {
-  name: string;
-  id: string;
-}
+// interface Artist {
+//   name: string;
+//   id: string;
+// }
 
 const formatTime = (ms: number) => {
-  var minutes = Math.floor(ms / 60000);
-  var seconds = ((ms % 60000) / 1000).toFixed(0);
+  const minutes = Math.floor(ms / 60000);
+  const seconds = ((ms % 60000) / 1000).toFixed(0);
   return minutes + ':' + (Number(seconds) < 10 ? '0' : '') + seconds;
 };
 
@@ -62,7 +62,6 @@ const formatDuration = (duration: number) => {
 const AlbumContent = () => {
   const [albumTracks, setAlbumTracks] = useState<Track[]>([]);
   const [albumDetails, setAlbumDetails] = useState<AlbumDetails>();
-  const [isPlaying, setIsPlaying] = useState(false);
   const apiClient = useApiClient();
   const router = useRouter();
 
@@ -74,7 +73,7 @@ const AlbumContent = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  let reducerValue = 0;
+  const reducerValue = 0;
   let totalDuration = 0;
 
   useEffect(() => {
@@ -105,7 +104,7 @@ const AlbumContent = () => {
 
         setAlbumTracks(tracksWithLikeStatus);
         setIsLoading(false);
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           try {
@@ -125,10 +124,10 @@ const AlbumContent = () => {
 
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch playlist data after token refresh');
+            setError(
+              `Failed to fetch playlist data after token refresh: ${retryErr}`
+            );
           }
-        } else if (err.response?.status === 429) {
-          setError('Too many requests. Please try again later.');
         } else {
           setError('Error fetching playlist data');
           console.error('Error fetching playlist data:', err);
@@ -148,7 +147,6 @@ const AlbumContent = () => {
         context_uri: `spotify:album:${albumId}`,
         position_ms: 0,
       });
-      setIsPlaying(true);
     } catch (error) {
       console.error('Error playing album:', error);
     }
@@ -163,7 +161,6 @@ const AlbumContent = () => {
       await apiClient.put('me/player/play', {
         context_uri: `spotify:album:${albumId}`,
       });
-      setIsPlaying(true);
 
       localStorage.setItem('currentQueue', JSON.stringify(albumTracks));
       localStorage.setItem('currentTrack', JSON.stringify(albumTracks[0]));
@@ -184,7 +181,6 @@ const AlbumContent = () => {
         context_uri: `spotify:album:${albumId}`,
         offset: { position: index },
       });
-      setIsPlaying(true);
     } catch (error) {
       console.error('Error playing track:', error);
     }

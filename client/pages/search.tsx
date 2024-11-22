@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component<
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -69,46 +69,18 @@ interface TrackItems {
   duration_ms: number;
 }
 
-interface ArtistProfile {
-  id: string;
-  images: {
-    height: number;
-    url: string;
-    width: number;
-  }[];
-  name: string;
-  type: string;
-}
-
-interface TopTrack {
-  id: string;
-  name: string;
-  album: {
-    images: {
-      url: string;
-      width: number;
-      height: number;
-    }[];
-    name: string;
-  };
-  artists: {
-    name: string;
-  }[];
-}
-
 type SearchOptions = ArtistItems | TrackItems;
 
 const msToMinutes = (ms: number) => {
-  var minutes = Math.floor(ms / 60000);
-  var seconds = ((ms % 60000) / 1000).toFixed(0);
+  const minutes = Math.floor(ms / 60000);
+  const seconds = ((ms % 60000) / 1000).toFixed(0);
   return minutes + ':' + (Number(seconds) < 10 ? '0' : '') + seconds;
 };
 
 const Search: React.FC = () => {
   const [options, setOptions] = useState<SearchOptions[]>([]);
   const [value, setValue] = useState<string>('');
-  const [artists, setArtists] = useState<ArtistProfile | null>();
-  const [topfive, setTopfive] = useState<TopTrack[]>([]);
+
   const timeoutRef = useRef<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const apiClient = useApiClient();
@@ -178,13 +150,12 @@ const Search: React.FC = () => {
       const trackOptions: TrackItems[] = trackResponse.data.tracks.items;
       console.log('Track response data: ', trackResponse.data);
 
-      const artistOptions: ArtistItems[] = artistResponse.data.artists.items;
       console.log('Artist options: ', artistResponse);
 
       setOptions(trackOptions);
 
       console.log(options);
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error fetching options: ', err);
       setError('Failed to fetch search results. Please try again.');
     }
@@ -201,7 +172,6 @@ const Search: React.FC = () => {
       }, 1000);
     } else {
       setOptions([]);
-      setTopfive([]);
     }
 
     return () => {
@@ -210,47 +180,6 @@ const Search: React.FC = () => {
       }
     };
   }, [value]);
-
-  const calculateRelevance = (item: SearchOptions, query: string): number => {
-    const queryWords = query.toLowerCase().split(' ');
-    const itemName = item.name.toLowerCase();
-    let score = 0;
-
-    // Exact match gets highest score
-    if (itemName === query.toLowerCase()) {
-      score += 100;
-    }
-
-    // Check if name starts with query
-    if (itemName.startsWith(query.toLowerCase())) {
-      score += 50;
-    }
-
-    // Check if all query words are present in the name
-    const allWordsPresent = queryWords.every((word) => itemName.includes(word));
-    if (allWordsPresent) {
-      score += 30;
-    }
-
-    // Add score based on word position
-    queryWords.forEach((word) => {
-      if (itemName.includes(word)) {
-        score += 10;
-      }
-    });
-
-    // Boost artist scores for artist-like queries (single or double words)
-    if (item.type === 'artist' && queryWords.length <= 2) {
-      score += 20;
-    }
-
-    // Boost track scores for longer queries
-    if (item.type === 'track' && queryWords.length > 2) {
-      score += 20;
-    }
-
-    return score;
-  };
 
   const handleTrackPlay = async (
     track: TrackItems,
@@ -274,12 +203,11 @@ const Search: React.FC = () => {
       localStorage.setItem('currentIndex', trackIndex.toString());
       localStorage.setItem('currentPlaylistId', 'search');
 
-      // Start playback
       await apiClient.put('/me/player/play', {
         uris: tracks.map((t) => t.uri),
         offset: { uri: track.uri },
       });
-    } catch (err: any) {
+    } catch (err) {
       const refreshSuccessful = await handleApiError(err);
       if (refreshSuccessful) {
         try {
@@ -378,6 +306,10 @@ const Search: React.FC = () => {
       </div>
     );
   };
+
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <ErrorBoundary>

@@ -29,8 +29,8 @@ interface TrackItems {
 }
 
 const msToMinutes = (ms: number) => {
-  var minutes = Math.floor(ms / 60000);
-  var seconds = ((ms % 60000) / 1000).toFixed(0);
+  const minutes = Math.floor(ms / 60000);
+  const seconds = ((ms % 60000) / 1000).toFixed(0);
   return minutes + ':' + (Number(seconds) < 10 ? '0' : '') + seconds;
 };
 
@@ -76,19 +76,16 @@ const Songs = () => {
         const response = await apiClient.get('/me/tracks?limit=50');
         setSongs(response.data.items);
         setError(null);
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
-          // Retry the request if token was refreshed
           try {
             const response = await apiClient.get('/me/tracks?limit=50');
             setSongs(response.data.items);
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch songs after token refresh');
+            setError(`Failed to fetch songs after token refresh: ${retryErr}`);
           }
-        } else if (err.response?.status === 429) {
-          setError('Too many requests. Please try again later.');
         } else {
           setError('Error fetching songs');
           console.error('Error fetching songs:', err);
@@ -113,13 +110,13 @@ const Songs = () => {
       localStorage.setItem('currentTrack', JSON.stringify(track));
       localStorage.setItem('currentIndex', index.toString());
 
-      localStorage.setItem('currentPlaylistId', 'liked'); // liked songs don't have a playlist id
+      localStorage.setItem('currentPlaylistId', 'liked');
 
       await apiClient.put('/me/player/play', {
         uris: songs.map((song) => song.track.uri),
         offset: { position: index },
       });
-    } catch (err: any) {
+    } catch (err) {
       const refreshSuccessful = await handleApiError(err);
       if (refreshSuccessful) {
         try {
@@ -157,7 +154,7 @@ const Songs = () => {
         await apiClient.put('/me/player/play', {
           uris: songs.map((song) => song.track.uri),
         });
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           try {
@@ -197,11 +194,10 @@ const Songs = () => {
         localStorage.setItem('currentIndex', '0');
         localStorage.setItem('currentPlaylistId', 'liked');
 
-        // Start playback
         await apiClient.put('/me/player/play', {
           uris: songs.map((song) => song.track.uri),
         });
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           try {

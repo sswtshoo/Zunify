@@ -69,21 +69,26 @@ const Albums = () => {
         if (!isTokenValid) return;
 
         const response = await apiClient.get('/me/albums');
-        setAlbums(response.data.items.map((item: any) => item.album));
+        setAlbums(
+          response.data.items.map((item: { album: AlbumItems }) => item.album)
+        );
         setError(null);
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
-          // Retry the request if token was refreshed
           try {
             const response = await apiClient.get('/me/albums');
-            setAlbums(response.data.items.map((item: any) => item.album));
+            setAlbums(
+              response.data.items.map(
+                (item: { album: AlbumItems }) => item.album
+              )
+            );
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch albums after token refresh');
+            setError(
+              `Failed to fetch albums after token refresh:  ${retryErr}`
+            );
           }
-        } else if (err.response?.status === 429) {
-          setError('Too many requests. Please try again later.');
         } else {
           setError('Error fetching albums');
           console.error('Error fetching albums:', err);

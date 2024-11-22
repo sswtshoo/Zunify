@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useApiClient } from '@/utils/ApiClient';
 import { useAuth } from '@/utils/useAuth';
-import { FaPlay } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { GoStarFill, GoStar } from 'react-icons/go';
@@ -51,14 +50,14 @@ interface Artists {
 }
 
 const formatTime = (ms: number) => {
-  var minutes = Math.floor(ms / 60000);
-  var seconds = ((ms % 60000) / 1000).toFixed(0);
+  const minutes = Math.floor(ms / 60000);
+  const seconds = ((ms % 60000) / 1000).toFixed(0);
   return minutes + ':' + (Number(seconds) < 10 ? '0' : '') + seconds;
 };
 
 const ArtistContent = () => {
   const [topTracks, setTopTracks] = useState<Track[]>([]);
-  let [relatedArtists, setRelatedArtists] = useState<Artists[]>([]);
+  const [relatedArtists, setRelatedArtists] = useState<Artists[]>([]);
   const [artist, setArtist] = useState<Artists>();
   const [albums, setAlbums] = useState<Album[]>([]);
   const router = useRouter();
@@ -99,12 +98,14 @@ const ArtistContent = () => {
         setArtist(artistResponse.data);
         setTopTracks(tracksResponse.data.tracks);
         setRelatedArtists(artistsResponse.data.artists);
+        setRelatedArtists((prev) => prev.slice(0, 20));
+
         setAlbums(albumsResponse.data.items);
         console.log('Is following: ', followingResponse);
         setIsFollowing(followingResponse.data[0]);
 
         setError(null);
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
 
         if (refreshSuccessful) {
@@ -121,10 +122,10 @@ const ArtistContent = () => {
             console.log('Albums response: ', albumsResponse);
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch artists page after token refresh');
+            setError(
+              `Failed to fetch artists page after token refresh: ${retryErr}`
+            );
           }
-        } else if (err.response?.status === 429) {
-          setError('Error fetching playlist data');
         } else {
           setError('Error fetching playlist data');
           console.error('Error fetching playlist data:', err);
@@ -142,7 +143,6 @@ const ArtistContent = () => {
   const albumType = albums.filter((item) => item.album_type === 'album');
   const singleType = albums.filter((item) => item.album_type === 'single');
   const sortedTracks = topTracks.sort((a, b) => b.popularity - a.popularity);
-  relatedArtists = relatedArtists.slice(0, 20);
 
   const trackUris = sortedTracks.map((track) => track.uri);
 
@@ -163,7 +163,7 @@ const ArtistContent = () => {
           uris: trackUris,
           offset: { position: index },
         });
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           try {
@@ -223,6 +223,10 @@ const ArtistContent = () => {
         </div>
       </div>
     );
+  }
+
+  if (error) {
+    console.log(error);
   }
 
   return (
@@ -319,6 +323,7 @@ const ArtistContent = () => {
                   {albumType.map((album) => (
                     <Link
                       href={`/albums/${album.id}`}
+                      key={album.id}
                       className="flex flex-col cursor-default hover:opacity-65 transition-opacity duration-300 group"
                     >
                       <img
@@ -349,6 +354,7 @@ const ArtistContent = () => {
                   {singleType.map((album) => (
                     <Link
                       href={`/albums/${album.id}`}
+                      key={album.id}
                       className="flex flex-col cursor-default hover:opacity-65 transition-opacity duration-300"
                     >
                       <img
@@ -379,6 +385,7 @@ const ArtistContent = () => {
                   {relatedArtists.map((artist) => (
                     <Link
                       href={`/artists/${artist.id}`}
+                      key={artist.id}
                       className="flex flex-col cursor-default hover:opacity-65 transition-opacity duration-300"
                     >
                       <img

@@ -3,8 +3,29 @@ import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 
+interface Track {
+  album?: {
+    name: string;
+    id: string;
+    images: {
+      height: number;
+      url: string;
+      width: number;
+    }[];
+  };
+  name?: string;
+  id?: string;
+  uri?: string;
+  isLiked?: boolean;
+  artists?: {
+    name: string;
+    id: string;
+  }[];
+  duration_ms?: number;
+}
+
 interface FullscreenPlayerProps {
-  currentTrack: any;
+  currentTrack: Track;
   isPlaying: boolean;
   onClose: () => void;
   onTogglePlay: () => void;
@@ -18,13 +39,24 @@ interface FullscreenPlayerProps {
   onToggleMute: () => void;
 }
 
+interface Images {
+  height: number;
+  url: string;
+  width: number;
+}
+
+interface Artist {
+  name: string;
+  id: string;
+}
+
 const formatTime = (ms: number) => {
   const minutes = Math.floor(ms / 60000);
   const seconds = Math.floor((ms % 60000) / 1000);
   return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 };
 
-const getHighestQualityImage = (images: any[]) => {
+const getHighestQualityImage = (images: Images[]) => {
   if (!images || images.length === 0) return '';
   const sortedImages = [...images].sort(
     (a, b) => b.width * b.height - a.width * a.height
@@ -42,7 +74,6 @@ const FullscreenPlayer = ({
   position,
   duration,
   onSeek,
-  volume,
 }: FullscreenPlayerProps) => {
   const [isNameOverflowing, setIsNameOverflowing] = useState(false);
   const [isArtistsOverflowing, setIsArtistsOverflowing] = useState(false);
@@ -84,7 +115,9 @@ const FullscreenPlayer = ({
 
   if (!currentTrack) return null;
 
-  const artistNames = currentTrack?.artists?.map((a: any) => a.name).join(', ');
+  const artistNames = currentTrack?.artists
+    ?.map((a: Artist) => a.name)
+    .join(', ');
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 to-black flex items-center justify-center z-50">

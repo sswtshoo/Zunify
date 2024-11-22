@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
 const PlaylistContent = dynamic(() => import('@/components/PlaylistContent'), {
@@ -7,9 +6,6 @@ const PlaylistContent = dynamic(() => import('@/components/PlaylistContent'), {
 });
 
 const PlaylistPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
-
   return <PlaylistContent />;
 };
 

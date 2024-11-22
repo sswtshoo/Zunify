@@ -5,16 +5,19 @@ import { IoMdVolumeHigh, IoMdVolumeOff, IoMdVolumeLow } from 'react-icons/io';
 import { IoVolumeMedium } from 'react-icons/io5';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import { twMerge } from 'tailwind-merge';
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import FullscreenPlayer from './FullScreenPlayer';
 import { useApiClient } from '@/utils/ApiClient';
-import { useAuth } from '@/utils/useAuth';
 import LibraryCheck from '@/utils/LibraryCheck';
 import AnimatedAlbumArt from './AnimatedArt';
-import Link from 'next/link';
+import { PlayerState, Track } from '@/types/Spotify';
 
 interface NowPlayingProps {
   className?: string;
+  deviceId: string | null;
+  player: SpotifyPlayer | null;
+  playerState: PlayerState;
+  setPlayerState: React.Dispatch<React.SetStateAction<PlayerState>>;
 }
 
 interface TrackItems {
@@ -40,35 +43,52 @@ interface TrackItems {
   };
 }
 
-interface Track {
-  album?: {
-    name: string;
-    id: string;
-    images: {
-      height: number;
-      url: string;
-      width: number;
-    }[];
+interface SpotifyPlayerState {
+  paused: boolean;
+  track_window: {
+    current_track: Track & {
+      id: string;
+    };
   };
-  name?: string;
-  id?: string;
-  uri?: string;
-  isLiked?: boolean;
-  artists?: {
-    name: string;
-    id: string;
-  }[];
-  duration_ms?: number;
-}
-
-interface PlayerState {
-  deviceId: string | null;
-  isPaused: boolean;
-  isActive: boolean;
-  currentTrack: Track;
   position: number;
   duration: number;
+}
+
+interface SpotifyError {
+  message: string;
+}
+
+interface SpotifyReady {
+  device_id: string;
+}
+
+type SpotifyPlayerEvents = {
+  initialization_error: SpotifyError;
+  authentication_error: SpotifyError;
+  account_error: SpotifyError;
+  playback_error: SpotifyError;
+  player_state_changed: SpotifyPlayerState;
+  ready: SpotifyReady;
+};
+
+interface SpotifyPlayer {
+  togglePlay: () => Promise<void>;
   volume: number;
+  setVolume: (volume: number) => Promise<void>;
+  seek: (position: number) => Promise<void>;
+  connect: () => void;
+  disconnect: () => void;
+  addListener: <T extends keyof SpotifyPlayerEvents>(
+    eventName: T,
+    callback: (state: SpotifyPlayerEvents[T]) => void
+  ) => void;
+}
+
+interface Artist {
+  name: string;
+  id: string;
+  uri: string;
+  url: string;
 }
 
 declare global {
@@ -91,150 +111,29 @@ const setLocalStorage = (key: string, value: string): void => {
   }
 };
 
-export default function NowPlaying({ className }: NowPlayingProps) {
+export default function NowPlaying({
+  className,
+  deviceId,
+  player,
+  playerState,
+  setPlayerState,
+}: NowPlayingProps) {
   const [tracks, setTracks] = useState<TrackItems[]>([]);
-  const [player, setPlayer] = useState<any>(null);
-  const [playerState, setPlayerState] = useState<PlayerState>({
-    deviceId: null,
-    isPaused: getLocalStorage('isPaused') === 'true',
-    isActive: false,
-    currentTrack: {},
-    position: 0,
-    duration: 0,
-    volume: 0.6,
-  });
+
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isCheckingLikeStatus, setIsCheckingLikeStatus] = useState(false);
-
-  const [isVolumeHovered, setIsVolumeHovered] = useState(false);
-  const volumeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const { likedSongCheck, addLikeSong, removeLikeSong } = LibraryCheck();
 
   const apiClient = useApiClient();
-  const { token } = useAuth();
+
   const progressRef = useRef<HTMLDivElement>(null);
-  const progressInterval = useRef<NodeJS.Timeout | null>();
-
-  useEffect(() => {
-    if (!playerState.isPaused && playerState.duration > 0) {
-      progressInterval.current = setInterval(() => {
-        setPlayerState((prev) => ({
-          ...prev,
-          position: Math.min(prev.position + 5, prev.duration),
-        }));
-      }, 5);
-    } else {
-      if (progressInterval.current) {
-        clearInterval(progressInterval.current);
-      }
-    }
-
-    return () => {
-      if (progressInterval.current) {
-        clearInterval(progressInterval.current);
-      }
-    };
-  }, [playerState.isPaused, playerState.duration]);
-
-  const initializePlayer = useCallback(async () => {
-    if (!token || !window.Spotify) return;
-
-    const spotifyPlayer = new window.Spotify.Player({
-      name: 'Zunify Web Player',
-      getOAuthToken: (cb: (token: string) => void) => cb(token),
-      volume: playerState.volume,
-    });
-
-    spotifyPlayer.addListener(
-      'initialization_error',
-      ({ message }: { message: string }) => {
-        console.error('Failed to initialize', message);
-      }
-    );
-
-    spotifyPlayer.addListener(
-      'authentication_error',
-      ({ message }: { message: string }) => {
-        console.error('Failed to authenticate', message);
-      }
-    );
-
-    spotifyPlayer.addListener(
-      'account_error',
-      ({ message }: { message: string }) => {
-        console.error('Failed to validate Spotify account', message);
-      }
-    );
-
-    spotifyPlayer.addListener(
-      'playback_error',
-      ({ message }: { message: string }) => {
-        console.error('Failed to perform playback', message);
-      }
-    );
-
-    spotifyPlayer.addListener('player_state_changed', async (state: any) => {
-      if (!state) return;
-
-      const newPausedState = state.paused;
-      setLocalStorage('isPaused', newPausedState.toString());
-
-      const currentTrackId = state.track_window.current_track.id;
-      let isLiked = false;
-
-      if (currentTrackId) {
-        try {
-          isLiked = await likedSongCheck(currentTrackId);
-        } catch (error) {
-          console.error('Error checking like status:', error);
-        }
-      }
-
-      setPlayerState((prev) => ({
-        ...prev,
-        isPaused: state.paused,
-        currentTrack: {
-          ...state.track_window.current_track,
-          isLiked,
-        },
-        position: state.position,
-        duration: state.duration,
-      }));
-    });
-
-    spotifyPlayer.addListener(
-      'ready',
-      ({ device_id }: { device_id: string }) => {
-        console.log('Ready with Device ID', device_id);
-        setPlayerState((prev) => ({ ...prev, deviceId: device_id }));
-
-        apiClient.put('me/player', {
-          device_ids: [device_id],
-          play: false,
-        });
-      }
-    );
-
-    spotifyPlayer.connect();
-    setPlayer(spotifyPlayer);
-
-    return () => {
-      spotifyPlayer.disconnect();
-    };
-  }, [token]);
 
   const togglePlay = async () => {
     if (!player) return;
     await player.togglePlay();
-    const newIsPaused = !playerState.isPaused;
-    setPlayerState((prev) => ({ ...prev, isPaused: newIsPaused }));
-    setLocalStorage('isPaused', newIsPaused.toString());
+    setPlayerState((prev) => ({ ...prev, isPaused: !prev.isPaused }));
   };
-
-  useEffect(() => {
-    initializePlayer();
-  }, [initializePlayer]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -441,6 +340,7 @@ export default function NowPlaying({ className }: NowPlayingProps) {
       setIsCheckingLikeStatus(false);
     }
   };
+
   return (
     <>
       <div
@@ -477,35 +377,20 @@ export default function NowPlaying({ className }: NowPlayingProps) {
             </p>
 
             <div className="text-xs text-neutral truncate">
-              {playerState.currentTrack?.artists?.map(
-                (a: any, index: number) => {
-                  const artistId = a.uri
-                    ? a.uri.split(':')[2]
-                    : a.url
-                      ? a.url.split('/').pop()
-                      : null;
-
-                  return (
-                    <React.Fragment key={artistId}>
-                      <Link
-                        href={artistId ? `/artists/${artistId}` : '#'}
-                        className="hover:underline"
-                        onClick={(e) => {
-                          if (!artistId) {
-                            e.preventDefault();
-                            console.error('No artist ID available');
-                          }
-                        }}
-                      >
-                        {a.name}
-                      </Link>
-                      {index <
-                        (playerState.currentTrack?.artists?.length || 0) - 1 &&
-                        ', '}
-                    </React.Fragment>
-                  );
-                }
-              )}
+              {playerState.currentTrack?.artists?.map((a, index) => {
+                const artist: Artist = { ...a, uri: '', url: '' };
+                const artistId = artist.uri
+                  ? artist.uri.split(':')[2]
+                  : artist.url;
+                return (
+                  <span key={artist.id}>
+                    {index > 0 && ', '}
+                    <a href={`/artist/${artistId}`} className="hover:underline">
+                      {artist.name}
+                    </a>
+                  </span>
+                );
+              })}
             </div>
           </div>
           <button

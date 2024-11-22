@@ -1,9 +1,8 @@
-import { useEffect, useState, useContext, useRef } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { useApiClient } from '../utils/ApiClient';
 import { TokenContext } from '../context/TokenProvider';
 import { useAuth } from '../utils/useAuth';
-import { FaPlay } from 'react-icons/fa';
 import Link from 'next/link';
 
 interface Playlist {
@@ -30,7 +29,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [image, setImage] = useState<string | undefined>(undefined);
   const [featuredPlaylists, setFeaturedPlaylists] = useState<Playlist[]>([]);
-  const [recentlyPlayedAlbums, setRecentlyPlayedAlbums] = useState([]);
 
   const [message, setMessage] = useState<string>('');
   const apiClient = useApiClient();
@@ -91,10 +89,8 @@ const Home = () => {
     }
   };
 
-  const handleRedirect = (redirect_path: string | string[] | undefined) => {
-    const redirectTo = Array.isArray(redirect_path)
-      ? redirect_path[0]
-      : redirect_path;
+  const handleRedirect = (path: string | string[] | undefined) => {
+    const redirectTo = Array.isArray(path) ? path[0] : path;
     const targetPath = redirectTo || router.pathname;
 
     const {
@@ -174,6 +170,7 @@ const Home = () => {
       const response2 = await apiClient.get;
 
       console.log(response.data.items);
+      console.log(response2);
 
       setMessage(response.data.message);
     } catch (error) {
@@ -194,7 +191,7 @@ const Home = () => {
   };
 
   const handleFetchError = async (
-    error: any,
+    error: unknown,
     retryFunction: () => Promise<void>
   ) => {
     const refreshSuccessful = await auth.handleApiError(error);

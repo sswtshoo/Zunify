@@ -1,6 +1,10 @@
 import React from 'react';
 
-const SpotifyDescription = ({ description }) => {
+interface SpotifyDescriptionProps {
+  description?: string;
+}
+
+const SpotifyDescription = ({ description }: SpotifyDescriptionProps) => {
   if (!description) return null;
 
   const parseDescription = (text: string) => {

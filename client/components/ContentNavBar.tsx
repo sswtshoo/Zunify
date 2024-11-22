@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  ChevronLeft,
-  ChevronRight,
-  UserCircle,
-  ChevronRight as ChevronRightMini,
-} from 'lucide-react';
+import { ChevronRight as ChevronRightMini } from 'lucide-react';
 import Link from 'next/link';
 
 interface ContentNavBarProps {
@@ -13,18 +8,6 @@ interface ContentNavBarProps {
 }
 
 const ContentNavBar = ({ type, name }: ContentNavBarProps) => {
-  const handleBack = () => {
-    if (typeof window !== 'undefined') {
-      window.history.back();
-    }
-  };
-
-  const handleForward = () => {
-    if (typeof window !== 'undefined') {
-      window.history.forward();
-    }
-  };
-
   const getTypeLabel = (type: string) => {
     switch (type) {
       case 'playlist':

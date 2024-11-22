@@ -36,7 +36,7 @@ const Artists = () => {
         setArtists(response.data.artists.items);
 
         setError(null);
-      } catch (err: any) {
+      } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
           // Retry the request if token was refreshed
@@ -47,10 +47,10 @@ const Artists = () => {
             setArtists(response.data.artists.items);
             setError(null);
           } catch (retryErr) {
-            setError('Failed to fetch artists after token refresh');
+            setError(
+              `Failed to fetch artists after token refresh: ${retryErr}`
+            );
           }
-        } else if (err.response?.status === 429) {
-          setError('Too many requests. Please try again later.');
         } else {
           setError('Error fetching artists');
           console.error('Error fetching artists:', err);
