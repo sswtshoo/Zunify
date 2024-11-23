@@ -7,8 +7,8 @@ config();
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 
-const redirect_uri = 'http://localhost:5174';
-const app_uri = 'http://localhost:3000';
+const redirect_uri = process.env.REDIRECT_URI;
+const app_uri = process.env.APP_URI;
 
 let refreshToken: string | null = null;
 let accessToken: string | null = null;
@@ -53,7 +53,7 @@ async function refreshAccessToken() {
     const tokenData = await response.json();
     accessToken = tokenData.access_token;
     tokenExpiryTime = Date.now() + tokenData.expires_in * 1000;
-    // console.log('New access token:', accessToken);
+
     return { accessToken, expiresIn: tokenData.expires_in };
   } catch (error) {
     console.error(`Error refreshing token: ${error}`);
@@ -65,7 +65,7 @@ serve({
   port: 5174,
   async fetch(req) {
     const url = new URL(req.url);
-    console.log('Incoming request to:', url.pathname); // Debug log
+    console.log('Incoming request to:', url.pathname);
 
     const headers = new Headers({
       'Access-Control-Allow-Origin': 'http://localhost:3000',
@@ -74,12 +74,10 @@ serve({
       'Access-Control-Allow-Credentials': 'true',
     });
 
-    // Handle CORS preflight requests
     if (req.method === 'OPTIONS') {
       return new Response(null, { headers });
     }
 
-    // Handle refresh token endpoint
     if (url.pathname === '/refresh-token') {
       if (req.method === 'POST') {
         if (!refreshToken) {
@@ -117,7 +115,6 @@ serve({
       }
     }
 
-    // Handle main authorization flow
     if (url.pathname === '/') {
       const code = url.searchParams.get('code');
       const returnTo = url.searchParams.get('returnTo') || '/';
@@ -134,7 +131,7 @@ serve({
               },
               body: new URLSearchParams({
                 code: code,
-                redirect_uri: redirect_uri,
+                redirect_uri: redirect_uri as string,
                 grant_type: 'authorization_code',
               }),
             }
@@ -153,15 +150,13 @@ serve({
           refreshToken = tokenData.refresh_token;
           tokenExpiryTime = Date.now() + tokenData.expires_in * 1000;
 
-          // Build redirect URL
-          const redirectUrl = new URL(app_uri);
+          const redirectUrl = new URL(app_uri as string);
           redirectUrl.searchParams.set('access_token', tokenData.access_token);
           redirectUrl.searchParams.set(
             'expires_in',
             tokenData.expires_in.toString()
           );
 
-          // Add the return path if it exists
           if (returnTo && returnTo !== '/') {
             redirectUrl.pathname = decodeURIComponent(returnTo);
           }
@@ -175,7 +170,6 @@ serve({
           });
         }
       } else {
-        // Initial authorization
         const scopes = [
           'user-read-playback-state',
           'user-modify-playback-state',
@@ -197,11 +191,10 @@ serve({
           response_type: 'code',
           client_id: client_id as string,
           scope: scope,
-          redirect_uri: redirect_uri,
+          redirect_uri: redirect_uri as string,
           state: state,
         });
 
-        // Add returnTo to the state if it exists
         if (returnTo) {
           auth_query_parameters.set('returnTo', returnTo);
         }
@@ -212,11 +205,8 @@ serve({
       }
     }
 
-    // Handle all other routes
     return new Response('Not found', { status: 404, headers });
   },
 });
-
-console.log('Server running on host:5174');
 
 console.log('Server running on host:5174');
