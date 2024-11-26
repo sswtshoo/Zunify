@@ -13,10 +13,11 @@ interface AuthHook {
 export const useAuth = (): AuthHook => {
   const tokenContext = useContext(TokenContext);
   const router = useRouter();
+  const server_uri = process.env.SERVER_URI;
 
   const refreshAccessToken = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:5174/refresh-token', {
+      const response = await fetch(`${server_uri as string}/refresh-token`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -46,6 +47,7 @@ export const useAuth = (): AuthHook => {
 
     if (!accessToken || !tokenExpiry) {
       const currentPath = router.asPath;
+      console.log('Current path before redirect:', currentPath);
       localStorage.setItem('returnTo', currentPath);
       window.location.href = `http://localhost:5174?returnTo=${encodeURIComponent(currentPath)}`;
       return false;

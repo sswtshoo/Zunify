@@ -16,6 +16,7 @@ export interface Track {
   artists?: {
     name: string;
     id: string;
+    uri?: string;
   }[];
   duration_ms?: number;
 }

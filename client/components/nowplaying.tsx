@@ -11,6 +11,7 @@ import { useApiClient } from '@/utils/ApiClient';
 import LibraryCheck from '@/utils/LibraryCheck';
 import AnimatedAlbumArt from './AnimatedArt';
 import { PlayerState, Track } from '@/types/Spotify';
+import Link from 'next/link';
 
 interface NowPlayingProps {
   className?: string;
@@ -38,6 +39,7 @@ interface TrackItems {
     artists: {
       name: string;
       id: string;
+      uri: string;
     }[];
     duration_ms: number;
   };
@@ -48,6 +50,22 @@ interface SpotifyPlayerState {
   track_window: {
     current_track: Track & {
       id: string;
+      album: {
+        name: string;
+        id: string;
+        images: Array<{
+          height: number;
+          url: string;
+          width: number;
+        }>;
+      };
+      artists: Array<{
+        name: string;
+        id: string;
+        uri: string;
+      }>;
+      name: string;
+      uri: string;
     };
   };
   position: number;
@@ -84,13 +102,6 @@ interface SpotifyPlayer {
   ) => void;
 }
 
-interface Artist {
-  name: string;
-  id: string;
-  uri: string;
-  url: string;
-}
-
 declare global {
   interface Window {
     Spotify: any;
@@ -124,10 +135,39 @@ export default function NowPlaying({
   const [isCheckingLikeStatus, setIsCheckingLikeStatus] = useState(false);
 
   const { likedSongCheck, addLikeSong, removeLikeSong } = LibraryCheck();
+  const [apiClientReady, setApiClientReady] = useState(false);
 
   const apiClient = useApiClient();
 
   const progressRef = useRef<HTMLDivElement>(null);
+  const progressInterval = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setApiClientReady(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!playerState.isPaused && playerState.duration > 0) {
+      progressInterval.current = setInterval(() => {
+        setPlayerState((prev) => ({
+          ...prev,
+          position: Math.min(prev.position + 50, prev.duration),
+        }));
+      }, 50);
+    } else {
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current);
+      }
+    }
+
+    return () => {
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current);
+      }
+    };
+  }, [playerState.isPaused, playerState.duration, setPlayerState]);
 
   const togglePlay = async () => {
     if (!player) return;
@@ -142,7 +182,7 @@ export default function NowPlaying({
         document.activeElement?.tagName.toLowerCase() === 'textarea';
 
       if (event.code === 'Space' && !isInputActive) {
-        event.preventDefault(); // preventing the default page scroll behaviour
+        event.preventDefault(); // to prevent the default page scroll behaviour
         togglePlay();
       }
     };
@@ -181,6 +221,8 @@ export default function NowPlaying({
   }, [playerState.currentTrack?.id]);
 
   useEffect(() => {
+    if (!apiClientReady) return;
+
     const savedQueue = localStorage.getItem('currentQueue');
     const savedTrack = localStorage.getItem('currentTrack');
 
@@ -218,10 +260,10 @@ export default function NowPlaying({
         console.error('Error parsing saved track:', error);
       }
     }
-  }, [playerState.deviceId]);
+  }, [playerState.deviceId, apiClientReady]);
 
   const nextTrack = async () => {
-    if (!player) return;
+    if (!player || !apiClientReady) return;
 
     try {
       const currentPlaylistId = localStorage.getItem('currentPlaylistId');
@@ -245,7 +287,7 @@ export default function NowPlaying({
   };
 
   const previousTrack = async () => {
-    if (!player) return;
+    if (!player || !apiClientReady) return;
 
     try {
       const currentPlaylistId = localStorage.getItem('currentPlaylistId');
@@ -341,6 +383,8 @@ export default function NowPlaying({
     }
   };
 
+  console.log(playerState.currentTrack);
+
   return (
     <>
       <div
@@ -377,17 +421,17 @@ export default function NowPlaying({
             </p>
 
             <div className="text-xs text-neutral truncate">
-              {playerState.currentTrack?.artists?.map((a, index) => {
-                const artist: Artist = { ...a, uri: '', url: '' };
-                const artistId = artist.uri
-                  ? artist.uri.split(':')[2]
-                  : artist.url;
+              {playerState.currentTrack?.artists?.map((artist, index) => {
+                const artistId = artist.uri?.split(':')[2];
                 return (
-                  <span key={artist.id}>
+                  <span key={artistId}>
                     {index > 0 && ', '}
-                    <a href={`/artist/${artistId}`} className="hover:underline">
+                    <Link
+                      href={`/artists/${artistId}`}
+                      className="hover:underline"
+                    >
                       {artist.name}
-                    </a>
+                    </Link>
                   </span>
                 );
               })}

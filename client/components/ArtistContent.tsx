@@ -272,14 +272,14 @@ const ArtistContent = () => {
                   onClick={() => handleFollowClick(artist.id)}
                 >
                   {isFollowing ? (
-                    <div className="flex flex-row justify-around items-center rounded-lg bg-sky-500 px-4 py-2 gap-x-2">
+                    <div className="flex flex-row justify-around items-center rounded-lg bg-indigo hover:bg-indigoo px-4 py-2 gap-x-2">
                       <GoStarFill className="text-white" size={15} />
                       <p className="text-white font-medium text-base">
                         Following
                       </p>
                     </div>
                   ) : (
-                    <div className="flex flex-row justify-around items-center rounded-lg bg-sky-500 px-4 py-2 gap-x-2">
+                    <div className="flex flex-row justify-around items-center rounded-lg bg-indigo hover:bg-indigoo px-4 py-2 gap-x-2">
                       <GoStar className="text-white" size={15} />
                       <p className="text-white font-medium text-base">Follow</p>
                     </div>

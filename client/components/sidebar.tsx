@@ -1,4 +1,3 @@
-// import { IconType } from 'react-icons/lib';
 import { FiHome, FiSearch, FiHeart } from 'react-icons/fi';
 import { PiMicrophoneStageLight } from 'react-icons/pi';
 import { MdAlbum } from 'react-icons/md';
@@ -19,10 +18,10 @@ const usePathName = () => {
 export default function Sidebar({ className }: SidebarProps) {
   const pathName = usePathName();
   const sidebarClass =
-    'flex items-center gap-x-2 cursor-pointer text-neutral-400 hover:text-white [transition:all_0.3s_ease-in] py-3 px-2 rounded-lg border-l-2 border-l-transparent';
+    'flex items-center gap-x-2 cursor-pointer text-neutral-400 font-bold hover:text-white hover:scale-110 [transition:all_0.3s_ease-in] py-3 px-2 rounded-lg';
 
   const clickedClass =
-    'font-extrabold text-white opacity-100 transition-opacity duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900';
+    'font-extrabold text-white opacity-100 transition-all duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900';
 
   //   bg-gradient-to-br from-neutral-700 to-neutral-900
 

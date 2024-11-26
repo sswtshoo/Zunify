@@ -349,19 +349,19 @@ const PlaylistContent = () => {
                         {track.name || 'Unknown Track'}
                       </p>
                     </div>
-                    <div className="artists min-w-0">
+                    <div className="artists min-w-0 flex flex-wrap">
                       {Array.isArray(track.artists) ? (
-                        track.artists.map((artist, index) => (
+                        track.artists.slice(0, 6).map((artist, index) => (
                           <React.Fragment key={artist?.id || index}>
                             <Link
-                              className="text-sm text-neutral-300 hover:underline inline-block"
+                              className="text-sm text-neutral-300 hover:underline max-w-fit text-ellipsis truncate line-clamp-2"
                               href={`/artists/${artist?.id || ''}`}
                             >
                               {artist?.name || 'Unknown'}
                             </Link>
                             {index < track.artists.length - 1 && (
                               <span className="text-sm text-neutral-300">
-                                ,{' '}
+                                {', '}
                               </span>
                             )}
                           </React.Fragment>

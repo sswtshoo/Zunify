@@ -34,7 +34,7 @@ const SpotifyDescription = ({ description }: SpotifyDescriptionProps) => {
   };
 
   return (
-    <div className="text-sm font-medium text-neutral-400">
+    <div className="text-base font-medium text-neutral-200">
       {parseDescription(description)}
     </div>
   );

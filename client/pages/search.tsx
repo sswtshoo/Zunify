@@ -63,6 +63,7 @@ interface TrackItems {
   };
   artists: {
     name: string;
+    id: string;
   }[];
   name: string;
   type: 'track';
@@ -228,6 +229,8 @@ const Search: React.FC = () => {
       }
     }
   };
+
+  console.log('Tracks: ', options);
 
   const renderTrackResults = () => {
     if (options.length === 0) return null;

@@ -122,7 +122,7 @@ const FullscreenPlayer = ({
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 to-black flex items-center justify-center z-50">
       <div
-        className="absolute inset-0 opacity-60 blur-[120px]"
+        className="absolute inset-0 opacity-60 blur-[250px]"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',

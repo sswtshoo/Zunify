@@ -1,6 +1,7 @@
 import { serve } from 'bun';
 import { config } from 'dotenv';
 import { URLSearchParams } from 'url';
+import { appendFile } from 'fs/promises';
 
 config();
 
@@ -14,6 +15,12 @@ let refreshToken: string | null = null;
 let accessToken: string | null = null;
 let tokenExpiryTime: number | null = null;
 
+async function logToFile(message: string) {
+  const timestamp = new Date().toISOString();
+  const logMessage = `${timestamp}: ${message}\n`;
+  await appendFile('auth-flow.log', logMessage);
+}
+
 function generateRandomString(length: number) {
   const possible =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -24,11 +31,6 @@ function generateRandomString(length: number) {
 
 async function refreshAccessToken() {
   try {
-    // console.log(
-    //   'Attempting to refresh access token using refreshToken:',
-    //   refreshToken
-    // );
-
     const response = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
@@ -53,10 +55,12 @@ async function refreshAccessToken() {
     const tokenData = await response.json();
     accessToken = tokenData.access_token;
     tokenExpiryTime = Date.now() + tokenData.expires_in * 1000;
+    await logToFile('Successfully refreshed access token');
 
     return { accessToken, expiresIn: tokenData.expires_in };
   } catch (error) {
     console.error(`Error refreshing token: ${error}`);
+    await logToFile(`Error refreshing token: ${error}`);
     return null;
   }
 }
@@ -66,9 +70,14 @@ serve({
   async fetch(req) {
     const url = new URL(req.url);
     console.log('Incoming request to:', url.pathname);
+    await logToFile(`Incoming request to: ${url.pathname}`);
+    await logToFile(`Full URL: ${url.toString()}`);
+    await logToFile(
+      `Search params: ${JSON.stringify(Object.fromEntries(url.searchParams))}`
+    );
 
     const headers = new Headers({
-      'Access-Control-Allow-Origin': 'http://localhost:3000',
+      'Access-Control-Allow-Origin': app_uri as string,
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Credentials': 'true',
@@ -118,9 +127,15 @@ serve({
     if (url.pathname === '/') {
       const code = url.searchParams.get('code');
       const returnTo = url.searchParams.get('returnTo') || '/';
+      const state = url.searchParams.get('state');
+
+      await logToFile(`Code present: ${!!code}`);
+      await logToFile(`ReturnTo value: ${returnTo}`);
+      await logToFile(`State value: ${state}`);
 
       if (code) {
         try {
+          await logToFile('Exchanging code for token');
           const responseToken = await fetch(
             'https://accounts.spotify.com/api/token',
             {
@@ -139,6 +154,7 @@ serve({
 
           if (!responseToken.ok) {
             const errorData = await responseToken.text();
+            await logToFile(`Token request failed: ${errorData}`);
             return new Response(`Token request failed: ${errorData}`, {
               status: 400,
               headers,
@@ -158,12 +174,19 @@ serve({
           );
 
           if (returnTo && returnTo !== '/') {
-            redirectUrl.pathname = decodeURIComponent(returnTo);
+            await logToFile(`Setting pathname to: ${returnTo}`);
+            redirectUrl.pathname = decodeURIComponent(returnTo).replace(
+              /^\//,
+              ''
+            );
           }
+
+          await logToFile(`Final redirect URL: ${redirectUrl.toString()}`);
 
           return Response.redirect(redirectUrl.toString(), 302);
         } catch (error: any) {
           console.error('Token exchange error:', error);
+          await logToFile(`Token exchange error: ${error.message}`);
           return new Response(`Error getting access token: ${error.message}`, {
             status: 500,
             headers,
@@ -196,8 +219,12 @@ serve({
         });
 
         if (returnTo) {
+          await logToFile(`Adding returnTo to state: ${returnTo}`);
           auth_query_parameters.set('returnTo', returnTo);
         }
+
+        const spotifyAuthUrl = `https://accounts.spotify.com/authorize/?${auth_query_parameters.toString()}`;
+        await logToFile(`Redirecting to Spotify: ${spotifyAuthUrl}`);
 
         return Response.redirect(
           `https://accounts.spotify.com/authorize/?${auth_query_parameters.toString()}`
@@ -209,4 +236,5 @@ serve({
   },
 });
 
+await logToFile('Server started on host:5174');
 console.log('Server running on host:5174');

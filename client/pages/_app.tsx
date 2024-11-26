@@ -1,13 +1,24 @@
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Sidebar from '../components/sidebar';
-import NowPlaying from '../components/nowplaying';
 import { TokenProvider } from '@/context/TokenProvider';
 import { useEffect, useContext, useState } from 'react';
 import { TokenContext } from '@/context/TokenProvider';
+import LibraryCheck from '@/utils/LibraryCheck';
 import '../styles/globals.css';
 import Script from 'next/script';
 import { PlayerState, Track } from '@/types/Spotify';
+import dynamic from 'next/dynamic';
+import { NextComponentType, NextPageContext } from 'next';
+
+interface AppContentProps {
+  Component: NextComponentType<NextPageContext, any, any>;
+  pageProps: any;
+}
+
+const DynamicNowPlaying = dynamic(() => import('../components/nowplaying'), {
+  ssr: false,
+});
 
 interface SpotifyReadyEvent {
   device_id: string;
@@ -34,6 +45,7 @@ interface SpotifyPlayerState {
       artists: Array<{
         name: string;
         id: string;
+        uri: string;
       }>;
       name: string;
       uri: string;
@@ -43,7 +55,7 @@ interface SpotifyPlayerState {
   duration: number;
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+function AppContent({ Component, pageProps }: AppContentProps) {
   const router = useRouter();
   const tokenContext = useContext(TokenContext);
   const [playerState, setPlayerState] = useState<PlayerState>({
@@ -57,6 +69,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   });
   const [spotifyPlayer, setSpotifyPlayer] = useState(null);
   const [deviceId, setDeviceId] = useState<string | null>(null);
+  const { likedSongCheck } = LibraryCheck();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -82,7 +95,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 },
                 body: JSON.stringify({
                   device_ids: [device_id],
-                  play: false,
+                  play: true,
                 }),
               });
             }
@@ -90,17 +103,35 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
           player.addListener(
             'player_state_changed',
-            (state: SpotifyPlayerState) => {
+            async (state: SpotifyPlayerState) => {
               if (!state) return;
 
-              setPlayerState((prev) => ({
-                ...prev,
+              const currentTrackId = state.track_window.current_track.id;
+              let isLiked = false;
+
+              if (currentTrackId) {
+                try {
+                  isLiked = await likedSongCheck(currentTrackId);
+                } catch (error) {
+                  console.error('Error checking like status:', error);
+                }
+              }
+
+              const newState = {
+                ...playerState,
                 isPaused: state.paused,
-                currentTrack: state.track_window.current_track,
+                currentTrack: {
+                  ...state.track_window.current_track,
+                  isLiked,
+                },
                 position: state.position,
                 duration: state.duration,
                 isActive: true,
-              }));
+              };
+
+              setPlayerState(newState);
+
+              localStorage.setItem('playerState', JSON.stringify(newState));
             }
           );
 
@@ -127,7 +158,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         };
       }
     }
-  }, [playerState.volume]);
+  }, [playerState.volume, likedSongCheck]);
 
   useEffect(() => {
     const handleToken = async () => {
@@ -202,41 +233,33 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
+    <div className="h-screen w-screen flex flex-row bg-stone-950">
+      <Sidebar className="flex-shrink-0 w-[275px]" />
+      <div className="content-container flex flex-col flex-grow w-full h-full">
+        <div className="flex-grow overflow-auto">
+          <Component {...pageProps} />
+        </div>
+      </div>
+      <DynamicNowPlaying
+        className="h-24 mx-auto bottom-0 w-screen"
+        deviceId={deviceId}
+        player={spotifyPlayer}
+        playerState={playerState}
+        setPlayerState={setPlayerState}
+      />
+    </div>
+  );
+}
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
     <TokenProvider>
       <Script
         src="https://sdk.scdn.co/spotify-player.js"
-        strategy="beforeInteractive"
-        onLoad={() => {
-          window.onSpotifyWebPlaybackSDKReady = () => {
-            const token = localStorage.getItem('access_token');
-            if (!token) return;
-
-            const player = new window.Spotify.Player({
-              name: 'Zunify Web Player',
-              getOAuthToken: (cb: (token: string) => void) => cb(token),
-              volume: playerState.volume,
-            });
-
-            player.connect();
-          };
-        }}
+        strategy="afterInteractive"
       />
       <title>Zunify</title>
-      <div className="h-screen w-screen flex flex-row bg-stone-950">
-        <Sidebar className="flex-shrink-0 w-[275px]" />
-        <div className="content-container flex flex-col flex-grow w-full h-full">
-          <div className="flex-grow overflow-auto">
-            <Component {...pageProps} />
-          </div>
-        </div>
-        <NowPlaying
-          className="h-24 mx-auto bottom-0 w-screen"
-          deviceId={deviceId}
-          player={spotifyPlayer}
-          playerState={playerState}
-          setPlayerState={setPlayerState}
-        />
-      </div>
+      <AppContent Component={Component} pageProps={pageProps} />
     </TokenProvider>
   );
 }
