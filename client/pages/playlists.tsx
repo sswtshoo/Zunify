@@ -26,6 +26,7 @@ const AllPlaylists = () => {
   const apiClient = useApiClient();
   const { checkAndRefreshToken, handleApiError } = useAuth();
   const tokenContext = useContext(TokenContext);
+  const server_uri = process.env.SERVER_URI;
 
   useEffect(() => {
     const validateToken = async () => {
@@ -34,16 +35,15 @@ const AllPlaylists = () => {
       const storedToken = localStorage.getItem('access_token');
       const storedExpiry = localStorage.getItem('token_expiry');
 
-      // If we have a valid token in localStorage but not in context
       if (storedToken && storedExpiry && Date.now() < parseInt(storedExpiry)) {
         if (!tokenContext.accessToken) {
           tokenContext.setAccessToken(storedToken);
           tokenContext.setTokenExpiry(parseInt(storedExpiry));
         }
       } else if (!tokenContext.accessToken) {
-        // No valid token, redirect to login
+        const returnTo = router.asPath;
         localStorage.setItem('redirect_after_login', router.asPath);
-        window.location.href = 'http://localhost:5174';
+        window.location.href = `${server_uri}?returnTo=${returnTo}`;
       }
     };
 

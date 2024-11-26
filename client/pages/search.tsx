@@ -28,7 +28,6 @@ class ErrorBoundary extends React.Component<
 
   render() {
     if (this.state.hasError) {
-      // Render fallback UI
       return (
         <div className="text-red-500 text-center">
           Something went wrong with the search.

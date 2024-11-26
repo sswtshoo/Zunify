@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useApiClient } from '../utils/ApiClient';
 import { useAuth } from '../utils/useAuth';
 import { FaPlay } from 'react-icons/fa';
 import Link from 'next/link';
+import { TokenContext } from '@/context/TokenProvider';
+import { useRouter } from 'next/router';
 
 interface ArtistItemProps {
   followers: {
@@ -23,6 +25,31 @@ const Artists = () => {
   const [error, setError] = useState<string | null>(null);
   const apiClient = useApiClient();
   const { checkAndRefreshToken, handleApiError } = useAuth();
+  const tokenContext = useContext(TokenContext);
+  const router = useRouter();
+  const server_uri = process.env.SERVER_URI;
+
+  useEffect(() => {
+    const validateToken = async () => {
+      if (typeof window === 'undefined' || !tokenContext) return;
+
+      const storedToken = localStorage.getItem('access_token');
+      const storedExpiry = localStorage.getItem('token_expiry');
+
+      if (storedToken && storedExpiry && Date.now() < parseInt(storedExpiry)) {
+        if (!tokenContext.accessToken) {
+          tokenContext.setAccessToken(storedToken);
+          tokenContext.setTokenExpiry(parseInt(storedExpiry));
+        }
+      } else if (!tokenContext.accessToken) {
+        const returnTo = router.asPath;
+        localStorage.setItem('redirect_after_login', router.asPath);
+        window.location.href = `${server_uri}?returnTo=${returnTo}`;
+      }
+    };
+
+    validateToken();
+  }, [tokenContext]);
 
   useEffect(() => {
     const fetchArtists = async () => {
@@ -39,7 +66,6 @@ const Artists = () => {
       } catch (err) {
         const refreshSuccessful = await handleApiError(err);
         if (refreshSuccessful) {
-          // Retry the request if token was refreshed
           try {
             const response = await apiClient.get(
               '/me/following?type=artist&limit=50'

@@ -43,6 +43,7 @@ const Songs = () => {
 
   const tokenContext = useContext(TokenContext);
   const router = useRouter();
+  const server_uri = process.env.SERVER_URI;
 
   useEffect(() => {
     const validateToken = async () => {
@@ -51,16 +52,15 @@ const Songs = () => {
       const storedToken = localStorage.getItem('access_token');
       const storedExpiry = localStorage.getItem('token_expiry');
 
-      // If we have a valid token in localStorage but not in context
       if (storedToken && storedExpiry && Date.now() < parseInt(storedExpiry)) {
         if (!tokenContext.accessToken) {
           tokenContext.setAccessToken(storedToken);
           tokenContext.setTokenExpiry(parseInt(storedExpiry));
         }
       } else if (!tokenContext.accessToken) {
-        // No valid token, redirect to login
+        const returnTo = router.asPath;
         localStorage.setItem('redirect_after_login', router.asPath);
-        window.location.href = 'http://localhost:5174';
+        window.location.href = `${server_uri}?returnTo=${returnTo}`;
       }
     };
 

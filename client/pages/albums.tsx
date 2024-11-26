@@ -40,6 +40,7 @@ const Albums = () => {
   const { checkAndRefreshToken, handleApiError } = useAuth();
   const tokenContext = useContext(TokenContext);
   const router = useRouter();
+  const server_uri = process.env.SERVER_URI;
 
   useEffect(() => {
     const validateToken = async () => {
@@ -54,8 +55,9 @@ const Albums = () => {
           tokenContext.setTokenExpiry(parseInt(storedExpiry));
         }
       } else if (!tokenContext.accessToken) {
+        const returnTo = router.asPath;
         localStorage.setItem('redirect_after_login', router.asPath);
-        window.location.href = 'http://localhost:5174';
+        window.location.href = `${server_uri}?returnTo=${returnTo}`;
       }
     };
 

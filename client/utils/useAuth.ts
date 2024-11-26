@@ -55,7 +55,12 @@ export const useAuth = (): AuthHook => {
 
     const timeLeft = tokenExpiry - Date.now();
     if (timeLeft < 60000) {
-      return await refreshAccessToken();
+      const success = await refreshAccessToken();
+      if (!success) {
+        console.warn('Failed to refresh token, redirecting to login');
+        window.location.href = `${server_uri}/login`;
+      }
+      return success;
     }
 
     return true;

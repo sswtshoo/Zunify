@@ -33,6 +33,7 @@ const Home = () => {
   const [message, setMessage] = useState<string>('');
   const apiClient = useApiClient();
   const auth = useAuth();
+  const server_uri = process.env.SERVER_URI;
 
   useEffect(() => {
     const handleInitialToken = async () => {
@@ -115,7 +116,7 @@ const Home = () => {
     if (currentPath !== '/') {
       localStorage.setItem('redirect_after_login', currentPath);
     }
-    window.location.href = 'http://localhost:5174';
+    window.location.href = `${server_uri}`;
   };
 
   useEffect(() => {

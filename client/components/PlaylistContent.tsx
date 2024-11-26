@@ -60,6 +60,8 @@ const PlaylistContent = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const server_uri = process.env.SERVER_URI;
+
   useEffect(() => {
     const fetchPlaylistData = async () => {
       if (!playlistId) {
@@ -117,7 +119,7 @@ const PlaylistContent = () => {
       try {
         const isTokenValid = await checkAndRefreshToken();
         if (!isTokenValid) {
-          window.location.href = 'http://localhost:5174';
+          window.location.href = `${server_uri}`;
           return;
         }
 
@@ -141,10 +143,10 @@ const PlaylistContent = () => {
               'Error starting playback after token refresh:',
               retryErr
             );
-            window.location.href = 'http://localhost:5174';
+            window.location.href = `${server_uri}`;
           }
         } else {
-          window.location.href = 'http://localhost:5174';
+          window.location.href = `${server_uri}`;
         }
       }
     }
@@ -153,7 +155,7 @@ const PlaylistContent = () => {
   const handleShuffleClick = async () => {
     const isTokenValid = await checkAndRefreshToken();
     if (!isTokenValid) {
-      window.location.href = 'http://localhost:5174';
+      window.location.href = `${server_uri}`;
       return;
     }
     if (tracks.length > 0) {
@@ -180,7 +182,7 @@ const PlaylistContent = () => {
     try {
       const isTokenValid = await checkAndRefreshToken();
       if (!isTokenValid) {
-        window.location.href = 'http://localhost:5174';
+        window.location.href = `${server_uri}`;
         console.log('Invalidtoken');
         return;
       }
@@ -208,10 +210,10 @@ const PlaylistContent = () => {
             retryErr
           );
 
-          window.location.href = 'http://localhost:5174';
+          window.location.href = `${server_uri}`;
         }
       } else {
-        window.location.href = 'http://localhost:5174';
+        window.location.href = `${server_uri}`;
       }
     }
   };
@@ -361,7 +363,7 @@ const PlaylistContent = () => {
                             </Link>
                             {index < track.artists.length - 1 && (
                               <span className="text-sm text-neutral-300">
-                                {', '}
+                                {`,`}&nbsp;
                               </span>
                             )}
                           </React.Fragment>

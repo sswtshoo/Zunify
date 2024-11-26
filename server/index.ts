@@ -219,8 +219,10 @@ serve({
         });
 
         if (returnTo) {
-          await logToFile(`Adding returnTo to state: ${returnTo}`);
-          auth_query_parameters.set('returnTo', returnTo);
+          const decodedReturnTo = decodeURIComponent(returnTo);
+          await logToFile(`Adding returnTo to state: ${decodedReturnTo}`);
+          auth_query_parameters.set('state', state);
+          auth_query_parameters.set('returnTo', decodedReturnTo);
         }
 
         const spotifyAuthUrl = `https://accounts.spotify.com/authorize/?${auth_query_parameters.toString()}`;

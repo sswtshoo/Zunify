@@ -66,6 +66,7 @@ const ArtistContent = () => {
   const [error, setError] = useState<string | null>(null);
   const { checkAndRefreshToken, handleApiError } = useAuth();
   const [isFollowing, setIsFollowing] = useState(false);
+  const server_uri = process.env.SERVER_URI;
 
   const { id: artistId } = router.query;
 
@@ -151,7 +152,7 @@ const ArtistContent = () => {
       try {
         const isTokenValid = await checkAndRefreshToken();
         if (!isTokenValid) {
-          window.location.href = 'http://localhost:5174';
+          window.location.href = `${server_uri}`;
           return;
         }
 
@@ -176,10 +177,10 @@ const ArtistContent = () => {
               'Error starting playback after token refresh:',
               retryErr
             );
-            window.location.href = 'http://localhost:5174';
+            window.location.href = `${server_uri}`;
           }
         } else {
-          window.location.href = 'http://localhost:5174';
+          window.location.href = `${server_uri}`;
         }
       }
     }
