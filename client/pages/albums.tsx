@@ -141,11 +141,6 @@ const Albums = () => {
                     className="w-full h-auto rounded-3xl aspect-square group-hover:opacity-70 transition duration-300"
                   />
                 )}
-                <div className="absolute inset-0 flex justify-end items-end p-4">
-                  <div className="bg-[rgb(32,75,246)] p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FaPlay className="text-white" />
-                  </div>
-                </div>
               </div>
               <p className="font-semibold ml-2 text-base text-neutral-400 w-48 mt-2 leading-tight line-clamp-2 group-hover:text-neutral-100 transition duration-300">
                 {album.name}

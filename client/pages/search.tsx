@@ -113,25 +113,6 @@ const Search: React.FC = () => {
 
   // Not handling artist search due to rate limit errors -  wasn't able to find a fix
 
-  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    setValue(newValue);
-
-    keystrokeCountRef.current++;
-
-    if (keystrokeCountRef.current >= 4) {
-      keystrokeCountRef.current = 0;
-
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-
-      timeoutRef.current = window.setTimeout(() => {
-        updateOptions(newValue);
-      }, 300);
-    }
-  };
-
   const updateOptions = async (query: string) => {
     try {
       // const response = await apiClient.get(
@@ -161,25 +142,30 @@ const Search: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    if (value) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    if (value != newValue) setValue(newValue);
 
-      timeoutRef.current = window.setTimeout(() => {
-        updateOptions(value);
-      }, 1000);
-    } else {
-      setOptions([]);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
 
+    timeoutRef.current = window.setTimeout(() => {
+      if (newValue.trim()) {
+        updateOptions(newValue.trim());
+      } else {
+        setOptions([]);
+      }
+    }, 300);
+  };
+
+  useEffect(() => {
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [value]);
+  }, []);
 
   const handleTrackPlay = async (
     track: TrackItems,
@@ -252,17 +238,17 @@ const Search: React.FC = () => {
           <div className="w-full flex flex-row justify-between items-start mt-4">
             <div className="track-data">
               <h2 className="text-3xl font-bold text-left">{topTrack.name}</h2>
-              <div className="flex gap-x-2 items-start justify-start">
+              <div className="flex gap-x-2 items-center justify-start">
                 <p className="text-neutral-400">Song</p>
-                <p className="font-bold">○</p>
+                <p className="font-medium text-xs text-center">○</p>
                 <p className="text-left">{topTrack.artists[0].name}</p>
               </div>
             </div>
             <button
               onClick={() => handleTrackPlay(topTrack, options as TrackItems[])}
-              className="w-12 h-12 rounded-full aspect-square flex flex-row justify-center items-center bg-indigo-600 hover:bg-indigo-700 transition-colors hover:scale-105"
+              className="w-12 h-12 rounded-full aspect-square flex flex-row justify-center items-center bg-gradient-to-br from-neutral-700 to-neutral-900 transition duration-300 hover:scale-105"
             >
-              <FaPlay size={16} className="text-white ml-1" />
+              <FaPlay size={16} className="text-lemon ml-1" />
             </button>
           </div>
         </div>
@@ -288,7 +274,7 @@ const Search: React.FC = () => {
                     <FaPlay className="absolute inset-0 m-auto z-10 text-neutral-300 text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
-                  <div className="flex flex-col justify-between">
+                  <div className="flex flex-col justify-between max-w-full">
                     <p className="text-base font-semibold text-white truncate">
                       {track.name}
                     </p>

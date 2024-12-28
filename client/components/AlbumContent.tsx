@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import LibraryCheck from '@/utils/LibraryCheck';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
+import { motion } from 'motion/react';
 
 interface Track {
   id: string;
@@ -222,9 +223,8 @@ const AlbumContent = () => {
   );
 
   return (
-    <div className="flex flex-col mb-28">
+    <div className="flex flex-col mb-28 no-scrollbar">
       <div className="relative">
-        {/* Bg blurred album art */}
         <div
           className="absolute inset-0 h-[400px]"
           style={{
@@ -240,7 +240,6 @@ const AlbumContent = () => {
           }}
         />
 
-        {/* Gradient */}
         <div className="absolute inset-0 h-[400px] bg-gradient-to-b from-transparent via-black/50 to-stone-950 " />
 
         <div className="relative p-8">
@@ -252,14 +251,14 @@ const AlbumContent = () => {
                 className="w-60 h-60 rounded-xl"
               />
               <div className="flex flex-col space-y-2">
-                <p className="text-sm uppercase font-bold text-neutral-200">
+                <p className="text-sm uppercase font-extrabold text-neutral-200">
                   Album
                 </p>
                 <h1 className="text-4xl font-bold text-neutral-200">
                   {albumDetails?.name}
                 </h1>
                 <div className="flex items-center text-sm">
-                  <div className="text-neutral-200">
+                  <div className="text-neutral-300 font-bold">
                     {albumDetails?.artists.map((a, index) => {
                       return (
                         <React.Fragment key={a.id}>
@@ -276,39 +275,43 @@ const AlbumContent = () => {
                     })}
                   </div>
                   <span className="mx-1 text-neutral-400">•</span>
-                  <p className="text-neutral-200">
+                  <p className="text-neutral-300 font-bold">
                     {albumDetails?.total_tracks} songs
                   </p>
                   <span className="mx-1 text-neutral-400">•</span>
-                  <p className="text-neutral-200">
+                  <p className="text-neutral-300 font-bold">
                     {formatDuration(totalDuration)}
                   </p>
                 </div>
-              </div>
-            </div>
 
-            <div className="play-shuffle gap-x-4 flex flex-row items-end mb-12 mx-4">
-              <button
-                onClick={handlePlayClick}
-                className="w-24 h-10 rounded-lg flex flex-row justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition"
-              >
-                <FaPlay size={12} />
-                <p className="text-white font-medium text-base">Play</p>
-              </button>
-              <button
-                onClick={handleShuffleClick}
-                className="w-24 h-10 rounded-lg flex flex-row justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition"
-              >
-                <PiShuffleBold size={16} />
-                <p className="text-white font-medium text-base">Shuffle</p>
-              </button>
+                <div className="play-shuffle gap-x-4 flex flex-row items-end mb-12">
+                  <motion.button
+                    onClick={handlePlayClick}
+                    className="w-24 px-4 py-2 rounded-md flex flex-row justify-center items-center gap-x-2 bg-lemon hover:lime transition"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FaPlay size={12} className="text-black" />
+                    <p className="text-black font-semibold text-sm">Play</p>
+                  </motion.button>
+                  <motion.button
+                    onClick={handleShuffleClick}
+                    className="w-24 px-4 py-2 rounded-md flex flex-row justify-center items-center gap-x-2 bg-lemon hover:bg-lime transition"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <PiShuffleBold size={18} className="text-black" />
+                    <p className="text-black font-semibold text-sm">Shuffle</p>
+                  </motion.button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="album-content min-w-0 w-full relative z-10 bg-stone-950">
-        <div className="grid grid-cols-12 gap-4 px-4">
+        <div className="grid grid-cols-12 gap-4 px-8">
           <div className="col-span-10 flex items-center justify-start gap-x-2 pl-4">
             <p className="text-neutral-400 text-xs">#</p>
             <p className="text-neutral-400 text-xs">Title</p>
@@ -328,7 +331,7 @@ const AlbumContent = () => {
                 <span className="text-xs text-neutral-400 w-6">
                   {index + 1}
                 </span>
-                <p className="text-sm text-neutral-300 truncate">
+                <p className="text-base font-medium text-neutral-300 truncate">
                   {track.name}
                 </p>
               </div>
@@ -341,7 +344,7 @@ const AlbumContent = () => {
               >
                 {track.isLiked ? (
                   <IoMdHeart
-                    className="text-indigo hover:scale-110 transition duration-300 focus:outline-none"
+                    className="text-lemon hover:scale-110 transition duration-300 focus:outline-none"
                     size={18}
                   />
                 ) : (
@@ -352,7 +355,7 @@ const AlbumContent = () => {
                 )}
               </button>
 
-              <div className="duration text-sm text-center justify-self-end text-neutral-300 col-span-1">
+              <div className="time-font duration text-xs font-medium text-center justify-self-end text-neutral-300 col-span-1">
                 {formatTime(track.duration_ms)}
               </div>
             </div>

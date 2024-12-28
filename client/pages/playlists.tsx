@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useApiClient } from '../utils/ApiClient';
 import { useAuth } from '../utils/useAuth';
-import { FaPlay } from 'react-icons/fa';
+import { motion } from 'motion/react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { TokenContext } from '@/context/TokenProvider';
@@ -57,7 +57,7 @@ const AllPlaylists = () => {
         if (!isTokenValid) return;
 
         const response = await apiClient.get('me/playlists?limit=50');
-        setPlaylists(response.data.items);
+        setPlaylists(response.data.items.filter((item: any) => item !== null));
         setIsLoading(false);
         setError(null);
       } catch (err) {
@@ -103,31 +103,35 @@ const AllPlaylists = () => {
   }
 
   return (
-    <div className="pt-20">
-      <div className="pt-0 px-12 flex flex-col mb-24 overflow-y-scroll">
+    <div className="pt-20 mb-32">
+      <div className="pt-0 px-12 flex flex-col mb-12 overflow-y-scroll">
         <p className="text-4xl font-bold">Your Playlists</p>
-        <div className="playlist-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 justify-around overflow-auto mt-10">
+        <motion.div className="playlist-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-around overflow-auto mt-8">
           {playlists.map((playlist) => (
             <Link
               href={`/playlists/${playlist.id}`}
               key={playlist.id}
               className="group mt-8 hover:cursor-pointer relative"
             >
-              <div className="relative">
+              <motion.div
+                className="relative"
+                whileHover={{ z: 5, scale: 0.98 }}
+              >
                 {playlist.images[0]?.url && (
                   <img
                     src={playlist.images[0].url}
                     alt={playlist.name}
-                    className="w-full h-auto rounded-xl aspect-square group-hover:opacity-70 transition duration-300"
+                    fetchPriority="high"
+                    className="w-full h-auto rounded-xl aspect-square object-cover group-hover:opacity-70 transition duration-300"
                   />
                 )}
-              </div>
+              </motion.div>
               <p className="font-semibold text-base text-neutral-400 w-48 mt-2 leading-tight truncate group-hover:text-neutral-100 transition duration-300">
                 {playlist.name}
               </p>
             </Link>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

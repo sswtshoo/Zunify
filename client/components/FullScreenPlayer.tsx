@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
+import ColorThief from 'colorthief/dist/color-thief.mjs';
 
 interface Track {
   album?: {
@@ -81,6 +82,17 @@ const FullscreenPlayer = ({
   const artistsRef = useRef<HTMLDivElement>(null);
   const [backgroundImage, setBackgroundImage] = useState<string>('');
 
+  // const colorThief = new ColorThief();
+  // const img = document.querySelector('img');
+
+  // if (img?.complete) {
+  //   colorThief.getPalette(img);
+  // } else {
+  //   img?.addEventListener('load', () => {
+  //     colorThief.getPalette(img);
+  //   });
+  // }
+
   useEffect(() => {
     const checkOverflow = () => {
       if (nameRef.current) {
@@ -99,6 +111,8 @@ const FullscreenPlayer = ({
     window.addEventListener('resize', checkOverflow);
     return () => window.removeEventListener('resize', checkOverflow);
   }, [currentTrack]);
+
+  console.log(isNameOverflowing);
 
   useEffect(() => {
     if (currentTrack?.album?.images) {
@@ -120,11 +134,13 @@ const FullscreenPlayer = ({
     .join(', ');
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 to-black flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center z-50 overflow-hidden">
       <div
-        className="absolute inset-0 opacity-60 blur-[250px]"
+        className="absolute inset-0 blur-[250px]"
         style={{
           backgroundImage: `url(${backgroundImage})`,
+          filter: 'blur(250px) brightness(100%)',
+          WebkitFilter: 'blur(10000px) brightness(75%)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -140,21 +156,21 @@ const FullscreenPlayer = ({
       <div className="relative z-10 flex flex-col items-center max-w-screen-sm w-full px-4">
         <div className="w-[500px] h-[500px] mb-8">
           <img
+            crossOrigin={'anonymous'}
             src={backgroundImage}
             alt={currentTrack?.name}
-            className="w-auto h-auto object-cover rounded-lg shadow-2xl"
+            className="album-art w-auto h-auto object-cover rounded-lg shadow-2xl"
           />
         </div>
 
         <div className="flex flex-col items-center gap-2 mb-4">
-          {/* Track name */}
           <div
             className="marquee_container flex items-center"
             style={{ width: '500px' }}
           >
             <div
               ref={nameRef}
-              className={`text-2xl font-bold text-neutral-100 whitespace-nowrap mx-auto
+              className={`text-2xl font-extrabold text-neutral-100 whitespace-nowrap mx-auto
                 ${isNameOverflowing ? 'marquee' : ''}`}
             >
               {currentTrack.name}
@@ -166,14 +182,14 @@ const FullscreenPlayer = ({
               )}
             </div>
           </div>
-          {/* Artists */}
+
           <div
             className="marquee_container flex items-center"
             style={{ width: '500px' }}
           >
             <div
               ref={artistsRef}
-              className={`text-lg text-neutral-100 whitespace-nowrap mx-auto
+              className={`text-lg text-neutral-100 font-bold whitespace-nowrap mx-auto
                 ${isArtistsOverflowing ? 'marquee' : ''}`}
             >
               {artistNames}

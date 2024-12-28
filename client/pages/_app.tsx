@@ -10,6 +10,7 @@ import Script from 'next/script';
 import { PlayerState, Track } from '@/types/Spotify';
 import dynamic from 'next/dynamic';
 import { NextComponentType, NextPageContext } from 'next';
+import { motion } from 'motion/react';
 
 interface AppContentProps {
   Component: NextComponentType<NextPageContext, any, any>;
@@ -235,13 +236,13 @@ function AppContent({ Component, pageProps }: AppContentProps) {
   return (
     <div className="h-screen w-screen flex flex-row bg-stone-950">
       <Sidebar className="flex-shrink-0 w-[275px]" />
-      <div className="content-container flex flex-col flex-grow w-full h-full">
-        <div className="flex-grow overflow-auto">
+      <motion.div className="content-container flex flex-col flex-grow w-full h-full relative">
+        <div className="main-content flex-grow overflow-auto">
           <Component {...pageProps} />
         </div>
-      </div>
+      </motion.div>
       <DynamicNowPlaying
-        className="h-24 mx-auto bottom-0 w-screen"
+        className="h-24 mx-auto max-w-full"
         deviceId={deviceId}
         player={spotifyPlayer}
         playerState={playerState}

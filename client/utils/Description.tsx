@@ -8,33 +8,28 @@ const SpotifyDescription = ({ description }: SpotifyDescriptionProps) => {
   if (!description) return null;
 
   const parseDescription = (text: string) => {
-    return text.split(/(<a[^>]*>.*?<\/a>)/).map((part, index) => {
-      if (part.startsWith('<a')) {
-        const uriMatch = part.match(/href=([^>\s]+)/);
-        const textMatch = part.match(/>([^<]+)</);
-        const uri = uriMatch ? uriMatch[1] : '';
-        const text = textMatch ? textMatch[1] : '';
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    const children = Array.from(doc.body.childNodes);
+
+    return children.map((node, index) => {
+      if (node.nodeName === 'A') {
+        const anchor = node as HTMLAnchorElement;
+        const uri = anchor.href;
+        const content = anchor.textContent || '';
 
         return (
-          <span
-            key={index}
-            className="text-neutral-400"
-            onClick={() => {
-              if (uri.startsWith('spotify:')) {
-                console.log('Spotify URI clicked:', uri);
-              }
-            }}
-          >
-            {text}
+          <span key={index} className="text-neutral-400">
+            {content}
           </span>
         );
       }
-      return <span key={index}>{part}</span>;
+      return <span key={index}>{node.textContent}</span>;
     });
   };
 
   return (
-    <div className="text-base font-medium text-neutral-200">
+    <div className="text-base font-medium text-neutral-400">
       {parseDescription(description)}
     </div>
   );

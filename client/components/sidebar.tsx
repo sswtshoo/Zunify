@@ -1,10 +1,14 @@
-import { FiHome, FiSearch, FiHeart } from 'react-icons/fi';
-import { PiMicrophoneStageLight } from 'react-icons/pi';
-import { MdAlbum } from 'react-icons/md';
-import { BiSolidPlaylist } from 'react-icons/bi';
 import { twMerge } from 'tailwind-merge';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import {
+  House,
+  HeartStraight,
+  MicrophoneStage,
+  VinylRecord,
+  Playlist,
+  MagnifyingGlass,
+} from '@phosphor-icons/react';
 
 interface SidebarProps {
   className?: string;
@@ -21,9 +25,7 @@ export default function Sidebar({ className }: SidebarProps) {
     'flex items-center gap-x-2 cursor-pointer text-neutral-400 font-bold hover:text-white hover:scale-110 [transition:all_0.3s_ease-in] py-3 px-2 rounded-lg';
 
   const clickedClass =
-    'font-extrabold text-white opacity-100 transition-all duration-300 bg-gradient-to-br from-neutral-700 to-neutral-900';
-
-  //   bg-gradient-to-br from-neutral-700 to-neutral-900
+    'font-extrabold text-lemon opacity-100 transition-all duration-300 bg-darkorange text-lemon hover:text-lemon';
 
   return (
     <div
@@ -33,16 +35,14 @@ export default function Sidebar({ className }: SidebarProps) {
       )}
     >
       <div className=" homeAndLib px-2 mx-4 mt-16  py-4">
-        {/* Home Button */}
         <Link
           href="/"
           className={twMerge(sidebarClass, pathName === '/' && clickedClass)}
         >
-          <FiHome size={14} />
+          <House size={16} weight="bold" />
           <p className="text-base leading-none">Home</p>
         </Link>
 
-        {/* Search Button */}
         <Link
           href="/search"
           className={twMerge(
@@ -50,7 +50,7 @@ export default function Sidebar({ className }: SidebarProps) {
             pathName === '/search' && clickedClass
           )}
         >
-          <FiSearch size={16} />
+          <MagnifyingGlass size={16} weight="bold" />
           <p className="text-base leading-none">Search</p>
         </Link>
       </div>
@@ -63,7 +63,7 @@ export default function Sidebar({ className }: SidebarProps) {
             pathName === '/artists' && clickedClass
           )}
         >
-          <PiMicrophoneStageLight size={16} />
+          <MicrophoneStage size={16} weight="bold" />
           <p className="text-base leading-none">Artists</p>
         </Link>
         <Link
@@ -73,7 +73,7 @@ export default function Sidebar({ className }: SidebarProps) {
             pathName === '/albums' && clickedClass
           )}
         >
-          <MdAlbum size={16} />
+          <VinylRecord size={16} weight="bold" />
           <p className="text-base leading-none">Albums</p>
         </Link>
         <Link
@@ -83,7 +83,7 @@ export default function Sidebar({ className }: SidebarProps) {
             pathName === '/songs' && clickedClass
           )}
         >
-          <FiHeart size={16} />
+          <HeartStraight size={16} weight="bold" />
           <p className="text-base leading-none">Liked Songs</p>
         </Link>
         <Link
@@ -93,7 +93,7 @@ export default function Sidebar({ className }: SidebarProps) {
             pathName === '/playlists' && clickedClass
           )}
         >
-          <BiSolidPlaylist size={16} />
+          <Playlist size={16} weight="bold" />
           <p className="text-base leading-none">All Playlists</p>
         </Link>
       </div>

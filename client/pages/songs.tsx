@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import { useApiClient } from '../utils/ApiClient';
 import { useAuth } from '../utils/useAuth';
-import { FaPlay } from 'react-icons/fa';
-import { PiShuffleBold } from 'react-icons/pi';
+
 import { useRouter } from 'next/router';
 import { TokenContext } from '@/context/TokenProvider';
 import Link from 'next/link';
+import { motion } from 'motion/react';
+import { Play, Shuffle } from '@phosphor-icons/react';
 
 interface TrackItems {
   track: {
@@ -28,7 +29,7 @@ interface TrackItems {
   };
 }
 
-const msToMinutes = (ms: number) => {
+const formatTime = (ms: number) => {
   const minutes = Math.floor(ms / 60000);
   const seconds = ((ms % 60000) / 1000).toFixed(0);
   return minutes + ':' + (Number(seconds) < 10 ? '0' : '') + seconds;
@@ -74,7 +75,19 @@ const Songs = () => {
         if (!isTokenValid) return;
 
         const response = await apiClient.get('/me/tracks?limit=50');
-        setSongs(response.data.items);
+        const response2 = await apiClient.get('/me/tracks?limit=50&offset=50');
+        const response3 = await apiClient.get('/me/tracks?limit=50&offset=100');
+        const response4 = await apiClient.get('/me/tracks?limit=50&offset=150');
+        const response5 = await apiClient.get('/me/tracks?limit=50&offset=200');
+
+        const finalResponse = response.data.items.concat(
+          response2.data.items,
+          response3.data.items,
+          response4.data.items,
+          response5.data.items
+        );
+        // console.log('Final Response: ', finalResponse);
+        setSongs(finalResponse);
         setError(null);
       } catch (err) {
         const refreshSuccessful = await handleApiError(err);
@@ -241,8 +254,7 @@ const Songs = () => {
   }
 
   return (
-    <div className="pt-20 p-12 flex flex-col mb-24 max-w-full overflow-hidden">
-      {/* Header Section */}
+    <motion.div className="pt-20 p-12 flex flex-col mb-24 max-w-full overflow-y-scroll">
       <div className="flex flex-row justify-between flex-wrap">
         <div className="playlist-meta flex flex-row gap-x-8 mb-8 mx-4">
           <img
@@ -252,36 +264,40 @@ const Songs = () => {
             className="aspect-square rounded-lg self-baseline"
             alt="Playlist cover"
           />
-          <div className="flex flex-col justify-end items-start gap-y-1">
-            <p className="text-4xl font-bold">Liked Songs</p>
-            {songs.length > 0 && (
-              <p className="font-normal text-sm text-neutral-200">
-                {songs.length} songs
-              </p>
-            )}
+          <div className="flex flex-col justify-end items-start space-y-2">
+            <div className="flex flex-col space-y-1 mb-4">
+              <p className="text-4xl font-black">Liked Songs</p>
+              {songs.length > 0 && (
+                <p className="font-normal text-sm text-neutral-200">
+                  {songs.length} songs
+                </p>
+              )}
+            </div>
+
+            <div className="play-shuffle gap-x-4 flex flex-row items-end">
+              <motion.button
+                className="w-28 rounded-md flex flex-row px-4 py-2 justify-center items-center gap-x-2 border-[1px] border-opacity-0 bg-darkorange border-lemon hover:border-opacity-100 transition-colors hover:font-extrabold"
+                onClick={handlePlayClick}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Play size={14} className="text-lemon" weight="fill" />
+                <p className="text-lemon font-semibold text-sm">Play</p>
+              </motion.button>
+              <motion.button
+                className="w-28 rounded-md flex flex-row px-4 py-2 justify-center border-[1px] border-opacity-0 items-center gap-x-2 bg-darkorange border-lemon hover:border-opacity-100 transition-colors"
+                onClick={handleShuffleClick}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Shuffle size={15} className="text-lemon" weight="bold" />
+                <p className="text-lemon font-semibold text-sm">Shuffle</p>
+              </motion.button>
+            </div>
           </div>
-        </div>
-        <div className="play-shuffle gap-x-4 flex flex-row items-end mb-8 mx-4">
-          <button
-            className="w-28 rounded-lg flex flex-row px-4 py-2 justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition-colors"
-            onClick={handlePlayClick}
-          >
-            <FaPlay size={12} />
-            <p className="text-white font-medium text-sm">Play</p>
-          </button>
-          <button
-            className="w-28 rounded-lg flex flex-row px-4 py-2 justify-center items-center gap-x-2 bg-indigo hover:bg-indigoo transition-colors"
-            onClick={handleShuffleClick}
-          >
-            <PiShuffleBold size={15} />
-            <p className="text-white font-medium text-sm">Shuffle</p>
-          </button>
         </div>
       </div>
 
       <div className="playlist-content min-w-0 w-full">
         <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-x-4">
-          {/* Column Headers */}
           <div className="subheading-container col-span-4 grid grid-cols-subgrid text-neutral-400 text-sm border-b border-neutral-600 pb-2 mx-4 mt-8 mb-4">
             <div className="truncate">Song</div>
             <div className="truncate">Artist</div>
@@ -289,11 +305,17 @@ const Songs = () => {
             <div className="text-end w-20">Time</div>
           </div>
 
-          {/* Song Rows */}
           {songs.map((song, index) => (
-            <div
+            <motion.div
               key={song.track.id}
-              className="track-container col-span-4 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-300 px-4 py-4 cursor-pointer"
+              className="track-container col-span-4 grid grid-cols-subgrid items-center hover:bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg transition duration-100 px-4 py-4 cursor-pointer focus:outline-none"
+              onHoverStart={(event) => {}}
+              onHoverEnd={(event) => {}}
+              onClick={() => handleTrackClick(song, index)}
+              whileTap={{ scale: 0.98, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
             >
               <div
                 className="title flex flex-row items-center justify-start gap-x-2 min-w-0"
@@ -310,34 +332,35 @@ const Songs = () => {
                     width={40}
                     className="aspect-square rounded-[0.25rem] group-hover:opacity-70 transition-opacity duration-300"
                   />
-                  <FaPlay
+                  <Play
                     className="absolute inset-0 m-auto z-10 text-neutral-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     size={16}
+                    weight="fill"
                   />
                 </div>
-                <p className="text-sm text-neutral-300 truncate">
+                <p className="text-sm font-medium text-neutral-300 truncate">
                   {song.track.name}
                 </p>
               </div>
               <div className="artists min-w-0">
-                <p className="text-sm text-neutral-300 truncate">
+                <p className="text-sm font-medium text-neutral-300 truncate">
                   {song.track.artists.map((artist) => artist.name).join(', ')}
                 </p>
               </div>
               <Link
-                className="album text-sm text-neutral-300 truncate min-w-0 hover:underline"
+                className="album text-sm font-medium text-neutral-300 truncate min-w-0 hover:underline"
                 href={`/albums/${song.track.album.id}`}
               >
                 {song.track.album.name}
               </Link>
-              <div className="duration text-sm text-neutral-300 text-right w-20">
-                {msToMinutes(song.track.duration_ms)}
+              <div className="time-font duration text-sm font-medium text-neutral-300 text-right">
+                {formatTime(song.track.duration_ms)}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

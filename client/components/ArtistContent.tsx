@@ -85,20 +85,20 @@ const ArtistContent = () => {
         const [
           artistResponse,
           tracksResponse,
-          artistsResponse,
+          // artistsResponse,
           albumsResponse,
           followingResponse,
         ] = await Promise.all([
           apiClient.get(`/artists/${artistId}`),
           apiClient.get(`/artists/${artistId}/top-tracks?limit=10`),
-          apiClient.get(`/artists/${artistId}/related-artists?limit=10`),
+          // apiClient.get(`/artists/${artistId}/related-artists?limit=10`),
           apiClient.get(`/artists/${artistId}/albums?limit=50`),
           apiClient.get(`/me/following/contains?type=artist&ids=${artistId}`),
         ]);
 
         setArtist(artistResponse.data);
         setTopTracks(tracksResponse.data.tracks);
-        setRelatedArtists(artistsResponse.data.artists);
+        // setRelatedArtists(artistsResponse.data.artists);
         setRelatedArtists((prev) => prev.slice(0, 20));
 
         setAlbums(albumsResponse.data.items);
@@ -111,15 +111,14 @@ const ArtistContent = () => {
 
         if (refreshSuccessful) {
           try {
-            const [tracksResponse, artistsResponse, albumsResponse] =
-              await Promise.all([
-                apiClient.get(`/artists/${artistId}/top-tracks?limit=10`),
-                apiClient.get(`/artists/${artistId}/related-artists?limit=10`),
-                apiClient.get(`/artists/${artistId}/albums?limit=50`),
-              ]);
+            const [tracksResponse, albumsResponse] = await Promise.all([
+              apiClient.get(`/artists/${artistId}/top-tracks?limit=10`),
+              // apiClient.get(`/artists/${artistId}/related-artists?limit=10`),
+              apiClient.get(`/artists/${artistId}/albums?limit=50`),
+            ]);
 
             console.log('Tracks Response: ', tracksResponse);
-            console.log('Artists Response: ', artistsResponse);
+            // console.log('Artists Response: ', artistsResponse);
             console.log('Albums response: ', albumsResponse);
             setError(null);
           } catch (retryErr) {
@@ -273,16 +272,16 @@ const ArtistContent = () => {
                   onClick={() => handleFollowClick(artist.id)}
                 >
                   {isFollowing ? (
-                    <div className="flex flex-row justify-around items-center rounded-lg bg-indigo hover:bg-indigoo px-4 py-2 gap-x-2">
-                      <GoStarFill className="text-white" size={15} />
-                      <p className="text-white font-medium text-base">
+                    <div className="flex flex-row justify-around items-center rounded-md bg-gradient-to-br from-neutral-700 to-neutral-900 hover:bg-gradient-to-br hover:from-neutral-800 px-4 py-2 gap-x-2">
+                      <GoStarFill className="text-lemon" size={15} />
+                      <p className="text-lemon font-medium text-base">
                         Following
                       </p>
                     </div>
                   ) : (
-                    <div className="flex flex-row justify-around items-center rounded-lg bg-indigo hover:bg-indigoo px-4 py-2 gap-x-2">
-                      <GoStar className="text-white" size={15} />
-                      <p className="text-white font-medium text-base">Follow</p>
+                    <div className="flex flex-row justify-around items-center rounded-lg bg-gradient-to-br from-neutral-700 to-neutral-900 hover:bg-gradient-to-br hover:from-neutral-800 px-4 py-2 gap-x-2">
+                      <GoStar className="text-lemon" size={15} />
+                      <p className="text-lemon font-medium text-base">Follow</p>
                     </div>
                   )}
                 </button>
@@ -305,7 +304,7 @@ const ArtistContent = () => {
                         width={40}
                         className="aspect-square rounded-lg group-hover:opacity-70 transition-opacity duration-300"
                       />
-                      <p className="text-neutral-200 text-base font-light">
+                      <p className="text-neutral-200 text-base font-normal">
                         {track.name}
                       </p>
                     </div>
@@ -378,10 +377,10 @@ const ArtistContent = () => {
                 </div>
               </div>
 
-              <h3 className="text-3xl font-bold font-white ml-4">
+              {/* <h3 className="text-3xl font-bold font-white ml-4">
                 Similar Artists
-              </h3>
-              <div className="flex flex-row flex-nowrap overflow-x-auto max-w-full ml-8 mr-8 no-scrollbar">
+              </h3> */}
+              {/* <div className="flex flex-row flex-nowrap overflow-x-auto max-w-full ml-8 mr-8 no-scrollbar">
                 <div className="flex flex-row flex-auto gap-x-4 w-40">
                   {relatedArtists.map((artist) => (
                     <Link
@@ -402,7 +401,7 @@ const ArtistContent = () => {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

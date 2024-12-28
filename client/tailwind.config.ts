@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        indigo: '#4c4eff',
-        indigoo: '#373af0',
+        lemon: '#FC3D21',
+        lime: '#DF371D',
+        darkorange: '#211E1E',
       },
     },
   },

@@ -14,6 +14,41 @@
   -webkit-font-smoothing: antialiased;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@font-face {
+  font-family: 'Satoshi-Variable';
+  src:
+    url('../fonts/Satoshi-Variable.woff2') format('woff2'),
+    url('../fonts/Satoshi-Variable.woff') format('woff'),
+    url('../fonts/Satoshi-Variable.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AzeretMono-Variable';
+  src:
+    url('../fonts/AzeretMono-Variable.woff2') format('woff2'),
+    url('../fonts/AzeretMono-Variable.woff') format('woff'),
+    url('../fonts/AzeretMono-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-stretch: condensed;
+}
+
+/* .time-font {
+  font-family: 'AzeretMono-Variable', monospace;
+} */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -24,7 +59,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Satoshi-Variable', sans-serif;
 }
 
 .scrolling * {

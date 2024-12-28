@@ -207,6 +207,7 @@ serve({
           'user-follow-modify',
           'streaming',
           'user-read-recently-played',
+          'user-top-read',
         ];
         const scope = scopes.join(' ');
         const state = generateRandomString(16);

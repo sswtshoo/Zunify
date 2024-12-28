@@ -3,7 +3,6 @@ import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoMdVolumeHigh, IoMdVolumeOff, IoMdVolumeLow } from 'react-icons/io';
 import { IoVolumeMedium } from 'react-icons/io5';
-import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import { twMerge } from 'tailwind-merge';
 import React, { useState, useEffect, useRef } from 'react';
 import FullscreenPlayer from './FullScreenPlayer';
@@ -12,6 +11,8 @@ import LibraryCheck from '@/utils/LibraryCheck';
 import AnimatedAlbumArt from './AnimatedArt';
 import { PlayerState, Track } from '@/types/Spotify';
 import Link from 'next/link';
+import { motion } from 'motion/react';
+import { HeartStraight, ArrowsOutSimple } from '@phosphor-icons/react';
 
 interface NowPlayingProps {
   className?: string;
@@ -109,18 +110,18 @@ declare global {
   }
 }
 
-const getLocalStorage = (key: string): string | null => {
-  if (typeof window !== 'undefined') {
-    return localStorage.getItem(key);
-  }
-  return null;
-};
+// const getLocalStorage = (key: string): string | null => {
+//   if (typeof window !== 'undefined') {
+//     return localStorage.getItem(key);
+//   }
+//   return null;
+// };
 
-const setLocalStorage = (key: string, value: string): void => {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem(key, value);
-  }
-};
+// const setLocalStorage = (key: string, value: string): void => {
+//   if (typeof window !== 'undefined') {
+//     localStorage.setItem(key, value);
+//   }
+// };
 
 export default function NowPlaying({
   className,
@@ -383,13 +384,13 @@ export default function NowPlaying({
     }
   };
 
-  console.log(playerState.currentTrack);
+  // console.log(playerState.currentTrack);
 
   return (
     <>
       <div
         className={twMerge(
-          'fixed bottom-0 flex items-center justify-between bg-gray-700 bg-opacity-10 backdrop-blur-3xl px-4 z-10',
+          'fixed bottom-0 right-0 left-0 flex items-center justify-between bg-gray-700 bg-opacity-10 border-t-[0.5px] border-neutral-300 border-opacity-25 backdrop-blur-3xl px-4 z-10',
           className
         )}
       >
@@ -405,22 +406,17 @@ export default function NowPlaying({
                     playerState.currentTrack?.album?.images[0]?.url || ''
                   }
                   isPlaying={!playerState.isPaused}
-                  onClick={() => setIsFullscreen(true)}
                   className="h-14 w-14"
-                />
-                <MdFullscreen
-                  size={20}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </>
             )}
           </div>
           <div className="max-w-[80%]">
-            <p className="text-sm font-medium text-white truncate">
+            <p className="text-sm font-bold text-white truncate">
               {playerState.currentTrack?.name || 'No track playing'}
             </p>
 
-            <div className="text-xs text-neutral truncate">
+            <div className="text-xs font-medium text-neutral truncate">
               {playerState.currentTrack?.artists?.map((artist, index) => {
                 const artistId = artist.uri?.split(':')[2];
                 return (
@@ -444,14 +440,16 @@ export default function NowPlaying({
             }}
           >
             {playerState.currentTrack?.isLiked ? (
-              <IoMdHeart
-                size={22}
-                className="text-indigo focus:outline-none hover:scale-125 transition duration-300"
+              <HeartStraight
+                size={18}
+                className="text-lemon focus:outline-none hover:scale-125 transition duration-300"
+                weight="fill"
               />
             ) : (
-              <IoMdHeartEmpty
-                size={20}
+              <HeartStraight
+                size={16}
                 className="text-neutral-200 focus:outline-none hover:scale-125 transition duration-300"
+                weight="bold"
               />
             )}
           </button>
@@ -481,67 +479,46 @@ export default function NowPlaying({
             />
           </div>
 
-          <div className="w-full flex items-center text-xs text-neutral-300">
-            <span className="w-14 text-center mr-2">
+          <div className="w-full flex items-center justify-between text-xs text-neutral-300">
+            <span className="time-font w-14 text-xs text-center">
               {formatTime(playerState.position)}
             </span>
-            <div
+            <motion.div
               className="relative flex-1 h-[5px] group rounded-full"
               onMouseDown={handleProgressClick}
               ref={progressRef}
             >
-              <div className="absolute inset-y-0 w-full -inset-x-2 cursor-pointer transition-all duration-150 flex items-center justify-center">
+              <div className="absolute inset-y-0 w-full cursor-pointer transition-all duration-150 flex items-center justify-center">
                 <div className="w-full h-[5px] rounded-full bg-neutral-600 self-center">
-                  <div
+                  <motion.div
                     className="h-full bg-white rounded-full relative transition-all duration-150 group-hover:bg-white"
                     style={{
                       width: `${((playerState.position + 1000) / playerState.duration) * 100}%`,
                     }}
                   >
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
-            <span className="w-14 text-left ml-2">
+            </motion.div>
+            <span className="time-font w-14 text-xs text-center">
               {formatTime(playerState.duration)}
             </span>
           </div>
         </div>
 
         <div className="w-1/3 flex justify-end items-center px-6">
-          <div className="flex items-center">
-            <button
-              onClick={toggleMute}
-              className="text-neutral-200 hover:text-white transition-colors p-2"
-            >
-              {playerState.volume === 0 ? (
-                <IoMdVolumeOff size={20} />
-              ) : playerState.volume < 0.3 ? (
-                <IoMdVolumeLow size={20} />
-              ) : playerState.volume < 0.7 ? (
-                <IoVolumeMedium size={20} />
-              ) : (
-                <IoMdVolumeHigh size={20} />
-              )}
-            </button>
-            <div className="flex items-center w-20">
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.1"
-                value={playerState.volume}
-                onChange={handleVolumeChange}
-                className="cursor-pointer border-none h-2 mx-0"
-                style={
-                  {
-                    '--volume-percentage': `${playerState.volume * 100}%`,
-                  } as React.CSSProperties
-                }
-              />
-            </div>
-          </div>
+          <motion.button
+            onClick={() => setIsFullscreen(true)}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <ArrowsOutSimple
+              className="text-neutral-400 hover:text-neutral-200"
+              weight="bold"
+              size={16}
+            />
+          </motion.button>
         </div>
       </div>
 

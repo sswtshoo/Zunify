@@ -18,9 +18,26 @@ interface Playlist {
 
 interface PlaylistsResponse {
   message: string;
-  playlists: {
-    items: Playlist[];
+  items: Playlist[];
+}
+
+interface Tracks {
+  album: {
+    name: string;
+    id: string;
+    images: {
+      height: number;
+      url: string;
+      width: number;
+    }[];
   };
+  name: string;
+  id: string;
+  uri: string;
+  artists: {
+    name: string;
+  }[];
+  duration_ms: number;
 }
 
 const Home = () => {
@@ -29,8 +46,10 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [image, setImage] = useState<string | undefined>(undefined);
   const [featuredPlaylists, setFeaturedPlaylists] = useState<Playlist[]>([]);
+  const [topTracks, setTopTracks] = useState<Tracks[]>([]);
 
-  const [message, setMessage] = useState<string>('');
+  const { checkAndRefreshToken, handleApiError } = useAuth();
+
   const apiClient = useApiClient();
   const auth = useAuth();
   const server_uri = process.env.SERVER_URI;
@@ -141,19 +160,22 @@ const Home = () => {
       if (!isTokenValid) return;
 
       const response = await apiClient.get<PlaylistsResponse>(
-        'browse/categories/0JQ5DAt0tbjZptfcdMSKl3/playlists/?limit=50'
+        'me/playlists?limit=50'
       );
 
       const response2 = await apiClient.get(
-        'browse/categories/0JQ5DAnM3wGh0gz1MXnu89'
+        'me/top/tracks?limit=20&time_range=short_term'
       );
+
+      setTopTracks(response2.data.items);
 
       console.log(response2.data);
 
+      // console.log('Playlists: ', response.data);
+
       setFeaturedPlaylists(
-        response.data.playlists.items.reverse().slice(0, 10)
+        response.data.items.filter((item) => item !== null).slice(0, 10)
       );
-      setMessage(response.data.message);
     } catch (error) {
       await handleFetchError(error, fetchFeaturedPlaylists);
     }
@@ -168,12 +190,7 @@ const Home = () => {
         `/me/player/recently-played?limit=50`
       );
 
-      const response2 = await apiClient.get;
-
-      console.log(response.data.items);
-      console.log(response2);
-
-      setMessage(response.data.message);
+      // console.log(response.data.items);
     } catch (error) {
       await handleFetchError(error, fetchFeaturedPlaylists);
     }
@@ -188,6 +205,45 @@ const Home = () => {
       setImage(response.data.images[0]?.url);
     } catch (error) {
       await handleFetchError(error, fetchUserData);
+    }
+  };
+
+  const handleTrackClick = async (track: Tracks, index: number) => {
+    try {
+      const isTokenValid = await checkAndRefreshToken();
+      if (!isTokenValid) {
+        window.location.href = 'http://localhost:5174';
+        return;
+      }
+
+      localStorage.setItem('currentQueue', JSON.stringify(topTracks));
+      localStorage.setItem('currentTrack', JSON.stringify(track));
+      localStorage.setItem('currentIndex', index.toString());
+
+      localStorage.setItem('currentPlaylistId', 'liked');
+
+      await apiClient.put('/me/player/play', {
+        uris: topTracks.map((track) => track.uri),
+        offset: { position: index },
+      });
+    } catch (err) {
+      const refreshSuccessful = await handleApiError(err);
+      if (refreshSuccessful) {
+        try {
+          await apiClient.put('/me/player/play', {
+            uris: topTracks.map((track) => track.uri),
+            offset: { position: index },
+          });
+        } catch (retryErr) {
+          console.error(
+            'Error starting playback after token refresh:',
+            retryErr
+          );
+          window.location.href = 'http://localhost:5174';
+        }
+      } else {
+        window.location.href = 'http://localhost:5174';
+      }
     }
   };
 
@@ -235,8 +291,8 @@ const Home = () => {
       </div>
 
       <div className="mt-8 overflow-hidden max-w-full">
-        <h2 className="text-2xl font-bold mb-4">{message}</h2>
-        <div className="flex flex-row flex-nowrap overflow-x-auto max-w-full mr-8 no-scrollbar">
+        <h2 className="text-2xl font-bold mb-4">Your Playlists</h2>
+        <div className="flex flex-row flex-nowrap overflow-x-auto max-w-full mr-2 no-scrollbar">
           <div className="flex-auto flex flex-row gap-x-6 w-40">
             {featuredPlaylists.map((playlist) => (
               <Link
@@ -250,16 +306,39 @@ const Home = () => {
                     alt={playlist.name}
                     height={200}
                     width={200}
-                    className="aspect-square rounded-lg"
+                    className="aspect-square object-cover rounded-lg"
                   />
                 )}
 
                 <div className="flex flex-row items-center justify-start gap-x-2">
-                  <p className="text-neutral-400 font-normal text-xs mt-2 line-clamp-2">
-                    {playlist.description}
+                  <p className="text-neutral-200 font-semibold text-base mt-2 line-clamp-2">
+                    {playlist.name}
                   </p>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 overflow-hidden max-w-full">
+        <h2 className="text-2xl font-bold mb-4">Your top tracks this month</h2>
+        <div className="flex flex-row flex-nowrap overflow-x-auto max-w-full mr-2 no-scrollbar">
+          <div className="flex flex-auto gap-x-6 w-40">
+            {topTracks.map((track, index) => (
+              <div
+                className="flex flex-col gap-x-4 cursor-pointer hover:opacity-65 transition-opacity duration-300 w-48 shrink-0 "
+                onClick={() => handleTrackClick(track, index)}
+                key={track.id}
+              >
+                <img
+                  src={track.album.images[0].url}
+                  className="aspect-square object-cover rounded-lg"
+                />
+                <p className="text-neutral-200 font-semibold text-base mt-2 lime-clamp-2 truncate">
+                  {track.name}
+                </p>
+              </div>
             ))}
           </div>
         </div>

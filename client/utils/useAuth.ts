@@ -58,7 +58,7 @@ export const useAuth = (): AuthHook => {
       const success = await refreshAccessToken();
       if (!success) {
         console.warn('Failed to refresh token, redirecting to login');
-        window.location.href = `${server_uri}/login`;
+        // window.location.href = `${server_uri}/login`;
       }
       return success;
     }

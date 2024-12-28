@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useCallback } from 'react';
 import { useApiClient } from '../utils/ApiClient';
 import { useAuth } from '../utils/useAuth';
 import { FaPlay } from 'react-icons/fa';
@@ -51,43 +51,41 @@ const Artists = () => {
     validateToken();
   }, [tokenContext]);
 
-  useEffect(() => {
-    const fetchArtists = async () => {
-      try {
-        const isTokenValid = await checkAndRefreshToken();
-        if (!isTokenValid) return;
+  const fetchArtists = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const isTokenValid = await checkAndRefreshToken();
+      if (!isTokenValid) return;
 
-        const response = await apiClient.get(
-          '/me/following?type=artist&limit=50'
-        );
-        setArtists(response.data.artists.items);
-
-        setError(null);
-      } catch (err) {
-        const refreshSuccessful = await handleApiError(err);
-        if (refreshSuccessful) {
-          try {
-            const response = await apiClient.get(
-              '/me/following?type=artist&limit=50'
-            );
-            setArtists(response.data.artists.items);
-            setError(null);
-          } catch (retryErr) {
-            setError(
-              `Failed to fetch artists after token refresh: ${retryErr}`
-            );
-          }
-        } else {
-          setError('Error fetching artists');
-          console.error('Error fetching artists:', err);
+      const response = await apiClient.get(
+        '/me/following?type=artist&limit=50'
+      );
+      setArtists(response.data.artists.items);
+      setError(null);
+    } catch (err) {
+      const refreshSuccessful = await handleApiError(err);
+      if (refreshSuccessful) {
+        try {
+          const response = await apiClient.get(
+            '/me/following?type=artist&limit=50'
+          );
+          setArtists(response.data.artists.items);
+          setError(null);
+        } catch (retryErr) {
+          setError(`Failed to fetch artists after token refresh: ${retryErr}`);
         }
-      } finally {
-        setIsLoading(false);
+      } else {
+        setError('Error fetching artists');
+        console.error('Error fetching artists:', err);
       }
-    };
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
+  useEffect(() => {
     fetchArtists();
-  }, [apiClient]);
+  }, [fetchArtists]);
 
   if (error) {
     return (
@@ -124,12 +122,12 @@ const Artists = () => {
                   <img
                     src={artist.images[0].url}
                     alt={artist.name}
-                    className="w-full aspect-square rounded-3xl group-hover:opacity-70 transition duration-300 object-cover"
+                    className="w-full aspect-square rounded-3xl group-hover:opacity-70 transition duration-500 object-cover"
                   />
                 )}
                 <div className="absolute inset-0 flex justify-end items-end p-4">
-                  <div className="bg-[rgb(32,75,246)] p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FaPlay className="text-white" />
+                  <div className="bg-gradient-to-br from-neutral-700 to-neutral-900 hover:bg-gradient-to-br hover:from-neutral-800 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FaPlay className="text-lemon" />
                   </div>
                 </div>
               </div>

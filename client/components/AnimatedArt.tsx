@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MdFullscreen } from 'react-icons/md';
+import { motion } from 'motion/react';
+import { ArrowsOutSimple } from '@phosphor-icons/react';
 
 interface AnimatedAlbumArtProps {
   imageUrl: string;
@@ -42,19 +44,13 @@ const AnimatedAlbumArt = ({
         transformStyle: 'preserve-3d',
         cursor: 'pointer',
       }}
-      onClick={onClick}
     >
-      <MdFullscreen
-        size={20}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity z-10"
-      />
-
       <div
         className="w-full h-full group"
         style={{
           transition: 'transform 0.6s ease-in-out',
           transformStyle: 'preserve-3d',
-          transform: isFlipping ? 'rotateY(180deg)' : 'rotateY(0deg)',
+          transform: isFlipping ? 'rotateY(-180deg)' : 'rotateY(0deg)',
         }}
       >
         <div
