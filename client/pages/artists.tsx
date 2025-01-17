@@ -107,7 +107,7 @@ const Artists = () => {
   }
 
   return (
-    <div className="pt-20 px-8 flex flex-col mb-24">
+    <div className="pt-20 px-8 flex flex-col mb-28">
       <p className="text-4xl font-bold">Your artists</p>
       <div className="artist-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-10">
         {artists.map((artist) => (

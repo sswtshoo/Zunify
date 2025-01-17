@@ -89,49 +89,39 @@ serve({
 
     if (url.pathname === '/refresh-token') {
       if (req.method === 'POST') {
-        if (!refreshToken) {
-          return new Response('No refresh token available', {
-            status: 401,
-            headers,
-          });
-        }
+        try {
+          if (!refreshToken) {
+            return new Response(
+              JSON.stringify({ error: 'No refresh token available' }),
+              { status: 401, headers }
+            );
+          }
 
-        const newAccessTokenData = await refreshAccessToken();
-        if (newAccessTokenData) {
+          const newTokenData = await refreshAccessToken();
+          if (newTokenData) {
+            return new Response(
+              JSON.stringify({
+                access_token: newTokenData.accessToken,
+                expires_in: newTokenData.expiresIn,
+              }),
+              { headers }
+            );
+          }
+        } catch (error) {
           return new Response(
-            JSON.stringify({
-              access_token: newAccessTokenData.accessToken,
-              expires_in: newAccessTokenData.expiresIn,
-            }),
-            {
-              headers: {
-                ...headers,
-                'Content-Type': 'application/json',
-              },
-            }
+            JSON.stringify({ error: 'Failed to refresh access token' }),
+            { status: 401, headers }
           );
-        } else {
-          return new Response('Failed to refresh access token', {
-            status: 401,
-            headers,
-          });
         }
-      } else {
-        return new Response('Method not allowed', {
-          status: 405,
-          headers,
-        });
       }
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 405,
+        headers,
+      });
     }
-
     if (url.pathname === '/') {
       const code = url.searchParams.get('code');
-      const returnTo = url.searchParams.get('returnTo') || '/';
       const state = url.searchParams.get('state');
-
-      await logToFile(`Code present: ${!!code}`);
-      await logToFile(`ReturnTo value: ${returnTo}`);
-      await logToFile(`State value: ${state}`);
 
       if (code) {
         try {
@@ -155,10 +145,10 @@ serve({
           if (!responseToken.ok) {
             const errorData = await responseToken.text();
             await logToFile(`Token request failed: ${errorData}`);
-            return new Response(`Token request failed: ${errorData}`, {
-              status: 400,
-              headers,
-            });
+            return new Response(
+              JSON.stringify({ error: `Token request failed: ${errorData}` }),
+              { status: 400, headers }
+            );
           }
 
           const tokenData = await responseToken.json();
@@ -166,31 +156,26 @@ serve({
           refreshToken = tokenData.refresh_token;
           tokenExpiryTime = Date.now() + tokenData.expires_in * 1000;
 
-          const redirectUrl = new URL(app_uri as string);
-          redirectUrl.searchParams.set('access_token', tokenData.access_token);
-          redirectUrl.searchParams.set(
-            'expires_in',
-            tokenData.expires_in.toString()
-          );
+          const returnTo =
+            url.searchParams.get('returnTo') || 'http://localhost:3000';
 
-          if (returnTo && returnTo !== '/') {
-            await logToFile(`Setting pathname to: ${returnTo}`);
-            redirectUrl.pathname = decodeURIComponent(returnTo).replace(
-              /^\//,
-              ''
-            );
-          }
+          const redirectHeaders = new Headers({
+            Location: `${returnTo}?access_token=${tokenData.access_token}&expires_in=${tokenData.expires_in}`,
+          });
 
-          await logToFile(`Final redirect URL: ${redirectUrl.toString()}`);
-
-          return Response.redirect(redirectUrl.toString(), 302);
+          return new Response(null, {
+            status: 302,
+            headers: redirectHeaders,
+          });
         } catch (error: any) {
           console.error('Token exchange error:', error);
           await logToFile(`Token exchange error: ${error.message}`);
-          return new Response(`Error getting access token: ${error.message}`, {
-            status: 500,
-            headers,
-          });
+          return new Response(
+            JSON.stringify({
+              error: `Error getting access token: ${error.message}`,
+            }),
+            { status: 500, headers }
+          );
         }
       } else {
         const scopes = [
@@ -209,6 +194,7 @@ serve({
           'user-read-recently-played',
           'user-top-read',
         ];
+
         const scope = scopes.join(' ');
         const state = generateRandomString(16);
         const auth_query_parameters = new URLSearchParams({
@@ -219,23 +205,16 @@ serve({
           state: state,
         });
 
-        if (returnTo) {
-          const decodedReturnTo = decodeURIComponent(returnTo);
-          await logToFile(`Adding returnTo to state: ${decodedReturnTo}`);
-          auth_query_parameters.set('state', state);
-          auth_query_parameters.set('returnTo', decodedReturnTo);
-        }
-
-        const spotifyAuthUrl = `https://accounts.spotify.com/authorize/?${auth_query_parameters.toString()}`;
-        await logToFile(`Redirecting to Spotify: ${spotifyAuthUrl}`);
-
         return Response.redirect(
           `https://accounts.spotify.com/authorize/?${auth_query_parameters.toString()}`
         );
       }
     }
 
-    return new Response('Not found', { status: 404, headers });
+    return new Response(JSON.stringify({ error: 'Not found' }), {
+      status: 404,
+      headers,
+    });
   },
 });
 
