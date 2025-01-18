@@ -130,7 +130,42 @@ function AppContent({ Component, pageProps }: AppContentProps) {
                 isActive: true,
               };
 
+              navigator.mediaSession.playbackState = state.paused
+                ? 'playing'
+                : 'paused';
+
               setPlayerState(newState);
+
+              if ('mediaSession' in navigator) {
+                const track = newState?.currentTrack || {};
+
+                const artworkUrl = track?.album?.images?.[0]?.url;
+
+                const metadata = {
+                  title: track?.name || 'Unknown Title',
+                  artist:
+                    track?.artists?.map((artist) => artist.name).join(', ') ||
+                    'Unknown Artist',
+                  album: track?.album?.name || 'Unknown Album',
+                  artwork: artworkUrl
+                    ? [
+                        {
+                          src: artworkUrl,
+                          sizes: '640x640',
+                          type: 'image/jpeg',
+                        },
+                      ]
+                    : [],
+                };
+
+                // console.log('Setting MediaMetadata:', metadata);
+
+                try {
+                  navigator.mediaSession.metadata = new MediaMetadata(metadata);
+                } catch (error) {
+                  console.error('Failed to set MediaMetadata:', error);
+                }
+              }
 
               localStorage.setItem('playerState', JSON.stringify(newState));
             }
@@ -229,9 +264,11 @@ function AppContent({ Component, pageProps }: AppContentProps) {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(window.Spotify);
-  }, []);
+  // useEffect(() => {
+  //   console.log(window.Spotify);
+  // }, []);
+
+  // console.log(playerState.currentTrack.album?.images);
 
   return (
     <div className="h-screen w-screen flex flex-row bg-stone-950">

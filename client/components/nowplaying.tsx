@@ -110,19 +110,6 @@ declare global {
   }
 }
 
-// const getLocalStorage = (key: string): string | null => {
-//   if (typeof window !== 'undefined') {
-//     return localStorage.getItem(key);
-//   }
-//   return null;
-// };
-
-// const setLocalStorage = (key: string, value: string): void => {
-//   if (typeof window !== 'undefined') {
-//     localStorage.setItem(key, value);
-//   }
-// };
-
 export default function NowPlaying({
   className,
   deviceId,
@@ -172,10 +159,13 @@ export default function NowPlaying({
 
   const togglePlay = async () => {
     if (!player) return;
-    await player.togglePlay();
-    setPlayerState((prev) => ({ ...prev, isPaused: !prev.isPaused }));
-  };
 
+    try {
+      await player.togglePlay();
+    } catch (error) {
+      console.error('Error toggling playback:', error);
+    }
+  };
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const isInputActive =
@@ -193,6 +183,28 @@ export default function NowPlaying({
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [togglePlay]);
+
+  useEffect(() => {
+    if (player) {
+      player.addListener(
+        'player_state_changed',
+        (state: SpotifyPlayerState) => {
+          if (state) {
+            setPlayerState((prevState) => ({
+              ...prevState,
+              isPaused: state.paused,
+              currentTrack: {
+                ...state.track_window.current_track,
+                isLiked: prevState.currentTrack.isLiked,
+              },
+              position: state.position,
+              duration: state.duration,
+            }));
+          }
+        }
+      );
+    }
+  }, [player, playerState.currentTrack.isLiked]);
 
   useEffect(() => {
     const checkSongLiked = async () => {
@@ -311,6 +323,56 @@ export default function NowPlaying({
     }
   };
 
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.playbackState = playerState.isPaused
+        ? 'paused'
+        : 'playing';
+
+      if (playerState.currentTrack) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: playerState.currentTrack.name,
+          artist: playerState.currentTrack.artists
+            ?.map((a) => a.name)
+            .join(', '),
+          album: playerState.currentTrack.album?.name,
+          artwork:
+            playerState.currentTrack.album?.images?.map((img) => ({
+              src: img.url,
+              sizes: `${img.width}x${img.height}`,
+              type: 'image/jpeg',
+            })) || [],
+        });
+      }
+    }
+  }, [playerState.isPaused, playerState.currentTrack]);
+
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', async () => {
+        if (playerState.isPaused) {
+          await togglePlay();
+        }
+      });
+
+      navigator.mediaSession.setActionHandler('pause', async () => {
+        if (!playerState.isPaused) {
+          await togglePlay();
+        }
+      });
+
+      navigator.mediaSession.setActionHandler('nexttrack', nextTrack);
+      navigator.mediaSession.setActionHandler('previoustrack', previousTrack);
+
+      return () => {
+        navigator.mediaSession.setActionHandler('play', null);
+        navigator.mediaSession.setActionHandler('pause', null);
+        navigator.mediaSession.setActionHandler('nexttrack', null);
+        navigator.mediaSession.setActionHandler('previoustrack', null);
+      };
+    }
+  }, [playerState.isPaused, togglePlay, nextTrack, previousTrack]);
+
   const formatTime = (ms: number) => {
     const minutes = Math.floor(ms / 60000);
     const seconds = Math.floor((ms % 60000) / 1000);
@@ -403,7 +465,9 @@ export default function NowPlaying({
               <>
                 <AnimatedAlbumArt
                   imageUrl={
-                    playerState.currentTrack?.album?.images[0]?.url || ''
+                    playerState.currentTrack?.album?.images[0]?.url ||
+                    playerState.currentTrack?.album?.images[1]?.url ||
+                    playerState.currentTrack?.album?.images[2]?.url
                   }
                   isPlaying={!playerState.isPaused}
                   className="h-14 w-14"

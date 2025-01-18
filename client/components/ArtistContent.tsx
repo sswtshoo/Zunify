@@ -57,7 +57,7 @@ const formatTime = (ms: number) => {
 
 const ArtistContent = () => {
   const [topTracks, setTopTracks] = useState<Track[]>([]);
-  const [relatedArtists, setRelatedArtists] = useState<Artists[]>([]);
+
   const [artist, setArtist] = useState<Artists>();
   const [albums, setAlbums] = useState<Album[]>([]);
   const router = useRouter();
@@ -85,21 +85,18 @@ const ArtistContent = () => {
         const [
           artistResponse,
           tracksResponse,
-          // artistsResponse,
           albumsResponse,
           followingResponse,
         ] = await Promise.all([
           apiClient.get(`/artists/${artistId}`),
           apiClient.get(`/artists/${artistId}/top-tracks?limit=10`),
-          // apiClient.get(`/artists/${artistId}/related-artists?limit=10`),
+
           apiClient.get(`/artists/${artistId}/albums?limit=50`),
           apiClient.get(`/me/following/contains?type=artist&ids=${artistId}`),
         ]);
 
         setArtist(artistResponse.data);
         setTopTracks(tracksResponse.data.tracks);
-        // setRelatedArtists(artistsResponse.data.artists);
-        setRelatedArtists((prev) => prev.slice(0, 20));
 
         setAlbums(albumsResponse.data.items);
         console.log('Is following: ', followingResponse);
@@ -113,12 +110,12 @@ const ArtistContent = () => {
           try {
             const [tracksResponse, albumsResponse] = await Promise.all([
               apiClient.get(`/artists/${artistId}/top-tracks?limit=10`),
-              // apiClient.get(`/artists/${artistId}/related-artists?limit=10`),
+
               apiClient.get(`/artists/${artistId}/albums?limit=50`),
             ]);
 
             console.log('Tracks Response: ', tracksResponse);
-            // console.log('Artists Response: ', artistsResponse);
+
             console.log('Albums response: ', albumsResponse);
             setError(null);
           } catch (retryErr) {
@@ -142,7 +139,12 @@ const ArtistContent = () => {
 
   const albumType = albums.filter((item) => item.album_type === 'album');
   const singleType = albums.filter((item) => item.album_type === 'single');
-  const sortedTracks = topTracks.sort((a, b) => b.popularity - a.popularity);
+  let sortedTracks = topTracks.sort((a, b) => b.popularity - a.popularity);
+
+  const tracksLength = sortedTracks.length;
+  sortedTracks = sortedTracks.slice(0, tracksLength);
+
+  console.log('Sorted tracks', sortedTracks);
 
   const trackUris = sortedTracks.map((track) => track.uri);
 
@@ -289,7 +291,7 @@ const ArtistContent = () => {
             </div>
             <div className="top-tracks min-w-0 w-full flex flex-col gap-y-8 mt-8">
               <h3 className="text-3xl font-bold font-white ml-4">Popular</h3>
-              <div className="grid grid-cols-2 grid-rows-5 gap-x-6">
+              <div className="grid grid-cols-2 auto-rows-auto gap-x-6">
                 {sortedTracks.map((track, index) => (
                   <div
                     className="flex justify-between items-center mx-4 group relative flex-shrink-0 hover:bg-gradient-to-br from-neutral-800 to-neutral-900 hover:rounded-lg transition duration-300 px-4 py-4 border-b-[0.5px] border-spacing-x-1 border-neutral-700"

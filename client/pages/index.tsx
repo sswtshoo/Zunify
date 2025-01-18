@@ -164,7 +164,7 @@ const Home = () => {
       );
 
       const response2 = await apiClient.get(
-        'me/top/tracks?limit=20&time_range=short_term'
+        'me/top/tracks?limit=20&time_range=medium_term'
       );
 
       setTopTracks(response2.data.items);
@@ -311,7 +311,7 @@ const Home = () => {
                 )}
 
                 <div className="flex flex-row items-center justify-start gap-x-2">
-                  <p className="text-neutral-200 font-semibold text-base mt-2 line-clamp-2">
+                  <p className="text-neutral-200 font-medium text-base mt-2 line-clamp-2">
                     {playlist.name}
                   </p>
                 </div>
@@ -335,7 +335,7 @@ const Home = () => {
                   src={track.album.images[0].url}
                   className="aspect-square object-cover rounded-lg"
                 />
-                <p className="text-neutral-200 font-semibold text-base mt-2 lime-clamp-2 truncate">
+                <p className="text-neutral-200 font-medium text-base mt-2 lime-clamp-2 truncate">
                   {track.name}
                 </p>
               </div>

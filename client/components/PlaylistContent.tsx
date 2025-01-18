@@ -270,7 +270,7 @@ const PlaylistContent = () => {
           transition-all duration-300 ease-in-out
           ${
             isScrolled
-              ? 'bg-stone-950/95 backdrop-blur-md h-16 shadow-lg'
+              ? 'bg-stone-950/95 backdrop-blur-md h-20 shadow-lg'
               : 'bg-transparent h-0'
           }
         `}

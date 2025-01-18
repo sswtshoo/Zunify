@@ -2664,3 +2664,886 @@
 2024-12-28T11:21:08.361Z: State value: 7J23rwPiTWTXflOA
 2024-12-28T11:21:08.361Z: Exchanging code for token
 2024-12-28T11:21:08.703Z: Final redirect URL: http://localhost:3000/?access_token=BQB_awe17Br72C_BCeBkviUqS3BQY5XVN79wlw6iwNrqm_GKQxRbxlKKLd_ZAZ3iD1vyg4LN1wjkZKYdPRYL-mt9IsQIBzVjusllaxp5ExWDJMJVQxcz-toouSKDVMs_m6hD5sDx1dVXxyK5EkmrNwgPuysCnZSgnxxd8NGfVc7NvEg7Z8EF0EO0mrzqrN4QLWcnEssETnzF5t8sXcV-eInwpJcdnVUu7qizo0eF_wTe57xAEScwepcczJx8JZ4k33s1ZKnMHBrgHdhXYtd6zLifSUKUHFAV68fuys3tSJi21ub9sR-1CPk7v3UR_RyS3X-qrGw&expires_in=3600
+2024-12-31T16:12:43.124Z: Incoming request to: /
+2024-12-31T16:12:43.186Z: Full URL: http://localhost:5174/
+2024-12-31T16:12:43.190Z: Search params: {}
+2024-12-31T16:12:43.192Z: Code present: false
+2024-12-31T16:12:43.192Z: ReturnTo value: /
+2024-12-31T16:12:43.194Z: State value: null
+2024-12-31T16:12:43.196Z: Adding returnTo to state: /
+2024-12-31T16:12:43.196Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=Cu3fTvgTzAUIx5ag&returnTo=%2F
+2024-12-31T16:12:43.695Z: Incoming request to: /
+2024-12-31T16:12:43.695Z: Full URL: http://localhost:5174/?code=AQA4oyW91T3ZKSt8JvR-CFfuyNtavYMphOGFA7USjXGnQLj4t-JVeE5-rTV87GpQXcVcgjGQgi1Kwa2JkIZcQbVpTwlSaFlVUKCs-B5DfTLnAINzpBEuqSfJlqvVPOHKAER3RbPRyfdOtivE3NRnqTmn3BXgcZJTZWgPYTP2DdjJBKXa-v4sP43Ek8Xp8GlheHR1PTyO_u5X6naYLPSBeG3MkNrLWj4arKee1H3EUpCuekacS6mP-oyZVr0t9Xh0mj2FgOCLWLN0PDQO2oMAhA_BOLbYIK7d-ZbDXEW-RydOdD0n_aD87Ky29ezVbD1My3pe46X8tRpu2cCQiQJwySE1UiTXDfdppYWn2v-EDCwVyQQNA6rcd2a6v6gwbclasTnfvgjlK9hYucz2y2zudh50Qu9q7BSJfA_PsdY1udAKYEL8eogrdWnJ1hJ1fveGwqcS-swBf2-MeNY9eOe7LDNA3jYVazJyT_SREj7EM3vIs8WfEOBj9v9zzAEOLGVdaDu9CPFYinw03SKZdIiWZGMBavuGaSn5yUY4t0ZXyVHzLj4aDDjTjKU3goeNIkZcNoRg9g&state=Cu3fTvgTzAUIx5ag
+2024-12-31T16:12:43.698Z: Search params: {"code":"AQA4oyW91T3ZKSt8JvR-CFfuyNtavYMphOGFA7USjXGnQLj4t-JVeE5-rTV87GpQXcVcgjGQgi1Kwa2JkIZcQbVpTwlSaFlVUKCs-B5DfTLnAINzpBEuqSfJlqvVPOHKAER3RbPRyfdOtivE3NRnqTmn3BXgcZJTZWgPYTP2DdjJBKXa-v4sP43Ek8Xp8GlheHR1PTyO_u5X6naYLPSBeG3MkNrLWj4arKee1H3EUpCuekacS6mP-oyZVr0t9Xh0mj2FgOCLWLN0PDQO2oMAhA_BOLbYIK7d-ZbDXEW-RydOdD0n_aD87Ky29ezVbD1My3pe46X8tRpu2cCQiQJwySE1UiTXDfdppYWn2v-EDCwVyQQNA6rcd2a6v6gwbclasTnfvgjlK9hYucz2y2zudh50Qu9q7BSJfA_PsdY1udAKYEL8eogrdWnJ1hJ1fveGwqcS-swBf2-MeNY9eOe7LDNA3jYVazJyT_SREj7EM3vIs8WfEOBj9v9zzAEOLGVdaDu9CPFYinw03SKZdIiWZGMBavuGaSn5yUY4t0ZXyVHzLj4aDDjTjKU3goeNIkZcNoRg9g","state":"Cu3fTvgTzAUIx5ag"}
+2024-12-31T16:12:43.698Z: Code present: true
+2024-12-31T16:12:43.698Z: ReturnTo value: /
+2024-12-31T16:12:43.698Z: State value: Cu3fTvgTzAUIx5ag
+2024-12-31T16:12:43.698Z: Exchanging code for token
+2024-12-31T16:12:44.182Z: Final redirect URL: http://localhost:3000/?access_token=BQAB_B4vnY0q7iMNlIqB2gIHrIX1QOUov2SqXjSK1nXrzKajq81F7uKJ63unjQMhZa_p0mwbXYMfInQNQD9gXk9wsB_sBHVku5ADP6GbplSEsz-3WmrwdPlVGedZCegqNQy79x5_o9sPPcEEuZvg5ErE7m96XgvW1AKto90R1r46wGBzMUUdptgEKstnclfvRaSe0SygtCw3H6h3tIorhN92W_tC819bPtsRcR-GaWGMysOf-1k95vMplPquKhKOC80-oXbUgiIboO6oUbXkAWkAbCedeNzX7S059CF7G-BnZb1RM7Ko0ylTVZD4ti95h3g-318&expires_in=3600
+2024-12-31T16:13:22.182Z: Incoming request to: /
+2024-12-31T16:13:22.190Z: Full URL: http://localhost:5174/
+2024-12-31T16:13:22.191Z: Search params: {}
+2024-12-31T16:13:22.192Z: Code present: false
+2024-12-31T16:13:22.192Z: ReturnTo value: /
+2024-12-31T16:13:22.192Z: State value: null
+2024-12-31T16:13:22.193Z: Adding returnTo to state: /
+2024-12-31T16:13:22.193Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=SWtZu3otc71dqxXh&returnTo=%2F
+2024-12-31T16:13:22.428Z: Incoming request to: /
+2024-12-31T16:13:22.429Z: Full URL: http://localhost:5174/?code=AQAmE2-ZNtuI-yl5oNSwvxPH11NEgh055hovMt3J_sQyeQGIbj6oIDREajm8NBP6P_mCkv0CclH6kzZZr6Oj8vNoze1HEQRaKp1xxqvoN6WadSVCjSIS_r_xc-_030mH-NPmUmRURBlsEvVVZKD9L7IXkf3z2X9ITDu-9oJMeFqYSZjcRQaSgcQOjbM36Z7sPS9Gbi1xvZ6EMidvan6nOuBhqD0dZi5rubSpCl9QOs9dp84y4-JxspOUhqJTJWEAabVcWIGfvw9156bDM_1LzR3vao3d2hhUlzG1htfq49uSzt0o2BX9c1Z3rcpsXqyVNdn_FXFQ6KYkkf_Xrm-bMb-RsUair646IEvVKdHfM4zs7Lr6gUlk_gWo4O3K3_x6XAeaBwzTYRle1HSyumaNJmQgQm9Kjs76u9iCLZ98rxpVtIQYnvedYAE-_HWqz9n95WnfI7aEeznD36hfdX5MxvJxARLQYQUqnOq7qsT7XlLADAeH-Gnst37VxfIf2xOb0U78HD8F57R1byoUV823VmHNlCGSOjFLXQOgS98Db7Oiecq0wXgUoE1OoWTqGcFgp3ijYA&state=SWtZu3otc71dqxXh
+2024-12-31T16:13:22.430Z: Search params: {"code":"AQAmE2-ZNtuI-yl5oNSwvxPH11NEgh055hovMt3J_sQyeQGIbj6oIDREajm8NBP6P_mCkv0CclH6kzZZr6Oj8vNoze1HEQRaKp1xxqvoN6WadSVCjSIS_r_xc-_030mH-NPmUmRURBlsEvVVZKD9L7IXkf3z2X9ITDu-9oJMeFqYSZjcRQaSgcQOjbM36Z7sPS9Gbi1xvZ6EMidvan6nOuBhqD0dZi5rubSpCl9QOs9dp84y4-JxspOUhqJTJWEAabVcWIGfvw9156bDM_1LzR3vao3d2hhUlzG1htfq49uSzt0o2BX9c1Z3rcpsXqyVNdn_FXFQ6KYkkf_Xrm-bMb-RsUair646IEvVKdHfM4zs7Lr6gUlk_gWo4O3K3_x6XAeaBwzTYRle1HSyumaNJmQgQm9Kjs76u9iCLZ98rxpVtIQYnvedYAE-_HWqz9n95WnfI7aEeznD36hfdX5MxvJxARLQYQUqnOq7qsT7XlLADAeH-Gnst37VxfIf2xOb0U78HD8F57R1byoUV823VmHNlCGSOjFLXQOgS98Db7Oiecq0wXgUoE1OoWTqGcFgp3ijYA","state":"SWtZu3otc71dqxXh"}
+2024-12-31T16:13:22.430Z: Code present: true
+2024-12-31T16:13:22.430Z: ReturnTo value: /
+2024-12-31T16:13:22.430Z: State value: SWtZu3otc71dqxXh
+2024-12-31T16:13:22.430Z: Exchanging code for token
+2024-12-31T16:13:22.648Z: Final redirect URL: http://localhost:3000/?access_token=BQDf0W2d8xFUwC10BNpEJxt7-7MKNDOcaxg7qNFGPzdvztDDbv7dAdVHK_A75VkWKnsgoKM-7ix4oRgkBENVk4fkNIgerShR41fvKTPY9AI1jP3TI6DMUaAersUIcvCYuD_PW9tuasFOC0kkaCV1jUNJN4p-QIzJWfrcm3SpR03HTNTLw2_rJWal7nO864tm35CQ7yEUoX3ECIU6oAbbFKVmJtvIQfsUTog0Ld-wEiAQsddnKjd1uW1ReawaJ5N2qfQ_vvvFNPO_hnrnHrr4RPZjC-l7DHKBvWUZ_x9fyHd2fwhEK6R07jNlPpW7sy9rr1P8Ve0&expires_in=3600
+2024-12-31T17:16:11.270Z: Incoming request to: /
+2024-12-31T17:16:11.293Z: Full URL: http://localhost:5174/
+2024-12-31T17:16:11.301Z: Search params: {}
+2024-12-31T17:16:11.321Z: Code present: false
+2024-12-31T17:16:11.322Z: ReturnTo value: /
+2024-12-31T17:16:11.323Z: State value: null
+2024-12-31T17:16:11.361Z: Adding returnTo to state: /
+2024-12-31T17:16:11.363Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=mUfVqUY9eQEbEgGV&returnTo=%2F
+2024-12-31T17:16:11.510Z: Incoming request to: /
+2024-12-31T17:16:11.510Z: Full URL: http://localhost:5174/
+2024-12-31T17:16:11.513Z: Search params: {}
+2024-12-31T17:16:11.514Z: Code present: false
+2024-12-31T17:16:11.515Z: ReturnTo value: /
+2024-12-31T17:16:11.515Z: State value: null
+2024-12-31T17:16:11.516Z: Adding returnTo to state: /
+2024-12-31T17:16:11.516Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=hDbQbxb7xq5pJotc&returnTo=%2F
+2024-12-31T17:16:11.980Z: Incoming request to: /
+2024-12-31T17:16:11.981Z: Full URL: http://localhost:5174/?code=AQAriUHFxzzPZU_hNXNKniW5l00VuEGFoQsw1pqtQqp9MdiiVtbIL7bM4SF7Wv2ifRHG-o-IlH9r31us3nYDTPSFnLBwoTtkPLCPni4tqCMQxjzfu_65LqQ7Ab2duHeOuzVm0dFJs0myWXCnFfJnnVu6a-QIcNzJYq60P-YKtePwSde8YC0GH3IUUNsA11fVbRo40Dq04LfEgf8i_hb9Lzlt6cm6qV1fmIBXrhbT8y5xtfuAP6Sl_uZ4H6-R6ShCYwjp02F-jsl-l04i-p3YFblXr9ghZzbwm7bfNkPfyph1DeQGAMdELCy6tAtjNIhVSf9sq_uX8ZHcQIYKDYoWUNo88RFKNeEq8ifLCIx1h_ZInsWy7RSFtmoqIOSyZDMoDF0MDUohbJfZeX10aiIDdYxXMZSSwEDnbK0KHlN1xe8RM3OaSL4YYa-CbblBqqh_8iTpuCIINXm2JKNVj174KW4xvnnkSXlKq7GFgdyPit1aOFQWZoTJpPUPHDKtwJ-406vb5nPkap577R--lqbMGb8MWM63OekMA10w_3ow44pxdpy7HHiYYkqb9GLNqYNftUeqlg&state=hDbQbxb7xq5pJotc
+2024-12-31T17:16:11.983Z: Search params: {"code":"AQAriUHFxzzPZU_hNXNKniW5l00VuEGFoQsw1pqtQqp9MdiiVtbIL7bM4SF7Wv2ifRHG-o-IlH9r31us3nYDTPSFnLBwoTtkPLCPni4tqCMQxjzfu_65LqQ7Ab2duHeOuzVm0dFJs0myWXCnFfJnnVu6a-QIcNzJYq60P-YKtePwSde8YC0GH3IUUNsA11fVbRo40Dq04LfEgf8i_hb9Lzlt6cm6qV1fmIBXrhbT8y5xtfuAP6Sl_uZ4H6-R6ShCYwjp02F-jsl-l04i-p3YFblXr9ghZzbwm7bfNkPfyph1DeQGAMdELCy6tAtjNIhVSf9sq_uX8ZHcQIYKDYoWUNo88RFKNeEq8ifLCIx1h_ZInsWy7RSFtmoqIOSyZDMoDF0MDUohbJfZeX10aiIDdYxXMZSSwEDnbK0KHlN1xe8RM3OaSL4YYa-CbblBqqh_8iTpuCIINXm2JKNVj174KW4xvnnkSXlKq7GFgdyPit1aOFQWZoTJpPUPHDKtwJ-406vb5nPkap577R--lqbMGb8MWM63OekMA10w_3ow44pxdpy7HHiYYkqb9GLNqYNftUeqlg","state":"hDbQbxb7xq5pJotc"}
+2024-12-31T17:16:11.983Z: Code present: true
+2024-12-31T17:16:11.984Z: ReturnTo value: /
+2024-12-31T17:16:11.984Z: State value: hDbQbxb7xq5pJotc
+2024-12-31T17:16:11.984Z: Exchanging code for token
+2024-12-31T17:16:12.314Z: Final redirect URL: http://localhost:3000/?access_token=BQCv5ugVRqkACGiQ1InQl2doeHBkoKAoXnjyzMyy7XYOl9pBDnwgRH3Q6tWzERqHYN388j-sevZg4yWWZei0w2uctTkU4Zpx5kLSzvei-WKvykJlZqPiAuAcocYgmLLYsP5tSgxzAzLNSkr1MYazL-kzjwIuqe4orEPzVZEop0WrvD15zQ2dS8jPPzsRPgLX4RVeT-f_zwoYBXQdePe_yRaKy4KliMDXXfBy_XjTxBjDnFVsxaZ-dVEG-hs2P9aIlzKWw1SjqNb9uOIPb0lpPMlZ2_JjHKxKWD3bmEIXozWQhvIc43uaRFTMc72nkKIWrJ86RkM&expires_in=3600
+2024-12-31T17:17:10.457Z: Incoming request to: /
+2024-12-31T17:17:10.515Z: Full URL: http://localhost:5174/
+2024-12-31T17:17:10.525Z: Search params: {}
+2024-12-31T17:17:10.528Z: Code present: false
+2024-12-31T17:17:10.528Z: ReturnTo value: /
+2024-12-31T17:17:10.528Z: State value: null
+2024-12-31T17:17:10.544Z: Adding returnTo to state: /
+2024-12-31T17:17:10.551Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=npGMM3huvKVQ0zcs&returnTo=%2F
+2024-12-31T17:17:11.023Z: Incoming request to: /
+2024-12-31T17:17:11.023Z: Full URL: http://localhost:5174/?code=AQC0VZgdDP9cotrsjyGMAAJrQvbZjUs5cMk4o74bM3NZ5S_WmiVGjOtYtyXiACXpaBv8FHF5hcat6ZOC0F0Ku5-PUZcwMsAB050S_DK8otaENCEaWT2z9W2caYWjfHC1gdHq1YqXfyhy00mnVZ4I5Ts9ESv7ryz3d-JEhWUgtM5QB7c3s5_YpEn_DhHCuM8s1af6F94z_hejcV6H3RNyeqQAXCGfS6b9OVnQw43Bp3KyaOMvvRZpS7yH0ct-PmDeEC8QjnVkmWAKJQ7b8lNwBQAq3E6OnAexY43YfgA0QCcOwus_0qSvyfdp0XYpq-i3IqWecx2eIj0qGZBDt29BwNynLYq0CVMTg7euUtepGiKT5SPcc3oDW0xVk_gqzXkLm2LIl-N3gvgDpJY-hNdNWXgGgblfb3X03TH9qg7LxDgwxl4fDAZ_vqA1XOfPSqgeOazUr8jDH3XmpustMiUBccpZAHij0haCKXI4UJcnp77HsnarvVR7e-_P4VhNya9iv7SOrOwqkoWegKf_2ZzVsRAkyWjl6gTVkmTF7P3hnwssHA4sTVFGCXAYenTPeRDuxZ5tTA&state=npGMM3huvKVQ0zcs
+2024-12-31T17:17:11.026Z: Search params: {"code":"AQC0VZgdDP9cotrsjyGMAAJrQvbZjUs5cMk4o74bM3NZ5S_WmiVGjOtYtyXiACXpaBv8FHF5hcat6ZOC0F0Ku5-PUZcwMsAB050S_DK8otaENCEaWT2z9W2caYWjfHC1gdHq1YqXfyhy00mnVZ4I5Ts9ESv7ryz3d-JEhWUgtM5QB7c3s5_YpEn_DhHCuM8s1af6F94z_hejcV6H3RNyeqQAXCGfS6b9OVnQw43Bp3KyaOMvvRZpS7yH0ct-PmDeEC8QjnVkmWAKJQ7b8lNwBQAq3E6OnAexY43YfgA0QCcOwus_0qSvyfdp0XYpq-i3IqWecx2eIj0qGZBDt29BwNynLYq0CVMTg7euUtepGiKT5SPcc3oDW0xVk_gqzXkLm2LIl-N3gvgDpJY-hNdNWXgGgblfb3X03TH9qg7LxDgwxl4fDAZ_vqA1XOfPSqgeOazUr8jDH3XmpustMiUBccpZAHij0haCKXI4UJcnp77HsnarvVR7e-_P4VhNya9iv7SOrOwqkoWegKf_2ZzVsRAkyWjl6gTVkmTF7P3hnwssHA4sTVFGCXAYenTPeRDuxZ5tTA","state":"npGMM3huvKVQ0zcs"}
+2024-12-31T17:17:11.026Z: Code present: true
+2024-12-31T17:17:11.027Z: ReturnTo value: /
+2024-12-31T17:17:11.027Z: State value: npGMM3huvKVQ0zcs
+2024-12-31T17:17:11.027Z: Exchanging code for token
+2024-12-31T17:17:11.226Z: Final redirect URL: http://localhost:3000/?access_token=BQANKvm3vYVydKTQ4IQdiUIOd9KyY9orTvRDb50w16-tsgBUz3TbZxyY_9DNmi7mipH8ICn7RmriXL4yB9PY-9QI12oasQYaLzKlvhT2_O4QIVM5C_yFUyUFzEgiPBw6QIUTFD7XnJujkpvWTwIMnCKJfdmcqDINYUGvIEmKmkPdY0x67RQvHW6hvC0bFx2g2iBouQEPbzYSRQWAVWRs4aR_4BI9h7mnY3icosyB0I3g42au1rvug7sFJkq5g7XV_wkY7ILpgovlCe-ab3WKtgLfmTKXjqo2fyKqA_RFW-HznDl0KN7Vyk_k35DBDdF994GmqN4&expires_in=3600
+2024-12-31T17:18:29.903Z: Incoming request to: /
+2024-12-31T17:18:29.908Z: Full URL: http://localhost:5174/
+2024-12-31T17:18:29.909Z: Search params: {}
+2024-12-31T17:18:29.911Z: Code present: false
+2024-12-31T17:18:29.911Z: ReturnTo value: /
+2024-12-31T17:18:29.911Z: State value: null
+2024-12-31T17:18:29.913Z: Adding returnTo to state: /
+2024-12-31T17:18:29.913Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=30ASLcPuB7WPDsRO&returnTo=%2F
+2024-12-31T17:18:30.170Z: Incoming request to: /
+2024-12-31T17:18:30.171Z: Full URL: http://localhost:5174/?code=AQDsUogLgP_tQ4mNRpyB9WmhaJ-O-aMFtWH_j9vTNRvEDWEWjUkKAQp1zs3r4HrQIRLpgI-1gE8rpowdImMPRIClO0ll1zONWbi4-39Ku6xbFsKC-rkHRDmea4Qfaje2_eCKVbifiDSbxjKrQxdNYZa_ekTtoAH2i0nV3CaOZXA7w2tMdMYd75ywR_ulzp3whawORI6oTHaYiOBoMvyGhI4PcHy2MRRlGKBWUuKSZVZe_BEy1IS99O6H0-09RcANPXDt2wAQnoJCk1Jtd3Vewh9z0z1bK32AOgszihG7MaKWQkoy2y2W09bmZFg6zSzCB7Ty9nZxKLZkYJNu7HBX92Ex4_8_z1jN82WKC8CLf4ygdGxjwA_nJ4z2j4T2CV3fSJr2ZS9KtLH__RdMVJUewn_pQiTVpk3ie0y5_oTOZSeIrCpGhEnwKVyWupxIuU08KDqTP-zfijj8LnnnetVsCBTeLIY9GgpAtVmJ-WeBC0FWMK17ck4raJqkhxnv7dHywgix2zic2K3DU7xDyOcYDRRRp-4ON-oTEfrc5AHcXh0KmklwE4FwtOnrEREb5VSH57tmFg&state=30ASLcPuB7WPDsRO
+2024-12-31T17:18:30.173Z: Search params: {"code":"AQDsUogLgP_tQ4mNRpyB9WmhaJ-O-aMFtWH_j9vTNRvEDWEWjUkKAQp1zs3r4HrQIRLpgI-1gE8rpowdImMPRIClO0ll1zONWbi4-39Ku6xbFsKC-rkHRDmea4Qfaje2_eCKVbifiDSbxjKrQxdNYZa_ekTtoAH2i0nV3CaOZXA7w2tMdMYd75ywR_ulzp3whawORI6oTHaYiOBoMvyGhI4PcHy2MRRlGKBWUuKSZVZe_BEy1IS99O6H0-09RcANPXDt2wAQnoJCk1Jtd3Vewh9z0z1bK32AOgszihG7MaKWQkoy2y2W09bmZFg6zSzCB7Ty9nZxKLZkYJNu7HBX92Ex4_8_z1jN82WKC8CLf4ygdGxjwA_nJ4z2j4T2CV3fSJr2ZS9KtLH__RdMVJUewn_pQiTVpk3ie0y5_oTOZSeIrCpGhEnwKVyWupxIuU08KDqTP-zfijj8LnnnetVsCBTeLIY9GgpAtVmJ-WeBC0FWMK17ck4raJqkhxnv7dHywgix2zic2K3DU7xDyOcYDRRRp-4ON-oTEfrc5AHcXh0KmklwE4FwtOnrEREb5VSH57tmFg","state":"30ASLcPuB7WPDsRO"}
+2024-12-31T17:18:30.173Z: Code present: true
+2024-12-31T17:18:30.174Z: ReturnTo value: /
+2024-12-31T17:18:30.174Z: State value: 30ASLcPuB7WPDsRO
+2024-12-31T17:18:30.174Z: Exchanging code for token
+2024-12-31T17:18:30.365Z: Final redirect URL: http://localhost:3000/?access_token=BQA2O0XPNGjvszb0c-0zXdOpwZJ3iuneh2rU3I01jGGepFuKcnwMAwxisowlRH7Uq-18_GTiOaTwpRqmfpVM-7bufD2npmeezwp8qxUWpZ5vr-JHckkUz4ZNLajsNmg6XLj8ny25Fr5TaNa4Z_QOtgcSb83LgMT_6xN5iv4DUHOojE8wWp81p6HXVYphNcp_OQM4nEq16t2sQ5Z14pkBLEU8WduCNqOSc_oVHKVA7clks5Ggw7ULzb4OuDJqqVTNFlF-Mmr9S-K1jKCPNl1BUa4-wkoMsOIVoLwytigbh6fHMn_n9kxMUPjLKZkmq6-3mF3avQg&expires_in=3600
+2024-12-31T17:18:32.968Z: Incoming request to: /
+2024-12-31T17:18:32.968Z: Full URL: http://localhost:5174/
+2024-12-31T17:18:32.968Z: Search params: {}
+2024-12-31T17:18:32.968Z: Code present: false
+2024-12-31T17:18:32.969Z: ReturnTo value: /
+2024-12-31T17:18:32.969Z: State value: null
+2024-12-31T17:18:32.969Z: Adding returnTo to state: /
+2024-12-31T17:18:32.969Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=OKHtRlFwHDcfnlMM&returnTo=%2F
+2024-12-31T17:18:33.201Z: Incoming request to: /
+2024-12-31T17:18:33.202Z: Full URL: http://localhost:5174/?code=AQDKcRh82DSx0HCTbbQ53cn_SNzWaqrR6Bb4CZr9pUyKSIyhvq5jSNsMSWgHvZifinrpkRYLqYL2p5uYrscySjka4hWTgvfkvJidUk1ShuR8fbwVKfY3BG6OIUH2vXhDyHTfBZcCRuDtERt3FOnYacCcv7SZfiaDii6xYIiRKC7u-579E7ctkrmziidHs9RaJ5XJisifzKUbub1q3V7W1VgLRM8IF7bNw6auB34Y8DAPpk2chNBqOO224sQHI5VR_1dCpeVxObrmdcf-vWUelxNpUi6GAAlpJUIdUt9dckgLZGC3x9Jfr-kzPWXosqMxAFfcYZrdKWJMLQaIbTci0frxEqB2wy_7ibakUYTELEcAWqE8YOXGDAUV6UWQsQNCHt52TNeb4K8iSeAL7Ah-rOVWc3VWYFrC4AxS7PxFCGvfsnxO20WV95ref7GfhUmIkQnEJ6SvrLfzAIJiP2-JlXE-KMHD3lB2yt5JyJiJz6q_fU244KKcAePBao-oc5kCiyq-L1WOsI-bd5NQb2WPx8UIpv3Uk4OdFzJWhq_ncuz30y3dZp7hLgU2G2r0JYySDr0uGQ&state=OKHtRlFwHDcfnlMM
+2024-12-31T17:18:33.204Z: Search params: {"code":"AQDKcRh82DSx0HCTbbQ53cn_SNzWaqrR6Bb4CZr9pUyKSIyhvq5jSNsMSWgHvZifinrpkRYLqYL2p5uYrscySjka4hWTgvfkvJidUk1ShuR8fbwVKfY3BG6OIUH2vXhDyHTfBZcCRuDtERt3FOnYacCcv7SZfiaDii6xYIiRKC7u-579E7ctkrmziidHs9RaJ5XJisifzKUbub1q3V7W1VgLRM8IF7bNw6auB34Y8DAPpk2chNBqOO224sQHI5VR_1dCpeVxObrmdcf-vWUelxNpUi6GAAlpJUIdUt9dckgLZGC3x9Jfr-kzPWXosqMxAFfcYZrdKWJMLQaIbTci0frxEqB2wy_7ibakUYTELEcAWqE8YOXGDAUV6UWQsQNCHt52TNeb4K8iSeAL7Ah-rOVWc3VWYFrC4AxS7PxFCGvfsnxO20WV95ref7GfhUmIkQnEJ6SvrLfzAIJiP2-JlXE-KMHD3lB2yt5JyJiJz6q_fU244KKcAePBao-oc5kCiyq-L1WOsI-bd5NQb2WPx8UIpv3Uk4OdFzJWhq_ncuz30y3dZp7hLgU2G2r0JYySDr0uGQ","state":"OKHtRlFwHDcfnlMM"}
+2024-12-31T17:18:33.204Z: Code present: true
+2024-12-31T17:18:33.204Z: ReturnTo value: /
+2024-12-31T17:18:33.204Z: State value: OKHtRlFwHDcfnlMM
+2024-12-31T17:18:33.204Z: Exchanging code for token
+2024-12-31T17:18:33.389Z: Final redirect URL: http://localhost:3000/?access_token=BQDA2c201kGb3mvlkSW57kubSBQuLSRkItuQT2hR1LxAnE1Nk0ZEHynscSffc2P-8r3p4pa1KD-zPJVps2DYaJnvpkahtT_UbbKbkYffiP0UF6APJfHLvMkuonhQA3oswf-C0g4e8r5KQ-26FOVZW0cODSxwc3No7dVXhFunArsZN8ZetvcTQY7cbGxl5-Y1f5YPU9KJuZCKq7mGKQhyRR1KBTXjJehPr7_98SVvVj8a28kRddzPPblXYP62oY-9M6SfY7VuE_nbzsqZ3IZmb9VcFy2zxdvTZH5WwzyzWArTiAEh3yxFcK5uSNLYC56n2l9uPIo&expires_in=3600
+2024-12-31T17:18:35.671Z: Incoming request to: /
+2024-12-31T17:18:35.671Z: Full URL: http://localhost:5174/
+2024-12-31T17:18:35.671Z: Search params: {}
+2024-12-31T17:18:35.672Z: Code present: false
+2024-12-31T17:18:35.672Z: ReturnTo value: /
+2024-12-31T17:18:35.672Z: State value: null
+2024-12-31T17:18:35.673Z: Adding returnTo to state: /
+2024-12-31T17:18:35.673Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=tDNZkEWkbOo2gf8d&returnTo=%2F
+2024-12-31T17:18:35.887Z: Incoming request to: /
+2024-12-31T17:18:35.887Z: Full URL: http://localhost:5174/?code=AQAIxJvde_gboVr1One6QtYT8e1V858fWKjmYJfzhxZSdeqzhlKrHfOlU4LI-o8ovCh8sxjGD5TDRRoig6ltT8xonloQirL0exF6D6ER-zMKdSsKC5UiV_Jo7bkCbHe6oiL45IGT6ELzqlK7z3o__QAfF0FM4jQTdJ31SGKwJnrsEG2lCB6sWHA7ME_rRXprF0VR1LcpDLmumL2pcSqf14rq5ghVAPgQCF_OmnSdmIeKBilrHMm_mM5pl78XVr9zEzSoBkiZE_tdAByZa2o2-q7LAuOqMTEYBUcEw2Wm_3yW9wTwGCExD798xQpQCPPT6wAz9LPd5as0y8pfU_hP8ZoyMaopAEcuYMbqjnUiZG-9Dyk93xCtSzbUAZnkxh-IeEvZMz_XHulOo76Kc1c4UgzRXDsCHH-J7z3NUIUZE6V_p9WgKwy1C3e1Ot7aAiBaOcYcFSAUAc-_spV6RX4fSaG9j9cGbN-a_TC8hAP_xFhFY7wcVZay6FsRe7uXI4f_Wu3uLdVA3pshq-fyVCyHijNVh-pw4lPD8PVXueQfnzuoa4sA70dcHuE4Lraud7Sl6PcHMQ&state=tDNZkEWkbOo2gf8d
+2024-12-31T17:18:35.888Z: Search params: {"code":"AQAIxJvde_gboVr1One6QtYT8e1V858fWKjmYJfzhxZSdeqzhlKrHfOlU4LI-o8ovCh8sxjGD5TDRRoig6ltT8xonloQirL0exF6D6ER-zMKdSsKC5UiV_Jo7bkCbHe6oiL45IGT6ELzqlK7z3o__QAfF0FM4jQTdJ31SGKwJnrsEG2lCB6sWHA7ME_rRXprF0VR1LcpDLmumL2pcSqf14rq5ghVAPgQCF_OmnSdmIeKBilrHMm_mM5pl78XVr9zEzSoBkiZE_tdAByZa2o2-q7LAuOqMTEYBUcEw2Wm_3yW9wTwGCExD798xQpQCPPT6wAz9LPd5as0y8pfU_hP8ZoyMaopAEcuYMbqjnUiZG-9Dyk93xCtSzbUAZnkxh-IeEvZMz_XHulOo76Kc1c4UgzRXDsCHH-J7z3NUIUZE6V_p9WgKwy1C3e1Ot7aAiBaOcYcFSAUAc-_spV6RX4fSaG9j9cGbN-a_TC8hAP_xFhFY7wcVZay6FsRe7uXI4f_Wu3uLdVA3pshq-fyVCyHijNVh-pw4lPD8PVXueQfnzuoa4sA70dcHuE4Lraud7Sl6PcHMQ","state":"tDNZkEWkbOo2gf8d"}
+2024-12-31T17:18:35.888Z: Code present: true
+2024-12-31T17:18:35.888Z: ReturnTo value: /
+2024-12-31T17:18:35.888Z: State value: tDNZkEWkbOo2gf8d
+2024-12-31T17:18:35.888Z: Exchanging code for token
+2024-12-31T17:18:36.078Z: Final redirect URL: http://localhost:3000/?access_token=BQD4SQOaIfcQtFJWcr_TSDJ_0blEkNZwVvCyVgoRM0ODDSRK287RpNLHpK7SxDP5LitBUS_gTFSsUghV1q4a9pOCJ3AA0bUi3wQkr55ahGLJaNVco9Ek_WDRnDe7RJfs_tYwx8rw9sUcUSbPZLeHpELvw41XaofnQ0la--_Ne_cIwq8RqjuC1NOO4joFWsZZsIhpb4aXVV8nS6Cx_5KU2qnqpXzC8jsMp-QDV2z_69Q6LAjeyEGRDnVHW4FN_jZCNniq9WPY7bSFffaW7rghInW9KS5czSNXBjRTVVlSAxvs8V3mc199zKWya5dzYcrefmwjxjo&expires_in=3600
+2024-12-31T17:18:38.346Z: Incoming request to: /
+2024-12-31T17:18:38.346Z: Full URL: http://localhost:5174/
+2024-12-31T17:18:38.346Z: Search params: {}
+2024-12-31T17:18:38.347Z: Code present: false
+2024-12-31T17:18:38.347Z: ReturnTo value: /
+2024-12-31T17:18:38.347Z: State value: null
+2024-12-31T17:18:38.347Z: Adding returnTo to state: /
+2024-12-31T17:18:38.347Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=P5w6MsKwuaX1RWZC&returnTo=%2F
+2024-12-31T17:18:38.590Z: Incoming request to: /
+2024-12-31T17:18:38.590Z: Full URL: http://localhost:5174/?code=AQDQLe6scG1EjmAuTJDuK9F1WvJN1uoq_Drymb07Do1fp8FlEhw4zYHA2WxMVSVhpPofBo_ciFxifG-g6Ro9eum3wM3xlMabtrPKr-0DW6_NRnM7aGlcZRTOIWsNSpWVWXwq80pK1zHJsMOOf7U68qx1NTSX3r_MiR6TNUpixdmrUOdXG5CikOJ3abRX4pUYx_NNSj7VQi1wgmOPwzHBDUKpJPkEn3ednlrTHYiqpNeCidH07fA4C9Q_TvoqlelGVJIitmTCnuhk-PcSme9OdsmOuW0p8dcvsPPurhLwi2zjbE_q-0U84Vxsbajl-4y048roAMMtUBjLARL2jrs8Yn1ySJmd9-S5-wFPBN91Liy5EG5RRKa3fJEKEaqEVxmijfw5Cnba2-2sY1mDD8C2K9bMK2Z_dZbOK-UwQQHh2PA6A_Vb4kIK9QQog95noiD_71lQfJapfrf0zzaTjColUTkMHFRJ92XWLZ-fRWh2VQi-3J70cBVPlxi7XpH-42GpbIMxQYeQdiGE_WRFk4dNW5WMtF5vT8UoDBeSTM8hb4oiSE63CfJ8o3_AfHlNG3j7kZYT0Q&state=P5w6MsKwuaX1RWZC
+2024-12-31T17:18:38.590Z: Search params: {"code":"AQDQLe6scG1EjmAuTJDuK9F1WvJN1uoq_Drymb07Do1fp8FlEhw4zYHA2WxMVSVhpPofBo_ciFxifG-g6Ro9eum3wM3xlMabtrPKr-0DW6_NRnM7aGlcZRTOIWsNSpWVWXwq80pK1zHJsMOOf7U68qx1NTSX3r_MiR6TNUpixdmrUOdXG5CikOJ3abRX4pUYx_NNSj7VQi1wgmOPwzHBDUKpJPkEn3ednlrTHYiqpNeCidH07fA4C9Q_TvoqlelGVJIitmTCnuhk-PcSme9OdsmOuW0p8dcvsPPurhLwi2zjbE_q-0U84Vxsbajl-4y048roAMMtUBjLARL2jrs8Yn1ySJmd9-S5-wFPBN91Liy5EG5RRKa3fJEKEaqEVxmijfw5Cnba2-2sY1mDD8C2K9bMK2Z_dZbOK-UwQQHh2PA6A_Vb4kIK9QQog95noiD_71lQfJapfrf0zzaTjColUTkMHFRJ92XWLZ-fRWh2VQi-3J70cBVPlxi7XpH-42GpbIMxQYeQdiGE_WRFk4dNW5WMtF5vT8UoDBeSTM8hb4oiSE63CfJ8o3_AfHlNG3j7kZYT0Q","state":"P5w6MsKwuaX1RWZC"}
+2024-12-31T17:18:38.591Z: Code present: true
+2024-12-31T17:18:38.591Z: ReturnTo value: /
+2024-12-31T17:18:38.591Z: State value: P5w6MsKwuaX1RWZC
+2024-12-31T17:18:38.591Z: Exchanging code for token
+2024-12-31T17:18:38.789Z: Final redirect URL: http://localhost:3000/?access_token=BQD3_0-fzLHEO6dzDUk13ZElnEXJjDJfQjm49eiNGqyUGdhFUJ3kx_uJ6_xywCCwgBcbq773seMZ7mKszKxgGZ_l0t3tI2e5JkCkCT_iQF7aqg6d7-NAHMYrk-oCNY5zFK4U0u-f2SzGX13DaKnClPsf7w2_zm8r9YP7XbCTPysis0pp7a_EuVoVb_02W2HKxOPnzX5MZB8pZQOysVao7uVF4yNJF9HCeySxCxjBvu8t83ONR-H93b5HBD2bYC5Upoi_vWOcrYolHrtty0iuSNPc3Tg7o95p7fyfPnJjk-GLx--rr4KpoWb0rdK9zegGQhB85aM&expires_in=3600
+2024-12-31T17:18:40.975Z: Incoming request to: /
+2024-12-31T17:18:40.975Z: Full URL: http://localhost:5174/
+2024-12-31T17:18:40.976Z: Search params: {}
+2024-12-31T17:18:40.976Z: Code present: false
+2024-12-31T17:18:40.976Z: ReturnTo value: /
+2024-12-31T17:18:40.976Z: State value: null
+2024-12-31T17:18:40.976Z: Adding returnTo to state: /
+2024-12-31T17:18:40.976Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=PIii56oUsHcJT2gI&returnTo=%2F
+2024-12-31T17:18:41.196Z: Incoming request to: /
+2024-12-31T17:18:41.197Z: Full URL: http://localhost:5174/?code=AQCJrg4WMGa2ODsHJ47J7Dq-tdkODuHFhjrio68oBIAtNo0YLnFOdacSJZUlkJuEBvkBBXrdTNKUOvAwBDjOG9b_iBhlFnrALlnZnXniV7IIogLCBmHRj2rF8T1cbZ36Njcf-4GCdNXXfr3V5SBjMK01P2OGHHzCGdqp2VT6UDrlfe5UmmFbG2kmcA8JLI9s3wc5JAdpoZi-7RroUZVZyfdQpy38lJM8JNWECgzoJgEPc7dmlXYYudzePJnrHOMN1n_YeMmSfxhNcCVq1iiPyAIlf0mScWFbV60kfXMZkaW1J4TacZIQN28HZ5X2LDviV2VxkdruBBD1ZscfMeilKu7wRZ8rDe8NccXmjPjGXQZjinZde8C8oXa2gYUi41NwjmdpRAseBZkA9KuNMWgN2bds12zx_gb8GZ3dmKS0gUqTJ5QlykOSmp6FBSUDXzDXwCFU1fWdDAtsXmMBoQGaZIQ7CDUJuUD8BRRdNxE3aAWvREU9nAfYaLHWDUkITckXrfwbqIegKr95K2e_GEAS7YJvLFGwrZSU1FG_EeZ5Q6NNBWOE-r4sQ81ygMx4Lap98evimQ&state=PIii56oUsHcJT2gI
+2024-12-31T17:18:41.197Z: Search params: {"code":"AQCJrg4WMGa2ODsHJ47J7Dq-tdkODuHFhjrio68oBIAtNo0YLnFOdacSJZUlkJuEBvkBBXrdTNKUOvAwBDjOG9b_iBhlFnrALlnZnXniV7IIogLCBmHRj2rF8T1cbZ36Njcf-4GCdNXXfr3V5SBjMK01P2OGHHzCGdqp2VT6UDrlfe5UmmFbG2kmcA8JLI9s3wc5JAdpoZi-7RroUZVZyfdQpy38lJM8JNWECgzoJgEPc7dmlXYYudzePJnrHOMN1n_YeMmSfxhNcCVq1iiPyAIlf0mScWFbV60kfXMZkaW1J4TacZIQN28HZ5X2LDviV2VxkdruBBD1ZscfMeilKu7wRZ8rDe8NccXmjPjGXQZjinZde8C8oXa2gYUi41NwjmdpRAseBZkA9KuNMWgN2bds12zx_gb8GZ3dmKS0gUqTJ5QlykOSmp6FBSUDXzDXwCFU1fWdDAtsXmMBoQGaZIQ7CDUJuUD8BRRdNxE3aAWvREU9nAfYaLHWDUkITckXrfwbqIegKr95K2e_GEAS7YJvLFGwrZSU1FG_EeZ5Q6NNBWOE-r4sQ81ygMx4Lap98evimQ","state":"PIii56oUsHcJT2gI"}
+2024-12-31T17:18:41.197Z: Code present: true
+2024-12-31T17:18:41.197Z: ReturnTo value: /
+2024-12-31T17:18:41.197Z: State value: PIii56oUsHcJT2gI
+2024-12-31T17:18:41.198Z: Exchanging code for token
+2024-12-31T17:18:41.382Z: Final redirect URL: http://localhost:3000/?access_token=BQBeL4bmH56gV1fE1NujXnIMAzHyKcpZ7O7GJ30IAONDLnSEJ7IAOwjeGW-Rryd7Bz_9nlSkiS3kJrfxY-WTrG-UokcBIkfgV00dCEJSplBoHAntX1jXFtVeNN-RcXiQRkx2U7Qjmr5oLgh8YSFh7uFiW0Fb8Od8dDZN5jEFa_pHrjihoBIlmmBWxcAiKwizu7qc7fHYwPcyRrGJzuk3m-cUoKkBffPQKbPNz6zEJYzTA0HY8XA7gJNTh4l5etWyCRk88az-1hvdLAPllIeMmW9YAFuCIEya2RmoX9l0-9DQa141R9k14-xpw0Gg0rOYIALJpDA&expires_in=3600
+2024-12-31T17:19:41.975Z: Incoming request to: /
+2024-12-31T17:19:41.983Z: Full URL: http://localhost:5174/
+2024-12-31T17:19:41.986Z: Search params: {}
+2024-12-31T17:19:41.991Z: Code present: false
+2024-12-31T17:19:41.991Z: ReturnTo value: /
+2024-12-31T17:19:41.991Z: State value: null
+2024-12-31T17:19:41.994Z: Adding returnTo to state: /
+2024-12-31T17:19:41.995Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=Gf1P362GNlP6ESw0&returnTo=%2F
+2024-12-31T17:19:42.604Z: Incoming request to: /
+2024-12-31T17:19:42.604Z: Full URL: http://localhost:5174/?code=AQCNp9wfNyiM2e2C8VWnAZ_EQ4GXOxPsn0cWolunYDl5F2d7iRo-H-5TyEGZOXpgv5_qZY_MYo739Fl8ZbVNFmkcfus3vKYwcAwjuQM17j55CTZVwlOw1z62780nS9W8BZ8x_FdZiIRnAbStyqD3MEes7x5Qbgyr9EQTfiG9wiO3RYp83KXl6UPV7opRc35LAkmVOJptVfhCfUmmGWDOTr8RuvRmBT64hj-nhdkv7iI3AcGE2BoRjqHaAC8V3_RcVfaKCXcs73bFVoAhKFwqs02XvzqssiF6Em8Km1gL1WZl5iG2sunPJmbebAHkNSzyjzaP3YdjNDl54PxAlNTuoglphzcHoKCg9IrcCmJJ0PSSNXbPWRIMtyoSZUNH1qDO7pniufl3GK-7BLFNgoHfWKM-7mJGuDn3dpds_Uprzo4OjWmApZpC8ggymqT7IB8PNcm6MBYYSy_wTnE76GhS6e8RkufSHZ-ITPDcJ4Tibd-ExzmRwDAGMNF_iSG4yMMLmRmGa2MvzP39TwMk5tmpYh_ngDhS6NHX5t_mIcbzoPv_JjjkW0D2IRK7mdmOR-dDxV-acg&state=Gf1P362GNlP6ESw0
+2024-12-31T17:19:42.606Z: Search params: {"code":"AQCNp9wfNyiM2e2C8VWnAZ_EQ4GXOxPsn0cWolunYDl5F2d7iRo-H-5TyEGZOXpgv5_qZY_MYo739Fl8ZbVNFmkcfus3vKYwcAwjuQM17j55CTZVwlOw1z62780nS9W8BZ8x_FdZiIRnAbStyqD3MEes7x5Qbgyr9EQTfiG9wiO3RYp83KXl6UPV7opRc35LAkmVOJptVfhCfUmmGWDOTr8RuvRmBT64hj-nhdkv7iI3AcGE2BoRjqHaAC8V3_RcVfaKCXcs73bFVoAhKFwqs02XvzqssiF6Em8Km1gL1WZl5iG2sunPJmbebAHkNSzyjzaP3YdjNDl54PxAlNTuoglphzcHoKCg9IrcCmJJ0PSSNXbPWRIMtyoSZUNH1qDO7pniufl3GK-7BLFNgoHfWKM-7mJGuDn3dpds_Uprzo4OjWmApZpC8ggymqT7IB8PNcm6MBYYSy_wTnE76GhS6e8RkufSHZ-ITPDcJ4Tibd-ExzmRwDAGMNF_iSG4yMMLmRmGa2MvzP39TwMk5tmpYh_ngDhS6NHX5t_mIcbzoPv_JjjkW0D2IRK7mdmOR-dDxV-acg","state":"Gf1P362GNlP6ESw0"}
+2024-12-31T17:19:42.607Z: Code present: true
+2024-12-31T17:19:42.607Z: ReturnTo value: /
+2024-12-31T17:19:42.608Z: State value: Gf1P362GNlP6ESw0
+2024-12-31T17:19:42.608Z: Exchanging code for token
+2024-12-31T17:19:42.805Z: Final redirect URL: http://localhost:3000/?access_token=BQBfbfgdo5RkWyoWDjSHMzRLev2czoAFsv47bcvbiq_WGoHMfGev3EP-COCI6OwcLCD1GquWKE2SyjUeI_Gwy7RHKqpaDwsHtwgKkH_XwraG_NBstSdzsI_YuHv5kgZgqtjLe9LW2wO3cwbtaRxvYHJD5-aIDUXTzGZUG0dfExGBWYs6NBpN3AbS5pyYIsN3c4En3ZBquBTynl4T1XspgnK4sSbMIYCnBVlpSVlciRSRGVJXXiD_wYrVHcMp2mFDrIO6MNTzdWKmQhrOh1Amr721gf8CwdsFL02-Y-NDcHQ5H7F7QG7D6s1CSGzwSBrwrlFga1s&expires_in=3600
+2024-12-31T17:22:49.233Z: Incoming request to: /
+2024-12-31T17:22:49.238Z: Full URL: http://localhost:5174/
+2024-12-31T17:22:49.239Z: Search params: {}
+2024-12-31T17:22:49.242Z: Code present: false
+2024-12-31T17:22:49.242Z: ReturnTo value: /
+2024-12-31T17:22:49.242Z: State value: null
+2024-12-31T17:22:49.246Z: Adding returnTo to state: /
+2024-12-31T17:22:49.247Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=wfchnAKoAUqVoFzw&returnTo=%2F
+2024-12-31T17:22:49.682Z: Incoming request to: /
+2024-12-31T17:22:49.682Z: Full URL: http://localhost:5174/?code=AQDSLcowH-d88U0RtYdmyWVfOgOTzQd0Bo8cuE42-U_H6EhPoGsejGzGmaqq1nq7aeiGza6ExETo2j_ThEV6gJ9oDBjkWeFra8tQfkVkL4zzj14jMlX1uCGxwlPw3Dp6lGTwDAbPvSSIHcjCgH3XhVinydBZSxPWGfk9loCDyltsYEZwDJ1udrtkuqte3Kc8lsIs5LIpsiO8C_neyyMDUOG7zq-aBjVTdVgljYHarwIVIHeYx2OZsZzCO4JdHYfA6Yd6HaFer0rzskuLlfkb2lHwMD070Puu4ogA21pcAnBnPRO8lLGHn6dhqN0cPfESzJyb2Nu-gOs47ZXvoyl62chAgp-mT_jK2ZX_0aStTzxLOXuv-wAdVDNoM4u3qwGtWDX5ECE0fc-_vL5Og6bjb7lIcwgmyWSwi6ahNyW6attyesaA0vYDytE3ekTnEfjWEK8q1Of63tskf9koj1Iu7q3xs81fZI_G4hv8ysNBHRIt_5Fh4DOeSR8UkTBMxoSE1WSfS60yaGfsKIAg75RApBjsZwJJi3V7ifqTznl_BAoqRFulbohOdA7O3-NDkZSIfPkvMA&state=wfchnAKoAUqVoFzw
+2024-12-31T17:22:49.684Z: Search params: {"code":"AQDSLcowH-d88U0RtYdmyWVfOgOTzQd0Bo8cuE42-U_H6EhPoGsejGzGmaqq1nq7aeiGza6ExETo2j_ThEV6gJ9oDBjkWeFra8tQfkVkL4zzj14jMlX1uCGxwlPw3Dp6lGTwDAbPvSSIHcjCgH3XhVinydBZSxPWGfk9loCDyltsYEZwDJ1udrtkuqte3Kc8lsIs5LIpsiO8C_neyyMDUOG7zq-aBjVTdVgljYHarwIVIHeYx2OZsZzCO4JdHYfA6Yd6HaFer0rzskuLlfkb2lHwMD070Puu4ogA21pcAnBnPRO8lLGHn6dhqN0cPfESzJyb2Nu-gOs47ZXvoyl62chAgp-mT_jK2ZX_0aStTzxLOXuv-wAdVDNoM4u3qwGtWDX5ECE0fc-_vL5Og6bjb7lIcwgmyWSwi6ahNyW6attyesaA0vYDytE3ekTnEfjWEK8q1Of63tskf9koj1Iu7q3xs81fZI_G4hv8ysNBHRIt_5Fh4DOeSR8UkTBMxoSE1WSfS60yaGfsKIAg75RApBjsZwJJi3V7ifqTznl_BAoqRFulbohOdA7O3-NDkZSIfPkvMA","state":"wfchnAKoAUqVoFzw"}
+2024-12-31T17:22:49.684Z: Code present: true
+2024-12-31T17:22:49.684Z: ReturnTo value: /
+2024-12-31T17:22:49.684Z: State value: wfchnAKoAUqVoFzw
+2024-12-31T17:22:49.684Z: Exchanging code for token
+2024-12-31T17:22:49.877Z: Final redirect URL: http://localhost:3000/?access_token=BQAH2TJNl3jD9oM-E5rO0Io4B3_y8deXnzzuwXB8cWJ-JBm_JYUKcL4vlmzvLQg0vGZJ3LpgNIo99RDU3Ljvfulc9mzP2TpEI2B-x2lp1jyiuucSf4TS_KaGtzV4C5ucKBJlMH2dRYE6g7zbFmwUklOMYGhMstPcXHjkNIMR_z2LgNL1nhsNKrec82vhOhnXNl_BGoFbKtv84kT-LlpmBBWbG9uXT7pNBQ_JK-WjHPZbs51yaw1xLMtvg6scTFDQcebjmRbCXiARTuqg1sr7EVOKAzGblb52ExHFTsFuqFAkLjab3Sis0SgLxglbepOl6ZYtV-I&expires_in=3600
+2024-12-31T17:22:54.866Z: Incoming request to: /
+2024-12-31T17:22:54.866Z: Full URL: http://localhost:5174/
+2024-12-31T17:22:54.867Z: Search params: {}
+2024-12-31T17:22:54.867Z: Code present: false
+2024-12-31T17:22:54.867Z: ReturnTo value: /
+2024-12-31T17:22:54.867Z: State value: null
+2024-12-31T17:22:54.867Z: Adding returnTo to state: /
+2024-12-31T17:22:54.867Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=7Pq3dTBd4nLNYtdF&returnTo=%2F
+2024-12-31T17:22:55.294Z: Incoming request to: /
+2024-12-31T17:22:55.295Z: Full URL: http://localhost:5174/?code=AQDrWZ3P5p6hMLwRndvD5i8f8akEqciB_zAGspO3ARf4ybvZHCgyjlj30j9O65nlQmI4pSBOdUiVG4tBUeJazuYfLhJkuRhB6_T0VYngNjyw_hsb_4re2iPrx0Uu2N4Pguy2vSRzv6kUgfQAg0k2gVlv6XcEyR6YYe9_mEkCp7xfj5G2C53J3aleesRxGs46TVtt9a7Jm8qBvlnBqFGCGSkHDtqiqvlvy6pfrOYBNisWX5KmBxKJX1Mc1ZI-UPvulfS1Qo0AQShcirNJ9_Qsy7074WDYg-CjE54en5IPQI-b84D_PkF-jfIfqanPLiK3aL_TfEU8hZL9daGZZIp0hoNNPFMa_-L-FoBwruPvJxhDhs3fMWZGH8OTT3GIPCxqdKNXYvefSU91wRf5VKu34m1dpT_NsalSBLPUR-1YHeOQsZtt5t-5Zq1Rp0dlF9qcuE2ftakUQqzXal51EzlgffA4KctXAlJB2IVdzzae_-8CulSG5FyM6AASaXOwVFVSUbpIXcyVyQVZUl4Rn4IXChs_tdIa7c4DM5lJepLiEkeLOEgNhQ5LzJc_nxsNPT83HwxWHQ&state=7Pq3dTBd4nLNYtdF
+2024-12-31T17:22:55.295Z: Search params: {"code":"AQDrWZ3P5p6hMLwRndvD5i8f8akEqciB_zAGspO3ARf4ybvZHCgyjlj30j9O65nlQmI4pSBOdUiVG4tBUeJazuYfLhJkuRhB6_T0VYngNjyw_hsb_4re2iPrx0Uu2N4Pguy2vSRzv6kUgfQAg0k2gVlv6XcEyR6YYe9_mEkCp7xfj5G2C53J3aleesRxGs46TVtt9a7Jm8qBvlnBqFGCGSkHDtqiqvlvy6pfrOYBNisWX5KmBxKJX1Mc1ZI-UPvulfS1Qo0AQShcirNJ9_Qsy7074WDYg-CjE54en5IPQI-b84D_PkF-jfIfqanPLiK3aL_TfEU8hZL9daGZZIp0hoNNPFMa_-L-FoBwruPvJxhDhs3fMWZGH8OTT3GIPCxqdKNXYvefSU91wRf5VKu34m1dpT_NsalSBLPUR-1YHeOQsZtt5t-5Zq1Rp0dlF9qcuE2ftakUQqzXal51EzlgffA4KctXAlJB2IVdzzae_-8CulSG5FyM6AASaXOwVFVSUbpIXcyVyQVZUl4Rn4IXChs_tdIa7c4DM5lJepLiEkeLOEgNhQ5LzJc_nxsNPT83HwxWHQ","state":"7Pq3dTBd4nLNYtdF"}
+2024-12-31T17:22:55.295Z: Code present: true
+2024-12-31T17:22:55.295Z: ReturnTo value: /
+2024-12-31T17:22:55.295Z: State value: 7Pq3dTBd4nLNYtdF
+2024-12-31T17:22:55.296Z: Exchanging code for token
+2024-12-31T17:22:55.470Z: Final redirect URL: http://localhost:3000/?access_token=BQD54jX6OWWSYfYB9E1CSK8nfEO3scujjz8tDn1l89nATd3yUMVXYTRmdjoQs_DuueJb5DIVGXJEOGG8TAx0G1KSiWrY1fqvcyABdOM9oQumVDD-ZTEXywf72oGyqS1ewXl0gtnSsNwk01-dn7qtSBN8b2RE1L_wZXuzL9WwM9ZuewMgrVfDy7cVesjz5Iokyq-aZFaMZj3j6mFOffEeV7jQRRadngXtR_o4R1kBAU_-IgBKh7q003EBMUpo69YMsaeXZoY6D9Jqf85XLjQSjlhszGMKZcmbPa_fQygdM3rvzWNc1OOHfzS5iOzajNb1zWb03wo&expires_in=3600
+2024-12-31T17:22:59.426Z: Incoming request to: /
+2024-12-31T17:22:59.431Z: Full URL: http://localhost:5174/
+2024-12-31T17:22:59.435Z: Search params: {}
+2024-12-31T17:22:59.446Z: Code present: false
+2024-12-31T17:22:59.446Z: ReturnTo value: /
+2024-12-31T17:22:59.446Z: State value: null
+2024-12-31T17:22:59.449Z: Adding returnTo to state: /
+2024-12-31T17:22:59.452Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=Enw669Zi766RbSAB&returnTo=%2F
+2024-12-31T17:22:59.908Z: Incoming request to: /
+2024-12-31T17:22:59.909Z: Full URL: http://localhost:5174/?code=AQDv5uyoGxtoHk-0gNLFPYrnaW2tEcVFBr9l1Yn7-t2g0I638WYzU1udxBjaioiO9T2vHZNQvQ0751pndT7aHjYAM_IUnx-gAfPM1JbKwVyLH_aRPXfSCi0oxYvXOytDOVlC2uylQDv3LHR1pDbFo6QDXjieT3PCK2lN7FLEkUQCbZMNSO_6F0YrEUk_wIzme7u3bCD1YnXepE23Txm4RsvUSj8XWm7FIfnk5HgqB3V2YLfwZjoqeo4ktRxkAftkHIiPz_vNMfSrQDA63DB0N8yiGJvzP4SSmjyWJQr45WS4HWXecAd7gkkMKid_Icsk1hRqzRa8S_GJmobPttkTFHvWzO2wJF9en3boW3VML-Tvta-y9S57y5aeUkHSQfH4AVe2o0eziFltMvS-p4kn2ha04TSiXBsHK4pCCuZx3HlGvszzM3J570aNBzWYWAopKHs0npT16Drw_fYHF7IXh31pdSfwyme4WHTrUcsisxBKYrImJTqQxanXFzIr5tqEK2UUsTzq80xijorgtL3dKhLG7_--hgEvyEzV4QZ2OVQd4MpplZ5VxM4s_ktzPVYMUEIR-Q&state=Enw669Zi766RbSAB
+2024-12-31T17:22:59.909Z: Search params: {"code":"AQDv5uyoGxtoHk-0gNLFPYrnaW2tEcVFBr9l1Yn7-t2g0I638WYzU1udxBjaioiO9T2vHZNQvQ0751pndT7aHjYAM_IUnx-gAfPM1JbKwVyLH_aRPXfSCi0oxYvXOytDOVlC2uylQDv3LHR1pDbFo6QDXjieT3PCK2lN7FLEkUQCbZMNSO_6F0YrEUk_wIzme7u3bCD1YnXepE23Txm4RsvUSj8XWm7FIfnk5HgqB3V2YLfwZjoqeo4ktRxkAftkHIiPz_vNMfSrQDA63DB0N8yiGJvzP4SSmjyWJQr45WS4HWXecAd7gkkMKid_Icsk1hRqzRa8S_GJmobPttkTFHvWzO2wJF9en3boW3VML-Tvta-y9S57y5aeUkHSQfH4AVe2o0eziFltMvS-p4kn2ha04TSiXBsHK4pCCuZx3HlGvszzM3J570aNBzWYWAopKHs0npT16Drw_fYHF7IXh31pdSfwyme4WHTrUcsisxBKYrImJTqQxanXFzIr5tqEK2UUsTzq80xijorgtL3dKhLG7_--hgEvyEzV4QZ2OVQd4MpplZ5VxM4s_ktzPVYMUEIR-Q","state":"Enw669Zi766RbSAB"}
+2024-12-31T17:22:59.910Z: Code present: true
+2024-12-31T17:22:59.910Z: ReturnTo value: /
+2024-12-31T17:22:59.910Z: State value: Enw669Zi766RbSAB
+2024-12-31T17:22:59.910Z: Exchanging code for token
+2024-12-31T17:23:00.104Z: Final redirect URL: http://localhost:3000/?access_token=BQCldv_W7amE9Lb21VG4tWAvj-DKHg6W_ni0-7YVswXhjmh-thG3NQWl8Ug_LKBKkzksuN2ZzMMCHdPkVMnEz__lxolLEWzIgYYhjgZo6rrT-GmcDOx7PULZUhtOA2tzpGnl-9obDAA-w8z-QexifhGtAKoxtWUdpSjFp9k7BlApyTNiq8nxiuL5HDwlhRpRkUSE3nC7__L1rb0PBUKQnJnwZcpBz2kSGSREWIXHFAWYMJJ7-hKV98QL4GP4fxi8HJcWHTSeuytb8KRf_vhfJ8rsiGDKTNH3KuCv4Tr7rM1_CVAUopWDlSsF1gyOde2elvsD8PM&expires_in=3600
+2025-01-01T08:40:53.960Z: Incoming request to: /
+2025-01-01T08:40:53.970Z: Full URL: http://localhost:5174/
+2025-01-01T08:40:53.972Z: Search params: {}
+2025-01-01T08:40:53.974Z: Code present: false
+2025-01-01T08:40:53.975Z: ReturnTo value: /
+2025-01-01T08:40:53.975Z: State value: null
+2025-01-01T08:40:53.978Z: Adding returnTo to state: /
+2025-01-01T08:40:53.978Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=IIvTOok4LQsaHQI9&returnTo=%2F
+2025-01-01T08:40:54.511Z: Incoming request to: /
+2025-01-01T08:40:54.511Z: Full URL: http://localhost:5174/?code=AQDR7y8IzzBISKEdRvifjpuxMMIVi4rA68WiqTnjMKfPNn3iIa_e4WUPZ6h3DBpTIL46iR3ReNlXFIRUjLvOQEVZBdLJcVbYVUUTJ-KhFVYEddvS6ahyHF-l07nJfal0yDYNmOOzGMEIrSG8RRegK7ijxx5IFGsv_0TWTIrpeGbUKOjKbcNikwXMdHw-sGVoOGVYPE-sx-6VbVxwGyxKlcEaf2IynMBKONwnY-TeUMKn2nMv8zLeNrZ58CxqThA8AyRNu03PxPJWm2U7_0QA4fubXAV3QlxgOAUdJ_LLWLpAGjObTnizbKClX_OVeUzpoIuAPq6ex9TvCrvHHIZlxB6gvDqkpkJgTQOQvxK-R_YDrZ9TwhGpjRb8gsRmYlazZhaG-n2txxcH4dC2mmiMgAFh7Uf84xMs2kGgRSa79N9zz_6hMindhnVJSGnYrCD08NfXZ5zjMk0L9rLqiJJPjC_V2DRmCrFSSkj5rj5Fm6XpcW5HN8afVmfkARifVjdD2ieLhOe2AZ0fVgIejuoZQxVZ1VxecqLoXakhBO9xm76bLuANXv0Vc5ty5J7BLsD2Wt76_g&state=IIvTOok4LQsaHQI9
+2025-01-01T08:40:54.515Z: Search params: {"code":"AQDR7y8IzzBISKEdRvifjpuxMMIVi4rA68WiqTnjMKfPNn3iIa_e4WUPZ6h3DBpTIL46iR3ReNlXFIRUjLvOQEVZBdLJcVbYVUUTJ-KhFVYEddvS6ahyHF-l07nJfal0yDYNmOOzGMEIrSG8RRegK7ijxx5IFGsv_0TWTIrpeGbUKOjKbcNikwXMdHw-sGVoOGVYPE-sx-6VbVxwGyxKlcEaf2IynMBKONwnY-TeUMKn2nMv8zLeNrZ58CxqThA8AyRNu03PxPJWm2U7_0QA4fubXAV3QlxgOAUdJ_LLWLpAGjObTnizbKClX_OVeUzpoIuAPq6ex9TvCrvHHIZlxB6gvDqkpkJgTQOQvxK-R_YDrZ9TwhGpjRb8gsRmYlazZhaG-n2txxcH4dC2mmiMgAFh7Uf84xMs2kGgRSa79N9zz_6hMindhnVJSGnYrCD08NfXZ5zjMk0L9rLqiJJPjC_V2DRmCrFSSkj5rj5Fm6XpcW5HN8afVmfkARifVjdD2ieLhOe2AZ0fVgIejuoZQxVZ1VxecqLoXakhBO9xm76bLuANXv0Vc5ty5J7BLsD2Wt76_g","state":"IIvTOok4LQsaHQI9"}
+2025-01-01T08:40:54.516Z: Code present: true
+2025-01-01T08:40:54.516Z: ReturnTo value: /
+2025-01-01T08:40:54.516Z: State value: IIvTOok4LQsaHQI9
+2025-01-01T08:40:54.516Z: Exchanging code for token
+2025-01-01T08:40:54.877Z: Final redirect URL: http://localhost:3000/?access_token=BQDewU-FiBjEcO6TM3UZJCy3i5R2GEyPsoVvyIO9SE9Hph-0r05L-a8kQdYXXYBrM8Iqdjfn95t1XTIVa6dr0BwKdTt86LRYgPTfUyyUN43WT3VyuPNeRIga87BBZhI-68OL-NJZ9jd_VNOgvJJJrSYUUXw4PF1dwPfZt27nkF3qhKpePHP5Ul_Hfbc5oiqMQFkLeagr0cGyoyB1O-4KjT36EM2s5uOl9akCIeZXm5p1o7h-TarCuIxTVY5A1ASkUNLHvrWPvBxAABw1Gc0yKfDAXYVjFqXhMEO8WTcnioMFIqZCh23z1qn79MpCyYEYchVyznI&expires_in=3600
+2025-01-01T08:49:10.425Z: Incoming request to: /
+2025-01-01T08:49:10.431Z: Full URL: http://localhost:5174/
+2025-01-01T08:49:10.433Z: Search params: {}
+2025-01-01T08:49:10.435Z: Code present: false
+2025-01-01T08:49:10.435Z: ReturnTo value: /
+2025-01-01T08:49:10.435Z: State value: null
+2025-01-01T08:49:10.438Z: Adding returnTo to state: /
+2025-01-01T08:49:10.439Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=yAitcok3NSLdCyvT&returnTo=%2F
+2025-01-01T08:49:10.814Z: Incoming request to: /
+2025-01-01T08:49:10.814Z: Full URL: http://localhost:5174/?code=AQAyK1OS08yP-8t8tzTf1GdkRPzoU_rWqNdrtcyibmGaWUUjsGZCuKvBOq_1BtsHXf4nn2NMa8fWt8FN_FeHCEJVtF6W9eqMfA6sw07vXUiXwUgzhNN3KxEa6lOAtcqPQUEpES-Rrk1R9dHD-Qezezc8LuddKR7A_iXg-W1IhHtjkEFpsJgxkrqdSAVJ_DjK0insl7X0R8j0UnhA5WDE8QPp63blpUW_Jq9VUI_pg8ntC9vqrff-qn0a1YCUsvlZ_-dKltz1TuYbiKHu2lWZxqYO0M-ti0wDtnX6hEazOJargoqnhYECgZ-j_5mG9hWkOHnm2l5zZkRyIwsQlRAyKnGyBRJ51qbTVRHk4EuUN2BY_nQlLgkel7dSCmCtBO-emEpNstwg8Qv4uCchK4S-ZxyRbclQli16uHUhO6m6N7rVWoeiTcSFq52AW6XwFKXKMjrIpg2FGl79scVXRfoH43AMFiImIoWYgPVYdf2l5SlsgAe4teWXD-HD5zTAAW3kwNYuLPD4kKpSvr1swU-ppji7jYij-ZtTnExV6YeXz4O-IC1WqAr4FooSGPeyHT0m1TG0Ww&state=yAitcok3NSLdCyvT
+2025-01-01T08:49:10.816Z: Search params: {"code":"AQAyK1OS08yP-8t8tzTf1GdkRPzoU_rWqNdrtcyibmGaWUUjsGZCuKvBOq_1BtsHXf4nn2NMa8fWt8FN_FeHCEJVtF6W9eqMfA6sw07vXUiXwUgzhNN3KxEa6lOAtcqPQUEpES-Rrk1R9dHD-Qezezc8LuddKR7A_iXg-W1IhHtjkEFpsJgxkrqdSAVJ_DjK0insl7X0R8j0UnhA5WDE8QPp63blpUW_Jq9VUI_pg8ntC9vqrff-qn0a1YCUsvlZ_-dKltz1TuYbiKHu2lWZxqYO0M-ti0wDtnX6hEazOJargoqnhYECgZ-j_5mG9hWkOHnm2l5zZkRyIwsQlRAyKnGyBRJ51qbTVRHk4EuUN2BY_nQlLgkel7dSCmCtBO-emEpNstwg8Qv4uCchK4S-ZxyRbclQli16uHUhO6m6N7rVWoeiTcSFq52AW6XwFKXKMjrIpg2FGl79scVXRfoH43AMFiImIoWYgPVYdf2l5SlsgAe4teWXD-HD5zTAAW3kwNYuLPD4kKpSvr1swU-ppji7jYij-ZtTnExV6YeXz4O-IC1WqAr4FooSGPeyHT0m1TG0Ww","state":"yAitcok3NSLdCyvT"}
+2025-01-01T08:49:10.816Z: Code present: true
+2025-01-01T08:49:10.816Z: ReturnTo value: /
+2025-01-01T08:49:10.816Z: State value: yAitcok3NSLdCyvT
+2025-01-01T08:49:10.816Z: Exchanging code for token
+2025-01-01T08:49:11.184Z: Final redirect URL: http://localhost:3000/?access_token=BQDVcW8Dwik6znFeOZpQRSejds09CXHL_NB_-XUbgCnAVRRrLjDUx_FT0IXoFUoXFMNotMnY4aZPbMYArwVnSm9ylte1KUdB_8oNXKqW-oqTnHCj_AwWXz434OTO5ZXsihEOQQQqzrWxcecJzT48rguk11jdhosqxgby4G4eDTdx3gswWMSdANXnEtuylM308NyASuSdzhrnQQZ9BnQfzqZhEoOfA_7eo8u9nECLWJWNAFSAvYd15sJsbGyJOonDXABvzViXagQPJxFivwt9xu22As5zQkxR0frCDn9hZ4RHUEWO3wJwQbvzXAOtUKDHvFx_sNk&expires_in=3600
+2025-01-01T14:06:58.820Z: Incoming request to: /
+2025-01-01T14:06:58.826Z: Full URL: http://localhost:5174/
+2025-01-01T14:06:58.827Z: Search params: {}
+2025-01-01T14:06:58.829Z: Code present: false
+2025-01-01T14:06:58.829Z: ReturnTo value: /
+2025-01-01T14:06:58.829Z: State value: null
+2025-01-01T14:06:58.835Z: Adding returnTo to state: /
+2025-01-01T14:06:58.835Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=SczSSLHX4qPt5E9D&returnTo=%2F
+2025-01-01T14:06:59.366Z: Incoming request to: /
+2025-01-01T14:06:59.366Z: Full URL: http://localhost:5174/?code=AQB7K8ELtBkmqgvnoxcIBQ53OENjMP_fzXHd8jeJSsvIENpuacNV8SvKoeoB6yLHmK2eMaxBqFxecHeSOooG8dsWmSRtJPy-Kh04eis6x-FfhIiZfJJBXMGQ-09tgvseF1aOj5zIDS7csHlqRbimXPch1D1_jKDWQULBpNhU5M5tnxiorkw0W558SIehC34I5SWvWTRv-xSVcQXcOZxqlmzFzBVdw0Cbor47Z3sYjK5tgRQtjcYMzoZiH-0HvNTkzotIlzasySVX_V9mHKfJCSWU53PHtKPjLRsvw-CTPlp2ZJeDTP1jLxkBK3_zGRtem0PxBMdT9A4pTzYzzwXFxjNfgNZ12u922Wl21rkhsHF8fxVi9ddEw-4Ld-1s5MISK_aWB7IVJLjLHsNhrXDSZiLLuK1qrL3WSGlbsWpiJ0P1KFjoJp9Zsqi05Vml-Dl-OQjqR_fDQnEmOdS3XV-mx-PALWZSGjESSuJfnq_ZdmTz_h7S7uq3QhK45eKfn96UaUpzNxNVsyZg9pNTDg4SO_kceI9iQu1JEltIWzkaZkVL5uz_OBZzjkN0hpjQUbaC99zqfg&state=SczSSLHX4qPt5E9D
+2025-01-01T14:06:59.368Z: Search params: {"code":"AQB7K8ELtBkmqgvnoxcIBQ53OENjMP_fzXHd8jeJSsvIENpuacNV8SvKoeoB6yLHmK2eMaxBqFxecHeSOooG8dsWmSRtJPy-Kh04eis6x-FfhIiZfJJBXMGQ-09tgvseF1aOj5zIDS7csHlqRbimXPch1D1_jKDWQULBpNhU5M5tnxiorkw0W558SIehC34I5SWvWTRv-xSVcQXcOZxqlmzFzBVdw0Cbor47Z3sYjK5tgRQtjcYMzoZiH-0HvNTkzotIlzasySVX_V9mHKfJCSWU53PHtKPjLRsvw-CTPlp2ZJeDTP1jLxkBK3_zGRtem0PxBMdT9A4pTzYzzwXFxjNfgNZ12u922Wl21rkhsHF8fxVi9ddEw-4Ld-1s5MISK_aWB7IVJLjLHsNhrXDSZiLLuK1qrL3WSGlbsWpiJ0P1KFjoJp9Zsqi05Vml-Dl-OQjqR_fDQnEmOdS3XV-mx-PALWZSGjESSuJfnq_ZdmTz_h7S7uq3QhK45eKfn96UaUpzNxNVsyZg9pNTDg4SO_kceI9iQu1JEltIWzkaZkVL5uz_OBZzjkN0hpjQUbaC99zqfg","state":"SczSSLHX4qPt5E9D"}
+2025-01-01T14:06:59.368Z: Code present: true
+2025-01-01T14:06:59.368Z: ReturnTo value: /
+2025-01-01T14:06:59.368Z: State value: SczSSLHX4qPt5E9D
+2025-01-01T14:06:59.368Z: Exchanging code for token
+2025-01-01T14:06:59.710Z: Final redirect URL: http://localhost:3000/?access_token=BQCWp1DKV_bWhWRzHUHkg4dYv4KW6hidCCHiGjdAvNYPzEhOK9chVMnB4_m7-a7xW5XowpgRcinL83M6ugpDM3tOjiosVrhGIZQTeeakJ-Vs7rIXoAhYeNL-VfzCz17IAPdhOqxvVP6kVMwwdsCtxmvQ3K9bpuZNHb4-DlTxTdAvNTqSjXxumhk5gxbZNH8zmhj_t8NvKa7MX4FusPZaLi0vipv92VN3zmwaSWZuDz-BouKoII2KOn2fLg-9HzDWcMlt5jiPk5hkm163xhkxvw_ZYcjxYy7KtWaaZ3lZy2dQ3eKd0lld6OH0KmYQ-sc1esIN_ds&expires_in=3600
+2025-01-01T14:30:36.051Z: Incoming request to: /
+2025-01-01T14:30:36.057Z: Full URL: http://localhost:5174/
+2025-01-01T14:30:36.057Z: Search params: {}
+2025-01-01T14:30:36.058Z: Code present: false
+2025-01-01T14:30:36.058Z: ReturnTo value: /
+2025-01-01T14:30:36.058Z: State value: null
+2025-01-01T14:30:36.060Z: Adding returnTo to state: /
+2025-01-01T14:30:36.060Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=OJJDhvc2yYKb2Srw&returnTo=%2F
+2025-01-01T14:30:36.706Z: Incoming request to: /
+2025-01-01T14:30:36.707Z: Full URL: http://localhost:5174/?code=AQD0APiJvuALOnOHhVdO4TA1r88YSNIc3f8F97NUeMO9tUzNKZAf-woXbjuAdM4_-SjS0HLDQZvp2-T62REQj0mxNsURPXJqDSyOW3vyrC0IpmEG9qCilbWZt6RXRLLqdTW9_chbYLbt52UjXB-W-itAzlYPRlE8Ht9A__38IJ5g91Sa-Vu_JgCYazxgM8NIPP-liYG57UDRs2VOjoB3-BSAmLqhn3PuAr2lyGErrU_FEQ-zmffW9iUaSRsueIH2XRjHHq512MT9NlIAf9W3CAq0fn3PVMh7FhdD-AREtuq6F4aIZcDxJ_EN1gEuJGpuPbcOyTNySzEkRJQ8WnDuAUeQg9IlXNsvrNc50I-UOwiDN3hxWESWCCmQgzSSZpZaa6knms2QgqYS1MrJLGlafzIlAUM_yZ4jesULXunRvhk20GmPNJDTOKUECqPXElX8ahfN6dPV-LsVPffmjLcmv35Er8YNGtE2ITqU9dusZUsn9J4w1KqcT2LCXPGLVJM4mtenyvDbMqY_4QS4GjUYsmLxK2hm8WPMYRl6McnRJvX3bEXQv3_aR5TkdRwiL12Msb12Ow&state=OJJDhvc2yYKb2Srw
+2025-01-01T14:30:36.708Z: Search params: {"code":"AQD0APiJvuALOnOHhVdO4TA1r88YSNIc3f8F97NUeMO9tUzNKZAf-woXbjuAdM4_-SjS0HLDQZvp2-T62REQj0mxNsURPXJqDSyOW3vyrC0IpmEG9qCilbWZt6RXRLLqdTW9_chbYLbt52UjXB-W-itAzlYPRlE8Ht9A__38IJ5g91Sa-Vu_JgCYazxgM8NIPP-liYG57UDRs2VOjoB3-BSAmLqhn3PuAr2lyGErrU_FEQ-zmffW9iUaSRsueIH2XRjHHq512MT9NlIAf9W3CAq0fn3PVMh7FhdD-AREtuq6F4aIZcDxJ_EN1gEuJGpuPbcOyTNySzEkRJQ8WnDuAUeQg9IlXNsvrNc50I-UOwiDN3hxWESWCCmQgzSSZpZaa6knms2QgqYS1MrJLGlafzIlAUM_yZ4jesULXunRvhk20GmPNJDTOKUECqPXElX8ahfN6dPV-LsVPffmjLcmv35Er8YNGtE2ITqU9dusZUsn9J4w1KqcT2LCXPGLVJM4mtenyvDbMqY_4QS4GjUYsmLxK2hm8WPMYRl6McnRJvX3bEXQv3_aR5TkdRwiL12Msb12Ow","state":"OJJDhvc2yYKb2Srw"}
+2025-01-01T14:30:36.708Z: Code present: true
+2025-01-01T14:30:36.708Z: ReturnTo value: /
+2025-01-01T14:30:36.708Z: State value: OJJDhvc2yYKb2Srw
+2025-01-01T14:30:36.708Z: Exchanging code for token
+2025-01-01T14:30:37.053Z: Final redirect URL: http://localhost:3000/?access_token=BQBbqC8ZNtXbVH5Lei7rG-AERDuLUzX1ew6zrirL8qn0G-DbGixRORLu7RgHI4q2qd9JwV2Vt_GPsLkUm9V6ktw-hcZwdhgoD5S4-bOWOPonVTFsQZqBuOulCleLsO2DpMI2NaXPGPHev-6WMI5pJklKB_KCm7QUghj0bRzcEggbMjhaHcfQJPsUXLthRR7N_8UpK5rJZxyBRfd-Bycqppo-TYw5G_uormUPUv_xArdOObzw8BZqGg6soiMBfB-c8R6kssMSt0sQs8ignimGrvg-ijOcMFkbgWaJAlgsu84MXj7a35IBLmViXOm-cCWNLQtJHz4&expires_in=3600
+2025-01-03T06:43:48.080Z: Incoming request to: /
+2025-01-03T06:43:48.085Z: Full URL: http://localhost:5174/
+2025-01-03T06:43:48.086Z: Search params: {}
+2025-01-03T06:43:48.086Z: Code present: false
+2025-01-03T06:43:48.087Z: ReturnTo value: /
+2025-01-03T06:43:48.087Z: State value: null
+2025-01-03T06:43:48.089Z: Adding returnTo to state: /
+2025-01-03T06:43:48.089Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=Ym4Hajwzubb61Qos&returnTo=%2F
+2025-01-03T06:43:48.635Z: Incoming request to: /
+2025-01-03T06:43:48.635Z: Full URL: http://localhost:5174/?code=AQDP9tRiWW7rzh98wzJwc6IjQQLTNJoZWqk7vrS_DVDscnT_w5e4y96RqGfjaAx1NIisXwp8YGf-M-1Gr_D3yXbQpB9XOwg1O5_Iw1tApyJ1-1RWNVouAEACnyQNO5YCi4Kwsz3q6sxGOJZ2mr0R5o1X6RAFMjQnJ2Fy61RdZXvhFozJAQB3xCQEM5NByaaq11mLKzxwR-SIP3Df6k4P8_Hj1WrTEF5QHprnZWvEyAvjgnz5esM0Clueg8KfZJ_l877ziMSelhtT4qmBTGttgJm2Wxqlhtfw65Q45I3gKYgsXxhK7jMr6AwJxu3XuRm5ZbWFOXbv5XA54ghynQbQHzchMqsG5pSx184BHss4RBx13kYHrdfArm0YcwBRCNkKfxsFmRbceLKVZpF4uMRV0wc7lkmrrmTU42OO3rHYcifVp9UqOK1oVqvbP4YFwx7YR6jg06d910AycAzrs5T6SNxl0ep6qwwSPjr4o9e48BOE9mQTYGhMf1nFzGRnsn3W6dbIPR6IG8EXo68C7gfo9SVghDnTfPSg534Qr79iL2NlloVSgAK7m4V9oTWninN-q7hB_w&state=Ym4Hajwzubb61Qos
+2025-01-03T06:43:48.637Z: Search params: {"code":"AQDP9tRiWW7rzh98wzJwc6IjQQLTNJoZWqk7vrS_DVDscnT_w5e4y96RqGfjaAx1NIisXwp8YGf-M-1Gr_D3yXbQpB9XOwg1O5_Iw1tApyJ1-1RWNVouAEACnyQNO5YCi4Kwsz3q6sxGOJZ2mr0R5o1X6RAFMjQnJ2Fy61RdZXvhFozJAQB3xCQEM5NByaaq11mLKzxwR-SIP3Df6k4P8_Hj1WrTEF5QHprnZWvEyAvjgnz5esM0Clueg8KfZJ_l877ziMSelhtT4qmBTGttgJm2Wxqlhtfw65Q45I3gKYgsXxhK7jMr6AwJxu3XuRm5ZbWFOXbv5XA54ghynQbQHzchMqsG5pSx184BHss4RBx13kYHrdfArm0YcwBRCNkKfxsFmRbceLKVZpF4uMRV0wc7lkmrrmTU42OO3rHYcifVp9UqOK1oVqvbP4YFwx7YR6jg06d910AycAzrs5T6SNxl0ep6qwwSPjr4o9e48BOE9mQTYGhMf1nFzGRnsn3W6dbIPR6IG8EXo68C7gfo9SVghDnTfPSg534Qr79iL2NlloVSgAK7m4V9oTWninN-q7hB_w","state":"Ym4Hajwzubb61Qos"}
+2025-01-03T06:43:48.637Z: Code present: true
+2025-01-03T06:43:48.637Z: ReturnTo value: /
+2025-01-03T06:43:48.637Z: State value: Ym4Hajwzubb61Qos
+2025-01-03T06:43:48.638Z: Exchanging code for token
+2025-01-03T06:43:49.022Z: Final redirect URL: http://localhost:3000/?access_token=BQD15NWk21OWiHBy1HKMm9Y1__kVsqJjsqcEEi-6s8Urzr0tIJwrhmzBtV5NlYilXoNcG2-UrGcO-hNaAaS3AFlt8L4B4zz4XHe3He6ApwimuUa6YWATnAwua_VRsAnWoCFDnqvhtNPa378wGm8BU7kRdBbQpnshIcWMyR87JkUqor_2z_QUws5ZiPLke5c-V5P97beXlyKQuGVwg72OeOVPdwEOdvdHt_lxAiJjM-ebf_NBDYUR144oiXEIjS3Vbrciv4EG85g7Vva24vr1_Crwmg79s8UO8aXGpIVDFy7QmnNe7JBDMtzEigITXo8e7QSDJDw&expires_in=3600
+2025-01-03T07:43:55.728Z: Incoming request to: /
+2025-01-03T07:43:55.733Z: Full URL: http://localhost:5174/
+2025-01-03T07:43:55.735Z: Search params: {}
+2025-01-03T07:43:55.738Z: Code present: false
+2025-01-03T07:43:55.739Z: ReturnTo value: /
+2025-01-03T07:43:55.739Z: State value: null
+2025-01-03T07:43:55.742Z: Adding returnTo to state: /
+2025-01-03T07:43:55.742Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=ulMDGw2tuPrwexub&returnTo=%2F
+2025-01-03T07:43:56.276Z: Incoming request to: /
+2025-01-03T07:43:56.276Z: Full URL: http://localhost:5174/?returnTo=%2Fplaylists%2F6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T07:43:56.278Z: Search params: {"returnTo":"/playlists/6J6RAkccZp0jbrMTNyJjUn"}
+2025-01-03T07:43:56.278Z: Code present: false
+2025-01-03T07:43:56.278Z: ReturnTo value: /playlists/6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T07:43:56.278Z: State value: null
+2025-01-03T07:43:56.278Z: Adding returnTo to state: /playlists/6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T07:43:56.278Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=jBV8WVby7C59f8jk&returnTo=%2Fplaylists%2F6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T07:43:56.504Z: Incoming request to: /
+2025-01-03T07:43:56.510Z: Full URL: http://localhost:5174/?code=AQB4OX4is6W_ykXGikOXIPBFyw7A1S8CVCfpRVQ7K4oKFtlet__BmW2_AQ8Ljx4hXBzmWrDZDWFh8raZvuvKe-j7Hx4dEt9-3YA8rnYQWuU24CUtpkbu7V2NL5H4HX3FBEdF4XCTbtncT1oBac2qFM7Es5SOIiAuVeFBbAfJFvmP1jDioTC380ZQIsnCqkGwY1Kyq7-kxYjWqfA4urIHiUpjVNGsNjNDZX0_fsIivPrWUncAOIh59H68w5_DveL5emuMcKqCr9byGU0EfjtX-pYDcTop3YRR_9zfJjojRRVsQqpigZofEJ6rLZdAXnGR5SXo7e5KSZ1k_PCIG-iTpirqaOxhHRFqDfbOFTJ82zD8pNrQLu0rl1eYOzQilc9YPOqht5sBKXcDHc_wxaEh6ZUtl332QQZWp_w3GCXiWZ6wjWy3PVweo-AN6Dhb7s_PFw6DF1baljt_pi8q2sASkeNYIiEg9laAsG-L9x4k84f0PlxDCpaGptQngVaHNw-iUVn_crLTEb8g-I5Zy_iT3InFi4CNuoO3LNzZbn_xfDgkxqs4vq5Z5Jl2PW611Zwi9sLS9A&state=jBV8WVby7C59f8jk
+2025-01-03T07:43:56.510Z: Search params: {"code":"AQB4OX4is6W_ykXGikOXIPBFyw7A1S8CVCfpRVQ7K4oKFtlet__BmW2_AQ8Ljx4hXBzmWrDZDWFh8raZvuvKe-j7Hx4dEt9-3YA8rnYQWuU24CUtpkbu7V2NL5H4HX3FBEdF4XCTbtncT1oBac2qFM7Es5SOIiAuVeFBbAfJFvmP1jDioTC380ZQIsnCqkGwY1Kyq7-kxYjWqfA4urIHiUpjVNGsNjNDZX0_fsIivPrWUncAOIh59H68w5_DveL5emuMcKqCr9byGU0EfjtX-pYDcTop3YRR_9zfJjojRRVsQqpigZofEJ6rLZdAXnGR5SXo7e5KSZ1k_PCIG-iTpirqaOxhHRFqDfbOFTJ82zD8pNrQLu0rl1eYOzQilc9YPOqht5sBKXcDHc_wxaEh6ZUtl332QQZWp_w3GCXiWZ6wjWy3PVweo-AN6Dhb7s_PFw6DF1baljt_pi8q2sASkeNYIiEg9laAsG-L9x4k84f0PlxDCpaGptQngVaHNw-iUVn_crLTEb8g-I5Zy_iT3InFi4CNuoO3LNzZbn_xfDgkxqs4vq5Z5Jl2PW611Zwi9sLS9A","state":"jBV8WVby7C59f8jk"}
+2025-01-03T07:43:56.510Z: Code present: true
+2025-01-03T07:43:56.511Z: ReturnTo value: /
+2025-01-03T07:43:56.511Z: State value: jBV8WVby7C59f8jk
+2025-01-03T07:43:56.511Z: Exchanging code for token
+2025-01-03T07:43:56.870Z: Final redirect URL: http://localhost:3000/?access_token=BQBw8kf3A-Z8vN_VRyGJFrriMrmDSBy8qnR0sCZJIDb39gbWyhkEnLk-rlS_4CqeNYyu1NEgvXCBvtDyZ9ZKfLI7Kw-NXLRbuYV5_ghRr9zHccXgwKkkcwQUKoVWCWU6mr5B3faVOA5yem8azArj7W2-9Df0UItnYxG08uGIr_mFw8SMa-_IBIMtQ9q8CVX0dNhw1KqMz3qCHCYgU28DXubkHehjmVlWubmV2fS8eoUOQLZwJ_nsFPl4dnlGuD-ID93WkGQrzkrUeGBKU2ulqAAUHo-N7Cutoh1zvQ20XqAjf_VvYMROfPc4Ycs2sDVmCAqckek&expires_in=3600
+2025-01-03T07:44:58.348Z: Incoming request to: /
+2025-01-03T07:44:58.356Z: Full URL: http://localhost:5174/
+2025-01-03T07:44:58.358Z: Search params: {}
+2025-01-03T07:44:58.359Z: Code present: false
+2025-01-03T07:44:58.359Z: ReturnTo value: /
+2025-01-03T07:44:58.359Z: State value: null
+2025-01-03T07:44:58.362Z: Adding returnTo to state: /
+2025-01-03T07:44:58.363Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=moSIk2ywGIS5Ge9G&returnTo=%2F
+2025-01-03T07:44:58.770Z: Incoming request to: /
+2025-01-03T07:44:58.774Z: Full URL: http://localhost:5174/?code=AQCOjeDSTqvpaSXZR97EHnS1ZRGKIvJ36scoY0g-uSdYfcY162z9IHXvXUwQlJQ0ZVgonBw3GWeqz66utjCPSkhWldISInTNq93OOC-jzjs0FlZVfHZ7TOjXWRnj-4a-Z6pipUfaVn6BQXwZZ6kuO0eFzRHH1y9oYueXnB3wTRI9SujDtGseTjfI4QG7U9GkOC7eDd4wMERrQ4ms0gJmogRgGpCe8jNAIgEENZNXcEcIWEviCbtDF1ppEqNmGEORc5I5Ux0inBwHRhbK86X2ivq4XvsYrnZNZKnPNewudckxFxISlbGQf1Ap17T-IMMWDvk5Ei-tPGqUj2yvBpX3q77ySY0iz1PGdrJ3pGKi6DyoG6lN9l2YBkzwXxN0jA3SiRRJKLiZl2cgSuEjThbnpdpMRyQ8asEXngLXnja1Zj45wYaa7Zz2t8gMvwsaI6wkyaDyvaHDe_d_i8oMlsjp2n-s6W_t73wcpppjOdTf_LiXbORJ1h5aZ5bDHR9nzf-wIFZ_MrfNOkCo4Uijy0RMVb0OXzveQMYO_QyHHN2PaSCNCGpZQp9fyejU0urip-OzCyMSrg&state=moSIk2ywGIS5Ge9G
+2025-01-03T07:44:58.778Z: Search params: {"code":"AQCOjeDSTqvpaSXZR97EHnS1ZRGKIvJ36scoY0g-uSdYfcY162z9IHXvXUwQlJQ0ZVgonBw3GWeqz66utjCPSkhWldISInTNq93OOC-jzjs0FlZVfHZ7TOjXWRnj-4a-Z6pipUfaVn6BQXwZZ6kuO0eFzRHH1y9oYueXnB3wTRI9SujDtGseTjfI4QG7U9GkOC7eDd4wMERrQ4ms0gJmogRgGpCe8jNAIgEENZNXcEcIWEviCbtDF1ppEqNmGEORc5I5Ux0inBwHRhbK86X2ivq4XvsYrnZNZKnPNewudckxFxISlbGQf1Ap17T-IMMWDvk5Ei-tPGqUj2yvBpX3q77ySY0iz1PGdrJ3pGKi6DyoG6lN9l2YBkzwXxN0jA3SiRRJKLiZl2cgSuEjThbnpdpMRyQ8asEXngLXnja1Zj45wYaa7Zz2t8gMvwsaI6wkyaDyvaHDe_d_i8oMlsjp2n-s6W_t73wcpppjOdTf_LiXbORJ1h5aZ5bDHR9nzf-wIFZ_MrfNOkCo4Uijy0RMVb0OXzveQMYO_QyHHN2PaSCNCGpZQp9fyejU0urip-OzCyMSrg","state":"moSIk2ywGIS5Ge9G"}
+2025-01-03T07:44:58.779Z: Code present: true
+2025-01-03T07:44:58.779Z: ReturnTo value: /
+2025-01-03T07:44:58.779Z: State value: moSIk2ywGIS5Ge9G
+2025-01-03T07:44:58.779Z: Exchanging code for token
+2025-01-03T07:44:58.999Z: Final redirect URL: http://localhost:3000/?access_token=BQBEwa1ZTMjRDUkA0AxSahZA4g7xj-HkICrjSKQmW2s9eYiycwqg9nwMfJquH6UotGI82UVAfYz6L5G8X3xmLRTrCcc6loG20iBFF7jdupOnYm6eEWBvSNKU-oN5BGtwBAn4TxcrV8Jh20iGKG2KC3J-8pYIC1lQT85ASR5fi10JfgQtThnBVeHDLAeBEmLKioA5YoTwHV43DRtV4j3HkIpBQJjMxWE6_3xD1nXJNt6DYASqqyMFNZgku4wn5uopiPE1FDyRfSvLx7MR0gfU7UD0Ud_oFWJm_jIfe2R-s-ZqivK85Dvg-VdAyZgncPXYKynu_38&expires_in=3600
+2025-01-03T13:43:24.401Z: Incoming request to: /
+2025-01-03T13:43:24.406Z: Full URL: http://localhost:5174/
+2025-01-03T13:43:24.408Z: Search params: {}
+2025-01-03T13:43:24.411Z: Code present: false
+2025-01-03T13:43:24.411Z: ReturnTo value: /
+2025-01-03T13:43:24.412Z: State value: null
+2025-01-03T13:43:24.416Z: Adding returnTo to state: /
+2025-01-03T13:43:24.416Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=b2eScSNsZp0aQlrv&returnTo=%2F
+2025-01-03T13:43:24.918Z: Incoming request to: /
+2025-01-03T13:43:24.918Z: Full URL: http://localhost:5174/?returnTo=%2Fplaylists%2F6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T13:43:24.924Z: Search params: {"returnTo":"/playlists/6J6RAkccZp0jbrMTNyJjUn"}
+2025-01-03T13:43:24.925Z: Code present: false
+2025-01-03T13:43:24.925Z: ReturnTo value: /playlists/6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T13:43:24.925Z: State value: null
+2025-01-03T13:43:24.928Z: Adding returnTo to state: /playlists/6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T13:43:24.928Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=KOYo0H3EOgEA4bOl&returnTo=%2Fplaylists%2F6J6RAkccZp0jbrMTNyJjUn
+2025-01-03T13:43:25.153Z: Incoming request to: /
+2025-01-03T13:43:25.153Z: Full URL: http://localhost:5174/?code=AQAy6yrL9PDYlA2-MSOEKID4A04TYg4KsmlaqIhlJY9sYLBR2OKAuOCkQn7r7HUzJdz_uqJATNWMZ2n-BMSYikEtS9pEcbnwG8XLN-j0lj-WdsHYeoB_XSS34k0gpfqV8_8pfVG_SCcMkwulixdFaRdNG7iZGVCTdXAKG-RMemPoi-BFrie8x1WWFb1zTk16jQaCUdsUaWtu0CGk9ML6dRNHPOTJJXIz5V0vsxtZG_BUnOoyR-AjCRlEdagjxriTztuV-E7B55Qv7oxjhbmGARxGy_JqA-Ylpv2D9V0PD7-msgALRom9wZ6Np_gCNTCYDl-sFJ9MW1rvJd4SxCw9N3g6xjPVyF4gnaq91QdfvR2Z14qMCWDFC9YLkgCx0bqy9F-TSxr55-LhRHmMeK68kkvHcy1Y7Ena5CXtkZuWLxN46dQ6ILiIh_I-g-2AKdaXQ-3loGgDpMyb3f-p1Ac-deKahWvTkj7rdTlJxzwnZOLMgIEconTqIqcogUDjO8UwQyT7qO75T8HXJp-3-W5NbvBXCSli7kTX6-hGOMKm1OQxBESzdD7XFne7WKKq69G3rUID5g&state=KOYo0H3EOgEA4bOl
+2025-01-03T13:43:25.154Z: Search params: {"code":"AQAy6yrL9PDYlA2-MSOEKID4A04TYg4KsmlaqIhlJY9sYLBR2OKAuOCkQn7r7HUzJdz_uqJATNWMZ2n-BMSYikEtS9pEcbnwG8XLN-j0lj-WdsHYeoB_XSS34k0gpfqV8_8pfVG_SCcMkwulixdFaRdNG7iZGVCTdXAKG-RMemPoi-BFrie8x1WWFb1zTk16jQaCUdsUaWtu0CGk9ML6dRNHPOTJJXIz5V0vsxtZG_BUnOoyR-AjCRlEdagjxriTztuV-E7B55Qv7oxjhbmGARxGy_JqA-Ylpv2D9V0PD7-msgALRom9wZ6Np_gCNTCYDl-sFJ9MW1rvJd4SxCw9N3g6xjPVyF4gnaq91QdfvR2Z14qMCWDFC9YLkgCx0bqy9F-TSxr55-LhRHmMeK68kkvHcy1Y7Ena5CXtkZuWLxN46dQ6ILiIh_I-g-2AKdaXQ-3loGgDpMyb3f-p1Ac-deKahWvTkj7rdTlJxzwnZOLMgIEconTqIqcogUDjO8UwQyT7qO75T8HXJp-3-W5NbvBXCSli7kTX6-hGOMKm1OQxBESzdD7XFne7WKKq69G3rUID5g","state":"KOYo0H3EOgEA4bOl"}
+2025-01-03T13:43:25.154Z: Code present: true
+2025-01-03T13:43:25.154Z: ReturnTo value: /
+2025-01-03T13:43:25.154Z: State value: KOYo0H3EOgEA4bOl
+2025-01-03T13:43:25.154Z: Exchanging code for token
+2025-01-03T13:43:25.510Z: Final redirect URL: http://localhost:3000/?access_token=BQDQ_8L1wWHsrnx4MN20XHp4HKrlhUEOwaTQzlmGw4_IlTMG8gcVIZMqlFtywlYiQgqrGGl6mmrfiwQVoOxSfFgg5eGbCyY-1gXvZISfk_oEbkKnyY7c3PbsEB8PFjYCR6aLmk6bVyjOeDGZ39N-EztDFSkwVxl_8a6KawuvVZPYJ0P-mzx9RAtDjR7GkvObaUejtrLIgH2Q3r-9FYpXbj5RZRDAf8GhmylzJ-9DjrWR0q1xDPKhm0uaa_8Le7g_aGzrZjDy8JWwCArYbhYGGLXSy5SQ0XMaiKxxG72ot6dNIoxM7ZERnU7eLH1EhjR8T6mJ3Pc&expires_in=3600
+2025-01-03T14:15:58.874Z: Incoming request to: /
+2025-01-03T14:15:58.880Z: Full URL: http://localhost:5174/?returnTo=%2Fsongs
+2025-01-03T14:15:58.884Z: Search params: {"returnTo":"/songs"}
+2025-01-03T14:15:58.885Z: Code present: false
+2025-01-03T14:15:58.886Z: ReturnTo value: /songs
+2025-01-03T14:15:58.886Z: State value: null
+2025-01-03T14:15:58.888Z: Adding returnTo to state: /songs
+2025-01-03T14:15:58.888Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=JqM3vrKnZiVvlLn6&returnTo=%2Fsongs
+2025-01-03T14:15:59.358Z: Incoming request to: /
+2025-01-03T14:15:59.358Z: Full URL: http://localhost:5174/?code=AQBd37fW1JWlH0AuZJ46nfoumpMpPekcfwDspEGtuZDJsWzGAhel_zpcIpqM_lgK13aLHB7s55HyGX1JuMDsPV6xmi1upRfO1ixQL7cquiXXYaCkmx-JPO51S11HiOcuoH_DFzhHWRNH39-SVUnsovc1nsd9tAsve8nUR9XWM6YHYVyE_Xza_FsypC-icztVNNenhZ3YFpYf9f6ehY6ZycPS-uwDIHqUwxVz8DJV4WTAmEN_1rUdyhz0POQypK8c0cMwZ1hT7XkVAa1YswQNk5znN7A7R2vqKaDZ5BphqO9w2gThbRowQsZoxdL29nVNCOvpAtKd7ctKrwXUjPSz_pNCDGrJcBgmVlFbMW6B2IVly8q44yECJycZLeGLFz9PPgWQAgSIcsgk8xOEGwGSGo-VV1ag02f2Vwf541CWcEGM8k-Ah8vVcbL0BV1Sx6XMJeAXcTbAOAXIhaYzcgukHLSV7qgGtsh9UmAJXM1AP0H4yFqB3etIqjqtmXQ1U2pcGINLZQwg8aAo73Yd1OVkfR8pMuCBCr52r1Rp2PRIG87DoIr97ih0_nz5TKQqS4_xOjzpUw&state=JqM3vrKnZiVvlLn6
+2025-01-03T14:15:59.358Z: Search params: {"code":"AQBd37fW1JWlH0AuZJ46nfoumpMpPekcfwDspEGtuZDJsWzGAhel_zpcIpqM_lgK13aLHB7s55HyGX1JuMDsPV6xmi1upRfO1ixQL7cquiXXYaCkmx-JPO51S11HiOcuoH_DFzhHWRNH39-SVUnsovc1nsd9tAsve8nUR9XWM6YHYVyE_Xza_FsypC-icztVNNenhZ3YFpYf9f6ehY6ZycPS-uwDIHqUwxVz8DJV4WTAmEN_1rUdyhz0POQypK8c0cMwZ1hT7XkVAa1YswQNk5znN7A7R2vqKaDZ5BphqO9w2gThbRowQsZoxdL29nVNCOvpAtKd7ctKrwXUjPSz_pNCDGrJcBgmVlFbMW6B2IVly8q44yECJycZLeGLFz9PPgWQAgSIcsgk8xOEGwGSGo-VV1ag02f2Vwf541CWcEGM8k-Ah8vVcbL0BV1Sx6XMJeAXcTbAOAXIhaYzcgukHLSV7qgGtsh9UmAJXM1AP0H4yFqB3etIqjqtmXQ1U2pcGINLZQwg8aAo73Yd1OVkfR8pMuCBCr52r1Rp2PRIG87DoIr97ih0_nz5TKQqS4_xOjzpUw","state":"JqM3vrKnZiVvlLn6"}
+2025-01-03T14:15:59.359Z: Code present: true
+2025-01-03T14:15:59.359Z: ReturnTo value: /
+2025-01-03T14:15:59.359Z: State value: JqM3vrKnZiVvlLn6
+2025-01-03T14:15:59.359Z: Exchanging code for token
+2025-01-03T14:15:59.701Z: Final redirect URL: http://localhost:3000/?access_token=BQC3aXKin4ecR05HcSbdfuJgUXQ_ZI3mAy8o7ZZ1t2j1GL7QU6CW_4rDCmm-V9ssZwZiq-rZBTJ2y5uL0tTanjxFDSUXfv9q1RGNkw3GTwldpUGZvwIsgOrNkQcTq5KAqg7-u1W2g2lxxMflbZiPciQOEfJzrfb5-PjKGyMo3ydY-dg2v66gg-YRZt4yYpgaVrGz8S8JtH7H29JOHgRIJ72-8iCsbStqZhaMkTUX9djwtNB_QHf2lO3eG3FDUOEyLObj2LzQFFeJpH3ZjV0_nzOfZGfDky_mzRbhH3PrXRGZrKqmlmWvAQRsH2u04Dr3Lww478s&expires_in=3600
+2025-01-03T14:57:12.000Z: Incoming request to: /
+2025-01-03T14:57:12.006Z: Full URL: http://localhost:5174/
+2025-01-03T14:57:12.007Z: Search params: {}
+2025-01-03T14:57:12.008Z: Code present: false
+2025-01-03T14:57:12.008Z: ReturnTo value: /
+2025-01-03T14:57:12.008Z: State value: null
+2025-01-03T14:57:12.010Z: Adding returnTo to state: /
+2025-01-03T14:57:12.010Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=eifanEzYJgxTerix&returnTo=%2F
+2025-01-03T14:57:12.395Z: Incoming request to: /
+2025-01-03T14:57:12.395Z: Full URL: http://localhost:5174/?code=AQAl0eYDzuVFfvbPixO80M-H8taKiuY-xKUTgTEnpEINoBgsTCmDRwrXhu58rvMIstFrhLTdm5hkZORY02ZT50HUrX4AwTSW5o-F5nDQkF2_1J8WJokb7xG99JDY1lsZxkeApApa9CRFXTvmf532WYmGwNA9OGeNeRFgUZPXDb2UAlhlONvN4siIlbSHaeixOwp9MfQh07jLFl63LEKsai1JJEjWycJ9glKkUJX3bJotapu2KXGJ0fmnyc9BPWuOr_a0Mh5wTmF0BING1BLNHWhvisBJMed0wGXCCwgKLIDZjP2e4bIvj-Q8ZcVrjCDI1OUTk224WEF6EUMq-JlFQfK6gNoCRBbELwxnn4lDbQClUnYDuKU2YSwyfpQUD55bj4cCpzuG_QwxMZR_0HBAQeHScXu8DKpZiNiQWu3qCYcTjarhWZAk4_8WOjROdo3mvU6Ikrt5eTSUKyX8b_Uwba-n_XGnvBfjVuyfBb8gaYiQGP1kBNZML8gjJf4DUdZaGnjQxXjYjGvDGjalAcJP4BrD3-RJVOZrE3pPErNgxJiOA_2h_RzMe80VZqiMPfviwh9UOA&state=eifanEzYJgxTerix
+2025-01-03T14:57:12.396Z: Search params: {"code":"AQAl0eYDzuVFfvbPixO80M-H8taKiuY-xKUTgTEnpEINoBgsTCmDRwrXhu58rvMIstFrhLTdm5hkZORY02ZT50HUrX4AwTSW5o-F5nDQkF2_1J8WJokb7xG99JDY1lsZxkeApApa9CRFXTvmf532WYmGwNA9OGeNeRFgUZPXDb2UAlhlONvN4siIlbSHaeixOwp9MfQh07jLFl63LEKsai1JJEjWycJ9glKkUJX3bJotapu2KXGJ0fmnyc9BPWuOr_a0Mh5wTmF0BING1BLNHWhvisBJMed0wGXCCwgKLIDZjP2e4bIvj-Q8ZcVrjCDI1OUTk224WEF6EUMq-JlFQfK6gNoCRBbELwxnn4lDbQClUnYDuKU2YSwyfpQUD55bj4cCpzuG_QwxMZR_0HBAQeHScXu8DKpZiNiQWu3qCYcTjarhWZAk4_8WOjROdo3mvU6Ikrt5eTSUKyX8b_Uwba-n_XGnvBfjVuyfBb8gaYiQGP1kBNZML8gjJf4DUdZaGnjQxXjYjGvDGjalAcJP4BrD3-RJVOZrE3pPErNgxJiOA_2h_RzMe80VZqiMPfviwh9UOA","state":"eifanEzYJgxTerix"}
+2025-01-03T14:57:12.397Z: Code present: true
+2025-01-03T14:57:12.397Z: ReturnTo value: /
+2025-01-03T14:57:12.397Z: State value: eifanEzYJgxTerix
+2025-01-03T14:57:12.397Z: Exchanging code for token
+2025-01-03T14:57:12.725Z: Final redirect URL: http://localhost:3000/?access_token=BQCKbfDOd8jBW3IUzYnPG6BTPZs7INXZKoXkPUqrIb7xhU0HFwgZ0eV_k3VObtUfCkIQDT38ZrDUB8Lgj0X8bcL8AgPOmN-bAijlcAs305xxSlnqprw3Hlh96BnMjkdFt4fRvdBLbcqWnXlj9LW7_DC3mUZupyw1zbL69Q6sG25FSh6slzlt4O4H6RTyPSmPC9BMVo4GMKypXEkf5mR-SaXXNDDrQ7c28jYeoq74SD6EgavLmpgtgqxiSkCROBvL8WAIo9ys5g6ZMKvU34oQv0zr5ElV56h3RXkL_piZtR94pUJ6VpK0lTaS92a8SLfvhoW5-ZY&expires_in=3600
+2025-01-03T14:57:36.174Z: Incoming request to: /
+2025-01-03T14:57:36.174Z: Full URL: http://localhost:5174/?returnTo=%2Fsongs
+2025-01-03T14:57:36.175Z: Search params: {"returnTo":"/songs"}
+2025-01-03T14:57:36.175Z: Code present: false
+2025-01-03T14:57:36.175Z: ReturnTo value: /songs
+2025-01-03T14:57:36.175Z: State value: null
+2025-01-03T14:57:36.175Z: Adding returnTo to state: /songs
+2025-01-03T14:57:36.175Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=UMAVxfiolghibCnp&returnTo=%2Fsongs
+2025-01-03T14:57:36.549Z: Incoming request to: /
+2025-01-03T14:57:36.549Z: Full URL: http://localhost:5174/?code=AQCU93f0EvpfzcXZV-xwjJNYuPNtcs5peP7tQvbjhTk4UOoES1g7tpe5uM6GpDjKHStJzh8jFffWM-TanKGO5zEn6qKFgCsv9SVRNEc1XGYNsqUoEKeTJ-CXvSuqAoym2ZZ5PXH--Y2Bhfp397jHws7T3aucnqg_5MUy8UN4jTyGd23uxOem1h6xzV92yi5aFjU2hYCZs_VSNrNnmUpowWX3OmmFQYWfNMjbAkzhu5T2ro-E1atL5SHOErC5ADb15r-btJI5KfvDjA-eBhQNcQbP1R_2qg0Ci5kCW5v7BGJp9A-L4H0zUmVWECdU-smyW9BAcpDW_gPjLzPtRpE8E1_Qcnh93oGLvo9OBySNXo1Kc8MwQ3fQG2KPg6qW8YzP_XrkTv5UFiMBaXSzFViNWxNo9_HVo8C6_2CckP9DjlTwTi6QX7oZV5a57O13OlqURekUuKLgH25-UL3LHfXuRkWDvxGs_CmotAgtiqEiz7Bf1kiJlm0wq6d_7ygIVdZ1EPhvA4NyiUkcMulYTt9xabB0mAEQEjRlWR8PEDaztQRyR7mWox3wSgXlu5qqvNRyqfm1fg&state=UMAVxfiolghibCnp
+2025-01-03T14:57:36.549Z: Search params: {"code":"AQCU93f0EvpfzcXZV-xwjJNYuPNtcs5peP7tQvbjhTk4UOoES1g7tpe5uM6GpDjKHStJzh8jFffWM-TanKGO5zEn6qKFgCsv9SVRNEc1XGYNsqUoEKeTJ-CXvSuqAoym2ZZ5PXH--Y2Bhfp397jHws7T3aucnqg_5MUy8UN4jTyGd23uxOem1h6xzV92yi5aFjU2hYCZs_VSNrNnmUpowWX3OmmFQYWfNMjbAkzhu5T2ro-E1atL5SHOErC5ADb15r-btJI5KfvDjA-eBhQNcQbP1R_2qg0Ci5kCW5v7BGJp9A-L4H0zUmVWECdU-smyW9BAcpDW_gPjLzPtRpE8E1_Qcnh93oGLvo9OBySNXo1Kc8MwQ3fQG2KPg6qW8YzP_XrkTv5UFiMBaXSzFViNWxNo9_HVo8C6_2CckP9DjlTwTi6QX7oZV5a57O13OlqURekUuKLgH25-UL3LHfXuRkWDvxGs_CmotAgtiqEiz7Bf1kiJlm0wq6d_7ygIVdZ1EPhvA4NyiUkcMulYTt9xabB0mAEQEjRlWR8PEDaztQRyR7mWox3wSgXlu5qqvNRyqfm1fg","state":"UMAVxfiolghibCnp"}
+2025-01-03T14:57:36.549Z: Code present: true
+2025-01-03T14:57:36.549Z: ReturnTo value: /
+2025-01-03T14:57:36.549Z: State value: UMAVxfiolghibCnp
+2025-01-03T14:57:36.549Z: Exchanging code for token
+2025-01-03T14:57:36.918Z: Final redirect URL: http://localhost:3000/?access_token=BQACIA2-bsAvj_189ovBSxp2U0ycF1QHMzl6UOktr0ixfyI6HaxdDJbBB3EcXR_AyJ3DZNe_1kIhir2plmmGQr_FpaYydPyGqXBQaF3LQTnYIWXysiUWhaTJxvmL7qWptEAFMvNJofbcMrsgka0301m6bJJN3R5BuRP7jE8TJ74qpYTa7E0SiYlhTH101Ty5ku7p-qnbuyzLgvyEpBIh8xXx1yDif63Bf8i3Va9OYEs1TIJcT4MkgYO5NfEod9pyV0jMdUYXVDKfPo6agD9OFUOWjMXMBtdWCNsE4MJf7FUJfg3sk3EyWA1nqI3pC22aUugmNoA&expires_in=3600
+2025-01-04T08:14:52.711Z: Incoming request to: /
+2025-01-04T08:14:52.717Z: Full URL: http://localhost:5174/
+2025-01-04T08:14:52.718Z: Search params: {}
+2025-01-04T08:14:52.719Z: Code present: false
+2025-01-04T08:14:52.719Z: ReturnTo value: /
+2025-01-04T08:14:52.719Z: State value: null
+2025-01-04T08:14:52.721Z: Adding returnTo to state: /
+2025-01-04T08:14:52.721Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=OCn46RAiMnPXV5fX&returnTo=%2F
+2025-01-04T08:14:53.222Z: Incoming request to: /
+2025-01-04T08:14:53.222Z: Full URL: http://localhost:5174/?code=AQCye7GOdsTId79spjpiIQs-_01WwbJiiI2wCItvzPGt7AxUAoTU_XtmMFOLugwNROSMH4izcFVirwaMc6oN8mt1y0sezt6FwT2yr6yPFc-JPAxhP58jE7JbRu3eLoif7_yOEILeqqc3RI1yuD_n6qxRz85G43F04kkz0Sue4PCWYBuGiBSLcnVyV0lbGCFVGjhxFVJeLn7Iy7Wr50EfV7rVJNfKV7OYvEadnU5egk628aEEVKMbGH4gsyCcy1ztkFcE5rvpBfIoWd0Q-PW8qjpVErkfaFmxl-newWXn1t49KLVE-H9KsnqGPdNYzud4iH0YCIFL9Ws7uNkdk9Gog5sNfMVAGyMqVpblBrcN3bcs61duwrom1_7LcW61g-TUl1ONocHqQ1OsymHUwk46q-sQyk9ppLAHH5th0Gq5opumLodnrcYl8hbSLhM3dPmD_5OdejnvE1Fxomj9NtR9rSeGyFrkaCB4FcUqKla9Te0NFYv6720UwD_fnYYs0ro91dTKPjNaz3DFBPYB3qE2Ns4Tl6gH-2d2gw8FzqVTKcVHrL_EQXWDaooLOzarNmALcqydWw&state=OCn46RAiMnPXV5fX
+2025-01-04T08:14:53.224Z: Search params: {"code":"AQCye7GOdsTId79spjpiIQs-_01WwbJiiI2wCItvzPGt7AxUAoTU_XtmMFOLugwNROSMH4izcFVirwaMc6oN8mt1y0sezt6FwT2yr6yPFc-JPAxhP58jE7JbRu3eLoif7_yOEILeqqc3RI1yuD_n6qxRz85G43F04kkz0Sue4PCWYBuGiBSLcnVyV0lbGCFVGjhxFVJeLn7Iy7Wr50EfV7rVJNfKV7OYvEadnU5egk628aEEVKMbGH4gsyCcy1ztkFcE5rvpBfIoWd0Q-PW8qjpVErkfaFmxl-newWXn1t49KLVE-H9KsnqGPdNYzud4iH0YCIFL9Ws7uNkdk9Gog5sNfMVAGyMqVpblBrcN3bcs61duwrom1_7LcW61g-TUl1ONocHqQ1OsymHUwk46q-sQyk9ppLAHH5th0Gq5opumLodnrcYl8hbSLhM3dPmD_5OdejnvE1Fxomj9NtR9rSeGyFrkaCB4FcUqKla9Te0NFYv6720UwD_fnYYs0ro91dTKPjNaz3DFBPYB3qE2Ns4Tl6gH-2d2gw8FzqVTKcVHrL_EQXWDaooLOzarNmALcqydWw","state":"OCn46RAiMnPXV5fX"}
+2025-01-04T08:14:53.224Z: Code present: true
+2025-01-04T08:14:53.224Z: ReturnTo value: /
+2025-01-04T08:14:53.224Z: State value: OCn46RAiMnPXV5fX
+2025-01-04T08:14:53.224Z: Exchanging code for token
+2025-01-04T08:14:53.563Z: Final redirect URL: http://localhost:3000/?access_token=BQA9lhSoGcV18G7IHm8Zyw_M6tYkSW1d9Q_6MzfNbTPlNV9HIgQkLIiNWYS55sWxOioCqJ4BurwPnNPdGSNY6nuNeSabL6KhhLTqyLqKoqCe81dv5sbsfzSpBEwmKP5cUUB8x2rpGkkjkAmHNhRNjfV2StDDkPB8fVbvHarT0HgOhW76GWrKdSh18jmgnkjB7npb_XRR28h19wkGdZvha3GVmjj8mH6v0alGklTNJkf51DdIKhwaTcNLOXG2b7nYfyZ9TUA6MBAqiD3hMqxE53XvVj5LwWXDlMVQtc0u9rW4c9C8fqkSTXXpqoA7WgYGkC8EsjA&expires_in=3600
+2025-01-05T05:58:27.983Z: Incoming request to: /
+2025-01-05T05:58:27.989Z: Full URL: http://localhost:5174/
+2025-01-05T05:58:27.990Z: Search params: {}
+2025-01-05T05:58:27.991Z: Code present: false
+2025-01-05T05:58:27.991Z: ReturnTo value: /
+2025-01-05T05:58:27.991Z: State value: null
+2025-01-05T05:58:27.993Z: Adding returnTo to state: /
+2025-01-05T05:58:27.993Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=wNSLpVBluUzHRrKS&returnTo=%2F
+2025-01-05T05:58:28.543Z: Incoming request to: /
+2025-01-05T05:58:28.543Z: Full URL: http://localhost:5174/?code=AQBJ_sbCr2-UJFIP5pfx35HyViHH05p8ZXn1YpmNYwVIElEj3PiykT2vOzd_1Se350N6VjO1T-ucme0ih18hdPZQBx_Z3cynwKSwN-whk9L7I24M2LzzFzHZMoi3hwy3y7-jlEkXkFGFy-yPI9U7rPIUQcvWZl-1pTmYVBWi5rp9b6azoHWeG9gq1-MEMXgJGlQGTtzh9OuxDECkRN2b9q8J8r-W3DJ9ulsKErdWAWfQcpXITC7uuY-ISOmoVdSHtrUndYljOqmskwGeq6dQIYslZhDfvXOwgVUsotTRYB8VGjvSvc9A3n_MkCEmngRn5GtIOLCpn_MxppuD0hOrx22ihXxBlEK65iwdL4fHdHM7_vjD8a331qd_LzctUnTATmUXwGnZphor9NRtrRmfcqE2vZaK7b5ApfWqgRMCdjRY4z4dylfc2UceW2dU5RwPVJB2kdit4J86PAyLBjNz4FEYt95imw-PUBh1r27yj79qghPU43_qdXglaVVGh1nWQ64jBfINVO9tZTDrW1uQvrsGO6nzmJe6USLzs9OWIoT9EQTYMhOI51Sbp0i2nqgjSIlvWA&state=wNSLpVBluUzHRrKS
+2025-01-05T05:58:28.545Z: Search params: {"code":"AQBJ_sbCr2-UJFIP5pfx35HyViHH05p8ZXn1YpmNYwVIElEj3PiykT2vOzd_1Se350N6VjO1T-ucme0ih18hdPZQBx_Z3cynwKSwN-whk9L7I24M2LzzFzHZMoi3hwy3y7-jlEkXkFGFy-yPI9U7rPIUQcvWZl-1pTmYVBWi5rp9b6azoHWeG9gq1-MEMXgJGlQGTtzh9OuxDECkRN2b9q8J8r-W3DJ9ulsKErdWAWfQcpXITC7uuY-ISOmoVdSHtrUndYljOqmskwGeq6dQIYslZhDfvXOwgVUsotTRYB8VGjvSvc9A3n_MkCEmngRn5GtIOLCpn_MxppuD0hOrx22ihXxBlEK65iwdL4fHdHM7_vjD8a331qd_LzctUnTATmUXwGnZphor9NRtrRmfcqE2vZaK7b5ApfWqgRMCdjRY4z4dylfc2UceW2dU5RwPVJB2kdit4J86PAyLBjNz4FEYt95imw-PUBh1r27yj79qghPU43_qdXglaVVGh1nWQ64jBfINVO9tZTDrW1uQvrsGO6nzmJe6USLzs9OWIoT9EQTYMhOI51Sbp0i2nqgjSIlvWA","state":"wNSLpVBluUzHRrKS"}
+2025-01-05T05:58:28.545Z: Code present: true
+2025-01-05T05:58:28.546Z: ReturnTo value: /
+2025-01-05T05:58:28.546Z: State value: wNSLpVBluUzHRrKS
+2025-01-05T05:58:28.546Z: Exchanging code for token
+2025-01-05T05:58:28.897Z: Final redirect URL: http://localhost:3000/?access_token=BQC5Xz_vt87x82GpxJcsvygkIzmDWf1fqNoiOpLFkMcPArE0est4ROPe6XSVCtTg2frOv5WMap8AidkmbuGx3gU4jw629qS1gGFMOsNqcDuiAK44kmodQ8eSm8ZbKkzOyhYsVvxmoVpNNIU-PGvF_UqnYd2cj7NDUWajHjD4gFIpgwpoUb7OIZLFaLEbtQrmWuSezxNqv3ZBpIiJV91bKsRm72PqSSfpu-o8E0bwE0fw_OOHdX1RNOBFtwNlUiA4ghFfEKEOW8MxdJoovaZ8ntdxSB9a3q32DlAb_dX0Bi6qxlHvk5TWxCTyPTThXj_iVYgLg5s&expires_in=3600
+2025-01-05T12:30:53.078Z: Incoming request to: /
+2025-01-05T12:30:53.085Z: Full URL: http://localhost:5174/
+2025-01-05T12:30:53.086Z: Search params: {}
+2025-01-05T12:30:53.088Z: Code present: false
+2025-01-05T12:30:53.088Z: ReturnTo value: /
+2025-01-05T12:30:53.088Z: State value: null
+2025-01-05T12:30:53.089Z: Adding returnTo to state: /
+2025-01-05T12:30:53.089Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=iuR6kI6XQk3A6T7d&returnTo=%2F
+2025-01-05T12:30:53.648Z: Incoming request to: /
+2025-01-05T12:30:53.648Z: Full URL: http://localhost:5174/?code=AQB4o7L85saF4k2PbwSMAVhkBSzWv7uvmStziHCZgoA5dz0_xS83z4zWbJXidtEObilK5YYnJev7FqXDxM4qUfoVNbY8mkyjRlhAfxfmEm-qiLc0JRPgbF4xlht87qf6O7OWL3JVcsJk6IZLStYDjFPkLGfaaDpgqMFTPXLgQMQShxxI3Wmc7wRQOqqxgFxoZxkJ8YbEZdk3jfvBGKNwP4h1H3aTh65yqGsexx9bGy1K35iN04HnoWMzUeO7m-DGQj8U4bukkOPGxcdRIntBrM-nnhVaLGJWYOfiFreGkoZtHJ7u-ftmXIZZJ_x1fOM6FgN-GQOpYiyVxKv8F-lcXtenwygT-ntKiqrlrdfZLs3SP-uwa0hTjTkz5FTQM1Uvu1bulR6wDE94Erd7wm5wB4pfI5ea_CwumIgm0G56FT7AePHPF48x4TTqgey9npBvBc6ukI_AS6LACvij7PI1Qsgz0mUrBdql8N_Q9G9v5IMgJSY945it3dr1d9tPaXmTlOcyqCE5koF5QOoUolwXMsWQEa584opmRW3cqKZIc8c0K0lAx7ZK0slFy3L275z_2QOBfw&state=iuR6kI6XQk3A6T7d
+2025-01-05T12:30:53.650Z: Search params: {"code":"AQB4o7L85saF4k2PbwSMAVhkBSzWv7uvmStziHCZgoA5dz0_xS83z4zWbJXidtEObilK5YYnJev7FqXDxM4qUfoVNbY8mkyjRlhAfxfmEm-qiLc0JRPgbF4xlht87qf6O7OWL3JVcsJk6IZLStYDjFPkLGfaaDpgqMFTPXLgQMQShxxI3Wmc7wRQOqqxgFxoZxkJ8YbEZdk3jfvBGKNwP4h1H3aTh65yqGsexx9bGy1K35iN04HnoWMzUeO7m-DGQj8U4bukkOPGxcdRIntBrM-nnhVaLGJWYOfiFreGkoZtHJ7u-ftmXIZZJ_x1fOM6FgN-GQOpYiyVxKv8F-lcXtenwygT-ntKiqrlrdfZLs3SP-uwa0hTjTkz5FTQM1Uvu1bulR6wDE94Erd7wm5wB4pfI5ea_CwumIgm0G56FT7AePHPF48x4TTqgey9npBvBc6ukI_AS6LACvij7PI1Qsgz0mUrBdql8N_Q9G9v5IMgJSY945it3dr1d9tPaXmTlOcyqCE5koF5QOoUolwXMsWQEa584opmRW3cqKZIc8c0K0lAx7ZK0slFy3L275z_2QOBfw","state":"iuR6kI6XQk3A6T7d"}
+2025-01-05T12:30:53.650Z: Code present: true
+2025-01-05T12:30:53.651Z: ReturnTo value: /
+2025-01-05T12:30:53.651Z: State value: iuR6kI6XQk3A6T7d
+2025-01-05T12:30:53.651Z: Exchanging code for token
+2025-01-05T12:30:54.009Z: Final redirect URL: http://localhost:3000/?access_token=BQBYQOs9C53wHA7r-uzXPvPU7xSpZZBV-8lz49UvnbZrIz6g6F4zJDoPsBBBbabL3g0DvgcxblEcmfjtfgKOWWrrF6Bq93OBN1jg_IksCxQiJsrFKp3N2Iq35TEp_VYprCOjFCiHuNuOrBVi73YKVr8t3wIXRbZgEAbcNB7pufGnmEC4aFZoF6TfctkCPekz--s1pvJOaanaEweEaS75kOUvP7raHd9GLBRYbCToXAIFIAwPM25sPPMDPYXY2Z0lTwolhOfK3x7yiBifIF1NRHYMqMcBMnZboydZNCyJ5muDMx3KsQBPKwTGQhIAyJQebaWouys&expires_in=3600
+2025-01-05T15:48:14.743Z: Incoming request to: /
+2025-01-05T15:48:14.750Z: Full URL: http://localhost:5174/
+2025-01-05T15:48:14.752Z: Search params: {}
+2025-01-05T15:48:14.767Z: Code present: false
+2025-01-05T15:48:14.767Z: ReturnTo value: /
+2025-01-05T15:48:14.768Z: State value: null
+2025-01-05T15:48:14.769Z: Adding returnTo to state: /
+2025-01-05T15:48:14.785Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=I93WDz5mloi044tU&returnTo=%2F
+2025-01-05T15:48:15.318Z: Incoming request to: /
+2025-01-05T15:48:15.318Z: Full URL: http://localhost:5174/?code=AQC18lWTtpfDNvdyddVeSi4O0eLYUuEFL7OdVypWzuje34BCQGbXeC1cbCRSV7CB8pObrOxbYvzJm7HLRdFYdbxndtWigBGMjcDF2YYQUdJoFqoEyPVKmzlHclgpjKH8YYcjNSErKnQ3aGERQVIcVUUIc9aYBpNIS1mamb4E3ro_YyCTqz3LSo7bKqVugBKIMvszJniiacaVLGW4nPHtoHMQq6cII0hvcZrsfIU2-uwE-aROG-BKJhiQ8wPSufSEpkRY6wntGq7KE8GqqaDMgpSy2v8Dw8gp0774tihxGt-blYmqecBbNp1jDK32TLvx-dljgpxus3WNEfgcIV0SZ8CdgTfXt2d3NTN81Aqb_fpieTNseq8iAF3Ud2oUmhi7tSr0mfKB9ybPsPGYcNy1bPPAr3IC0q1RbTJGGmEz9hfAP238b7WMnOABlRgYjPd1QWp53ukxM602Nc3HEwJHjff24PMnQnjuZ-rfrzcoiuewGhO_PJAKh68RE0xNQ96dFZguKLqORYhgHy1y2ATWiR-Ri6teAiMatyad6H8g0fDYRWzTz8eLwP4CCEcr6AifVsYOlQ&state=I93WDz5mloi044tU
+2025-01-05T15:48:15.320Z: Search params: {"code":"AQC18lWTtpfDNvdyddVeSi4O0eLYUuEFL7OdVypWzuje34BCQGbXeC1cbCRSV7CB8pObrOxbYvzJm7HLRdFYdbxndtWigBGMjcDF2YYQUdJoFqoEyPVKmzlHclgpjKH8YYcjNSErKnQ3aGERQVIcVUUIc9aYBpNIS1mamb4E3ro_YyCTqz3LSo7bKqVugBKIMvszJniiacaVLGW4nPHtoHMQq6cII0hvcZrsfIU2-uwE-aROG-BKJhiQ8wPSufSEpkRY6wntGq7KE8GqqaDMgpSy2v8Dw8gp0774tihxGt-blYmqecBbNp1jDK32TLvx-dljgpxus3WNEfgcIV0SZ8CdgTfXt2d3NTN81Aqb_fpieTNseq8iAF3Ud2oUmhi7tSr0mfKB9ybPsPGYcNy1bPPAr3IC0q1RbTJGGmEz9hfAP238b7WMnOABlRgYjPd1QWp53ukxM602Nc3HEwJHjff24PMnQnjuZ-rfrzcoiuewGhO_PJAKh68RE0xNQ96dFZguKLqORYhgHy1y2ATWiR-Ri6teAiMatyad6H8g0fDYRWzTz8eLwP4CCEcr6AifVsYOlQ","state":"I93WDz5mloi044tU"}
+2025-01-05T15:48:15.320Z: Code present: true
+2025-01-05T15:48:15.320Z: ReturnTo value: /
+2025-01-05T15:48:15.320Z: State value: I93WDz5mloi044tU
+2025-01-05T15:48:15.320Z: Exchanging code for token
+2025-01-05T15:48:15.687Z: Final redirect URL: http://localhost:3000/?access_token=BQBcNJzlUD1kIJgCqt2Pird0L3vTmSV6HZqZMoREolPo0RObr_ucW_7-QBvKdN__L82MmQxkObfEks4mTrXdUq7WqOursoteocRtyk4KHSS78sfebuJcI2SLzfLyeOmztBl2otgRvPnXuj_XGmqUynrfDM40kJtDat7jQNySppYyIDcwLBrEjWYH94PWvq4R0fv1yWeZ8yEAIpqryuV1qqi3TUGkFaPBeEwQRXvJSAU9ctuC2jNiEiQuXV0wX0MExs4ocl_hh39fZ4vCPMNxJjdNpMa1kyVuKy6LG6eSRzvdTMvSz2ShwcArVfqLk_71SJxxo-g&expires_in=3600
+2025-01-06T07:35:34.785Z: Server started on host:5174
+2025-01-06T07:35:53.716Z: Incoming request to: /
+2025-01-06T07:35:53.720Z: Full URL: http://localhost:5174/
+2025-01-06T07:35:53.723Z: Search params: {}
+2025-01-06T07:35:53.724Z: Code present: false
+2025-01-06T07:35:53.724Z: ReturnTo value: /
+2025-01-06T07:35:53.724Z: State value: null
+2025-01-06T07:35:53.727Z: Adding returnTo to state: /
+2025-01-06T07:35:53.728Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=9m2BqVMYBiujk8F0&returnTo=%2F
+2025-01-06T07:35:54.113Z: Incoming request to: /
+2025-01-06T07:35:54.113Z: Full URL: http://localhost:5174/?code=AQCgI3KZ0vmj9IeN52zZF-TBoXV0wHkAkawP52OmF9pRl5VEBmGrcDtcZe7FcTK9sK8fMXgFwvnhTnUudJ-ac7aAJIUG6QlG0qe54Xdz5SeFzdNu-KGIhwf2Mmp3sW2V9hDfdPkDlaWFE_j0litTApqng1ohRtaruM9OiR3uszbCIQ4QqV7AYrSPHGjPa9HlHgppOAeYHEAut9WG24wD_CEIfbA6fFHweSNUWno9xM59VV8FLkXucoGzIymtqw14LU265hAFRgDBOC7GwOVxcYKRgbwf9DoliZgZ2fITqOiuzAxHwIcDZ2iwf9xnSnpsk7kGdtAGfTkH10tbdh85zZbPV7eV1qKwZV-kw5FwOVQZOzDVTYFmFl__VqJJsJd7fQButBfV2o0LcGiGCEs8OJcqnE_ArLgKYAOQ7l6AXicvwK3VC8FBfpnzn7__cURzZCMjNf_jLq5iNp7WPr4xsXBWyEZcuXN1GCZ9O-xAen8L0qlz-qQbqgVwQYlFQ7guaRHfdMaczOrU0fCmZmlm_FEDhFcZKJ5gYLqs9ncZAj6j8zPj6CfHcqIs3C2bG76CBLfA5A&state=9m2BqVMYBiujk8F0
+2025-01-06T07:35:54.114Z: Search params: {"code":"AQCgI3KZ0vmj9IeN52zZF-TBoXV0wHkAkawP52OmF9pRl5VEBmGrcDtcZe7FcTK9sK8fMXgFwvnhTnUudJ-ac7aAJIUG6QlG0qe54Xdz5SeFzdNu-KGIhwf2Mmp3sW2V9hDfdPkDlaWFE_j0litTApqng1ohRtaruM9OiR3uszbCIQ4QqV7AYrSPHGjPa9HlHgppOAeYHEAut9WG24wD_CEIfbA6fFHweSNUWno9xM59VV8FLkXucoGzIymtqw14LU265hAFRgDBOC7GwOVxcYKRgbwf9DoliZgZ2fITqOiuzAxHwIcDZ2iwf9xnSnpsk7kGdtAGfTkH10tbdh85zZbPV7eV1qKwZV-kw5FwOVQZOzDVTYFmFl__VqJJsJd7fQButBfV2o0LcGiGCEs8OJcqnE_ArLgKYAOQ7l6AXicvwK3VC8FBfpnzn7__cURzZCMjNf_jLq5iNp7WPr4xsXBWyEZcuXN1GCZ9O-xAen8L0qlz-qQbqgVwQYlFQ7guaRHfdMaczOrU0fCmZmlm_FEDhFcZKJ5gYLqs9ncZAj6j8zPj6CfHcqIs3C2bG76CBLfA5A","state":"9m2BqVMYBiujk8F0"}
+2025-01-06T07:35:54.114Z: Code present: true
+2025-01-06T07:35:54.114Z: ReturnTo value: /
+2025-01-06T07:35:54.114Z: State value: 9m2BqVMYBiujk8F0
+2025-01-06T07:35:54.114Z: Exchanging code for token
+2025-01-06T07:35:54.471Z: Final redirect URL: http://localhost:3000/?access_token=BQBBSAptx2fLLsGWhCpVh756GntKab7d7uyv59wmMDmXuZwfSMsbrl4k4nXoTfReuqhTD-yaSl6-S8nCicsURBv4ys2rUcYtZV9Ym8nqC0hwuHggGabB0A6cnu6I3lgUHT_xrBDIa2sXc64zCXn91Z5Ki_rVIlXADagdXHCqXwXLnKUQ0AdGUEVXVcpAiqWkqy953qFkgK7QkFeLlpe3aG8lZWFQW75EfKe1eUWZbMqHrFXLAWxbD0rVwjkCK-1ek_nUn5kxpk783mFFAh1VvG5eC4TpCNIMg6qdzVqb-9MAJrkXtNLm2F0QxCOmNDpJNE73Jbc&expires_in=3600
+2025-01-08T14:20:39.746Z: Incoming request to: /
+2025-01-08T14:20:39.753Z: Full URL: http://localhost:5174/
+2025-01-08T14:20:39.755Z: Search params: {}
+2025-01-08T14:20:39.757Z: Code present: false
+2025-01-08T14:20:39.757Z: ReturnTo value: /
+2025-01-08T14:20:39.757Z: State value: null
+2025-01-08T14:20:39.759Z: Adding returnTo to state: /
+2025-01-08T14:20:39.760Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=zmGtqaFtldxc5xWg&returnTo=%2F
+2025-01-08T14:20:40.405Z: Incoming request to: /
+2025-01-08T14:20:40.405Z: Full URL: http://localhost:5174/?code=AQB-i5fmikzTXK5qH3zFTl9WQB_pMpM9JS9DiExk2oYE_CGrH2dO2GBuZqNRQICTuvr0s81VgU9HZOqY-YPOAmfO9jf3vT2pCa9d01Fpls2g3hdQqywFx4vuZKERuMD0TuZxSWLoKoZQZqgxglW2x0NBGZ4EJG4NXGySqIvG5dzJHTxvHWrzoU_XwjWv2KbkmSQoRdxDT2QEMEilw2-wxDsfDapccbAK4WxrF8_YUyfWM_kodyVGMbeW03NN90swsQ9pOuS8wxq1LEI2EnCpz6-QYE8yMV8dVuOX3i6LR7of994nnR_khPUDMaef8jSU0-T4rKL_-UmFth5Sx10twVpB8RUiiyG5OuHZmTZJp8xSDgG0kb0PF2Ka_45oOjDgftkAlqu5zvwFGpZVEpJCJeNNEKlxushEoBsJt8lzeDgn2HnhHc-MUWILY7EGXXhhASSQJtJWQaxa5hkddaRs6eFrTsRqqGfwtN2zP4ODzJRQTnumv4YKR6zWcqdnPTlpAmA66f7bFpZDuPJ7I3KY-f7D5a_GcNTICWAMbEOpTul7FFpH9UboZT9BUYipH-bJy1hH9g&state=zmGtqaFtldxc5xWg
+2025-01-08T14:20:40.405Z: Search params: {"code":"AQB-i5fmikzTXK5qH3zFTl9WQB_pMpM9JS9DiExk2oYE_CGrH2dO2GBuZqNRQICTuvr0s81VgU9HZOqY-YPOAmfO9jf3vT2pCa9d01Fpls2g3hdQqywFx4vuZKERuMD0TuZxSWLoKoZQZqgxglW2x0NBGZ4EJG4NXGySqIvG5dzJHTxvHWrzoU_XwjWv2KbkmSQoRdxDT2QEMEilw2-wxDsfDapccbAK4WxrF8_YUyfWM_kodyVGMbeW03NN90swsQ9pOuS8wxq1LEI2EnCpz6-QYE8yMV8dVuOX3i6LR7of994nnR_khPUDMaef8jSU0-T4rKL_-UmFth5Sx10twVpB8RUiiyG5OuHZmTZJp8xSDgG0kb0PF2Ka_45oOjDgftkAlqu5zvwFGpZVEpJCJeNNEKlxushEoBsJt8lzeDgn2HnhHc-MUWILY7EGXXhhASSQJtJWQaxa5hkddaRs6eFrTsRqqGfwtN2zP4ODzJRQTnumv4YKR6zWcqdnPTlpAmA66f7bFpZDuPJ7I3KY-f7D5a_GcNTICWAMbEOpTul7FFpH9UboZT9BUYipH-bJy1hH9g","state":"zmGtqaFtldxc5xWg"}
+2025-01-08T14:20:40.406Z: Code present: true
+2025-01-08T14:20:40.406Z: ReturnTo value: /
+2025-01-08T14:20:40.406Z: State value: zmGtqaFtldxc5xWg
+2025-01-08T14:20:40.407Z: Exchanging code for token
+2025-01-08T14:20:40.803Z: Final redirect URL: http://localhost:3000/?access_token=BQBfhrdGtxIOU3ZEmKQs1Fyd7TqyMQkL3zmo42zHeV0ubMojss__7GetNtlbVUg0h5OTIHqFHXDZYfbIq8kSk2j1EPHOa4sDSa6B1h6DAVNWMeIhnhYdvA2MyJj2Hr9RqX7C8wfJRp3IJMa3n-JrCRsbSnnKmwwIzuobBuQaSgQxuv8Mflpl6yXHnJkppTqM1r4ZDTH1dNlF3emIV1VrJbdePAyaqNkOVevmjx2_WPhsX3UPcSjipooYb8Y4dtDV1jNqpl3ieEDvWy5GhGwomOXwGK7-JpSaxTskDbGuHEvwNXeh3b1kso1xdtrPTzmYhns7Iv8&expires_in=3600
+2025-01-09T07:30:59.917Z: Incoming request to: /
+2025-01-09T07:30:59.932Z: Full URL: http://localhost:5174/
+2025-01-09T07:30:59.934Z: Search params: {}
+2025-01-09T07:30:59.939Z: Code present: false
+2025-01-09T07:30:59.939Z: ReturnTo value: /
+2025-01-09T07:30:59.939Z: State value: null
+2025-01-09T07:30:59.940Z: Adding returnTo to state: /
+2025-01-09T07:30:59.941Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=EsfhMsE4lEVLDQJ4&returnTo=%2F
+2025-01-09T07:31:00.693Z: Incoming request to: /
+2025-01-09T07:31:00.693Z: Full URL: http://localhost:5174/?code=AQDT6L-dO4naLgVE-FCPzSsnKinlwVXnKu806H1rdzILZyR-MQUxn2jQzlBVzhtJwwZU40NMKrsNZ3RSoMPLcyVX1UGbtgfB7tAU7lDL9tgMSxg_UsREYwx5nD2xEiYhXjkOgH06zKYjOY20A6zn4wDS5mcNL8UANua8u2gfj17oUTe12yMon6zhWvGIwxet5hOOw1BzrfkpxnQDR3mXI5vtieXJwe5oNk-dp_5Dc_B4Rl8fZFwRuP4qjvRlPp2mbEt90SGPEpAElO4qLNICvftUPUByScPKQwaaoLPd30S5E2KS4-SohsYUIi6JWd4tVG77gsbvNSq2h50P2TxguUGG8yK1ryPGDsQhdcPO7LuGIGsZCQrvnzlKBhI3XEtxY4TfU19I4sJs_Zz_5EieITdTSk4fV1E6iPNf8c7LpYgEHehG1W4b0puSEm9r-W7k0xa5TiZSXrLTnouuwUnLGKIFVo5tltR5211WHbGWE4YE1vv5fOH_0qYBszYUNAdw9mYbFjo1IWl8QBbBTkkvB_9NG6gA-7LMMWT_TDPBwQEmLCoRV8iB4LuI0YGWOgZmfEGawQ&state=EsfhMsE4lEVLDQJ4
+2025-01-09T07:31:00.694Z: Search params: {"code":"AQDT6L-dO4naLgVE-FCPzSsnKinlwVXnKu806H1rdzILZyR-MQUxn2jQzlBVzhtJwwZU40NMKrsNZ3RSoMPLcyVX1UGbtgfB7tAU7lDL9tgMSxg_UsREYwx5nD2xEiYhXjkOgH06zKYjOY20A6zn4wDS5mcNL8UANua8u2gfj17oUTe12yMon6zhWvGIwxet5hOOw1BzrfkpxnQDR3mXI5vtieXJwe5oNk-dp_5Dc_B4Rl8fZFwRuP4qjvRlPp2mbEt90SGPEpAElO4qLNICvftUPUByScPKQwaaoLPd30S5E2KS4-SohsYUIi6JWd4tVG77gsbvNSq2h50P2TxguUGG8yK1ryPGDsQhdcPO7LuGIGsZCQrvnzlKBhI3XEtxY4TfU19I4sJs_Zz_5EieITdTSk4fV1E6iPNf8c7LpYgEHehG1W4b0puSEm9r-W7k0xa5TiZSXrLTnouuwUnLGKIFVo5tltR5211WHbGWE4YE1vv5fOH_0qYBszYUNAdw9mYbFjo1IWl8QBbBTkkvB_9NG6gA-7LMMWT_TDPBwQEmLCoRV8iB4LuI0YGWOgZmfEGawQ","state":"EsfhMsE4lEVLDQJ4"}
+2025-01-09T07:31:00.694Z: Code present: true
+2025-01-09T07:31:00.694Z: ReturnTo value: /
+2025-01-09T07:31:00.694Z: State value: EsfhMsE4lEVLDQJ4
+2025-01-09T07:31:00.694Z: Exchanging code for token
+2025-01-09T07:31:01.074Z: Final redirect URL: http://localhost:3000/?access_token=BQBN1RBjwN-AXf1DwuFbxKtsQxc2Horrp-Cmo6GOyf6JQ9pWeyf_-43AoXCJiOAtCVJFXbHaViDd_sEg2JCzDufhASRd6sWD62hzk-fsq3oH9TpVnZIAWM33bze9VOTvUbvZ1eVQVT_hErEbmc2E7l3I0cHOfj2WQqT4vWADEynpdx5rB1qP4uqRV75yDxL2uvGwRuhvb4ZnnCDxfmIKroxTKlrNL8KQLpA1W1ZQ7PE8NHc0GkjfBgI-tsse2B4tzKqbnHjyl2kVtA_OuVGhpoWsF1Q7enmPIL6-IgOWom2YqgokHqW4oRoHNnK4PTEqbbXpX_E&expires_in=3600
+2025-01-09T07:31:12.809Z: Incoming request to: /
+2025-01-09T07:31:12.810Z: Full URL: http://localhost:5174/
+2025-01-09T07:31:12.811Z: Search params: {}
+2025-01-09T07:31:12.812Z: Code present: false
+2025-01-09T07:31:12.812Z: ReturnTo value: /
+2025-01-09T07:31:12.813Z: State value: null
+2025-01-09T07:31:12.817Z: Adding returnTo to state: /
+2025-01-09T07:31:12.817Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=7BZF8eZmKPUiayjh&returnTo=%2F
+2025-01-09T07:31:13.049Z: Incoming request to: /
+2025-01-09T07:31:13.050Z: Full URL: http://localhost:5174/?code=AQAKkKAAxM9CQvdgQ9gRG7_y0T5i5x7KzxQRsjx5fwCfmFdp67MjOHzyzy-LZQMHfHFYDuIHFBrAiBr-e9RUq5D7Di-Ek4obc9_Odq_RQ7fJqkLI8sUKNJxgJBN2_kFD5PMqE2a6kosFruA8LHJ0rhmhYccgfQpn4zfumsn8YdOLuJfg5ikGNwMLsOoqWynkOwgWWuIUCOypzV47dNjPG_5eN6NPAy1Cy_sG3BULrB0QuQNaOP70xahcUJEbglxbRWNnbhdQkvnFQi4jyIXk6zHyM8q4iLJKbNdAEVCK06UD1qkHwWxfpF17uyO82-it7DTd4q5VBlVyaJzalCDcEYoWVRzl6BpmN22bb7rzJsW-tnPgSTjsBAZO6AkurHEe-kCZHhX5g3nzctQYsal5rJ2ZKZFgdvXUe1IyQU2qQKMSUfz3fMOOGg2YzUXO66mZ3uayj97pLoa18WL-vCV-lfztkYwK_GSDvIzRUollwTzdcuVG8fjtCWDoqIEM_Bqk4lGuQ7ybS7wl0L7TYb14AO91pK2E51Pj3B935rBO4WDkvHtHPbYkEVV5BD2PTG1jHos6bQ&state=7BZF8eZmKPUiayjh
+2025-01-09T07:31:13.050Z: Search params: {"code":"AQAKkKAAxM9CQvdgQ9gRG7_y0T5i5x7KzxQRsjx5fwCfmFdp67MjOHzyzy-LZQMHfHFYDuIHFBrAiBr-e9RUq5D7Di-Ek4obc9_Odq_RQ7fJqkLI8sUKNJxgJBN2_kFD5PMqE2a6kosFruA8LHJ0rhmhYccgfQpn4zfumsn8YdOLuJfg5ikGNwMLsOoqWynkOwgWWuIUCOypzV47dNjPG_5eN6NPAy1Cy_sG3BULrB0QuQNaOP70xahcUJEbglxbRWNnbhdQkvnFQi4jyIXk6zHyM8q4iLJKbNdAEVCK06UD1qkHwWxfpF17uyO82-it7DTd4q5VBlVyaJzalCDcEYoWVRzl6BpmN22bb7rzJsW-tnPgSTjsBAZO6AkurHEe-kCZHhX5g3nzctQYsal5rJ2ZKZFgdvXUe1IyQU2qQKMSUfz3fMOOGg2YzUXO66mZ3uayj97pLoa18WL-vCV-lfztkYwK_GSDvIzRUollwTzdcuVG8fjtCWDoqIEM_Bqk4lGuQ7ybS7wl0L7TYb14AO91pK2E51Pj3B935rBO4WDkvHtHPbYkEVV5BD2PTG1jHos6bQ","state":"7BZF8eZmKPUiayjh"}
+2025-01-09T07:31:13.051Z: Code present: true
+2025-01-09T07:31:13.051Z: ReturnTo value: /
+2025-01-09T07:31:13.051Z: State value: 7BZF8eZmKPUiayjh
+2025-01-09T07:31:13.051Z: Exchanging code for token
+2025-01-09T07:31:13.233Z: Final redirect URL: http://localhost:3000/?access_token=BQAugrjQbPNt2EUq7WeTdpAZdZMkeSyluW7BAgbbuRt-KjrIzxo3YmAC5XylZ9apGg-6Fy092daG0y_IOh60D5KES0TtVpSNAjr7pyPF-vp1VA8h-4Ub7zKTMinFLermnmueECzJguq-sP5KSV-NXrAVStRz35fWQzNteC4Vtksa-F_Z0sdheBQ4HL2zg1BV1fz_QPmFTQLfE5c5QoYK1HarQXN0eF4SMD6EkTNOczTOeIv_h7Rv70T0-V80r1iEpprJSYc1QHHwnf3LkvYgILWVORsQNPL42CuJkWOBxKYfsou3ZKNmLcl2K7Iv5eJK2iE_EP8&expires_in=3600
+2025-01-09T09:08:56.588Z: Incoming request to: /
+2025-01-09T09:08:56.597Z: Full URL: http://localhost:5174/
+2025-01-09T09:08:56.599Z: Search params: {}
+2025-01-09T09:08:56.603Z: Code present: false
+2025-01-09T09:08:56.603Z: ReturnTo value: /
+2025-01-09T09:08:56.603Z: State value: null
+2025-01-09T09:08:56.607Z: Adding returnTo to state: /
+2025-01-09T09:08:56.607Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=mDxfulatD92jBJQ9&returnTo=%2F
+2025-01-09T09:08:58.788Z: Incoming request to: /
+2025-01-09T09:08:58.790Z: Full URL: http://localhost:5174/
+2025-01-09T09:08:58.790Z: Search params: {}
+2025-01-09T09:08:58.790Z: Code present: false
+2025-01-09T09:08:58.790Z: ReturnTo value: /
+2025-01-09T09:08:58.791Z: State value: null
+2025-01-09T09:08:58.791Z: Adding returnTo to state: /
+2025-01-09T09:08:58.791Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=xxIStXJQT4C0dR3m&returnTo=%2F
+2025-01-09T09:08:59.052Z: Incoming request to: /
+2025-01-09T09:08:59.052Z: Full URL: http://localhost:5174/?code=AQCtf3I4nNtQ2PMhX77_i3GHUInJAilEvz-aE1KDME5eSYwUinA6fT4unut8yndN8plDY8Tx5jKYNGaBC3T4sydgv5P3s6pik6H1PczcPdCgO73YGlZ1Km-bMSgQzIfHFtG0s40aXNnhkyWOJNqui9LBnZfYhRBKjUcPDFexRUd8wxYt8AE8Gx1tqhRtMZxCg7gx1ZjnIlTIOpQsstdqGMee0EsIS0kzH6JhWcLsxYivXQW6jDGWCi8mf7oAAqnvNcTlSSfxJCHLHvNiIY1h9HPq1rclm6G1lBRCWiKHxGa9Br2flphGFj2VQgAzw40XvlSV4BFjmeR_XZqLuQTkkgO20IOAMCCVruaFfG7ZlWxriNy0vAWr1nNMJR0u4Og8p7xt7EN_dokhu__cwNV0OLVX7BtJkoyRbiGnEmuKndMSi4OdvAt2VMFRTrV5XQa6qIMCs-xyTaCuF6QDreHGVVrcpn0dwIB22vBoaBmk-9KrO581nG3cMvBNzpXh2zVRK2szmw3o9gtbE0sqBOgax58YXQJwZa7NmM4CbD_p0V6EV7bXKBwrVywubnIOBXbvRseYTA&state=xxIStXJQT4C0dR3m
+2025-01-09T09:08:59.054Z: Search params: {"code":"AQCtf3I4nNtQ2PMhX77_i3GHUInJAilEvz-aE1KDME5eSYwUinA6fT4unut8yndN8plDY8Tx5jKYNGaBC3T4sydgv5P3s6pik6H1PczcPdCgO73YGlZ1Km-bMSgQzIfHFtG0s40aXNnhkyWOJNqui9LBnZfYhRBKjUcPDFexRUd8wxYt8AE8Gx1tqhRtMZxCg7gx1ZjnIlTIOpQsstdqGMee0EsIS0kzH6JhWcLsxYivXQW6jDGWCi8mf7oAAqnvNcTlSSfxJCHLHvNiIY1h9HPq1rclm6G1lBRCWiKHxGa9Br2flphGFj2VQgAzw40XvlSV4BFjmeR_XZqLuQTkkgO20IOAMCCVruaFfG7ZlWxriNy0vAWr1nNMJR0u4Og8p7xt7EN_dokhu__cwNV0OLVX7BtJkoyRbiGnEmuKndMSi4OdvAt2VMFRTrV5XQa6qIMCs-xyTaCuF6QDreHGVVrcpn0dwIB22vBoaBmk-9KrO581nG3cMvBNzpXh2zVRK2szmw3o9gtbE0sqBOgax58YXQJwZa7NmM4CbD_p0V6EV7bXKBwrVywubnIOBXbvRseYTA","state":"xxIStXJQT4C0dR3m"}
+2025-01-09T09:08:59.054Z: Code present: true
+2025-01-09T09:08:59.054Z: ReturnTo value: /
+2025-01-09T09:08:59.054Z: State value: xxIStXJQT4C0dR3m
+2025-01-09T09:08:59.054Z: Exchanging code for token
+2025-01-09T09:08:59.397Z: Final redirect URL: http://localhost:3000/?access_token=BQCfxlY4bCgpDWYqHkqXs51EqPZABX4OLOu-34votXDMNI3HsF4XD0qQ0yI5QMJaVsh9zNJdVsr38K_eTP-9gscyhKhtM-9wH6Jr6a09Gk71nBYWLtB9A3pxkrqMHz9HEenVYa97WkBbk3vKL0PIZ9bCkLb5BsCvEoFkIe1TC-A-Ng3wSZbS2T9FCm4ezSv3Z2ILWD2CkYuwZ1uSPgzcP2HAHmRt4zrLVpVToCR8LlzTtFs2c446e6bl9yGb9Dj8uhgukryF_PONTcToZ5JBE1KRvue6obqjYZKX0C6mFI6TnL4SWqpb0GilZ-fiGg-ZjHIG02E&expires_in=3600
+2025-01-09T09:08:59.461Z: Incoming request to: /
+2025-01-09T09:08:59.462Z: Full URL: http://localhost:5174/?returnTo=%2Fplaylists%2F6J6RAkccZp0jbrMTNyJjUn
+2025-01-09T09:08:59.462Z: Search params: {"returnTo":"/playlists/6J6RAkccZp0jbrMTNyJjUn"}
+2025-01-09T09:08:59.462Z: Code present: false
+2025-01-09T09:08:59.462Z: ReturnTo value: /playlists/6J6RAkccZp0jbrMTNyJjUn
+2025-01-09T09:08:59.463Z: State value: null
+2025-01-09T09:08:59.463Z: Adding returnTo to state: /playlists/6J6RAkccZp0jbrMTNyJjUn
+2025-01-09T09:08:59.463Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=AZOT3a3TyMQKD8oH&returnTo=%2Fplaylists%2F6J6RAkccZp0jbrMTNyJjUn
+2025-01-09T09:08:59.734Z: Incoming request to: /
+2025-01-09T09:08:59.734Z: Full URL: http://localhost:5174/?code=AQD_GJvFSd9Bi6dPNTBIs7tTd2FddRzH_RMMODM9EQfQRtN3C0sTg8QtNnnuBd95_gMzLWJ9axpFHgFlK7X-iFp3LwygJh6t7KcmLyeOzxEyFgoWsRTUK0Oj8b_aEie6UzknWZvg1nJ83rTNkzuRfWwy9R7NKjPNDWw5JkmJZYrNXT_aXUGBSObv2mdPxa1msCgmNyL4HOnAESBSb7QrdIvb5HSqRK2wJlTKmzt0BmeLR2ft736GcssrzJiqcp1z49Z7PJOywyeZWMeZl2ZLOMUCLs2786ZbvLCYN-l6RdZhDiTMU0YwM181DpKPHTeuPlvprtEKi3RRz2KWswWPX5G5jpoVKVqoiEHo-aY367Mr5hlAGNe8i3TJ65RS4ZAbIqDlxsIbHTWIIoBgnuJmfTOnlBpqTzMglIVQOyeDkXA8X8ilZRoIiD6ibNvF4nvz7XzCsxvXI8J1Tw5nEzLMqXR76NGKHTp5oi980FGHP8DveTCl9miUqyNXznuuX2GqqEmhGrJ2aYKwxhN-qXdcg6k2JNLD-pccKNk-8zR4C9vzbiLshQ_ryMoDShk4DaRBwr2QNQ&state=AZOT3a3TyMQKD8oH
+2025-01-09T09:08:59.735Z: Search params: {"code":"AQD_GJvFSd9Bi6dPNTBIs7tTd2FddRzH_RMMODM9EQfQRtN3C0sTg8QtNnnuBd95_gMzLWJ9axpFHgFlK7X-iFp3LwygJh6t7KcmLyeOzxEyFgoWsRTUK0Oj8b_aEie6UzknWZvg1nJ83rTNkzuRfWwy9R7NKjPNDWw5JkmJZYrNXT_aXUGBSObv2mdPxa1msCgmNyL4HOnAESBSb7QrdIvb5HSqRK2wJlTKmzt0BmeLR2ft736GcssrzJiqcp1z49Z7PJOywyeZWMeZl2ZLOMUCLs2786ZbvLCYN-l6RdZhDiTMU0YwM181DpKPHTeuPlvprtEKi3RRz2KWswWPX5G5jpoVKVqoiEHo-aY367Mr5hlAGNe8i3TJ65RS4ZAbIqDlxsIbHTWIIoBgnuJmfTOnlBpqTzMglIVQOyeDkXA8X8ilZRoIiD6ibNvF4nvz7XzCsxvXI8J1Tw5nEzLMqXR76NGKHTp5oi980FGHP8DveTCl9miUqyNXznuuX2GqqEmhGrJ2aYKwxhN-qXdcg6k2JNLD-pccKNk-8zR4C9vzbiLshQ_ryMoDShk4DaRBwr2QNQ","state":"AZOT3a3TyMQKD8oH"}
+2025-01-09T09:08:59.735Z: Code present: true
+2025-01-09T09:08:59.735Z: ReturnTo value: /
+2025-01-09T09:08:59.735Z: State value: AZOT3a3TyMQKD8oH
+2025-01-09T09:08:59.735Z: Exchanging code for token
+2025-01-09T09:08:59.921Z: Final redirect URL: http://localhost:3000/?access_token=BQAGJK30v1O42KDwe4grvrLdkGUPMSvAl4yX_dYnEyqp0VK35hFU798w0UxQQrcFKbXiwfBCUMKW0K4Wbotj9id0CUxJaiVlQyHMGC02rBp661-9oo64F0Ae-2E9yErMAqofoIuxxg05jH8TQsVcbUg17eM7rdxO1VQCMXeItg2tKKK62DfHgmEdSvWMtezz1y4D6wAHN9c86Wx_idgHCME9ICxKBwRWqqh4zrdTMkGKYYsTRAM_e_hyCFgsKvkI7tPcFeA-_2-fI84gru6NV8fycl9u9FTJQAgBVisSC9naIt3_ZQOEtY8TTFbRHfecBSAHalI&expires_in=3600
+2025-01-09T09:09:08.735Z: Incoming request to: /
+2025-01-09T09:09:08.736Z: Full URL: http://localhost:5174/
+2025-01-09T09:09:08.736Z: Search params: {}
+2025-01-09T09:09:08.737Z: Code present: false
+2025-01-09T09:09:08.737Z: ReturnTo value: /
+2025-01-09T09:09:08.737Z: State value: null
+2025-01-09T09:09:08.737Z: Adding returnTo to state: /
+2025-01-09T09:09:08.737Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=EbFsjKd1O7mnivy2&returnTo=%2F
+2025-01-09T09:09:09.160Z: Incoming request to: /
+2025-01-09T09:09:09.160Z: Full URL: http://localhost:5174/?code=AQC0OeTiA-QzZdozGIzBrmID9YBxVa8TJHFT-dp87JmaYycjcSqe4Vx3Cb47zB-1fBjUo5pLUiWsl2AFk02fMx6amlO3trMxOvwLsBlY0ZXAZfNWm-S4aTyMAS9FYYrrSsWskqsRhTP7KMdxHd3IfwRSGXxCEwtRogD2Vz--7DODpUTlSG6LfJFsbd9Z8qWH7wi2vhsfrWQWJSDjlrQqE9WuVUTugN53nIaSJGqqefEkVSAlpVCG4SFd-qBUKrLBs45AmbBPLt6StoJoEqCFqQFJfWVP6L0Vtc5Nw0hc8_r5zON6QXAyCY_X2-oq4G3pq6_UYPd6dvvgteKrwTQr8m3CxcF8DGDWJHMfFtWLWx_QBv3IDcszTeW8boVJmDq8xXESTwK-HepSfzzSD_O0qSE6X57PVJIgHFVeITuY4hPbBeqZdfVuy_W0dSreyYtAGXNnJjbiDHWifnA909z_yYzx_TnVNmIkzeySu2NQOpQ2G7veLQcd93ttwA76S8xHL5WYNFI1fl-UPKcFiubeK42uFngzDQy0NdzNXWKdDT_yC1NzrUhCCA8EA-DouXqdHhjTfw&state=EbFsjKd1O7mnivy2
+2025-01-09T09:09:09.160Z: Search params: {"code":"AQC0OeTiA-QzZdozGIzBrmID9YBxVa8TJHFT-dp87JmaYycjcSqe4Vx3Cb47zB-1fBjUo5pLUiWsl2AFk02fMx6amlO3trMxOvwLsBlY0ZXAZfNWm-S4aTyMAS9FYYrrSsWskqsRhTP7KMdxHd3IfwRSGXxCEwtRogD2Vz--7DODpUTlSG6LfJFsbd9Z8qWH7wi2vhsfrWQWJSDjlrQqE9WuVUTugN53nIaSJGqqefEkVSAlpVCG4SFd-qBUKrLBs45AmbBPLt6StoJoEqCFqQFJfWVP6L0Vtc5Nw0hc8_r5zON6QXAyCY_X2-oq4G3pq6_UYPd6dvvgteKrwTQr8m3CxcF8DGDWJHMfFtWLWx_QBv3IDcszTeW8boVJmDq8xXESTwK-HepSfzzSD_O0qSE6X57PVJIgHFVeITuY4hPbBeqZdfVuy_W0dSreyYtAGXNnJjbiDHWifnA909z_yYzx_TnVNmIkzeySu2NQOpQ2G7veLQcd93ttwA76S8xHL5WYNFI1fl-UPKcFiubeK42uFngzDQy0NdzNXWKdDT_yC1NzrUhCCA8EA-DouXqdHhjTfw","state":"EbFsjKd1O7mnivy2"}
+2025-01-09T09:09:09.161Z: Code present: true
+2025-01-09T09:09:09.161Z: ReturnTo value: /
+2025-01-09T09:09:09.161Z: State value: EbFsjKd1O7mnivy2
+2025-01-09T09:09:09.161Z: Exchanging code for token
+2025-01-09T09:09:09.340Z: Final redirect URL: http://localhost:3000/?access_token=BQDjTQm_A2e-3s4T-lzkG1PFs2nPZXr0tWWeHgPlw-6bI0z_nSatiAUdASocSFcpiGhNd7UtPw2uc0E4oRfWdFw5g84QEA672k76hNxuEYyMvOdnj_DTIO-9jbNmxn9e0VQE1Jzq21j9ELlgIgQK3-DmlUSmyMJvfyIknxjCKHQ4LHmxjpzHQYNpJmEGV-7SzUEA-WTKcpHiJMaISjqmy8xhcW6QgvV6bf3lgSKLboFO4iT8BXqdZHZkXEwl0yfAMDBtYkUe1vmLgUz4Z3s1ZLwoUE0s89eMdBu8_I0pFU4NMKeMDHRwHcl2yrDpziAyRINuwEc&expires_in=3600
+2025-01-09T14:59:15.436Z: Incoming request to: /
+2025-01-09T14:59:15.441Z: Full URL: http://localhost:5174/
+2025-01-09T14:59:15.443Z: Search params: {}
+2025-01-09T14:59:15.445Z: Code present: false
+2025-01-09T14:59:15.445Z: ReturnTo value: /
+2025-01-09T14:59:15.445Z: State value: null
+2025-01-09T14:59:15.450Z: Adding returnTo to state: /
+2025-01-09T14:59:15.451Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=X7mSBGQ4BXyBSXNo&returnTo=%2F
+2025-01-09T14:59:16.176Z: Incoming request to: /
+2025-01-09T14:59:16.176Z: Full URL: http://localhost:5174/?code=AQBg5SrfXSiCii3heiREIHq55eT1R0-ss8NiUtMdCrao-TwmM-yY26UJa_Tda19ZV5gNmaeUh5Gs8PharupP15DbHrSXxILkT9ANptUrxAuuNVEHDKgh_4HSkO_xYHcK6fKR42t6FvdtAMADqkohWzqSFTeoa0Jt9IESLLAGKGnGq72hohapt1-B9v66Ls7hfhnOU3BojP7H-T2iLc2t0Je4aNLKjaGy4tj2LL5KVNV6P6di8aYmxgKOCqA2Ay3B0ZrXCpylB94Vie5tIkVQ_OqvvfntmgmSZMb7Ms3DsoIE4IbhoLyJhb9rte2IG9EBbpEsqYwJujWHpOTAEyEcYgI7wfXSgGfZBgRRCIjoeX6io8Fkt87Hlrm9KyREdXIXjUIOYAloMxqojfhcvAnY7q0PtpzXKxw7rFC17gsXc-fhn6bTChUO717GUUSHep_oUXZoxqcZpi2RCXYWRwhL0CJ7UONjizAjOH5LlqrWB7R2yXIFOzFxOnZIQGP0amypYO4-qqRXYRNa9OOKfx2KHNORXy1ZlkervOWEwEEj9GVNdAhmcW7hH20rM--g2Kqi6kiehg&state=X7mSBGQ4BXyBSXNo
+2025-01-09T14:59:16.177Z: Search params: {"code":"AQBg5SrfXSiCii3heiREIHq55eT1R0-ss8NiUtMdCrao-TwmM-yY26UJa_Tda19ZV5gNmaeUh5Gs8PharupP15DbHrSXxILkT9ANptUrxAuuNVEHDKgh_4HSkO_xYHcK6fKR42t6FvdtAMADqkohWzqSFTeoa0Jt9IESLLAGKGnGq72hohapt1-B9v66Ls7hfhnOU3BojP7H-T2iLc2t0Je4aNLKjaGy4tj2LL5KVNV6P6di8aYmxgKOCqA2Ay3B0ZrXCpylB94Vie5tIkVQ_OqvvfntmgmSZMb7Ms3DsoIE4IbhoLyJhb9rte2IG9EBbpEsqYwJujWHpOTAEyEcYgI7wfXSgGfZBgRRCIjoeX6io8Fkt87Hlrm9KyREdXIXjUIOYAloMxqojfhcvAnY7q0PtpzXKxw7rFC17gsXc-fhn6bTChUO717GUUSHep_oUXZoxqcZpi2RCXYWRwhL0CJ7UONjizAjOH5LlqrWB7R2yXIFOzFxOnZIQGP0amypYO4-qqRXYRNa9OOKfx2KHNORXy1ZlkervOWEwEEj9GVNdAhmcW7hH20rM--g2Kqi6kiehg","state":"X7mSBGQ4BXyBSXNo"}
+2025-01-09T14:59:16.177Z: Code present: true
+2025-01-09T14:59:16.177Z: ReturnTo value: /
+2025-01-09T14:59:16.177Z: State value: X7mSBGQ4BXyBSXNo
+2025-01-09T14:59:16.177Z: Exchanging code for token
+2025-01-09T14:59:16.595Z: Final redirect URL: http://localhost:3000/?access_token=BQBr6tG9GLhX-P7rBrriqWgaIweJd03sp89vlZs3_vO-nDQwj9ClAnSvGwdtMaAiFyxx8NXptJasDwk8XLn2fA72yYJCKNrg9vgFhNKWQafQq7E6A2mf0lb64sE3plH7c-RwnpgUJvG1MbzLO771vJ1k9ZjFP0SmShHi683Rfe2ytQ6Nkw4OvTJNr9abKWAC86jlVM5BF8psBBHdNSbqESh_pmGayEiNDx9tyrBf5WbP8b9_Ewd4MUtISb3kl6_du0NInTIzSVCoNCsDRyzm53OevuEK32npSyZmMdUeByRodjFeKE_P-N3TyfARJ8amDRk0XUk&expires_in=3600
+2025-01-09T14:59:23.965Z: Incoming request to: /
+2025-01-09T14:59:23.965Z: Full URL: http://localhost:5174/
+2025-01-09T14:59:23.965Z: Search params: {}
+2025-01-09T14:59:23.966Z: Code present: false
+2025-01-09T14:59:23.966Z: ReturnTo value: /
+2025-01-09T14:59:23.966Z: State value: null
+2025-01-09T14:59:23.966Z: Adding returnTo to state: /
+2025-01-09T14:59:23.966Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=Z1ShlhR7XVaIQTGh&returnTo=%2F
+2025-01-09T14:59:24.429Z: Incoming request to: /
+2025-01-09T14:59:24.429Z: Full URL: http://localhost:5174/?code=AQDIMKfu_YnNYK6aDfr1614_ksuPopLiLdw4TEtGvw1Pw6NR_KLIZLhgP7-aEHXST6r5awoUxGngF6vzpCzlQVubL1Fk73mbBqPzqGOERtVKdC5WPTRkCNA4JrQKQctRyIC4CEajfBSp4Tfz7-mzeG5kIobocam9jvza63UPCxBqcWN4X3xjBYOAdyGh8u_jb0_1JmZ1R3ZRjc3oPP007U6hkCGpVkPkNgkaa-c17msDcuncAEMVPrVUI9bEOE8_TgH2a8hjXZKJ0IapjMEostU9_57S1Jxpt1z6TLQS5I5ljx0KqCGX3qEMoSmqfqS2Sp9JVOGOp0RpqpJ5q8lOnkBripBhg9HSnEubC_VybgDFT3ByCX7YA1f02aHgQo1pq8Q3FUZ4h9KRM02FOkdPH0SWl9n9P82e2yniysMHpkZoO5Ob-JJC8-I6-GhbsVPsPPIgkCEnM0AG5QFvlYyxj7fU-yph4166EJx0G1aP8dk_EGHVFCHr9Ang2zSJKlQpeIAE-ZSJ6FckE0vV7emtd3QLXWmYtkfpk81IWMHGN5AUcYuDyYF9bNUcS1YPKqn5icqz6Q&state=Z1ShlhR7XVaIQTGh
+2025-01-09T14:59:24.430Z: Search params: {"code":"AQDIMKfu_YnNYK6aDfr1614_ksuPopLiLdw4TEtGvw1Pw6NR_KLIZLhgP7-aEHXST6r5awoUxGngF6vzpCzlQVubL1Fk73mbBqPzqGOERtVKdC5WPTRkCNA4JrQKQctRyIC4CEajfBSp4Tfz7-mzeG5kIobocam9jvza63UPCxBqcWN4X3xjBYOAdyGh8u_jb0_1JmZ1R3ZRjc3oPP007U6hkCGpVkPkNgkaa-c17msDcuncAEMVPrVUI9bEOE8_TgH2a8hjXZKJ0IapjMEostU9_57S1Jxpt1z6TLQS5I5ljx0KqCGX3qEMoSmqfqS2Sp9JVOGOp0RpqpJ5q8lOnkBripBhg9HSnEubC_VybgDFT3ByCX7YA1f02aHgQo1pq8Q3FUZ4h9KRM02FOkdPH0SWl9n9P82e2yniysMHpkZoO5Ob-JJC8-I6-GhbsVPsPPIgkCEnM0AG5QFvlYyxj7fU-yph4166EJx0G1aP8dk_EGHVFCHr9Ang2zSJKlQpeIAE-ZSJ6FckE0vV7emtd3QLXWmYtkfpk81IWMHGN5AUcYuDyYF9bNUcS1YPKqn5icqz6Q","state":"Z1ShlhR7XVaIQTGh"}
+2025-01-09T14:59:24.430Z: Code present: true
+2025-01-09T14:59:24.430Z: ReturnTo value: /
+2025-01-09T14:59:24.430Z: State value: Z1ShlhR7XVaIQTGh
+2025-01-09T14:59:24.430Z: Exchanging code for token
+2025-01-09T14:59:24.600Z: Final redirect URL: http://localhost:3000/?access_token=BQCtexn34z5Zfv1i8Fzt_hCfdUhIQ4IF32Yz6vNPc51INJFo6_xontgR47HIhhpysDPGIJjpc2Ko-g01OCsyAhiXYGfWR8lNWN6j-JilM4xi70nnFSa6E10optNrsQTS9EjM991K_PHlla5F70nIfX7XcnmoeCiN4Is9AchDCg9Yh6Ghp29uBDQ_860Z3DsX_HhgyMzakqq-3DMy9VlB84gizSzqnhb4D-ELhRleDn_HWVhZu7DAjql2pG0aG0YVAjNE6YxT6rUDVpD0bHNe7a00ltn0PBuLKwRJ0MQPdB5l2-4p3QgZNTCv4uAjqpddDNjXZy4&expires_in=3600
+2025-01-14T05:27:18.793Z: Server started on host:5174
+2025-01-14T05:27:42.229Z: Incoming request to: /
+2025-01-14T05:27:42.235Z: Full URL: http://localhost:5174/
+2025-01-14T05:27:42.238Z: Search params: {}
+2025-01-14T05:27:42.238Z: Code present: false
+2025-01-14T05:27:42.239Z: ReturnTo value: /
+2025-01-14T05:27:42.239Z: State value: null
+2025-01-14T05:27:42.240Z: Adding returnTo to state: /
+2025-01-14T05:27:42.240Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=fDC5hzrDjF72Q3xx&returnTo=%2F
+2025-01-14T05:27:43.157Z: Incoming request to: /
+2025-01-14T05:27:43.157Z: Full URL: http://localhost:5174/?code=AQCYkgftO-5mCdSAFNOk1ONdpRAPlIRxwEnPEsMXrQbhhNTVpDzDTaJSIaavdq5er_x1dsNNT6kNc4XabJIU0WmnRJ-muOy0a9qbwTUkF1pJVvl_jp2EBDbzKRD0EPI2Qm4KBfEDP58Rd_ip7_UY0Zb3b3ZZBL0MEfoxEWT_8jWSyet5PJio_A1zRsFp9mtOSlpjxjCibkZbFo3Vp9AsiSlkVVhpVMudl3puryuly0Y_iUhcmui2qMIJonraRd1hxy2fiQcUDAbGbfd4MeOo02EhjU4b_h6ZhtOyLcYu7UcUudlSCoC2YEPLdYAQfH3yv7R_wbC-Gpko1jFbB5jl8Fpn78ilsIzZI2IqX3ploIoWbDw9b4_K7pm1sqPgTirUTenKtydduvfGgqOi3aAg9Tj5ISJt_szeWT6W9yYy3V_tbD8-rZ6ntdj-TMQsV2-obw-iskjSbcmHoPVkR7ty0ZLKPD-KduYD2KZbwnFUIkViVhWWv5HYLBvVjIjKBjEMiLD3IesVAFahiZEbP29r2fWoils05TBAj_Gpil6FyROowRaHNxA7QtIo48iTibYQFO4DPQ&state=fDC5hzrDjF72Q3xx
+2025-01-14T05:27:43.158Z: Search params: {"code":"AQCYkgftO-5mCdSAFNOk1ONdpRAPlIRxwEnPEsMXrQbhhNTVpDzDTaJSIaavdq5er_x1dsNNT6kNc4XabJIU0WmnRJ-muOy0a9qbwTUkF1pJVvl_jp2EBDbzKRD0EPI2Qm4KBfEDP58Rd_ip7_UY0Zb3b3ZZBL0MEfoxEWT_8jWSyet5PJio_A1zRsFp9mtOSlpjxjCibkZbFo3Vp9AsiSlkVVhpVMudl3puryuly0Y_iUhcmui2qMIJonraRd1hxy2fiQcUDAbGbfd4MeOo02EhjU4b_h6ZhtOyLcYu7UcUudlSCoC2YEPLdYAQfH3yv7R_wbC-Gpko1jFbB5jl8Fpn78ilsIzZI2IqX3ploIoWbDw9b4_K7pm1sqPgTirUTenKtydduvfGgqOi3aAg9Tj5ISJt_szeWT6W9yYy3V_tbD8-rZ6ntdj-TMQsV2-obw-iskjSbcmHoPVkR7ty0ZLKPD-KduYD2KZbwnFUIkViVhWWv5HYLBvVjIjKBjEMiLD3IesVAFahiZEbP29r2fWoils05TBAj_Gpil6FyROowRaHNxA7QtIo48iTibYQFO4DPQ","state":"fDC5hzrDjF72Q3xx"}
+2025-01-14T05:27:43.158Z: Code present: true
+2025-01-14T05:27:43.158Z: ReturnTo value: /
+2025-01-14T05:27:43.159Z: State value: fDC5hzrDjF72Q3xx
+2025-01-14T05:27:43.159Z: Exchanging code for token
+2025-01-14T05:27:43.534Z: Final redirect URL: http://localhost:3000/?access_token=BQAWBxRjwx67ijTLO4wdthpLCASYq89sK7Mkk-WiEfYBh4zxky8a1Hf0I9drHSSK7NxwiTlPlBwYc0D_eSJ1s1q9WK3lAP13DKTgmlxZgDDzvgIi8Jor3bm1gnKV90Oeqjbd6bpEcAUs9VaurEUmQbhNhwK9wFnGC8vrXjt72GWaOiIENOmt64y0GDqD47cVk6qgyRVGRJTLqSD2i00vqt8PBgJBnxWTxlllUGjFGaDQkgUZIDMOm9GinYNW0CP3DJUPcX8F-LnqNxDy5vlHst60XLVKTAqau_9VsI5BC7D4PM7qqGKVext_RnCx7kw1VkhED8I&expires_in=3600
+2025-01-14T06:27:58.406Z: Incoming request to: /
+2025-01-14T06:27:58.412Z: Full URL: http://localhost:5174/
+2025-01-14T06:27:58.414Z: Search params: {}
+2025-01-14T06:27:58.414Z: Code present: false
+2025-01-14T06:27:58.414Z: ReturnTo value: /
+2025-01-14T06:27:58.414Z: State value: null
+2025-01-14T06:27:58.415Z: Adding returnTo to state: /
+2025-01-14T06:27:58.415Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=PsYx2GxGilXlYQTI&returnTo=%2F
+2025-01-14T06:27:58.785Z: Incoming request to: /
+2025-01-14T06:27:58.786Z: Full URL: http://localhost:5174/?code=AQB18wZjcpjfoYTAwBkqNYZwrAeXkxQKTSBxxHEBr1z0T_9O_T5TFbBbwXB4M4ZMeCxj78lSNQgDimpdbpfFr8PDvDZnWmHqTjB7C1y3vLoRN0QAKL7pnSzYwoOgTfGeJ0HsnPNtJqjs-u4tACHCQ5vnbf7deVWailXOYwXxwYPI9UqhaeaFW24MBKmovm3_rUbY8pw2e-bdcMn77KEEK-fj_3CMo2PATyfX0aZm8pIAOD-gjwPX7x5_x37SqtORiuRKPar0uflwe_Kd1Iajhoknf6_jcjFdNtncAwlmMfsYRTiff5dr0vhnidYfFokwnXSlLpvrriQN3OjaLhO1xa7VQNIRbr836gqMA35djherpnxvFSd89lfIdj-54-8UbDlQnE9Lm-euRgq1mTYfJ115t8B6gMMtIh0InU7lxCnXZr_Q5oogim3KpV4h4ZPdRMvxnnh3hJ8UARUbZl-Dxo4rgfmiAXypnHKjOIPTfwe-24_uB8RmMSw3rh2g0599kPJXaTpyxaue_stSZzcv21lVNQiz7xjy5qJQZumbEdu1Yuc3hh9Rt4B6E3kc6GdW-p3E_Q&state=PsYx2GxGilXlYQTI
+2025-01-14T06:27:58.787Z: Search params: {"code":"AQB18wZjcpjfoYTAwBkqNYZwrAeXkxQKTSBxxHEBr1z0T_9O_T5TFbBbwXB4M4ZMeCxj78lSNQgDimpdbpfFr8PDvDZnWmHqTjB7C1y3vLoRN0QAKL7pnSzYwoOgTfGeJ0HsnPNtJqjs-u4tACHCQ5vnbf7deVWailXOYwXxwYPI9UqhaeaFW24MBKmovm3_rUbY8pw2e-bdcMn77KEEK-fj_3CMo2PATyfX0aZm8pIAOD-gjwPX7x5_x37SqtORiuRKPar0uflwe_Kd1Iajhoknf6_jcjFdNtncAwlmMfsYRTiff5dr0vhnidYfFokwnXSlLpvrriQN3OjaLhO1xa7VQNIRbr836gqMA35djherpnxvFSd89lfIdj-54-8UbDlQnE9Lm-euRgq1mTYfJ115t8B6gMMtIh0InU7lxCnXZr_Q5oogim3KpV4h4ZPdRMvxnnh3hJ8UARUbZl-Dxo4rgfmiAXypnHKjOIPTfwe-24_uB8RmMSw3rh2g0599kPJXaTpyxaue_stSZzcv21lVNQiz7xjy5qJQZumbEdu1Yuc3hh9Rt4B6E3kc6GdW-p3E_Q","state":"PsYx2GxGilXlYQTI"}
+2025-01-14T06:27:58.787Z: Code present: true
+2025-01-14T06:27:58.787Z: ReturnTo value: /
+2025-01-14T06:27:58.787Z: State value: PsYx2GxGilXlYQTI
+2025-01-14T06:27:58.788Z: Exchanging code for token
+2025-01-14T06:27:59.107Z: Final redirect URL: http://localhost:3000/?access_token=BQBZK2MU5J96vFTrDM6qTgy21U2pDCYbUQvuPFkbM2fkNJytnjQz5I0x-D9xusj-aiocZp00BUDOeXZAy6aqpIr3OhN0ZwTDLhNO3h5oZQT_B2WVoj1fXbDKzEBimqcJRJq0bv6Xg0cBp1EJB1PvBz9tK1lc3FrtezXrYvUKGC8M9CcyTkDTXqvMl4qiFnYhI4rxMiW7GnD0mo2kVnpYO9rUued89zLMv6g0wzdFKKBIth52BJ02LqotFfwiLG4nGxVhsus69MmIKQCZPKQUR8t6TVn5rGNeocFPPxXLdvtH2i3h2yfJN12JFThlmkOsH-xMZNw&expires_in=3600
+2025-01-14T07:30:21.842Z: Server started on host:5174
+2025-01-14T07:30:22.030Z: Server started on host:5174
+2025-01-14T07:30:32.543Z: Server started on host:5174
+2025-01-14T07:30:36.661Z: Incoming request to: /
+2025-01-14T07:30:36.662Z: Full URL: http://localhost:5174/
+2025-01-14T07:30:36.664Z: Search params: {}
+2025-01-14T07:30:36.664Z: Code present: false
+2025-01-14T07:30:36.664Z: ReturnTo value: /
+2025-01-14T07:30:36.664Z: State value: null
+2025-01-14T07:30:36.665Z: Adding returnTo to state: /
+2025-01-14T07:30:36.665Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=ToNGg0fccGpHWdLL&returnTo=%2F
+2025-01-14T07:30:37.038Z: Incoming request to: /
+2025-01-14T07:30:37.038Z: Full URL: http://localhost:5174/?code=AQCiorMGOEsbIbfXR_QlB-mrkDnVA7-nVXXiYKvq_VJflN_0tm4DBi4Tlfl3Zcyk2v5quc_DxtOS2XbWlAdWIeAW8uxBbrpqtpcquT_r1uJyDVBUf5pr8JkJmq1NMK4XKUVwEarDYhIKadAbUPQxN3O2BJkonYn14cQMuX8y_6Q9PaMrO353e_sZf4zrRuBiR_M6l50DXN3EyousP-FViIWuuoKkUpEjj0Jvwos_fv2h36QNk4YnIddXJSBC9yawTqS2eIEApxph6braLaDuAIQSBBYvCkMKB8A9fJUh7eEdQwiocSMveqB_CDLPd9_SMXQrjgNTH7BQcVZrAyOiS9AdW2nAfqLO8SU8vsUMj6l8Ht5QaNjoUkI-aznvrEO-JbemKa6uK_RqqnPXHitVX4gn5D08Ze9O-j-ulwONoDUkvVnlAwbWKmzsmUoh5GEZtB90LhUYtkXTsPIk2e1Kp73LPCU9zY4xdLhpcfI-UyR6zjctPRRmnvI6RZqT4oIOWya3SHsWg_v0KspK_avC5Bemq3erw6sDrveHMAFJkwBO3qsw1rdFwzbekxFvzy3zWA0Trg&state=ToNGg0fccGpHWdLL
+2025-01-14T07:30:37.039Z: Search params: {"code":"AQCiorMGOEsbIbfXR_QlB-mrkDnVA7-nVXXiYKvq_VJflN_0tm4DBi4Tlfl3Zcyk2v5quc_DxtOS2XbWlAdWIeAW8uxBbrpqtpcquT_r1uJyDVBUf5pr8JkJmq1NMK4XKUVwEarDYhIKadAbUPQxN3O2BJkonYn14cQMuX8y_6Q9PaMrO353e_sZf4zrRuBiR_M6l50DXN3EyousP-FViIWuuoKkUpEjj0Jvwos_fv2h36QNk4YnIddXJSBC9yawTqS2eIEApxph6braLaDuAIQSBBYvCkMKB8A9fJUh7eEdQwiocSMveqB_CDLPd9_SMXQrjgNTH7BQcVZrAyOiS9AdW2nAfqLO8SU8vsUMj6l8Ht5QaNjoUkI-aznvrEO-JbemKa6uK_RqqnPXHitVX4gn5D08Ze9O-j-ulwONoDUkvVnlAwbWKmzsmUoh5GEZtB90LhUYtkXTsPIk2e1Kp73LPCU9zY4xdLhpcfI-UyR6zjctPRRmnvI6RZqT4oIOWya3SHsWg_v0KspK_avC5Bemq3erw6sDrveHMAFJkwBO3qsw1rdFwzbekxFvzy3zWA0Trg","state":"ToNGg0fccGpHWdLL"}
+2025-01-14T07:30:37.039Z: Code present: true
+2025-01-14T07:30:37.039Z: ReturnTo value: /
+2025-01-14T07:30:37.039Z: State value: ToNGg0fccGpHWdLL
+2025-01-14T07:30:37.039Z: Exchanging code for token
+2025-01-14T07:30:37.381Z: Final redirect URL: http://localhost:3000/?access_token=BQAZu8N5M5oNQkF0lZEk6qud2vPDVD4spbdl-duKtKzcww0OdPCFmEfc-bsqCmhwnCLAN4gZxCjklASprKfjCk0ygbh8BCjMNPbZKbeSi_BOvFbR6j93uktvx9l6IoXzPI8NReaxstAAHANgd38WkHFKP1rbHsoQXTPNnOjDn4Vv9RijW6-u7nxdxD6QQEJ_vBGTT65fGD7yfPQ1qeSV1yFeDbqeGBCUQC3o4hcGCeKcAz29nVE1Vr0BbGvMkLZVJkYDKWzU8mAEfqpzM5cysUCYeP8ntsUs_RxIoDiPSiyoeWi5FosQGybMCPBJ3CyY2449W90&expires_in=3600
+2025-01-14T13:36:14.473Z: Incoming request to: /
+2025-01-14T13:36:14.481Z: Full URL: http://localhost:5174/
+2025-01-14T13:36:14.483Z: Search params: {}
+2025-01-14T13:36:14.484Z: Code present: false
+2025-01-14T13:36:14.484Z: ReturnTo value: /
+2025-01-14T13:36:14.484Z: State value: null
+2025-01-14T13:36:14.486Z: Adding returnTo to state: /
+2025-01-14T13:36:14.486Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=86odT3LPlCO5rGqc&returnTo=%2F
+2025-01-14T13:36:15.009Z: Incoming request to: /
+2025-01-14T13:36:15.011Z: Full URL: http://localhost:5174/?returnTo=%2Falbums%2F4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:15.012Z: Search params: {"returnTo":"/albums/4Q7cRXio6mF2ImVUCcezPO"}
+2025-01-14T13:36:15.013Z: Code present: false
+2025-01-14T13:36:15.015Z: ReturnTo value: /albums/4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:15.015Z: State value: null
+2025-01-14T13:36:15.016Z: Adding returnTo to state: /albums/4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:15.019Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=GNaO9H9NjEMcrpvD&returnTo=%2Falbums%2F4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:15.489Z: Incoming request to: /
+2025-01-14T13:36:15.490Z: Full URL: http://localhost:5174/?code=AQBlj57NYl3YBKyA_dzDfYhCuvsnIareNtE5pIBXdzjKIVSgROsxbD7CD7Xmd_MF-M1JeCH0ySqqCcaA3D0mZkMyoG5qUEKnEflURRCYevvKFf4z5eUlBelSBb-C94npTMCrN6dyNCDKcAFF1wLO2RY2gnRuhyu8wZuz0fZZwRpjOd5OAdIdCs8L0KB5xvSyx-1nuA1helF_kB-_qPojAMirJpxexSEANq_4uP6GQ8SENzePd-gSY0tTSq5IubAdufnz-46_kEiPe4LTIc60P9iH9vWzSUaEryvxetlr4Is3OmHwTvZuojdK72gdzfmQL0Np63ZNLiiqB5KzRRgVz7NsxCP-BMNK2cT9fiC6Gu7q_sMF9FRzyXl9jYqegOkslLBMWJepEt5zeOzBrJZRR2GkBCgjdJGE_iHYRmuohOCdZzyo_yzeEO3Y0LiprjRUUvhSoaDxQUOXK7sp7NpF4ZkNHeUP1zr_xHJLYrYTbZJWznibyPnjA1DqhMoieq5pcSGs1EuFtXXizb6swOHcdI_peaYfa9dATyRgFYU67ykEBofy5aJjQCBxCuqoVdYvB_5Vew&state=GNaO9H9NjEMcrpvD
+2025-01-14T13:36:15.490Z: Search params: {"code":"AQBlj57NYl3YBKyA_dzDfYhCuvsnIareNtE5pIBXdzjKIVSgROsxbD7CD7Xmd_MF-M1JeCH0ySqqCcaA3D0mZkMyoG5qUEKnEflURRCYevvKFf4z5eUlBelSBb-C94npTMCrN6dyNCDKcAFF1wLO2RY2gnRuhyu8wZuz0fZZwRpjOd5OAdIdCs8L0KB5xvSyx-1nuA1helF_kB-_qPojAMirJpxexSEANq_4uP6GQ8SENzePd-gSY0tTSq5IubAdufnz-46_kEiPe4LTIc60P9iH9vWzSUaEryvxetlr4Is3OmHwTvZuojdK72gdzfmQL0Np63ZNLiiqB5KzRRgVz7NsxCP-BMNK2cT9fiC6Gu7q_sMF9FRzyXl9jYqegOkslLBMWJepEt5zeOzBrJZRR2GkBCgjdJGE_iHYRmuohOCdZzyo_yzeEO3Y0LiprjRUUvhSoaDxQUOXK7sp7NpF4ZkNHeUP1zr_xHJLYrYTbZJWznibyPnjA1DqhMoieq5pcSGs1EuFtXXizb6swOHcdI_peaYfa9dATyRgFYU67ykEBofy5aJjQCBxCuqoVdYvB_5Vew","state":"GNaO9H9NjEMcrpvD"}
+2025-01-14T13:36:15.491Z: Code present: true
+2025-01-14T13:36:15.491Z: ReturnTo value: /
+2025-01-14T13:36:15.491Z: State value: GNaO9H9NjEMcrpvD
+2025-01-14T13:36:15.491Z: Exchanging code for token
+2025-01-14T13:36:15.865Z: Final redirect URL: http://localhost:3000/?access_token=BQCIpsS5oc_4XJjsSSX4X1N0OJQFaE-X5o5Hx3n4MWJUQBkTRygBHWOw-0Dxq4D90qFWO0C4bL6GSHICMc2YyCFn7-TQUHKmzByOQ9v4zdasOdw4rbM8ZNVYEwrMVJRiZlp2Q-NbHu7Izad_FdZiaaoahNin06oTsY_0B8tAmVpmtpcz9uKCRsTq8dR6EqttoXQRh0fES7hm_mSdoD1URIDqhYZicOQowkJkUexBk0Umz9hwamBEN3KkFbV3fgDA0thHr2vjpbSwbqEzFH73ltcqVHfFrBBNu4n32MMzTPSQ3u2s239hBn1sg6PlGiXTji0IYpg&expires_in=3600
+2025-01-14T13:36:19.179Z: Incoming request to: /
+2025-01-14T13:36:19.179Z: Full URL: http://localhost:5174/?returnTo=%2Falbums%2F4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:19.180Z: Search params: {"returnTo":"/albums/4Q7cRXio6mF2ImVUCcezPO"}
+2025-01-14T13:36:19.180Z: Code present: false
+2025-01-14T13:36:19.180Z: ReturnTo value: /albums/4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:19.180Z: State value: null
+2025-01-14T13:36:19.182Z: Adding returnTo to state: /albums/4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:19.182Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=svWl7bjtfeS47z5x&returnTo=%2Falbums%2F4Q7cRXio6mF2ImVUCcezPO
+2025-01-14T13:36:19.412Z: Incoming request to: /
+2025-01-14T13:36:19.412Z: Full URL: http://localhost:5174/?code=AQDpcIsdA9_5IfTj28eFBWqDipnIKJWMir-CUnILRsOipX6cxIgLkD3jpvHUnTik2FMgVLUtyzRa-gm9qegyOblajximx6uKMl5jcu9FZ0X_he97DKDVuDfUD_8FtacT-4QEOWsmhW-ivE3Gyq7VbpCYWrM_2w2ecobrZpCldMuF5hyBd_aLWoqA7uorLqGlly2051humAMZoeWP2wvgDIOQ9pyj_RB_xgvS4RJNkzP-3OVWw_aFGBxlTLCG3-TKdVKo6fpvLPjBzulzY_lXV-vrfYObsFEMd6y6XmXmEYyDXcuW3JVRgpjbCr8sTrHofiphtshoBgMdz6SfDJDZkvNEaXq_4CVHnYcBBPnLkmH6LSPZZnTv6uObl_eOr_tMUizSoO3YO4DkB2fJeeVH61ws-VzdzlxioUC9y8pv_dR41ye1qC_AFCP8XEB9N-xQ8zRElU5yXI6k6JuQvJcrQMnwkvrApibRb6w5NFYg5G8okYXceS1m6ugZhC9OPi-mCQNAKgkbQ81p04wUKP18TDmPeUnE20G0UM7zNsk6-7b7E_TmSgA3-h4x9OUOXuVWma3m3Q&state=svWl7bjtfeS47z5x
+2025-01-14T13:36:19.412Z: Search params: {"code":"AQDpcIsdA9_5IfTj28eFBWqDipnIKJWMir-CUnILRsOipX6cxIgLkD3jpvHUnTik2FMgVLUtyzRa-gm9qegyOblajximx6uKMl5jcu9FZ0X_he97DKDVuDfUD_8FtacT-4QEOWsmhW-ivE3Gyq7VbpCYWrM_2w2ecobrZpCldMuF5hyBd_aLWoqA7uorLqGlly2051humAMZoeWP2wvgDIOQ9pyj_RB_xgvS4RJNkzP-3OVWw_aFGBxlTLCG3-TKdVKo6fpvLPjBzulzY_lXV-vrfYObsFEMd6y6XmXmEYyDXcuW3JVRgpjbCr8sTrHofiphtshoBgMdz6SfDJDZkvNEaXq_4CVHnYcBBPnLkmH6LSPZZnTv6uObl_eOr_tMUizSoO3YO4DkB2fJeeVH61ws-VzdzlxioUC9y8pv_dR41ye1qC_AFCP8XEB9N-xQ8zRElU5yXI6k6JuQvJcrQMnwkvrApibRb6w5NFYg5G8okYXceS1m6ugZhC9OPi-mCQNAKgkbQ81p04wUKP18TDmPeUnE20G0UM7zNsk6-7b7E_TmSgA3-h4x9OUOXuVWma3m3Q","state":"svWl7bjtfeS47z5x"}
+2025-01-14T13:36:19.412Z: Code present: true
+2025-01-14T13:36:19.412Z: ReturnTo value: /
+2025-01-14T13:36:19.412Z: State value: svWl7bjtfeS47z5x
+2025-01-14T13:36:19.412Z: Exchanging code for token
+2025-01-14T13:36:19.598Z: Final redirect URL: http://localhost:3000/?access_token=BQB8dkuMgWDndh3bFBOnmX0-sCLPg5zZyncW3O9chYTivhqqrFCckeR9HNuFaKmG5eZxisbFHwjLWP5E06rtkewhK46Fk8p_kpAgcDtszvY8tKFo0UFDZb8blRWjj9HTIba4sjmNwN1omlelP2r4pKWOHZngNlSvFf0LMp7TFO3rXNumYxD_DEn4o3tANpN40ZaCULQ2h7R2bpNv1RlU-xialz7HvBIg2vv6UXCzLrQKsxwsexElVCS3zW_JmQgwqdiwpSyagmNxpMUHc2e59E3gD-tpXOU7Fiz2OOVSJiIwIQ2PPRMvgIZNh9gl1VU8TRG4fLs&expires_in=3600
+2025-01-15T15:00:38.056Z: Incoming request to: /
+2025-01-15T15:00:38.063Z: Full URL: http://localhost:5174/
+2025-01-15T15:00:38.064Z: Search params: {}
+2025-01-15T15:00:38.064Z: Code present: false
+2025-01-15T15:00:38.064Z: ReturnTo value: /
+2025-01-15T15:00:38.065Z: State value: null
+2025-01-15T15:00:38.067Z: Adding returnTo to state: /
+2025-01-15T15:00:38.067Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=fUHIsbxNlzM4uAyl&returnTo=%2F
+2025-01-15T15:00:38.994Z: Incoming request to: /
+2025-01-15T15:00:38.994Z: Full URL: http://localhost:5174/?code=AQCdMFkfcGFmLBN-O9NInfLDR4fJAVtbqKyXWO65irOADBTQk29T7i3sMRHdL_OtnCvagiosnoWX3X6JAjfTO-IlXWrk9Tel--tyqOV33z8Lca63jWhkcxdsZBW9K3hdVNcM8MYbYZF_lI-eObc80L4yZDfXQnRZkZkoVm504vaxxt_Bfu1SzS8gR8np_IGQyrsuNLMXEbPNu04jq-vzDm8NHS3d5YtVRPx7umHW3Dhw5ltuGjTNW6v41MM3LBobYEe-Bem2T9N33iqq3F_DakkZgYp-VvnYXrZkQyEo6VJP1BF4xfwJB7exK3S-dWod9az5lR0SbSv5uC-x0dDLKhwoUNAv9MjGmfn9vkreJIJncs3cP-070qayMO2zTo0hPqqtxo3vQ0byji23b9TcNuGdeFw5MgNovTP1_wGvtvXx65cV8pHo5h1KUMXSlc2C-P_MdVmxy7bYo9rXHwwYz9XXuDzYB-XhY8wW6TIcfetsTnkKOJkpuOQiPKyhggOicFu2terc8jXwZNiRaZLS24z5vabNgHF5zH3x35Is_Yz_mgB1AKCHFgUmd8er7e7AMigj4g&state=fUHIsbxNlzM4uAyl
+2025-01-15T15:00:38.995Z: Search params: {"code":"AQCdMFkfcGFmLBN-O9NInfLDR4fJAVtbqKyXWO65irOADBTQk29T7i3sMRHdL_OtnCvagiosnoWX3X6JAjfTO-IlXWrk9Tel--tyqOV33z8Lca63jWhkcxdsZBW9K3hdVNcM8MYbYZF_lI-eObc80L4yZDfXQnRZkZkoVm504vaxxt_Bfu1SzS8gR8np_IGQyrsuNLMXEbPNu04jq-vzDm8NHS3d5YtVRPx7umHW3Dhw5ltuGjTNW6v41MM3LBobYEe-Bem2T9N33iqq3F_DakkZgYp-VvnYXrZkQyEo6VJP1BF4xfwJB7exK3S-dWod9az5lR0SbSv5uC-x0dDLKhwoUNAv9MjGmfn9vkreJIJncs3cP-070qayMO2zTo0hPqqtxo3vQ0byji23b9TcNuGdeFw5MgNovTP1_wGvtvXx65cV8pHo5h1KUMXSlc2C-P_MdVmxy7bYo9rXHwwYz9XXuDzYB-XhY8wW6TIcfetsTnkKOJkpuOQiPKyhggOicFu2terc8jXwZNiRaZLS24z5vabNgHF5zH3x35Is_Yz_mgB1AKCHFgUmd8er7e7AMigj4g","state":"fUHIsbxNlzM4uAyl"}
+2025-01-15T15:00:38.996Z: Code present: true
+2025-01-15T15:00:38.997Z: ReturnTo value: /
+2025-01-15T15:00:38.997Z: State value: fUHIsbxNlzM4uAyl
+2025-01-15T15:00:38.997Z: Exchanging code for token
+2025-01-15T15:00:39.413Z: Final redirect URL: http://localhost:3000/?access_token=BQBgL1M0CHPhIhGV0VwHkkghd7EIoorNsU6mxr1lucFeZFj31mixBH8v33KYGCtWYc0-wCut8zhM5ttWpySwBizjcUVzeSta8ICWCBfoTNt0vGbgpLhmMtwKlbyDr940qcUbwdWO12tN-RrUr1hW6oU2QqI5QF9DUQV4BqPpsC5lAgboQELd_uPfAcDmCck8GMEhYvedpVtyQlbigFhwEcZxzhIIrumvgGNPh19rkHLQ1C5QLGahrLczFEzYz7KgIgWFsZheBKGiLPpSblMiPAemxLUEPviHmtAcQy9hir_3I_ltHIaHwrMt-9P6x6glAHwsxx4&expires_in=3600
+2025-01-16T05:20:48.850Z: Incoming request to: /
+2025-01-16T05:20:48.857Z: Full URL: http://localhost:5174/
+2025-01-16T05:20:48.861Z: Search params: {}
+2025-01-16T05:20:48.864Z: Code present: false
+2025-01-16T05:20:48.864Z: ReturnTo value: /
+2025-01-16T05:20:48.864Z: State value: null
+2025-01-16T05:20:48.869Z: Adding returnTo to state: /
+2025-01-16T05:20:48.869Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=XyvJOgpNEV4PFAeV&returnTo=%2F
+2025-01-16T05:20:49.691Z: Incoming request to: /
+2025-01-16T05:20:49.691Z: Full URL: http://localhost:5174/?code=AQBizQufb1nLE2_aJg5NpQCZ4lyVyGC_dETshIcEmnigb-VQ8wI5Idvj5k3jsXAann0IVC3aG7FMefjmf6A74DCoT66LZm6qb4cw853loh7as10AKUpy3OCMyvOFfLWXB05_IyIW5ydG_KE6NF6-3-8s9qUkuXkA5uLlmEtjBxtTf8cNpZsoDUTSMIa02W6S_-ALFun42JGDlLQao6N6RrqA1cku0LjtDwgnodOwyBq6cwI3wHTcDCq7kuHP0-cjgWUdE3ERewPMRZXOTTz5ncqUOw5DkdVqQW289vcqI06cdL-lcBC88WugflSgpJS-Zt6SXq2ywEMhD69N6dg5x__wb9CCpdxLsak0_RvUOdJBdmJVp_LdfiNZZ6mJoj0QUF0zbbXlNhOdSxcRTSV-tqzVv1bAV1rIJ5VrbXImI1oggu3AK4q8y8Ur4mEq-y1yQ4ajOJBy98Nk20Lm9_ubUJQwkiw9HS-psb3iI0NOAG8hHcZS5bHfP09VxcrkABY2OGvgi5EQDhQQR_c1KygTl5kmIHjr7x5XSr3djP6QPtD4Dj1Ha1zyq9xSyh11_Gf6erT4KA&state=XyvJOgpNEV4PFAeV
+2025-01-16T05:20:49.692Z: Search params: {"code":"AQBizQufb1nLE2_aJg5NpQCZ4lyVyGC_dETshIcEmnigb-VQ8wI5Idvj5k3jsXAann0IVC3aG7FMefjmf6A74DCoT66LZm6qb4cw853loh7as10AKUpy3OCMyvOFfLWXB05_IyIW5ydG_KE6NF6-3-8s9qUkuXkA5uLlmEtjBxtTf8cNpZsoDUTSMIa02W6S_-ALFun42JGDlLQao6N6RrqA1cku0LjtDwgnodOwyBq6cwI3wHTcDCq7kuHP0-cjgWUdE3ERewPMRZXOTTz5ncqUOw5DkdVqQW289vcqI06cdL-lcBC88WugflSgpJS-Zt6SXq2ywEMhD69N6dg5x__wb9CCpdxLsak0_RvUOdJBdmJVp_LdfiNZZ6mJoj0QUF0zbbXlNhOdSxcRTSV-tqzVv1bAV1rIJ5VrbXImI1oggu3AK4q8y8Ur4mEq-y1yQ4ajOJBy98Nk20Lm9_ubUJQwkiw9HS-psb3iI0NOAG8hHcZS5bHfP09VxcrkABY2OGvgi5EQDhQQR_c1KygTl5kmIHjr7x5XSr3djP6QPtD4Dj1Ha1zyq9xSyh11_Gf6erT4KA","state":"XyvJOgpNEV4PFAeV"}
+2025-01-16T05:20:49.692Z: Code present: true
+2025-01-16T05:20:49.692Z: ReturnTo value: /
+2025-01-16T05:20:49.692Z: State value: XyvJOgpNEV4PFAeV
+2025-01-16T05:20:49.692Z: Exchanging code for token
+2025-01-16T05:20:49.996Z: Incoming request to: /
+2025-01-16T05:20:49.996Z: Full URL: http://localhost:5174/?returnTo=%2Fplaylists%2F2a6OSlFchVcDonrXMMJ6EM
+2025-01-16T05:20:49.997Z: Search params: {"returnTo":"/playlists/2a6OSlFchVcDonrXMMJ6EM"}
+2025-01-16T05:20:49.997Z: Code present: false
+2025-01-16T05:20:49.997Z: ReturnTo value: /playlists/2a6OSlFchVcDonrXMMJ6EM
+2025-01-16T05:20:49.997Z: State value: null
+2025-01-16T05:20:49.997Z: Adding returnTo to state: /playlists/2a6OSlFchVcDonrXMMJ6EM
+2025-01-16T05:20:49.997Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=i6o7uPF90L50JCT6&returnTo=%2Fplaylists%2F2a6OSlFchVcDonrXMMJ6EM
+2025-01-16T05:20:50.202Z: Final redirect URL: http://localhost:3000/?access_token=BQAg0ozgGWxxkr_DqAtfPP3yGpNlQzCikpput6HEEKtk9tpMuF05mfYGaGLe-8pZhl7Y9J3VFG4owu4NABYyfWoIdqBQlkdODNEst_BoU3AN1OOdpiIiiNwdxa9ET0lZjkaZ8yFkXtqNUBFcPt0POUFHrJ9C0kuv9TdZcNafh2emFbP0laMOC-n9ubsZ3sNKSvksXPoeXT_UX7N1QwzWcMkE_UzAtDny56fOeoocHwTpczio2Osymfp98VtRg20xgstm3z35BSfyP9UaXUMuQIWQT0Lb8n3IaLRbDJTasxyrSoudD7J0blcNAeVKUNkQz9e3Mo0&expires_in=3600
+2025-01-16T05:20:50.220Z: Incoming request to: /
+2025-01-16T05:20:50.220Z: Full URL: http://localhost:5174/?code=AQAIsuhwn8SzkGQnGwIATxWkwGVL3n-ZXrplxddSYWSb-0D6M97TyC9z03cXcc8rVvSbfy0hpvvdbatDnVqGy9kKtcPQFzS4f-H12hSzVPUvWnzm0sN7aYV21O4iR38ROUyux56-rakVbCJNG_0GVWZUS4EQ6Vh1Dlp1fO7UVpZ4TU1O6lmsZqinywVOxCHuOnBmkeSRoWDH8GTXdYCMTfG5jTaoqVFo5NnFLM5lLVa7Ea5J2nlBRMsJWZZrdk1iAJe0tnPfXJlwTAh953rInpTr1GDOrmAvFN1PKcd3q5k1o4M2e3e4u_g4eijiJGJtNM-61BYHIy6sGXPBMN3OV78KAY8_g0D16QvbZnDqCbnCmgVkRkkY2O9IBO0xW34huZIttyYrr76gg7YMFOJgN9gC-POsscb3SH885HNluoS-l9W93GGjtfWaR35fh3pI0gmSs8dPC6k3QORTk5Tq7WGzBCKa6NePbw8FQzm3U35p8tbR2pyXUXjKHYQpmvM70wFJIy1Fgp_QoewqlwKAvcbhHZLMTHi-Pi9Qp8MMKDE6BWbDpjdoUgmPYD50E-hVoFb0DA&state=i6o7uPF90L50JCT6
+2025-01-16T05:20:50.221Z: Search params: {"code":"AQAIsuhwn8SzkGQnGwIATxWkwGVL3n-ZXrplxddSYWSb-0D6M97TyC9z03cXcc8rVvSbfy0hpvvdbatDnVqGy9kKtcPQFzS4f-H12hSzVPUvWnzm0sN7aYV21O4iR38ROUyux56-rakVbCJNG_0GVWZUS4EQ6Vh1Dlp1fO7UVpZ4TU1O6lmsZqinywVOxCHuOnBmkeSRoWDH8GTXdYCMTfG5jTaoqVFo5NnFLM5lLVa7Ea5J2nlBRMsJWZZrdk1iAJe0tnPfXJlwTAh953rInpTr1GDOrmAvFN1PKcd3q5k1o4M2e3e4u_g4eijiJGJtNM-61BYHIy6sGXPBMN3OV78KAY8_g0D16QvbZnDqCbnCmgVkRkkY2O9IBO0xW34huZIttyYrr76gg7YMFOJgN9gC-POsscb3SH885HNluoS-l9W93GGjtfWaR35fh3pI0gmSs8dPC6k3QORTk5Tq7WGzBCKa6NePbw8FQzm3U35p8tbR2pyXUXjKHYQpmvM70wFJIy1Fgp_QoewqlwKAvcbhHZLMTHi-Pi9Qp8MMKDE6BWbDpjdoUgmPYD50E-hVoFb0DA","state":"i6o7uPF90L50JCT6"}
+2025-01-16T05:20:50.222Z: Code present: true
+2025-01-16T05:20:50.223Z: ReturnTo value: /
+2025-01-16T05:20:50.223Z: State value: i6o7uPF90L50JCT6
+2025-01-16T05:20:50.223Z: Exchanging code for token
+2025-01-16T05:20:50.395Z: Final redirect URL: http://localhost:3000/?access_token=BQBdvtMRms2bmdzAEo0WDQVanHzI__3A8CGnKFmvAKAbg3U_BkFX3mnQJKBOBnLmutZb3eHevI0m5VtfX--_k5pkmfMr2M_li4DIWfbG1YTNyc3_5wCXEBBMLVbP_sWF9_n1kQo8G7dQphyZINMBXzwYhp3G-ly3mgGnlAtoX98GQO-wVGBYB4AM73fPEhRY2o-xe4KCwTIJJgarrY53_okLw73IkIONi4FzcsgSdMSzvAUCf-0Zu35IAjgUiG3EzHx3SpjF6joI6bDLezrU12gZ3NZgv7ckm7wqMIM5umy69H02NfAnHh5R4oQj98xgs1L2jbg&expires_in=3600
+2025-01-16T06:52:07.106Z: Incoming request to: /
+2025-01-16T06:52:07.115Z: Full URL: http://localhost:5174/
+2025-01-16T06:52:07.117Z: Search params: {}
+2025-01-16T06:52:07.117Z: Code present: false
+2025-01-16T06:52:07.117Z: ReturnTo value: /
+2025-01-16T06:52:07.118Z: State value: null
+2025-01-16T06:52:07.120Z: Adding returnTo to state: /
+2025-01-16T06:52:07.120Z: Redirecting to Spotify: https://accounts.spotify.com/authorize/?response_type=code&client_id=a3fbec766b044722ba80154eb5c3f565&scope=user-read-playback-state+user-modify-playback-state+user-read-currently-playing+playlist-read-private+playlist-read-collaborative+playlist-modify-private+playlist-modify-public+user-library-read+user-library-modify+user-follow-read+user-follow-modify+streaming+user-read-recently-played+user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A5174&state=reqnAQ15icALSCB3&returnTo=%2F
+2025-01-16T06:52:07.507Z: Incoming request to: /
+2025-01-16T06:52:07.507Z: Full URL: http://localhost:5174/?code=AQDIuKTmL9fWzOW_JPsN4teRm_2lMGADFGIRb_l09EQcDvnAeZxy2K7Mupopew79cCuTivLs76sHSIMUcCDQk8vV4LEG7A_r-8Ahwf2Xnx9rmxmx70EIBm19Z_Usq8LuSrAEO2VZN3Bx2flb6u8uZwYxJme7xjO7T4w8SAY5xsMUqnnI3dlg1uo0q81j4mdSz4MSspgFAgGDSzhafOXPKKDpKyhf26D7SF0-6iwC4A37qIlg-eAZEzZJmh9Ob9YZoZiIJUZyoJdQBr8v7TiDSHzuIG1M_XZJbN2tq1ILzLL6r8n7KiK5StV1cRtxoR8fbE0i83ulyn23VER7KhHGsidm9VpDjblcHQvlsa6DzR5nw-sQ1IW_RguGh9TGOA7CKjqUQiRLgJ4IopUv6-AUTbYmEs9E8AYlbSISnnsQ2tvVbJBghJF07_5r6v1R1TCHiL2Fa87eZUdBbkp9SHWNMWGSChkxOKuKWg5y5UMdqww3zrUGEXuvcOmf5BMiayo093dADnhrE6dpWpoH2KfZdoPZ2ix1V63u2JDhbbjpx7kkBQP3gClAxrLeWVOeDpRmevTm8Q&state=reqnAQ15icALSCB3
+2025-01-16T06:52:07.508Z: Search params: {"code":"AQDIuKTmL9fWzOW_JPsN4teRm_2lMGADFGIRb_l09EQcDvnAeZxy2K7Mupopew79cCuTivLs76sHSIMUcCDQk8vV4LEG7A_r-8Ahwf2Xnx9rmxmx70EIBm19Z_Usq8LuSrAEO2VZN3Bx2flb6u8uZwYxJme7xjO7T4w8SAY5xsMUqnnI3dlg1uo0q81j4mdSz4MSspgFAgGDSzhafOXPKKDpKyhf26D7SF0-6iwC4A37qIlg-eAZEzZJmh9Ob9YZoZiIJUZyoJdQBr8v7TiDSHzuIG1M_XZJbN2tq1ILzLL6r8n7KiK5StV1cRtxoR8fbE0i83ulyn23VER7KhHGsidm9VpDjblcHQvlsa6DzR5nw-sQ1IW_RguGh9TGOA7CKjqUQiRLgJ4IopUv6-AUTbYmEs9E8AYlbSISnnsQ2tvVbJBghJF07_5r6v1R1TCHiL2Fa87eZUdBbkp9SHWNMWGSChkxOKuKWg5y5UMdqww3zrUGEXuvcOmf5BMiayo093dADnhrE6dpWpoH2KfZdoPZ2ix1V63u2JDhbbjpx7kkBQP3gClAxrLeWVOeDpRmevTm8Q","state":"reqnAQ15icALSCB3"}
+2025-01-16T06:52:07.508Z: Code present: true
+2025-01-16T06:52:07.508Z: ReturnTo value: /
+2025-01-16T06:52:07.509Z: State value: reqnAQ15icALSCB3
+2025-01-16T06:52:07.509Z: Exchanging code for token
+2025-01-16T06:52:07.838Z: Final redirect URL: http://localhost:3000/?access_token=BQD0YcT-47AZrfpjK01lVckFs4u1hXoIs3L3b5FxAn6NY-RTPf7QcvVwXdYrDEAwNtmNzmGi4FXqsKxbpSAEzCd5X2PkdWuxUKdb5yfsxR9qPXaGGNZGPnraDSlwAxtFb0h_l5CtE5YVJtBU4c30JbFkOmw6ltKKAvtALKJQg1wi4o18u7hctMeAybT_7o7pNHAUVSkNhFM-CNwywepiHJanuRzJ7r4AfP0FP3_RX9k_DWC3aexFTSKYynw5_sr9XaIyghBPdYdofCQ33zyc_BPjxcyc6F3Aoz-FOdsvkto7QftFhoqCax80rsnrs_Sp5FdYrUs&expires_in=3600
+2025-01-16T07:13:32.396Z: Server started on host:5174
+2025-01-16T07:14:16.032Z: Server started on host:5174
+2025-01-16T09:31:18.795Z: Incoming request to: /
+2025-01-16T09:31:18.801Z: Full URL: http://localhost:5174/
+2025-01-16T09:31:18.803Z: Search params: {}
+2025-01-16T09:31:19.235Z: Incoming request to: /
+2025-01-16T09:31:19.235Z: Full URL: http://localhost:5174/?code=AQA1CppCmmXQVTNUyAHctBDLIzH3H2HVjmDnCOWmy2nPUAuJiD-3ibPISwzHFxZ3IwaZqXV03IFXQHWfqUzmylBYqJaASTy_xfJBI2DDucZQ3wf9i9-FYrKZo_AngVRcTl0V2GKlxGmTFhx9DwePRR2TdKUhmpz795basMQI48kWqftzzYmpmhx8lBnZLUaOW8TXmnBQst3PV1M3uWU0jyt6aBRw9JE_4NmF33EsubcNihKFzZ-2fNsrIkx2907QCPyplGmNVndl3z7VR2oE8qOMYyCaNyQvfHvxsKcQlJhjYQoM7f_Ia8HmrP9dbXhHIhAKwEisA6whS4eN-lI9WYP4elcvhtn7kBGAt0L3rNajkyNUSlK4KaJ5ua_TBuyJLKMpSzjc99wa34vk_WhWr2D756iVbFod-IzBi1sZQh1IkutzsG662xsFM-C7c__G7yaqazE_W6iSLVb3lbFX32wL-Z4MNLb8T4kOLrnWHzhPZIccHrGuLdB95fSX5jYjG7mKpOuVrM4muLxr-kSLTB1gXkLv4SEagizTgYUKZs8vbIgdRbRIrkwVjdDclebaOJAVQg&state=VFf0c0liTDc3ysgz
+2025-01-16T09:31:19.238Z: Search params: {"code":"AQA1CppCmmXQVTNUyAHctBDLIzH3H2HVjmDnCOWmy2nPUAuJiD-3ibPISwzHFxZ3IwaZqXV03IFXQHWfqUzmylBYqJaASTy_xfJBI2DDucZQ3wf9i9-FYrKZo_AngVRcTl0V2GKlxGmTFhx9DwePRR2TdKUhmpz795basMQI48kWqftzzYmpmhx8lBnZLUaOW8TXmnBQst3PV1M3uWU0jyt6aBRw9JE_4NmF33EsubcNihKFzZ-2fNsrIkx2907QCPyplGmNVndl3z7VR2oE8qOMYyCaNyQvfHvxsKcQlJhjYQoM7f_Ia8HmrP9dbXhHIhAKwEisA6whS4eN-lI9WYP4elcvhtn7kBGAt0L3rNajkyNUSlK4KaJ5ua_TBuyJLKMpSzjc99wa34vk_WhWr2D756iVbFod-IzBi1sZQh1IkutzsG662xsFM-C7c__G7yaqazE_W6iSLVb3lbFX32wL-Z4MNLb8T4kOLrnWHzhPZIccHrGuLdB95fSX5jYjG7mKpOuVrM4muLxr-kSLTB1gXkLv4SEagizTgYUKZs8vbIgdRbRIrkwVjdDclebaOJAVQg","state":"VFf0c0liTDc3ysgz"}
+2025-01-16T09:31:19.238Z: Exchanging code for token
+2025-01-16T14:37:40.449Z: Incoming request to: /
+2025-01-16T14:37:40.455Z: Full URL: http://localhost:5174/
+2025-01-16T14:37:40.455Z: Search params: {}
+2025-01-16T14:37:41.313Z: Incoming request to: /
+2025-01-16T14:37:41.313Z: Full URL: http://localhost:5174/?code=AQChJ4qQ8WG_OMduFZliml0-InX3DOghmEOQuTo8yZ2OLfP_POJv8NUMGwgiPiMZVmvLsgyBIHTs0-Uf2xBq4lzU1Pqd7LdiNAmMCkTs2lMHed7tU8PRxN-vo_XcvIJS5vYVCxWBy5BYZNnfHguZ-79VQIcDtOvqwW46pOyzZWsIWxir3LrrMgrM72fyb31LQjIvrCCTqsxdO6Q15U6ckdOJ1S6VlljkCePA_Vfcgx34C5icAqOHLJnIBHjl9QRxnHS6A5pV-9K8u43RQQ56BFYC_TDqfvglRghaV_6PslmZeqAdx1SfjBCKar7Ga3nu5DD9tI8bjRn5dlfpFV9Oj7Veir_S7VY6IJ8dk27nx-WUTypUm70NHNmZgZMKxNAtdZ5ggHeW9z_MIidMAQHYAyR8TpWr5Fq8PIlNuGlewwQlUewlFdbSlH9HwMpZGSlxvWkopySUUwWYsC9DFNx7cPAI5eZ-Yx1OwZhetRNP2H3SW9r-1JZixl4PxFp1ud8ncVt7448kpOUjdV2it0MQZHHWTArwkNt7skJ4VFEhxob3az3CtTUi6dI6Zgq7AQ_UX_DBWA&state=DDqwVtCXVDreDdVL
+2025-01-16T14:37:41.314Z: Search params: {"code":"AQChJ4qQ8WG_OMduFZliml0-InX3DOghmEOQuTo8yZ2OLfP_POJv8NUMGwgiPiMZVmvLsgyBIHTs0-Uf2xBq4lzU1Pqd7LdiNAmMCkTs2lMHed7tU8PRxN-vo_XcvIJS5vYVCxWBy5BYZNnfHguZ-79VQIcDtOvqwW46pOyzZWsIWxir3LrrMgrM72fyb31LQjIvrCCTqsxdO6Q15U6ckdOJ1S6VlljkCePA_Vfcgx34C5icAqOHLJnIBHjl9QRxnHS6A5pV-9K8u43RQQ56BFYC_TDqfvglRghaV_6PslmZeqAdx1SfjBCKar7Ga3nu5DD9tI8bjRn5dlfpFV9Oj7Veir_S7VY6IJ8dk27nx-WUTypUm70NHNmZgZMKxNAtdZ5ggHeW9z_MIidMAQHYAyR8TpWr5Fq8PIlNuGlewwQlUewlFdbSlH9HwMpZGSlxvWkopySUUwWYsC9DFNx7cPAI5eZ-Yx1OwZhetRNP2H3SW9r-1JZixl4PxFp1ud8ncVt7448kpOUjdV2it0MQZHHWTArwkNt7skJ4VFEhxob3az3CtTUi6dI6Zgq7AQ_UX_DBWA","state":"DDqwVtCXVDreDdVL"}
+2025-01-16T14:37:41.314Z: Exchanging code for token
+2025-01-16T14:38:03.385Z: Incoming request to: /
+2025-01-16T14:38:03.387Z: Full URL: http://localhost:5174/
+2025-01-16T14:38:03.388Z: Search params: {}
+2025-01-16T14:38:03.796Z: Incoming request to: /
+2025-01-16T14:38:03.797Z: Full URL: http://localhost:5174/?code=AQAxWWOjv2mRKMZGOzW1ckDsoFNj7SfyQwUT65AB5MimbQ044DPc_61RCj-PyuuVWlmSImpBQEfNTmoACz-5R6bBFCpHidN9WlBlJfBJjX48G1mOuMJSWojVM5OJe4j1mTAxYbZ3_LI3u4NjJ2PIhyvRGkazzRo15oksotNbbAz8Hjiby6YtdNCvoB8hNaAR-NxcrubhQQ7Kmw7Cy-GeJAkVv9wOxC2Pl6F4dJmLo2mD2HFWfKCB3v2AyRFdfeB-tzpAGrLkKYlhOeA2o7p-H8dr6wVqmuoN0DMw26rFYZV_M2Vy-7rOzBgXmkO5w7er4DQYje45XUsLM-OoTkyoeH4XVXEDqiS99GlHFLLcI3Iyl7Gpdq6ifnb1Ss4BAigunoWtDgFfhmYAy72Q8B3h_OV2Cz_rNZ89VbnjU8LxIFSJ5T42x-Jq1Gl7fPwPai56j6798cpudqQcRy2siToxEuIl9sM7aDu4wnB14-eK0LPcYWu0CCVXWso7n2piTO2jih6U0iCTnwi-g3h8ZdLcv3pd9BFEqkOmz0Z0pquYaC1w6y64uz-7iOHbwTjsvG8BP08o7w&state=Tb5uxTv6fuBZqpNN
+2025-01-16T14:38:03.797Z: Search params: {"code":"AQAxWWOjv2mRKMZGOzW1ckDsoFNj7SfyQwUT65AB5MimbQ044DPc_61RCj-PyuuVWlmSImpBQEfNTmoACz-5R6bBFCpHidN9WlBlJfBJjX48G1mOuMJSWojVM5OJe4j1mTAxYbZ3_LI3u4NjJ2PIhyvRGkazzRo15oksotNbbAz8Hjiby6YtdNCvoB8hNaAR-NxcrubhQQ7Kmw7Cy-GeJAkVv9wOxC2Pl6F4dJmLo2mD2HFWfKCB3v2AyRFdfeB-tzpAGrLkKYlhOeA2o7p-H8dr6wVqmuoN0DMw26rFYZV_M2Vy-7rOzBgXmkO5w7er4DQYje45XUsLM-OoTkyoeH4XVXEDqiS99GlHFLLcI3Iyl7Gpdq6ifnb1Ss4BAigunoWtDgFfhmYAy72Q8B3h_OV2Cz_rNZ89VbnjU8LxIFSJ5T42x-Jq1Gl7fPwPai56j6798cpudqQcRy2siToxEuIl9sM7aDu4wnB14-eK0LPcYWu0CCVXWso7n2piTO2jih6U0iCTnwi-g3h8ZdLcv3pd9BFEqkOmz0Z0pquYaC1w6y64uz-7iOHbwTjsvG8BP08o7w","state":"Tb5uxTv6fuBZqpNN"}
+2025-01-16T14:38:03.797Z: Exchanging code for token
+2025-01-16T14:38:28.143Z: Incoming request to: /
+2025-01-16T14:38:28.145Z: Full URL: http://localhost:5174/
+2025-01-16T14:38:28.145Z: Search params: {}
+2025-01-16T14:38:28.540Z: Incoming request to: /
+2025-01-16T14:38:28.540Z: Full URL: http://localhost:5174/?code=AQAR-63VQ2pbjUEGodf23o8brKY9ja2EUtjBpZr6SAG0gsT4onG1w92J3JMh0w324ZgpoyKg7AJoi1iPR0ohlUD7RmnIxOwUvlfuyqjSWpDeaZEZuqhsX89OFwGrsfH9RSCGyqiKNgO9COW3i8xGsqXgV-iFCnOaFt1uW04G4HxprunUJLZ8Sz1BR11otC59yvTYp9Yh_tYBuEn0MjW_-ARojvd9D6xDzedhIlIOlW7BiCC-TDE75R61FC2LAx5v2NT9kyGAMarVlYBrtKYdlTMFYps5RHKjXPpplURFCBpQbULGMlz2ozzOFMAsCHTzKddW7JWT659-B8P6XoEEyT6XcPdwGFfgwqvZrCO1May_00qKaOC5SizzyIXRuiezb5k2ADRP8XmycjIwiE7iLFE0fbJAI2j82l9wat-YJaAGCkDnhrcWfhBU6_kuDHbSMR5JLESbpcngOVjf3h96rXYf5U_FD0H9Ez7vaQN8Ntx6XBxRqRSJM8MDIk9_SMQpcKuaNiRnPrjYrUXgUf5-bKxz11kcURFPnqaG3S_U4qN6_fD9lCAzrGB66ln5MYB24nBMpg&state=SNyLyAkEyoEQnZdp
+2025-01-16T14:38:28.540Z: Search params: {"code":"AQAR-63VQ2pbjUEGodf23o8brKY9ja2EUtjBpZr6SAG0gsT4onG1w92J3JMh0w324ZgpoyKg7AJoi1iPR0ohlUD7RmnIxOwUvlfuyqjSWpDeaZEZuqhsX89OFwGrsfH9RSCGyqiKNgO9COW3i8xGsqXgV-iFCnOaFt1uW04G4HxprunUJLZ8Sz1BR11otC59yvTYp9Yh_tYBuEn0MjW_-ARojvd9D6xDzedhIlIOlW7BiCC-TDE75R61FC2LAx5v2NT9kyGAMarVlYBrtKYdlTMFYps5RHKjXPpplURFCBpQbULGMlz2ozzOFMAsCHTzKddW7JWT659-B8P6XoEEyT6XcPdwGFfgwqvZrCO1May_00qKaOC5SizzyIXRuiezb5k2ADRP8XmycjIwiE7iLFE0fbJAI2j82l9wat-YJaAGCkDnhrcWfhBU6_kuDHbSMR5JLESbpcngOVjf3h96rXYf5U_FD0H9Ez7vaQN8Ntx6XBxRqRSJM8MDIk9_SMQpcKuaNiRnPrjYrUXgUf5-bKxz11kcURFPnqaG3S_U4qN6_fD9lCAzrGB66ln5MYB24nBMpg","state":"SNyLyAkEyoEQnZdp"}
+2025-01-16T14:38:28.541Z: Exchanging code for token
+2025-01-16T14:46:19.306Z: Server started on host:5174
+2025-01-16T14:46:44.763Z: Incoming request to: /
+2025-01-16T14:46:44.765Z: Full URL: http://localhost:5174/
+2025-01-16T14:46:44.766Z: Search params: {}
+2025-01-16T14:46:45.189Z: Incoming request to: /
+2025-01-16T14:46:45.194Z: Full URL: http://localhost:5174/?code=AQBXve6YU7WY3qFJC1zdXURRvnDhtHRUznBwpW1ZTtP3PKOzcCVwZ4XFK2NRhcl9nMEylCMrazcX5QqubzeJR8C8n2atHWxzlYCwmJ45kQdN4HtQiCL9exexMewTwC-rrwAaWD-biiirUQc5dgax5EPHU3t_Z2DFnZuVUDFRLX_PMb--0D_DyxT7SSBFIzOGKfTVasGr-JVADW5YCMusaCCxuVRjTmBKVmIdm2spdFr0SFbbfqbo4GLAoMiEp0jWSX6C3AN_DMVR8WHy_IUCsQ0bhoBilUiUcqewipSfICSFAkYlbaUso6gm7SPvm-EYbSB9DlWvqnKHvdLThgwCPTB_fdwM9beTph69tWCqfWPnamvntVhOQUNXD1WAHDgDI1B_nRN2dK05dPp2qxKPXZw4jy1rHaMNmAPTQxPc2Gv1PAjouF8q6ddxbbgY_rGAIo2m-spLTe1kAQlEhtK0dkpE2-fYPkQJe5A9DATqKAguYLY5jqeqImEzWZPbmUSx8AguhkFCLIDdX975LF0OMaWfPkMtll_n5jYt3lzF4rI7SrTrQhJzC2u4fykbVtuVoH46tA&state=LSocdy1IzYftg0Sz
+2025-01-16T14:46:45.198Z: Search params: {"code":"AQBXve6YU7WY3qFJC1zdXURRvnDhtHRUznBwpW1ZTtP3PKOzcCVwZ4XFK2NRhcl9nMEylCMrazcX5QqubzeJR8C8n2atHWxzlYCwmJ45kQdN4HtQiCL9exexMewTwC-rrwAaWD-biiirUQc5dgax5EPHU3t_Z2DFnZuVUDFRLX_PMb--0D_DyxT7SSBFIzOGKfTVasGr-JVADW5YCMusaCCxuVRjTmBKVmIdm2spdFr0SFbbfqbo4GLAoMiEp0jWSX6C3AN_DMVR8WHy_IUCsQ0bhoBilUiUcqewipSfICSFAkYlbaUso6gm7SPvm-EYbSB9DlWvqnKHvdLThgwCPTB_fdwM9beTph69tWCqfWPnamvntVhOQUNXD1WAHDgDI1B_nRN2dK05dPp2qxKPXZw4jy1rHaMNmAPTQxPc2Gv1PAjouF8q6ddxbbgY_rGAIo2m-spLTe1kAQlEhtK0dkpE2-fYPkQJe5A9DATqKAguYLY5jqeqImEzWZPbmUSx8AguhkFCLIDdX975LF0OMaWfPkMtll_n5jYt3lzF4rI7SrTrQhJzC2u4fykbVtuVoH46tA","state":"LSocdy1IzYftg0Sz"}
+2025-01-16T14:46:45.199Z: Exchanging code for token
+2025-01-16T14:54:32.757Z: Incoming request to: /
+2025-01-16T14:54:32.765Z: Full URL: http://localhost:5174/
+2025-01-16T14:54:32.766Z: Search params: {}
+2025-01-16T14:54:33.173Z: Incoming request to: /
+2025-01-16T14:54:33.174Z: Full URL: http://localhost:5174/?code=AQC-kB000QkZW7iX0pIpOXvOPmgecr56r5X2sPz8xEJfkWGTNOOgcPEIemwAwM2TwhuI6F3Q5LFCVI8iILcdcD0_5CadF2odR8FjTvT95DJdBWDEYffHGnfhETVlO3s5EyqPisv_MldbnFBnkdLVGpBhXhsrREVOt8fW3JUfjNZk8m9Lbk4vFHcpK0L4stHHJlv0J6lnNqSdfFHIzcTYRO31FtybL1yq2o2jPnhNe1flpg7n3ZctAH2PEEBGGmmZl3xUbqfjbBaJevEAoX9VLqwA8eDdubMrFi9ZxbcPszCEj8aayQGCJ-CsmzrnyCXdYx9jZgjIbxHlbb2nienwsvYtMkYorWp9KUonJI65zuDMXvSLF7wGBXRVdy99taNuwoUFRjDz9emUhrtfM2oEeUJkhIVVTOEc6ef_l5Cts_j2TFf3TlysPPt7kP1L6erUct57w4u8UnCDs9r1okV0EyY6EZuURdBqAOTY6BDw8NOob-ONJoRzLFMArAtCuRlPK1NAQHr1VxxRkP7M2T1vg9-NT8ubJLXRPJMAYnycOi3TO1DPLGsjmH14Ctj4mFb5MLD-1g&state=S3lNhHlzUMkphRLs
+2025-01-16T14:54:33.175Z: Search params: {"code":"AQC-kB000QkZW7iX0pIpOXvOPmgecr56r5X2sPz8xEJfkWGTNOOgcPEIemwAwM2TwhuI6F3Q5LFCVI8iILcdcD0_5CadF2odR8FjTvT95DJdBWDEYffHGnfhETVlO3s5EyqPisv_MldbnFBnkdLVGpBhXhsrREVOt8fW3JUfjNZk8m9Lbk4vFHcpK0L4stHHJlv0J6lnNqSdfFHIzcTYRO31FtybL1yq2o2jPnhNe1flpg7n3ZctAH2PEEBGGmmZl3xUbqfjbBaJevEAoX9VLqwA8eDdubMrFi9ZxbcPszCEj8aayQGCJ-CsmzrnyCXdYx9jZgjIbxHlbb2nienwsvYtMkYorWp9KUonJI65zuDMXvSLF7wGBXRVdy99taNuwoUFRjDz9emUhrtfM2oEeUJkhIVVTOEc6ef_l5Cts_j2TFf3TlysPPt7kP1L6erUct57w4u8UnCDs9r1okV0EyY6EZuURdBqAOTY6BDw8NOob-ONJoRzLFMArAtCuRlPK1NAQHr1VxxRkP7M2T1vg9-NT8ubJLXRPJMAYnycOi3TO1DPLGsjmH14Ctj4mFb5MLD-1g","state":"S3lNhHlzUMkphRLs"}
+2025-01-16T14:54:33.176Z: Exchanging code for token
+2025-01-16T14:55:21.364Z: Incoming request to: /
+2025-01-16T14:55:21.365Z: Full URL: http://localhost:5174/
+2025-01-16T14:55:21.365Z: Search params: {}
+2025-01-16T14:55:21.777Z: Incoming request to: /
+2025-01-16T14:55:21.777Z: Full URL: http://localhost:5174/?code=AQClkPgBtQpMi1KKrj00HrkvZsPtnYVoQTQyxWGOSfFs8YJbDchk8QcXrq8rkn9TdWIuHWNaNApQ3iX-_T8UWfmNXj2PnsoivKOFC49Y6qv46yGOaJekQdGk9CunCKITaLQKCTLhCHedLh2Tm7MbjtvXeLGADniwLBjR6QV7JyvR2kMVZamwLdJy6wcLH3CNtdulUmeh_FM_1vNFACVeXJY3lbZlFn30Ym9YzlnJv5pbH6-GM7HsOnpsTMajEZcf7cCVYCUyZur5b44psBnVyQ_IyDi7glMEJcmZmEdGM7-46QZNLH0tZqgo-XXaQYmIhBPF4tlj102uETnG5mURN7ctVU_08unq6Ka-MfkfpsdVAD1MqEfhWlndg2dRaoT0ml7lZ7gEQGjXzSF4uJiVcll1vFTS4Ef0MNt-yqakN6hgr5wmDGwdE1rdnUcMzvnL8XNEa7YUV0l7wp48d42K6frcx_BE9goADoACHJbHXJN2r9JBaJFPAAUMufh_z0UfEEp4KiQQjF_xuS9tdC9ywuBqeE9wN-ZBBgxMrtAPnpMwYKOiQTctI0-Q5T5M5g0Mo2cFWQ&state=s1rMtwxsdMppPxWI
+2025-01-16T14:55:21.777Z: Search params: {"code":"AQClkPgBtQpMi1KKrj00HrkvZsPtnYVoQTQyxWGOSfFs8YJbDchk8QcXrq8rkn9TdWIuHWNaNApQ3iX-_T8UWfmNXj2PnsoivKOFC49Y6qv46yGOaJekQdGk9CunCKITaLQKCTLhCHedLh2Tm7MbjtvXeLGADniwLBjR6QV7JyvR2kMVZamwLdJy6wcLH3CNtdulUmeh_FM_1vNFACVeXJY3lbZlFn30Ym9YzlnJv5pbH6-GM7HsOnpsTMajEZcf7cCVYCUyZur5b44psBnVyQ_IyDi7glMEJcmZmEdGM7-46QZNLH0tZqgo-XXaQYmIhBPF4tlj102uETnG5mURN7ctVU_08unq6Ka-MfkfpsdVAD1MqEfhWlndg2dRaoT0ml7lZ7gEQGjXzSF4uJiVcll1vFTS4Ef0MNt-yqakN6hgr5wmDGwdE1rdnUcMzvnL8XNEa7YUV0l7wp48d42K6frcx_BE9goADoACHJbHXJN2r9JBaJFPAAUMufh_z0UfEEp4KiQQjF_xuS9tdC9ywuBqeE9wN-ZBBgxMrtAPnpMwYKOiQTctI0-Q5T5M5g0Mo2cFWQ","state":"s1rMtwxsdMppPxWI"}
+2025-01-16T14:55:21.778Z: Exchanging code for token
+2025-01-16T14:57:10.917Z: Server started on host:5174
+2025-01-16T14:58:33.370Z: Incoming request to: /
+2025-01-16T14:58:33.371Z: Full URL: http://localhost:5174/
+2025-01-16T14:58:33.372Z: Search params: {}
+2025-01-16T14:58:33.776Z: Incoming request to: /
+2025-01-16T14:58:33.776Z: Full URL: http://localhost:5174/?code=AQCsQ7-HrLakbMZ2cEEKA-VUkrTrnxOKxWSHufJ9Q-rbw-T7J2nKHA33K1SBZ2Sln4pcumHyX18Q-YOfQyX2NFyWzyEFLmzCohOHUPmRDerGNfZWpE8YL0YinELD-W9Y8Xv1PsAX7mGDWQzoOJwQ7w2RlFUCKCqA-UIPdQ4aWGrSMsJpmzCo7PgvKKAct850uz91jAveaN4F0EKJX3_u1cS2mk1Sk5nq73IopGncq4vhEEyzYYgTZz_P9gfrAfZOUfEEQ_aGBxuK_vBDmqyBAlE24GcGe0bEBs-sWFJ-X8-XBT_jUUccxrkLQsM2ZBRE-HkDwZbau1eYEFgGfxQRNS9mzGDJ1ycADuCq1u0SWwgLB-6GOXMba-AQDkjwwddLKqMHf0OqrGf24siUwAHfUkLkjDuSGA5ht8itDn4WDCnDR1GtHz79UDZRr4bY2DeBbplKjGHp4czgDo_ekrvLpTy68AYHhEIe1jceANti0e_xUcKLdiRzbP-6AfK1r9xe0Ab9U7e_DCBydHldepaqzI6uw9APFDQUVkEvu4i13O8qn7GnOiM-cJ570YWLKtaxNCGjWA&state=GQuas1ZWFLVmfk3y
+2025-01-16T14:58:33.776Z: Search params: {"code":"AQCsQ7-HrLakbMZ2cEEKA-VUkrTrnxOKxWSHufJ9Q-rbw-T7J2nKHA33K1SBZ2Sln4pcumHyX18Q-YOfQyX2NFyWzyEFLmzCohOHUPmRDerGNfZWpE8YL0YinELD-W9Y8Xv1PsAX7mGDWQzoOJwQ7w2RlFUCKCqA-UIPdQ4aWGrSMsJpmzCo7PgvKKAct850uz91jAveaN4F0EKJX3_u1cS2mk1Sk5nq73IopGncq4vhEEyzYYgTZz_P9gfrAfZOUfEEQ_aGBxuK_vBDmqyBAlE24GcGe0bEBs-sWFJ-X8-XBT_jUUccxrkLQsM2ZBRE-HkDwZbau1eYEFgGfxQRNS9mzGDJ1ycADuCq1u0SWwgLB-6GOXMba-AQDkjwwddLKqMHf0OqrGf24siUwAHfUkLkjDuSGA5ht8itDn4WDCnDR1GtHz79UDZRr4bY2DeBbplKjGHp4czgDo_ekrvLpTy68AYHhEIe1jceANti0e_xUcKLdiRzbP-6AfK1r9xe0Ab9U7e_DCBydHldepaqzI6uw9APFDQUVkEvu4i13O8qn7GnOiM-cJ570YWLKtaxNCGjWA","state":"GQuas1ZWFLVmfk3y"}
+2025-01-16T14:58:33.776Z: Exchanging code for token
+2025-01-16T15:59:15.912Z: Incoming request to: /
+2025-01-16T15:59:15.920Z: Full URL: http://localhost:5174/
+2025-01-16T15:59:15.921Z: Search params: {}
+2025-01-16T15:59:16.466Z: Incoming request to: /
+2025-01-16T15:59:16.467Z: Full URL: http://localhost:5174/?code=AQAeIBPcEwGHLFlnOuWjq_Jvn72_1RcevkAWCvhCcxZqxqeQWQEeLgCLLjb9cQceoEdIQEYXKRUbuio-F1Lj9jvSDvskuIL-njp3aL7Z8hnusHBqDXbeZ7mQQZfKdwKNaOU08M3DN3WGzk35uTHA-j9URPnQAHCD-jgFF_uoF8AkS1uDsgTT378DxEXxmIji_39LspZjO_b4EJB8NIOiZjVhBTgTulOQhvP0hjhRvnR70ekok--q9dUjTFWHsgXLNhrmAYsJNKT1LH1_QPlmKaAq2QSRWtq4BX9d3Sc8sJ-HxyBo-yEkSOokR2r_u1l_VFCpr-2fsgUIBBEaEOkY7veY0FFyvJRmIRgKbdMVpZ3Z_S4Qtz3msFLMv071_CvSUrmbzv7auG_4lrmvf16QveZCGjs1WnNT4CjwZgY2WhpxzojljC-RESQXH_u63GJush4L3pQnTvvUwRxmf4sQbbKng--G3jAZKUTcI2gqxhp-a99tj9g8praXQWCeL6yL7euKJhoReGuVMyQaaeULbk8fl_uVe3cSofLkmT0yKQ0zQQJEMCzyZl6znp4s-qJ5D8G4Sw&state=veluNVNs315gLP4x
+2025-01-16T15:59:16.469Z: Search params: {"code":"AQAeIBPcEwGHLFlnOuWjq_Jvn72_1RcevkAWCvhCcxZqxqeQWQEeLgCLLjb9cQceoEdIQEYXKRUbuio-F1Lj9jvSDvskuIL-njp3aL7Z8hnusHBqDXbeZ7mQQZfKdwKNaOU08M3DN3WGzk35uTHA-j9URPnQAHCD-jgFF_uoF8AkS1uDsgTT378DxEXxmIji_39LspZjO_b4EJB8NIOiZjVhBTgTulOQhvP0hjhRvnR70ekok--q9dUjTFWHsgXLNhrmAYsJNKT1LH1_QPlmKaAq2QSRWtq4BX9d3Sc8sJ-HxyBo-yEkSOokR2r_u1l_VFCpr-2fsgUIBBEaEOkY7veY0FFyvJRmIRgKbdMVpZ3Z_S4Qtz3msFLMv071_CvSUrmbzv7auG_4lrmvf16QveZCGjs1WnNT4CjwZgY2WhpxzojljC-RESQXH_u63GJush4L3pQnTvvUwRxmf4sQbbKng--G3jAZKUTcI2gqxhp-a99tj9g8praXQWCeL6yL7euKJhoReGuVMyQaaeULbk8fl_uVe3cSofLkmT0yKQ0zQQJEMCzyZl6znp4s-qJ5D8G4Sw","state":"veluNVNs315gLP4x"}
+2025-01-16T15:59:16.469Z: Exchanging code for token
+2025-01-16T16:01:24.065Z: Incoming request to: /
+2025-01-16T16:01:24.077Z: Full URL: http://localhost:5174/
+2025-01-16T16:01:24.079Z: Search params: {}
+2025-01-16T16:01:24.528Z: Incoming request to: /
+2025-01-16T16:01:24.530Z: Full URL: http://localhost:5174/?code=AQBVs8JbAl48Q_2RV7cfq3_njvJq6Why4XmrSskEmPBpOLUVlSffsK52Em_mQRYWb-Ur3Sz6KuBSytzRxXwJBC-PBD8KY1_BEuNlKGoO8ad8GYwZkKUphJZm6gpCKU1-rEMMvIJDUZYEoC6jxM_ovVPotmoBJnBVqL9QtWwmJBO_IdHfeLnzYIU4E9Hz6olh5wcw_bAP36J6Rp2n9ZgDBngqcTY8PRhLPqFEgUeb5dPyCsXCkjxYXoL_uXcMfIEcSuoL4fjCOItpiu81k__N8-TsM3Xlp91-9obgOcaiHp3VWcoFLJ82eRsy3HeL0dRK2-VZCUQBTAa7uuJaoeTx_0YRXkI1QB-aVl0-pcz2BhrYL3cNxY11Kvip2ftFpxxgOrrKslnXksY9gFBfxZc3g9eeJ2Eu9OCKL__UabxzpP7PjoyDyS3V7cqaWlIWAx5P39vX2E2NCQoz22I-kdnFzzKYK_zDZ3JA96_oAPmiYGWOq4OkYUfAEzd_PaNSPzM9dhWQBwfwEnP2SxSpPZpfnrMXpVT9wNBWc6X3EvFOIjhdzRw3K3VC1uAVQRVTsEfL1AEhVw&state=LLPF8h0AewcnZPl4
+2025-01-16T16:01:24.533Z: Search params: {"code":"AQBVs8JbAl48Q_2RV7cfq3_njvJq6Why4XmrSskEmPBpOLUVlSffsK52Em_mQRYWb-Ur3Sz6KuBSytzRxXwJBC-PBD8KY1_BEuNlKGoO8ad8GYwZkKUphJZm6gpCKU1-rEMMvIJDUZYEoC6jxM_ovVPotmoBJnBVqL9QtWwmJBO_IdHfeLnzYIU4E9Hz6olh5wcw_bAP36J6Rp2n9ZgDBngqcTY8PRhLPqFEgUeb5dPyCsXCkjxYXoL_uXcMfIEcSuoL4fjCOItpiu81k__N8-TsM3Xlp91-9obgOcaiHp3VWcoFLJ82eRsy3HeL0dRK2-VZCUQBTAa7uuJaoeTx_0YRXkI1QB-aVl0-pcz2BhrYL3cNxY11Kvip2ftFpxxgOrrKslnXksY9gFBfxZc3g9eeJ2Eu9OCKL__UabxzpP7PjoyDyS3V7cqaWlIWAx5P39vX2E2NCQoz22I-kdnFzzKYK_zDZ3JA96_oAPmiYGWOq4OkYUfAEzd_PaNSPzM9dhWQBwfwEnP2SxSpPZpfnrMXpVT9wNBWc6X3EvFOIjhdzRw3K3VC1uAVQRVTsEfL1AEhVw","state":"LLPF8h0AewcnZPl4"}
+2025-01-16T16:01:24.533Z: Exchanging code for token
+2025-01-16T16:07:20.841Z: Incoming request to: /
+2025-01-16T16:07:20.848Z: Full URL: http://localhost:5174/
+2025-01-16T16:07:20.849Z: Search params: {}
+2025-01-16T16:07:21.223Z: Incoming request to: /
+2025-01-16T16:07:21.223Z: Full URL: http://localhost:5174/?code=AQBLey-03y6m7NHOO1a5qdnPfCGRkhczzrwHPdr9M7cDBtQGB9WiF6rPRmcoKd08NoQ82XPtJrcmOPlYlNNkfypRCJoA3Trx0Qal0Mk46CzwBsmpwbQU86TkDMCc61XYPTaP71jyuYhAooj5pLnSuml6cE5EPjG6Rgg64MWbDIUaYSjQUtXTt2YR6Mm2KPjd8Y_rCaUNLqQ5MeHkPr7GB6AKoUT_kaVRHEDsbzt9s4zMbBSDZqQ4jy6v472nLMdFG_Es-TwcPpSTMTqB_WZpyM8bkO5dQWbsPOCROUiaxliOGmf9FV_y7qeB88H-_Ga4072lT59u77qAZt8XNV1udUrSaXBs0HQQaUlOSoh_zcoNHALJKFydIf0J5BdlnyLbvJZYjuDQlQ7kENcUmFvu5OwDQcZhecyE3la5l57O2aX4RZyK_jNtVbKU6Thnb2ppHPXjRjiMyg37nQtMerY20rvE5HACAqFnsWkmX8rCqDxdKfteAjmwtvfTRLiovTG6rEy8SksC3po-694F63uUNK8loboZIlAsBrvudOp1TbFrInKGO8plWqQw3PmftG0ygAHdsA&state=hokVRYYnTBcaJpUF
+2025-01-16T16:07:21.224Z: Search params: {"code":"AQBLey-03y6m7NHOO1a5qdnPfCGRkhczzrwHPdr9M7cDBtQGB9WiF6rPRmcoKd08NoQ82XPtJrcmOPlYlNNkfypRCJoA3Trx0Qal0Mk46CzwBsmpwbQU86TkDMCc61XYPTaP71jyuYhAooj5pLnSuml6cE5EPjG6Rgg64MWbDIUaYSjQUtXTt2YR6Mm2KPjd8Y_rCaUNLqQ5MeHkPr7GB6AKoUT_kaVRHEDsbzt9s4zMbBSDZqQ4jy6v472nLMdFG_Es-TwcPpSTMTqB_WZpyM8bkO5dQWbsPOCROUiaxliOGmf9FV_y7qeB88H-_Ga4072lT59u77qAZt8XNV1udUrSaXBs0HQQaUlOSoh_zcoNHALJKFydIf0J5BdlnyLbvJZYjuDQlQ7kENcUmFvu5OwDQcZhecyE3la5l57O2aX4RZyK_jNtVbKU6Thnb2ppHPXjRjiMyg37nQtMerY20rvE5HACAqFnsWkmX8rCqDxdKfteAjmwtvfTRLiovTG6rEy8SksC3po-694F63uUNK8loboZIlAsBrvudOp1TbFrInKGO8plWqQw3PmftG0ygAHdsA","state":"hokVRYYnTBcaJpUF"}
+2025-01-16T16:07:21.224Z: Exchanging code for token
+2025-01-16T16:13:12.656Z: Incoming request to: /
+2025-01-16T16:13:12.662Z: Full URL: http://localhost:5174/
+2025-01-16T16:13:12.664Z: Search params: {}
+2025-01-16T16:13:13.020Z: Incoming request to: /
+2025-01-16T16:13:13.020Z: Full URL: http://localhost:5174/?code=AQArtOSJ62pnUJb_iIzzxA34vCaNOeD-Mx6zlPT_u6ZY3JHwcWkAZhkouDtF1PeZWWL08Z3ru1gsNdpuKLigV2j43r9dt09cVlT67wh_zPHv9q05pBydC8Q165Lg7DLZVdjnLbfH3bYc6n7qBnqIEdGWGC4l3YE5w-HLV0gRXTdGJrAi_vVGiYJN9YLc7Dy4mgBVPNQkGeM1sh_JYVBRnOhnmq00HbeuK5TZhX1mygHPdIXUJw2TvhSYPn1KmMuA9rnTsGM7VkSimctC89G7QIFvaSFMM-q8rh3p2G-9wDqky82DO5Zfqej18lxsqLWHCXhrJUNxrUCHqkvqJwMKAJfvfdqDF9i0xqLezoK4XtMnwuNbh16eC1EP2sg067paOom68kQkyJ5VGFMOki255figGUhknmbPu2k63_vn9W1-YFh2mLe86mWricVmA3I8ErmgpXzVQHdUYtT6X9Dp3A_4X8Au994ZIED-CupRt7FomVuBn4tCJD9IsLj6JrtBdxNvtZjfzq_HTdMsbWSHIJmEfS8i0_D1AhFH0Y1qK3prWlibUL798MYZkqEvj5XrK2F7QQ&state=a6YTm5MaIghKDEiG
+2025-01-16T16:13:13.021Z: Search params: {"code":"AQArtOSJ62pnUJb_iIzzxA34vCaNOeD-Mx6zlPT_u6ZY3JHwcWkAZhkouDtF1PeZWWL08Z3ru1gsNdpuKLigV2j43r9dt09cVlT67wh_zPHv9q05pBydC8Q165Lg7DLZVdjnLbfH3bYc6n7qBnqIEdGWGC4l3YE5w-HLV0gRXTdGJrAi_vVGiYJN9YLc7Dy4mgBVPNQkGeM1sh_JYVBRnOhnmq00HbeuK5TZhX1mygHPdIXUJw2TvhSYPn1KmMuA9rnTsGM7VkSimctC89G7QIFvaSFMM-q8rh3p2G-9wDqky82DO5Zfqej18lxsqLWHCXhrJUNxrUCHqkvqJwMKAJfvfdqDF9i0xqLezoK4XtMnwuNbh16eC1EP2sg067paOom68kQkyJ5VGFMOki255figGUhknmbPu2k63_vn9W1-YFh2mLe86mWricVmA3I8ErmgpXzVQHdUYtT6X9Dp3A_4X8Au994ZIED-CupRt7FomVuBn4tCJD9IsLj6JrtBdxNvtZjfzq_HTdMsbWSHIJmEfS8i0_D1AhFH0Y1qK3prWlibUL798MYZkqEvj5XrK2F7QQ","state":"a6YTm5MaIghKDEiG"}
+2025-01-16T16:13:13.022Z: Exchanging code for token
+2025-01-17T06:02:00.842Z: Incoming request to: /
+2025-01-17T06:02:00.847Z: Full URL: http://localhost:5174/
+2025-01-17T06:02:00.849Z: Search params: {}
+2025-01-17T06:02:01.567Z: Incoming request to: /
+2025-01-17T06:02:01.568Z: Full URL: http://localhost:5174/?code=AQDvJebvyYSlnCGI9IAfW94P9yyIGqZxFeP1i_ne0co9x1yUHc6e_qPoapsmscEU8eUosrvUG134MbgPqY5f4SJDhVGLkCGgf3D2ISO0q0oKYO5xNYpcYDEkFjuG6gCUYIqOvaf3FoeGG3EbTNHE4MkzlYUBCOkaoyrUEzWeDl4wVg6daXccL_xY5Yi7C0CgZb14qPchTKcZ3iSpD7_HaDjHK5ZRkvCOCiVEK9PN4TLRULbuu3ELmc_uLwPAJ9oJV-VN4he29qJOV-_MtwjlOrX7WZv8fmnINIa6lCbmtMt8ginDZ9-kP66eZpAkH2eRXdM5uK-BZVt1V6qAphZCfCad5PiRefsCMtR3DNFHBpPVoHLtblVLTLaWWIPb-S-5v1Ow0bvdEU1sHuN_dPV8-clOyzIA3DAPEPwMm-BoDKtcia26VClt8vNGa7MCzALGzIYoEbqVDpuUhruHCmOfcCb_xftEmfDw71UpPhHSUYbRORiPtdcgvf568NKvC8fjHpJS0K4XuVe79Gw4bze9iqQ4hitir0gmutVRPbsbjYk-HsDPcaijsgRnVGJDl8kl35O7sA&state=6N10lZYxQosBG4wy
+2025-01-17T06:02:01.570Z: Search params: {"code":"AQDvJebvyYSlnCGI9IAfW94P9yyIGqZxFeP1i_ne0co9x1yUHc6e_qPoapsmscEU8eUosrvUG134MbgPqY5f4SJDhVGLkCGgf3D2ISO0q0oKYO5xNYpcYDEkFjuG6gCUYIqOvaf3FoeGG3EbTNHE4MkzlYUBCOkaoyrUEzWeDl4wVg6daXccL_xY5Yi7C0CgZb14qPchTKcZ3iSpD7_HaDjHK5ZRkvCOCiVEK9PN4TLRULbuu3ELmc_uLwPAJ9oJV-VN4he29qJOV-_MtwjlOrX7WZv8fmnINIa6lCbmtMt8ginDZ9-kP66eZpAkH2eRXdM5uK-BZVt1V6qAphZCfCad5PiRefsCMtR3DNFHBpPVoHLtblVLTLaWWIPb-S-5v1Ow0bvdEU1sHuN_dPV8-clOyzIA3DAPEPwMm-BoDKtcia26VClt8vNGa7MCzALGzIYoEbqVDpuUhruHCmOfcCb_xftEmfDw71UpPhHSUYbRORiPtdcgvf568NKvC8fjHpJS0K4XuVe79Gw4bze9iqQ4hitir0gmutVRPbsbjYk-HsDPcaijsgRnVGJDl8kl35O7sA","state":"6N10lZYxQosBG4wy"}
+2025-01-17T06:02:01.570Z: Exchanging code for token
+2025-01-17T07:11:15.806Z: Incoming request to: /
+2025-01-17T07:11:15.813Z: Full URL: http://localhost:5174/
+2025-01-17T07:11:15.813Z: Search params: {}
+2025-01-17T07:11:16.239Z: Incoming request to: /
+2025-01-17T07:11:16.240Z: Full URL: http://localhost:5174/?code=AQDYAsD0w2KstdwG13IXyBz6p7HcdaptfE1crHU9EN4ROLMRzL51TmdV2DNjhzdS47mRIa5mmciD8oN37w2mpgkiIwEJO7V_qq32fL41s0jt0fnqAagqmf0LJKE_kaKsgu47MboyPjL0dQXjKUr15BqEgfVnVdLOqBZb1fZt3mn-yG5NmM4NM97-bWXof98Y-EK2UlJuB9_U3JBkmlstwsSYM9Z-fG7Yc82pYXNhONDMSy6Y9KLKWqxZgPGzrnP7gXAf4lfh3_wrpk6IU4lkPhzxMQzaT193zbgg761j16KzLti1pcyd9SM3LimH0_UUu_JhNCPb0PpCpkyV8uKSwLw6-XwHNjTfz_67ytjmEJuEg_6fB23mSVycGDAUawXRVNUKQYkEstLFOilBiPU9MRx1oF7c4HhcTyoFrLZEuMeCNKA6e6iRKsuIRmps4Rw-AJn7Xq0FNcViZX7OUyeQtdBTRwuMkNu4zr8n8QXXxaeXcB5aa4w_fWm1Y160XXI0oFIEXXhSpMnoHp51P31knl19B7q9v46Zty5EWuUcF3os8ib0FaePL9qACQptcTSjWYgY8A&state=erZ2pbsExHYpwzMF
+2025-01-17T07:11:16.241Z: Search params: {"code":"AQDYAsD0w2KstdwG13IXyBz6p7HcdaptfE1crHU9EN4ROLMRzL51TmdV2DNjhzdS47mRIa5mmciD8oN37w2mpgkiIwEJO7V_qq32fL41s0jt0fnqAagqmf0LJKE_kaKsgu47MboyPjL0dQXjKUr15BqEgfVnVdLOqBZb1fZt3mn-yG5NmM4NM97-bWXof98Y-EK2UlJuB9_U3JBkmlstwsSYM9Z-fG7Yc82pYXNhONDMSy6Y9KLKWqxZgPGzrnP7gXAf4lfh3_wrpk6IU4lkPhzxMQzaT193zbgg761j16KzLti1pcyd9SM3LimH0_UUu_JhNCPb0PpCpkyV8uKSwLw6-XwHNjTfz_67ytjmEJuEg_6fB23mSVycGDAUawXRVNUKQYkEstLFOilBiPU9MRx1oF7c4HhcTyoFrLZEuMeCNKA6e6iRKsuIRmps4Rw-AJn7Xq0FNcViZX7OUyeQtdBTRwuMkNu4zr8n8QXXxaeXcB5aa4w_fWm1Y160XXI0oFIEXXhSpMnoHp51P31knl19B7q9v46Zty5EWuUcF3os8ib0FaePL9qACQptcTSjWYgY8A","state":"erZ2pbsExHYpwzMF"}
+2025-01-17T07:11:16.242Z: Exchanging code for token

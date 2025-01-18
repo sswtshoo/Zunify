@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
-import ColorThief from 'colorthief/dist/color-thief.mjs';
-
+import { extractColors } from 'extract-colors';
+import { color } from 'framer-motion';
+// import ColorThief from 'colorthief/dist/color-thief.mjs';
 interface Track {
   album?: {
     name: string;
@@ -23,6 +24,18 @@ interface Track {
     id: string;
   }[];
   duration_ms?: number;
+}
+
+interface ColorArray {
+  hex: string;
+  red: number;
+  green: number;
+  blue: number;
+  hue: number;
+  intensity: number;
+  lightness: number;
+  saturation: number;
+  area: number;
 }
 
 interface FullscreenPlayerProps {
@@ -81,17 +94,17 @@ const FullscreenPlayer = ({
   const nameRef = useRef<HTMLDivElement>(null);
   const artistsRef = useRef<HTMLDivElement>(null);
   const [backgroundImage, setBackgroundImage] = useState<string>('');
+  const [colorArr, setColorArr] = useState<ColorArray[]>([]);
 
   // const colorThief = new ColorThief();
-  // const img = document.querySelector('img');
+  // const proxyUrl = 'https://corsproxy.io/?';
 
-  // if (img?.complete) {
-  //   colorThief.getPalette(img);
-  // } else {
-  //   img?.addEventListener('load', () => {
-  //     colorThief.getPalette(img);
-  //   });
-  // }
+  // const img = new Image();
+  // img.addEventListener('load', function () {
+  //   colorThief.getColor(img);
+  // });
+
+  // img.src = proxyUrl + encodeURIComponent(backgroundImage);
 
   useEffect(() => {
     const checkOverflow = () => {
@@ -112,7 +125,7 @@ const FullscreenPlayer = ({
     return () => window.removeEventListener('resize', checkOverflow);
   }, [currentTrack]);
 
-  console.log(isNameOverflowing);
+  // console.log(isNameOverflowing);
 
   useEffect(() => {
     if (currentTrack?.album?.images) {
@@ -126,6 +139,32 @@ const FullscreenPlayer = ({
       }
     }
   }, [currentTrack?.album?.images]);
+
+  const options = {
+    pixels: 64000,
+    distance: 0.22,
+    saturationDistance: 0.2,
+    cors: 'anonymous' as const,
+    requestMode: 'cors' as RequestMode,
+    lightnessDistance: 0.2,
+    hueDistance: 0.083333333,
+  };
+
+  useEffect(() => {
+    if (backgroundImage) {
+      extractColors(backgroundImage, options)
+        .then((extractedColors: ColorArray[]) => {
+          setColorArr(extractedColors);
+        })
+        .catch((error: any) => {
+          console.error('Error extracting colors', error);
+        });
+    }
+  }, [backgroundImage]);
+
+  useEffect(() => {
+    console.log('Extracted colors', colorArr);
+  }, [colorArr]);
 
   if (!currentTrack) return null;
 
@@ -163,7 +202,7 @@ const FullscreenPlayer = ({
           />
         </div>
 
-        <div className="flex flex-col items-center gap-2 mb-4">
+        <div className="flex flex-col items-center mb-4">
           <div
             className="marquee_container flex items-center"
             style={{ width: '500px' }}
@@ -189,7 +228,7 @@ const FullscreenPlayer = ({
           >
             <div
               ref={artistsRef}
-              className={`text-lg text-neutral-100 font-bold whitespace-nowrap mx-auto
+              className={`text-lg text-neutral-100 font-medium whitespace-nowrap mx-auto
                 ${isArtistsOverflowing ? 'marquee' : ''}`}
             >
               {artistNames}
